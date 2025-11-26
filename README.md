@@ -1,1 +1,1 @@
-# Bachelor-Project---Seating-arrangement
+# BachelorProject-Seatingarrangement
