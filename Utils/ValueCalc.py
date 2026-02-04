@@ -15,13 +15,18 @@ def getDistanceTo(personA, personB):
     return math.sqrt((COORDS_MAP[personA][0] - COORDS_MAP[personB][0]) ** 2 + (COORDS_MAP[personA][1] - COORDS_MAP[personB][1]) ** 2)
 
 def calcPerson (table, index):
+    # print("Calculating person at index:", index)
     sum = 0
     personA = table[index]
-    for i in range(8):
+    if not hasattr(personA, "studyprogram"):
+        return 0.0
+    for i in range(len(table)):
         if i == index:
             continue
         personSum = 0
         personB = table[i]
+        if not hasattr(personB, "studyprogram"):
+            continue
         if personA.studyprogram == personB.studyprogram:
             personSum = personSum + 3
         if personA.year == personB.year:
@@ -30,13 +35,12 @@ def calcPerson (table, index):
             personSum = personSum + 10
         if personB.name in personA.avoidances:
             personSum = personSum - 10
-        print(1/getDistanceTo(index, i), personSum)
         sum = sum + (personSum * 1/getDistanceTo(index, i))
     return sum
 
 def calcTable (table):
     total = 0
-    for i in range(8):
+    for i in range(len(table)):
         total = total + calcPerson(table, i)
     return total
 def calcArrangement (arrangement):
