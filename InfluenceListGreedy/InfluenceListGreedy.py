@@ -9,16 +9,23 @@ def newArrangement(arrangementSize):
     arrangement = [[None] * 8 for _ in range(math.ceil(arrangementSize/8))]
 
 #only takes preferences and avoidances into account. Returns a sorted list of people from most to least influential
-def makeInfluenceList(list):
-    d = dict.fromkeys(list, 0)
-    for personA in list:
-        for personB in personA.preferences:
-            d[personA] = d[personA] + 10
-            d[personB] = d[personB] + 10
-        for personB in personA.avoidances:
-            d[personA] = d[personA] + 10
-            d[personB] = d[personB] + 10
-    return sorted(d, key=d.get,reverse=True)
+def makeInfluenceList(people):
+    name_to_person = {p.name: p for p in people}
+    d = {p: 0 for p in people}
+    for personA in people:
+        for name in personA.preferences:
+            personB = name_to_person.get(name)
+            if personB is None:
+                continue
+            d[personA] += 10
+            d[personB] += 10
+        for name in personA.avoidances:
+            personB = name_to_person.get(name)
+            if personB is None:
+                continue
+            d[personA] += 10
+            d[personB] += 10
+    return sorted(d, key=d.get, reverse=True)
 
 
 def influenceListGreedy(input):
@@ -42,10 +49,10 @@ def placeGreedy(person):
             arrangement[i][j] = person
             postValue = calcTable(arrangement[i])[0]
             #here we find the best improvement to a single table, which should give the best improvement overall
-            if postValue - preValue > bestImprovement:
+            if (postValue - preValue) > bestImprovement:
                 bestImprovement = postValue - preValue
                 bestPlacement = (i,j)
-            arrangement[i][j] = 0
+            arrangement[i][j] = None
     arrangement[bestPlacement[0]][bestPlacement[1]] = person
 
 
