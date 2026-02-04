@@ -31,7 +31,7 @@ def calcPerson (table, index):
         if personB.name in personA.avoidances:
             personSum = personSum + 10
         sum = sum + personSum * getDistanceTo(index, i)
-        return sum
+    return sum
 
 def calcTable (table):
     total = 0
