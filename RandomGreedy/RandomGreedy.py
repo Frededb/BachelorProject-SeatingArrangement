@@ -6,7 +6,8 @@ arrangement = []
 
 def newArrangement(arrangementSize):
     global arrangement
-    arrangement = [[0] * 8 for _ in range(math.ceil(arrangementSize/8))]
+    #sets up the arrangement 2d array based on input size
+    arrangement = [[None] * 8 for _ in range(math.ceil(arrangementSize/8))]
 
 def randomGreedy(input):
     newArrangement(len(input))
@@ -22,13 +23,14 @@ def placeGreedy(person):
     bestImprovement = -math.inf
     bestPlacement = (-1,-1)
     for i in range(len(arrangement)):
-        preValue = calcTable(arrangement[i])
+        preValue = calcTable(arrangement[i])[0]
         for j in range(len(arrangement[i])):
-            if arrangement[i][j] != 0:
+            #if the spot is already taken, skip
+            if arrangement[i][j] != None:
                 continue
             arrangement[i][j] = person
-            postValue = calcTable(arrangement[i])
-            # print(f"preValue:  {preValue} postValue:  {postValue} improvement:  {(postValue - preValue)} bestImprovement: {bestImprovement}")
+            postValue = calcTable(arrangement[i])[0]
+            #here we find the best improvement to a single table, which should give the best improvement overall
             if postValue - preValue > bestImprovement:
                 bestImprovement = postValue - preValue
                 bestPlacement = (i,j)
