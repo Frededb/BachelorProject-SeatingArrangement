@@ -23,17 +23,18 @@ def calcPerson (table, index):
         personSum = 0
         personB = table[i]
         if personA.studyprogram == personB.studyprogram:
-            personSum += 3
+            personSum = personSum + 3
         if personA.year == personB.year:
-            personSum += 1
-        if i in personA.preferences.includes(personB):
-            personSum += 10
-        if i in personA.avoidances.includes(personB):
-            personSum -= 10
-        sum += personSum * getDistanceTo(index, i)
+            personSum = personSum + 1
+        if personB.name in personA.preferences:
+            personSum = personSum + 10
+        if personB.name in personA.avoidances:
+            personSum = personSum + 10
+        sum = sum + personSum * getDistanceTo(index, i)
+        return sum
 
 def calcTable (table):
     total = 0
     for i in range(8):
-        total += calcPerson(table, i)
+        total = total + calcPerson(table, i)
     return total
