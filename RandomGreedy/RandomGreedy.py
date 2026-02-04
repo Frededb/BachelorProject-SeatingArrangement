@@ -34,7 +34,7 @@ def placeGreedy(person):
             if postValue - preValue > bestImprovement:
                 bestImprovement = postValue - preValue
                 bestPlacement = (i,j)
-            arrangement[i][j] = 0
+            arrangement[i][j] = None
     arrangement[bestPlacement[0]][bestPlacement[1]] = person
 
 
