@@ -29,8 +29,9 @@ def calcPerson (table, index):
         if personB.name in personA.preferences:
             personSum = personSum + 10
         if personB.name in personA.avoidances:
-            personSum = personSum + 10
-        sum = sum + personSum * getDistanceTo(index, i)
+            personSum = personSum - 10
+        print(1/getDistanceTo(index, i), personSum)
+        sum = sum + (personSum * 1/getDistanceTo(index, i))
     return sum
 
 def calcTable (table):
