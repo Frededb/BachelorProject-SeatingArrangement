@@ -5,63 +5,63 @@
         "name": "Lida",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": "fbuu",
-        "avoidances": "D2"
+        "preferences": ["fbuu"],
+        "avoidances": ["D2"]
     },
     {
 
         "name": "D1D1",
         "studyprogram": "ds",
         "year": "2023",
-        "preferences": "D2",
-        "avoidances": ""
+        "preferences": ["D2"],
+        "avoidances": []
     },
     {
 
         "name": "D2D2",
         "studyprogram": "ds",
         "year": "2023",
-        "preferences": "D1",
-        "avoidances": ""
+        "preferences": ["D1"],
+        "avoidances": []
     },
     {
 
         "name": "aubu",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": "fbuu,Lida,M",
-        "avoidances": ""
+        "preferences": ["fbuu", "Lida", "M"],
+        "avoidances": []
     },
     {
 
         "name": "MMMM",
         "studyprogram": "swu",
         "year": "2024",
-        "preferences": "",
-        "avoidances": ""
+        "preferences": [],
+        "avoidances": []
     },
     {
 
         "name": "fbuu",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": "Lida,aubu",
-        "avoidances": ""
+        "preferences": ["Lida", "aubu"],
+        "avoidances": []
     },
     {
 
         "name": "nsio",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": "aubu,Lida",
-        "avoidances": "fbuu"
+        "preferences": ["aubu", "Lida"],
+        "avoidances": ["fbuu"]
     },
     {
 
         "name": "joho",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": "",
-        "avoidances": "aubu,Lida,nsio"
+        "preferences": [],
+        "avoidances": ["aubu", "Lida", "nsio"]
     }
 ]

@@ -12,6 +12,6 @@ def readjson(file):
             people.append(Person(**row))
 
     return people
-            
+
 
 read = readjson("../reader/input1.json")
