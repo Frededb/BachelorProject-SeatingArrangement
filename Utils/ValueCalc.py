@@ -11,6 +11,7 @@ COORDS_MAP = {
     7: (1, 3)
 }
 def getDistanceTo(personA, personB):
+    global COORDS_MAP
     return math.sqrt((COORDS_MAP[personA][0] - COORDS_MAP[personB][0]) ** 2 + (COORDS_MAP[personA][1] - COORDS_MAP[personB][1]) ** 2)
 
 def calcPerson (table, index):
