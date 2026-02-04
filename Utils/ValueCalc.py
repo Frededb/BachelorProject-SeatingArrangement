@@ -37,3 +37,8 @@ def calcTable (table):
     for i in range(8):
         total += calcPerson(table, i)
     return total
+def calcArrangement (arrangement):
+    total = 0
+    for i in range(len(arrangement)):
+        total += calcTable(arrangement[i])
+    return total
