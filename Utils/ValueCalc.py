@@ -31,15 +31,19 @@ def calcPerson (table, index):
         if personB.name in personA.avoidances:
             personSum = personSum + 10
         sum = sum + personSum * getDistanceTo(index, i)
-    return sum
+    return round(sum, 1)
 
 def calcTable (table):
-    total = 0
+    peopleValues = []
     for i in range(8):
-        total = total + calcPerson(table, i)
-    return total
+        peopleValues.append(calcPerson(table, i))
+    return (sum(peopleValues), peopleValues)
+
 def calcArrangement (arrangement):
-    total = 0
+    peopleValues = []
+    tableValues = []
     for i in range(len(arrangement)):
-        total = total + calcTable(arrangement[i])
-    return total
+        tableValue, table = calcTable(arrangement[i])
+        tableValues.append(tableValue)
+        peopleValues.append(table)
+    return (sum(tableValues), tableValues, peopleValues)
