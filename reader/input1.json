@@ -6,14 +6,14 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": ["fbuu"],
-        "avoidances": ["D2"]
+        "avoidances": ["D2D2"]
     },
     {
 
         "name": "D1D1",
         "studyprogram": "ds",
         "year": "2023",
-        "preferences": ["D2"],
+        "preferences": ["D2D2"],
         "avoidances": []
     },
     {
@@ -21,7 +21,7 @@
         "name": "D2D2",
         "studyprogram": "ds",
         "year": "2023",
-        "preferences": ["D1"],
+        "preferences": ["D1D1"],
         "avoidances": []
     },
     {
@@ -29,7 +29,7 @@
         "name": "aubu",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": ["fbuu", "Lida", "M"],
+        "preferences": ["fbuu", "Lida", "MMMM"],
         "avoidances": []
     },
     {
