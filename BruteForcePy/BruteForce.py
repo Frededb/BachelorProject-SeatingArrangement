@@ -21,7 +21,7 @@ def bruteForce(input):
     bestValue = -math.inf
     bestArrangement = -1
 
-    #we go through each and see if they are better than the privius best
+    #we go through each and see if they are better than the previous best
     for perm in all_perms:
         permValue = makeArrangement(perm)
 
