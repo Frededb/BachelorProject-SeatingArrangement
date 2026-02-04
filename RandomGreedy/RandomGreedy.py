@@ -6,6 +6,7 @@ arrangement = []
 def newArrangement(arrangementSize):
     global arrangement
     arrangement = [[0,0,0,0,0,0,0,0]]*math.ceil(arrangementSize/8)
+
 def randomGreedy(input):
     newArrangement(len(input)/8)
     import random
