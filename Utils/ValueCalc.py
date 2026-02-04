@@ -40,5 +40,5 @@ def calcTable (table):
 def calcArrangement (arrangement):
     total = 0
     for i in range(len(arrangement)):
-        total += calcTable(arrangement[i])
+        total = total + calcTable(arrangement[i])
     return total
