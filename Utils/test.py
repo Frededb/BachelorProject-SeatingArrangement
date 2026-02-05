@@ -1,14 +1,12 @@
 import reader
 import ValueCalc
-import printer
-from BruteForcePy.BruteForce import bruteForce
-from itertools import permutations
+from Algorithms.BruteForce import bruteForce
 
 from Utils.ValueCalc import calcArrangement
 
-input1 = reader.readjson("../reader/input1.json")
-input2 = reader.readjson("../reader/input2.json")
-input3 = reader.readjson("../reader/input3.json")
+input1 = reader.readjson("../Inputs/input1.json")
+input2 = reader.readjson("../Inputs/input2.json")
+input3 = reader.readjson("../Inputs/input3.json")
 
 def testcalcPerson():
     print("lida: ", ValueCalc.calcPerson(input1, 0))
@@ -22,12 +20,12 @@ def testbruteForce():
     value = bruteForce(input1)
     print(value, calcArrangement(value))
 def testRandomGreedy():
-    from RandomGreedy.RandomGreedy import randomGreedy
+    from Algorithms.RandomGreedy import randomGreedy
     value = randomGreedy(input1)
     print (value)
 
 def testInfluenceListGreedy():
-    from InfluenceListGreedy.InfluenceListGreedy import influenceListGreedy
+    from Algorithms.InfluenceListGreedy import influenceListGreedy
     value = influenceListGreedy(input1)
     print (value, calcArrangement(value))
 
