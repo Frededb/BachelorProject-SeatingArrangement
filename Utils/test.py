@@ -17,6 +17,7 @@ from Utils.ValueCalc import calcArrangement
 input1 = reader.readjson("../Inputs/input1.json")
 input2 = reader.readjson("../Inputs/input2.json")
 input3 = reader.readjson("../Inputs/input3.json")
+input100people = reader.readjson("../Inputs/input100people.json")
 
 def testcalcPerson():
     print("lida: ", ValueCalc.calcPerson(input1, 0))
@@ -32,18 +33,18 @@ def testbruteForce():
 
 def testRandomGreedy():
     from Algorithms.RandomGreedy import randomGreedy
-    value = randomGreedy(input1)
-    print (value)
+    value = randomGreedy(input100people)
+    print("RandomGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
 def testInfluenceListGreedy():
     from Algorithms.InfluenceListGreedy import influenceListGreedy
-    value = influenceListGreedy(input1)
-    print (value, calcArrangement(value))
+    value = influenceListGreedy(input100people)
+    print("InfluenceListGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
 def testDefaultPlacement():
     from Algorithms.DefaultPlacement import defaultPlacement
-    value = defaultPlacement(input1)
-    print(value, calcArrangement(value))
+    value = defaultPlacement(input100people)
+    print("DefaultPlacement: ", calcArrangement(value)[0], value, calcArrangement(value))
 
 def testSwitcher():
     arrangement = [input1]
@@ -55,8 +56,12 @@ def testSwitcher():
 
 def testRandom():
     from Algorithms.Random import randomArrangement
-    value = randomArrangement(input1)
-    print(value, calcArrangement(value))
+    value = randomArrangement(input100people)
+    print("Random: ", calcArrangement(value)[0], value, calcArrangement(value))
+def testRepeatedRandom():
+    from Algorithms.RepeatedRandom import repeatedRandom
+    value = repeatedRandom(100,input100people)
+    print("RepeatedRandom: ", calcArrangement(value)[0], value, calcArrangement(value))
 
 def testLinearSwitch():
     from Algorithms.LinearSwitch import LinearSwitch
@@ -76,3 +81,9 @@ def testOpt():
     print("After optimization:")
     printer.printArrangementWithValues(arrangement)
 
+testDefaultPlacement()
+testInfluenceListGreedy()
+
+testRepeatedRandom()
+testRandom()
+testRandomGreedy()
