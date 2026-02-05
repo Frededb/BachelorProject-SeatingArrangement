@@ -1,5 +1,8 @@
 import sys
 import os
+
+from Algorithms.switch import switchRandom
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import reader
@@ -65,7 +68,8 @@ def testRepeatedRandom():
 
 def testLinearSwitch():
     from Algorithms.LinearSwitch import LinearSwitch
-    arrangement = [input1]
+    from Algorithms.DefaultPlacement import defaultPlacement
+    arrangement = defaultPlacement(input100people)
     print("Before switch:")
     printer.printArrangementWithValues(arrangement)
     LinearSwitch(arrangement)
@@ -81,9 +85,5 @@ def testOpt():
     print("After optimization:")
     printer.printArrangementWithValues(arrangement)
 
-testDefaultPlacement()
-testInfluenceListGreedy()
 
-testRepeatedRandom()
-testRandom()
-testRandomGreedy()
+testLinearSwitch()
