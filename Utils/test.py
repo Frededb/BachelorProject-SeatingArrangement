@@ -54,5 +54,9 @@ def testRandom():
     from Algorithms.Random import randomArrangement
     value = randomArrangement(input1)
     print(value, calcArrangement(value))
+def testRepeatedRandom():
+    from Algorithms.RepeatedRandom import repeatedRandom
+    value = repeatedRandom(1000,input1)
+    print(value, calcArrangement(value))
 
-testRandom()
+testRepeatedRandom()
