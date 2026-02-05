@@ -14,7 +14,7 @@ def getDistanceTo(personA, personB):
     global COORDS_MAP
     return math.sqrt((COORDS_MAP[personA][0] - COORDS_MAP[personB][0]) ** 2 + (COORDS_MAP[personA][1] - COORDS_MAP[personB][1]) ** 2)
 
-def calcPerson (table, index):
+def calcPerson(table, index):
     # print("Calculating person at index:", index)
     sum = 0
     personA = table[index]
@@ -38,13 +38,13 @@ def calcPerson (table, index):
         sum = sum + (personSum * 1/getDistanceTo(index, i))
     return round(sum, 1)
 
-def calcTable (table):
+def calcTable(table):
     peopleValues = []
     for i in range(len(table)):
         peopleValues.append(calcPerson(table, i))
     return (sum(peopleValues), peopleValues)
 
-def calcArrangement (arrangement):
+def calcArrangement(arrangement):
     peopleValues = []
     tableValues = []
     for i in range(len(arrangement)):
