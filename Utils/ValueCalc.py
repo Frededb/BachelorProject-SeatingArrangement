@@ -1,7 +1,5 @@
 import math
 from queue import PriorityQueue
-
-from Utils.printer import printTableWithValues
 from Utils.reader import emptyPerson
 
 COORDS_MAP = {
@@ -62,7 +60,6 @@ def calcTheoreticalMax(input, tableSize = 8):
 
     while len(input) < tableSize:
         input = input + [emptyPerson]
-    print(input)
 
     for personA in input:
         pq = PriorityQueue()

@@ -22,7 +22,7 @@ def __printTableWithValues__(table, tableValue, peopleValues):
 def printArrangementWithValues(arrangement):
     totalValue, tableValues, peopleValues = ValueCalc.calcArrangement(arrangement)
     print("=========================")
-    print("total value:", totalValue)
     for tableIndex in range(len(arrangement)):
         print()
         __printTableWithValues__(arrangement[tableIndex], tableValues[tableIndex], peopleValues[tableIndex])
+    print("total value:", totalValue)
