@@ -8,6 +8,7 @@ from Algorithms.BruteForce import bruteForce
 import printer
 from itertools import permutations
 from Algorithms.RandomSwitch import postOptimize
+from Utils.bmalls import customArrangement
 import random
 
 random.seed(42)
@@ -80,6 +81,11 @@ def testOpt():
     postOptimize(arrangement)
     print("After optimization:")
     printer.printArrangementWithValues(arrangement)
+
+def testCustomArrangement():
+    arr = customArrangement(input1, ["Lida", "fbuu", "D2D2", "MMMM", "D1D1", "aubu", "joho", "nsio"])
+    printer.printArrangementWithValues([arr])
+    print(input1)
 
 testDefaultPlacement()
 testInfluenceListGreedy()
