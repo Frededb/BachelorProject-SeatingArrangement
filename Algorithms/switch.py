@@ -1,6 +1,7 @@
 import random
 from Utils.ValueCalc import calcArrangement
-from Utils.switch import switch
+from Utils.bmalls import switch
+
 
 # tablearrangement = [[8 * person] * x]
 def switchRandom(arrangement):
