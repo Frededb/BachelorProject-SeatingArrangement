@@ -1,8 +1,13 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import reader
 import ValueCalc
 import printer
 from BruteForcePy.BruteForce import bruteForce
 from itertools import permutations
+from switcher.switch import switchRandom
 
 
 input1 = reader.readjson("../reader/input1.json")
@@ -25,4 +30,12 @@ def testRandomGreedy():
     value = randomGreedy(input1)
     print (value)
 
-testRandomGreedy()
+def testSwitcher():
+    arrangement = [input1]
+    print("Before switch:")
+    printer.printArrangementWithValues(arrangement)
+    switchRandom(arrangement)
+    print("After switch:")
+    printer.printArrangementWithValues(arrangement)
+
+testSwitcher()
