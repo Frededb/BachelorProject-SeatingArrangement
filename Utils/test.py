@@ -7,7 +7,10 @@ import ValueCalc
 from Algorithms.BruteForce import bruteForce
 import printer
 from itertools import permutations
-from Algorithms.switch import switchRandom
+from Algorithms.RandomSwitch import postOptimize
+import random
+
+random.seed(42)
 
 from Utils.ValueCalc import calcArrangement
 
@@ -26,6 +29,7 @@ def testcalcTable2():
 def testbruteForce():
     value = bruteForce(input1)
     print(value, calcArrangement(value))
+
 def testRandomGreedy():
     from Algorithms.RandomGreedy import randomGreedy
     value = randomGreedy(input1)
@@ -41,7 +45,6 @@ def testDefaultPlacement():
     value = defaultPlacement(input1)
     print(value, calcArrangement(value))
 
-
 def testSwitcher():
     arrangement = [input1]
     print("Before switch:")
@@ -55,7 +58,6 @@ def testRandom():
     value = randomArrangement(input1)
     print(value, calcArrangement(value))
 
-
 def testLinearSwitch():
     from Algorithms.LinearSwitch import LinearSwitch
     arrangement = [input1]
@@ -64,3 +66,13 @@ def testLinearSwitch():
     LinearSwitch(arrangement)
     print("After switch:")
     printer.printArrangementWithValues(arrangement)
+
+def testOpt():
+    arrangement = [input1]
+    print("Before optimization:")
+    printer.printArrangementWithValues(arrangement)
+    from Algorithms.RandomSwitch import postOptimize
+    postOptimize(arrangement)
+    print("After optimization:")
+    printer.printArrangementWithValues(arrangement)
+
