@@ -2,6 +2,8 @@ import math
 from queue import PriorityQueue
 from Utils.reader import emptyPerson
 
+calculatedTables = {}
+
 COORDS_MAP = {
     0: (0, 0),
     1: (0, 1),
@@ -41,9 +43,13 @@ def calcPerson(table, index):
     return round(sum, 1)
 
 def calcTable(table):
+    table_hash = hash(tuple(table))
+    if table_hash in calculatedTables:
+        return calculatedTables[table_hash]
     peopleValues = []
     for i in range(len(table)):
         peopleValues.append(calcPerson(table, i))
+    calculatedTables[table_hash] = (sum(peopleValues), peopleValues)
     return (sum(peopleValues), peopleValues)
 
 def calcArrangement(arrangement):

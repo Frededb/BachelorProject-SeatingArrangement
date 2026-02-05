@@ -30,7 +30,7 @@ def testcalcTable2(input = input1):
     print("table: ", ValueCalc.calcTable(input))
 
 def testbruteForce(input = input1):
-    value = bruteForce(input)
+    value = bruteForce([input])
     print(value, calcArrangement(value))
 
 def testRandomGreedy(input = input1):
@@ -91,5 +91,4 @@ def testCustomArrangement(input = input1):
 def testcalcTheoreticalMax(input = input1):
     print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
 
-testInfluenceListGreedy(input2)
-testcalcTheoreticalMax(input1)
+testbruteForce()
