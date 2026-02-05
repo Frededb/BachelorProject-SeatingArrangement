@@ -50,4 +50,13 @@ def testSwitcher():
     print("After switch:")
     printer.printArrangementWithValues(arrangement)
 
-testSwitcher()
+def testLinearSwitch():
+    from Algorithms.LinearSwitch import LinearSwitch
+    arrangement = [input1]
+    print("Before switch:")
+    printer.printArrangementWithValues(arrangement)
+    LinearSwitch(arrangement)
+    print("After switch:")
+    printer.printArrangementWithValues(arrangement)
+
+testLinearSwitch()
