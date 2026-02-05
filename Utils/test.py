@@ -50,4 +50,9 @@ def testSwitcher():
     print("After switch:")
     printer.printArrangementWithValues(arrangement)
 
-testSwitcher()
+def testRandom():
+    from Algorithms.Random import randomArrangement
+    value = randomArrangement(input1)
+    print(value, calcArrangement(value))
+
+testRandom()
