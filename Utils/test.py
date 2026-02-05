@@ -55,7 +55,7 @@ def testRandom():
     value = randomArrangement(input1)
     print(value, calcArrangement(value))
 
-testRandom()
+
 def testLinearSwitch():
     from Algorithms.LinearSwitch import LinearSwitch
     arrangement = [input1]
@@ -64,5 +64,3 @@ def testLinearSwitch():
     LinearSwitch(arrangement)
     print("After switch:")
     printer.printArrangementWithValues(arrangement)
-
-testLinearSwitch()
