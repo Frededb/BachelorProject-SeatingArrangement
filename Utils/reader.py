@@ -14,4 +14,4 @@ def readjson(file):
     return people
 
 
-read = readjson("../reader/input1.json")
+read = readjson("../Inputs/input1.json")
