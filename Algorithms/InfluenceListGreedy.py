@@ -1,12 +1,14 @@
 from Utils.ValueCalc import calcTable
 import math
 
+from Utils.reader import emptyPerson
+
 arrangement = []
 
 def newArrangement(arrangementSize):
     global arrangement
     #sets up the arrangement 2d array based on input size
-    arrangement = [[None] * 8 for _ in range(math.ceil(arrangementSize/8))]
+    arrangement = [[emptyPerson] * 8 for _ in range(math.ceil(arrangementSize/8))]
 
 #only takes preferences and avoidances into account. Returns a sorted list of people from most to least influential
 def makeInfluenceList(people):
@@ -15,13 +17,13 @@ def makeInfluenceList(people):
     for personA in people:
         for name in personA.preferences:
             personB = name_to_person.get(name)
-            if personB is None:
+            if personB.name == "Empty":
                 continue
             d[personA] += 10
             d[personB] += 10
         for name in personA.avoidances:
             personB = name_to_person.get(name)
-            if personB is None:
+            if personB.name == "Empty":
                 continue
             d[personA] += 10
             d[personB] += 10
@@ -44,15 +46,15 @@ def placeGreedy(person):
         preValue = calcTable(arrangement[i])[0]
         for j in range(len(arrangement[i])):
             #if the spot is already taken, skip
-            if arrangement[i][j] != None:
+            if arrangement[i][j].name != "Empty":
                 continue
             arrangement[i][j] = person
             postValue = calcTable(arrangement[i])[0]
             #here we find the best improvement to a single table, which should give the best improvement overall
-            if (postValue - preValue) > bestImprovement:
+            if postValue - preValue > bestImprovement:
                 bestImprovement = postValue - preValue
                 bestPlacement = (i,j)
-            arrangement[i][j] = None
+            arrangement[i][j] = emptyPerson
     arrangement[bestPlacement[0]][bestPlacement[1]] = person
 
 

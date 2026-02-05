@@ -64,3 +64,9 @@ def testLinearSwitch():
     LinearSwitch(arrangement)
     print("After switch:")
     printer.printArrangementWithValues(arrangement)
+
+def testcalcTheoreticalMax():
+    print("Theoretical max for input1:", ValueCalc.calcTheoreticalMax(input1))
+    print("Theoretical max for input2:", ValueCalc.calcTheoreticalMax(input2))
+
+testcalcTheoreticalMax()

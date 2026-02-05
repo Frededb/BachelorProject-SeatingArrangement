@@ -11,3 +11,5 @@ def readjson(file):
             people.append(Person(**row))
 
     return people
+
+emptyPerson = Person("Empty", "None", -1, [], [])
