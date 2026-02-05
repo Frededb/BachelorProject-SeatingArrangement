@@ -9,8 +9,6 @@ import reader
 import ValueCalc
 from Algorithms.BruteForce import bruteForce
 import printer
-from itertools import permutations
-from Algorithms.RandomSwitch import postOptimize
 from Utils.bmalls import customArrangement
 import random
 
@@ -23,62 +21,60 @@ input2 = reader.readjson("../Inputs/input2.json")
 input3 = reader.readjson("../Inputs/input3.json")
 input100people = reader.readjson("../Inputs/input100people.json")
 
-def testcalcPerson():
-    print("lida: ", ValueCalc.calcPerson(input1, 0))
-def testcalcTable():
-    print("table: ", ValueCalc.calcTable(input1))
+def testcalcPerson(input = input1):
+    print("lida: ", ValueCalc.calcPerson(input, 0))
+def testcalcTable(input = input1):
+    print("table: ", ValueCalc.calcTable(input))
 
-def testcalcTable2():
-    print("table: ", ValueCalc.calcTable(input2))
+def testcalcTable2(input = input1):
+    print("table: ", ValueCalc.calcTable(input))
 
-def testbruteForce():
-    value = bruteForce(input1)
+def testbruteForce(input = input1):
+    value = bruteForce(input)
     print(value, calcArrangement(value))
 
-def testRandomGreedy():
+def testRandomGreedy(input = input1):
     from Algorithms.RandomGreedy import randomGreedy
-    value = randomGreedy(input100people)
+    value = randomGreedy(input)
     print("RandomGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
-def testInfluenceListGreedy():
+def testInfluenceListGreedy(input = input1):
     from Algorithms.InfluenceListGreedy import influenceListGreedy
-    value = influenceListGreedy(input100people)
+    value = influenceListGreedy(input)
     print("InfluenceListGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
-def testDefaultPlacement():
+def testDefaultPlacement(input = input1):
     from Algorithms.DefaultPlacement import defaultPlacement
-    value = defaultPlacement(input100people)
-    print("DefaultPlacement: ", calcArrangement(value)[0], value, calcArrangement(value))
+    default = defaultPlacement(input)
+    print("DefaultPlacement: ", calcArrangement(default)[0], default, calcArrangement(default))
 
-def testSwitcher():
-    arrangement = [input1]
-    print("Before switch:")
-    printer.printArrangementWithValues(arrangement)
-    switchRandom(arrangement)
+def testSwitcher(input = input1):
+    from Algorithms.DefaultPlacement import defaultPlacement
+    default = defaultPlacement(input)
+    switchRandom(default)
     print("After switch:")
-    printer.printArrangementWithValues(arrangement)
+    printer.printArrangementWithValues(default)
 
-def testRandom():
+def testRandom(input = input1):
     from Algorithms.Random import randomArrangement
-    value = randomArrangement(input100people)
-    print("Random: ", calcArrangement(value)[0], value, calcArrangement(value))
-def testRepeatedRandom():
-    from Algorithms.RepeatedRandom import repeatedRandom
-    value = repeatedRandom(100,input100people)
-    print("RepeatedRandom: ", calcArrangement(value)[0], value, calcArrangement(value))
+    randomArrangement = randomArrangement(input)
+    print("Random: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testLinearSwitch():
+def testRepeatedRandom(input = input1):
+    from Algorithms.RepeatedRandom import repeatedRandom
+    randomArrangement = repeatedRandom(100, input)
+    print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
+
+def testLinearSwitch(input = input1):
     from Algorithms.LinearSwitch import LinearSwitch
     from Algorithms.DefaultPlacement import defaultPlacement
-    arrangement = defaultPlacement(input100people)
-    print("Before switch:")
-    printer.printArrangementWithValues(arrangement)
+    arrangement = defaultPlacement(input)
     LinearSwitch(arrangement)
-    print("After switch:")
     printer.printArrangementWithValues(arrangement)
 
-def testOpt():
-    arrangement = [input1]
+def testOpt(input = input1):
+    from Algorithms.DefaultPlacement import defaultPlacement
+    arrangement = defaultPlacement(input)
     print("Before optimization:")
     printer.printArrangementWithValues(arrangement)
     from Algorithms.RandomSwitch import postOptimize
@@ -86,19 +82,14 @@ def testOpt():
     print("After optimization:")
     printer.printArrangementWithValues(arrangement)
 
-def testCustomArrangement():
-    arr = customArrangement(input1, ["Lida", "fbuu", "D2D2", "MMMM", "D1D1", "aubu", "joho", "nsio"])
+def testCustomArrangement(input = input1):
+    arr = customArrangement(input, ["Lida", "fbuu", "D2D2", "MMMM", "D1D1", "aubu", "joho", "nsio"])
     printer.printArrangementWithValues([arr])
     print(input1)
 
-testDefaultPlacement()
-testInfluenceListGreedy()
 
-testLinearSwitch()
+def testcalcTheoreticalMax(input = input1):
+    print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
 
-
-def testcalcTheoreticalMax():
-    print("Theoretical max for input1:", ValueCalc.calcTheoreticalMax(input1))
-    print("Theoretical max for input2:", ValueCalc.calcTheoreticalMax(input2))
-
-testcalcTheoreticalMax()
+testInfluenceListGreedy(input2)
+testcalcTheoreticalMax(input1)
