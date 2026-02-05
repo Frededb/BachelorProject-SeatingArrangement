@@ -2,12 +2,14 @@ from Utils.ValueCalc import calcTable
 import math
 import random
 
+from Utils.reader import emptyPerson
+
 arrangement = []
 
 def newArrangement(arrangementSize):
     global arrangement
     #sets up the arrangement 2d array based on input size
-    arrangement = [[None] * 8 for _ in range(math.ceil(arrangementSize/8))]
+    arrangement = [[emptyPerson] * 8 for _ in range(math.ceil(arrangementSize/8))]
 
 def randomGreedy(input):
     newArrangement(len(input))
@@ -26,7 +28,7 @@ def placeGreedy(person):
         preValue = calcTable(arrangement[i])[0]
         for j in range(len(arrangement[i])):
             #if the spot is already taken, skip
-            if arrangement[i][j] != None:
+            if arrangement[i][j].name != "Empty":
                 continue
             arrangement[i][j] = person
             postValue = calcTable(arrangement[i])[0]
@@ -34,7 +36,7 @@ def placeGreedy(person):
             if postValue - preValue > bestImprovement:
                 bestImprovement = postValue - preValue
                 bestPlacement = (i,j)
-            arrangement[i][j] = None
+            arrangement[i][j] = emptyPerson
     arrangement[bestPlacement[0]][bestPlacement[1]] = person
 
 

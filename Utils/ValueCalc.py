@@ -1,4 +1,8 @@
 import math
+from queue import PriorityQueue
+
+from Utils.printer import printTableWithValues
+from Utils.reader import emptyPerson
 
 COORDS_MAP = {
     0: (0, 0),
@@ -18,14 +22,14 @@ def calcPerson(table, index):
     # print("Calculating person at index:", index)
     sum = 0
     personA = table[index]
-    if not hasattr(personA, "studyprogram"):
+    if personA.name == "Empty":
         return 0.0
     for i in range(len(table)):
         if i == index:
             continue
         personSum = 0
         personB = table[i]
-        if not hasattr(personB, "studyprogram"):
+        if personB.name == "Empty":
             continue
         if personA.studyprogram == personB.studyprogram:
             personSum = personSum + 3
@@ -52,3 +56,21 @@ def calcArrangement(arrangement):
         tableValues.append(tableValue)
         peopleValues.append(table)
     return (sum(tableValues), tableValues, peopleValues)
+
+def calcTheoreticalMax(input, tableSize = 8):
+    maxValue = 0
+
+    while len(input) < tableSize:
+        input = input + [emptyPerson]
+    print(input)
+
+    for personA in input:
+        pq = PriorityQueue()
+        for personB in input:
+            personValue = calcPerson([personA, personB], 0)
+            pq.put((-personValue, personB))
+        top = [pq.get()[1] for _ in range(tableSize - 1)]
+        perfectTable = [top[0], personA, top[2], top[5], top[3], top[1], top[4], top[6]]
+        maxValue = maxValue + calcPerson(perfectTable, 1)
+    return maxValue
+

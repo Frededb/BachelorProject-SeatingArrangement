@@ -9,3 +9,5 @@ class Person:
         return f"{self.name}"
     def __repr__(self) -> str:
         return self.__str__()
+    def __lt__(self, other):
+        return self.name < other.name
