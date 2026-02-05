@@ -4,6 +4,7 @@ import printer
 from BruteForcePy.BruteForce import bruteForce
 from itertools import permutations
 
+from Utils.ValueCalc import calcArrangement
 
 input1 = reader.readjson("../reader/input1.json")
 input2 = reader.readjson("../reader/input2.json")
@@ -19,15 +20,7 @@ def testcalcTable2():
 
 def testbruteForce():
     value = bruteForce(input1)
-    print (value)
-    {
-
-        "name": "D1D1",
-        "studyprogram": "ds",
-        "year": "2023",
-        "preferences": ["D2D2"],
-        "avoidances": []
-    },
+    print(value, calcArrangement(value))
 def testRandomGreedy():
     from RandomGreedy.RandomGreedy import randomGreedy
     value = randomGreedy(input1)
@@ -35,8 +28,8 @@ def testRandomGreedy():
 
 def testInfluenceListGreedy():
     from InfluenceListGreedy.InfluenceListGreedy import influenceListGreedy
-    value = influenceListGreedy(input3)
-    print (value)
+    value = influenceListGreedy(input1)
+    print (value, calcArrangement(value))
 
 #testRandomGreedy()
 testInfluenceListGreedy()

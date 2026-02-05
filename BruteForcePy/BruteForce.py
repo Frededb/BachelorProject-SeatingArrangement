@@ -12,7 +12,7 @@ def makeArrangement(perm):
     global arrangement
     for i in range(len(perm)):
         arrangement[i//8][i%8] = perm[i]
-    return calcArrangement(arrangement)
+    return calcArrangement(arrangement)[0]
 
 def bruteForce(input):
     newArrangement(len(input))
@@ -25,7 +25,7 @@ def bruteForce(input):
     for perm in all_perms:
         permValue = makeArrangement(perm)
 
-        if(permValue) > bestValue:
+        if permValue > bestValue:
             bestValue = permValue
             bestArrangement = [row[:] for row in arrangement]
     return bestArrangement
