@@ -1,6 +1,13 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import reader
 import ValueCalc
 from Algorithms.BruteForce import bruteForce
+import printer
+from itertools import permutations
+from Algorithms.switch import switchRandom
 
 from Utils.ValueCalc import calcArrangement
 
@@ -29,5 +36,15 @@ def testInfluenceListGreedy():
     value = influenceListGreedy(input1)
     print (value, calcArrangement(value))
 
-#testRandomGreedy()
-testInfluenceListGreedy()
+def testSwitcher():
+    arrangement = [input1]
+    print("Before switch:")
+    printer.printArrangementWithValues(arrangement)
+    switchRandom(arrangement)
+    print("After switch:")
+    printer.printArrangementWithValues(arrangement)
+
+
+# testRandomGreedy()
+# testInfluenceListGreedy()
+testSwitcher()
