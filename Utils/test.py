@@ -29,5 +29,10 @@ def testInfluenceListGreedy():
     value = influenceListGreedy(input1)
     print (value, calcArrangement(value))
 
+def testDefaultPlacement():
+    from Algorithms.DefaultPlacement import defaultPlacement
+    value = defaultPlacement(input1)
+    print(value, calcArrangement(value))
+
 #testRandomGreedy()
-testInfluenceListGreedy()
+testDefaultPlacement()
