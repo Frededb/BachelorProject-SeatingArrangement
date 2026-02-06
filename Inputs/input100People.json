@@ -285,15 +285,15 @@
       "name": "G4A3",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G4A1", "G4A2", "G4A4", "G4A5", "G4A6", "G4A7"],
+      "preferences": ["G4A1", "G4A2", "G4A4", "G4A5", "G4A6", "G4A7", "GBOB"],
       "avoidances": ["G4A8"]
     },
     {
       "name": "G4A4",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G4A1", "G4A2", "G4A3", "G4A5", "G4A6", "G4A7"],
-      "avoidances": ["G4A8"]
+      "preferences": ["G4A1", "G4A2", "G4A3", "G4A5", "G4A6", "G4A7","G4A8"],
+      "avoidances": []
     },
     {
       "name": "G4A5",
@@ -719,7 +719,7 @@
       "name": "GBOB",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G4A1", "G4A2"],
+      "preferences": ["G4A1", "G4A2", "G4A3", "G4A4", "G4A5", "G4A6", "G4A7"],
       "avoidances": []
     }
 ]
