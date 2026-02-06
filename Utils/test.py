@@ -105,3 +105,4 @@ onetable2 = [["GP21", "GT53", "GT52", "G523", "GP22", "GT51", "G4A2", "GBOB"]]
 # testCustomArrangement(input100People, after)
 testCustomArrangement(input100People, onetable)
 testCustomArrangement(input100People, onetable2)
+# testLinearSwitchRandom(input100People, 2, 69)
