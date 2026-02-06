@@ -20,7 +20,7 @@ def get_2d_permutations(arrangement):
 
 def bruteForce(initialArrangement):
     #here I will generate all permutations of input
-    all_arrangements = permutations(initialArrangement)
+    all_arrangements = get_2d_permutations(initialArrangement)
     bestValue = -math.inf
     bestArrangement = -1
 

@@ -1,8 +1,6 @@
 import sys
 import os
 
-from Algorithms.switch import switchRandom
-
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import reader
@@ -27,7 +25,8 @@ def testcalcTable2(input = input1Table):
     print("table: ", ValueCalc.calcTable(input))
 
 def testbruteForce(input = input1Table):
-    value = bruteForce(input)
+    from Algorithms.DefaultPlacement import defaultPlacement
+    value = bruteForce(defaultPlacement(input))
     print(value, calcArrangement(value))
 
 def testRandomGreedy(input = input1Table):
@@ -39,8 +38,6 @@ def testInfluenceListGreedy(input = input1Table):
     from Algorithms.InfluenceListGreedy import influenceListGreedy
     value = influenceListGreedy(input)
     print("InfluenceListGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
-
-testInfluenceListGreedy(input7People)
 
 def testDefaultPlacement(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
@@ -89,3 +86,5 @@ def testCustomArrangement(input = input1Table):
 
 def testcalcTheoreticalMax(input = input1Table):
     print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
+
+testbruteForce()
