@@ -3,7 +3,7 @@
     {
 
         "name": "Lida",
-        "studyprogram": "swu",
+        "studyprogram": "SWU",
         "year": "2023",
         "preferences": ["fbuu"],
         "avoidances": ["D2D2"]
@@ -27,7 +27,7 @@
     {
 
         "name": "aubu",
-        "studyprogram": "swu",
+        "studyprogram": "SWU",
         "year": "2023",
         "preferences": ["fbuu", "Lida", "MMMM"],
         "avoidances": []
@@ -35,7 +35,7 @@
     {
 
         "name": "MMMM",
-        "studyprogram": "swu",
+        "studyprogram": "SWU",
         "year": "2024",
         "preferences": [],
         "avoidances": []
@@ -43,7 +43,7 @@
     {
 
         "name": "fbuu",
-        "studyprogram": "swu",
+        "studyprogram": "SWU",
         "year": "2023",
         "preferences": ["Lida", "aubu"],
         "avoidances": []
@@ -51,7 +51,7 @@
     {
 
         "name": "nsio",
-        "studyprogram": "swu",
+        "studyprogram": "SWU",
         "year": "2023",
         "preferences": ["aubu", "Lida"],
         "avoidances": ["fbuu"]
@@ -59,7 +59,7 @@
     {
 
         "name": "joho",
-        "studyprogram": "swu",
+        "studyprogram": "SWU",
         "year": "2023",
         "preferences": [],
         "avoidances": ["aubu", "Lida", "nsio"]
@@ -543,112 +543,112 @@
       "avoidances": []
     },
     {
-      "name": "GS11",
+      "name": "GT11",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["GS12", "GS13"],
+      "preferences": ["GT12", "GT13"],
       "avoidances": []
     },
     {
-      "name": "GS12",
+      "name": "GT12",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["GS11", "GS13"],
+      "preferences": ["GT11", "GT13"],
       "avoidances": []
     },
     {
-      "name": "GS13",
+      "name": "GT13",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["GS11", "GS12"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GS21",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GS22", "GS23"],
-      "avoidances": []
-    },
-    {
-      "name": "GS22",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GS21", "GS23"],
-      "avoidances": []
-    },
-    {
-      "name": "GS23",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GS21", "GS22"],
+      "preferences": ["GT11", "GT12"],
       "avoidances": []
     },
 
     {
-      "name": "GS31",
+      "name": "GT21",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["GS32", "GS33"],
+      "preferences": ["GT22", "GT23"],
       "avoidances": []
     },
     {
-      "name": "GS32",
+      "name": "GT22",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["GS31", "GS33"],
+      "preferences": ["GT21", "GT23"],
       "avoidances": []
     },
     {
-      "name": "GS33",
+      "name": "GT23",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["GS31", "GS32"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GS41",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GS42", "GS43"],
-      "avoidances": []
-    },
-    {
-      "name": "GS42",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GS41", "GS43"],
-      "avoidances": []
-    },
-    {
-      "name": "GS43",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GS41", "GS42"],
+      "preferences": ["GT21", "GT22"],
       "avoidances": []
     },
 
     {
-      "name": "GS51",
+      "name": "GT31",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["GS52", "GS53"],
+      "preferences": ["GT32", "GT33"],
       "avoidances": []
     },
     {
-      "name": "GS52",
+      "name": "GT32",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["GS51", "GS53"],
+      "preferences": ["GT31", "GT33"],
       "avoidances": []
     },
     {
-      "name": "GS53",
+      "name": "GT33",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["GS51", "GS52"],
+      "preferences": ["GT31", "GT32"],
+      "avoidances": []
+    },
+
+    {
+      "name": "GT41",
+      "studyprogram": "SWU",
+      "year": "2023",
+      "preferences": ["GT42", "GT43"],
+      "avoidances": []
+    },
+    {
+      "name": "GT42",
+      "studyprogram": "SWU",
+      "year": "2023",
+      "preferences": ["GT41", "GT43"],
+      "avoidances": []
+    },
+    {
+      "name": "GT43",
+      "studyprogram": "SWU",
+      "year": "2023",
+      "preferences": ["GT41", "GT42"],
+      "avoidances": []
+    },
+
+    {
+      "name": "GT51",
+      "studyprogram": "SWU",
+      "year": "2023",
+      "preferences": ["GT52", "GT53"],
+      "avoidances": []
+    },
+    {
+      "name": "GT52",
+      "studyprogram": "SWU",
+      "year": "2023",
+      "preferences": ["GT51", "GT53"],
+      "avoidances": []
+    },
+    {
+      "name": "GT53",
+      "studyprogram": "SWU",
+      "year": "2023",
+      "preferences": ["GT51", "GT52"],
       "avoidances": []
     },
     {
@@ -659,21 +659,21 @@
       "avoidances": []
     },
     {
-      "name": "GGS2",
+      "name": "S2",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": ["G1A1"],
       "avoidances": []
     },
     {
-      "name": "GGS3",
+      "name": "S3",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": ["G1A1"],
       "avoidances": []
     },
     {
-      "name": "GGS4",
+      "name": "S4",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": ["G1A1"],
@@ -681,35 +681,35 @@
     },
 
     {
-      "name": "GGS5",
+      "name": "S5",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": [],
       "avoidances": []
     },
     {
-      "name": "GGS6",
+      "name": "S6",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": [],
       "avoidances": []
     },
     {
-      "name": "GGS7",
+      "name": "S7",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": [],
       "avoidances": []
     },
     {
-      "name": "GGS8",
+      "name": "S8",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": [],
       "avoidances": []
     },
     {
-      "name": "GGS9",
+      "name": "S9",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": [],
