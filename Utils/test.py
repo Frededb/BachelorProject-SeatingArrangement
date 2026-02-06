@@ -45,9 +45,9 @@ def testRandom(input = input1Table):
     randomArrangement = randomArrangement(input)
     print("Random: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testRepeatedRandom(input = input1Table, N = 1000000):
+def testRepeatedRandom(input = input1Table, N = 100):
     from Algorithms.RepeatedRandom import repeatedRandom
-    randomArrangement = repeatedRandom(10000, input)
+    randomArrangement = repeatedRandom(N, input)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
 def testLinearSwitch(input = input1Table, N = 10):
@@ -83,7 +83,6 @@ def testCustomArrangement(input = input1Table):
     arr = customArrangement(input, ["Lida", "fbuu", "D2D2", "MMMM", "D1D1", "aubu", "joho", "nsio"])
     printer.printArrangementWithValues([arr])
     print(input1Table)
-
 
 def testcalcTheoreticalMax(input = input1Table):
     print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
