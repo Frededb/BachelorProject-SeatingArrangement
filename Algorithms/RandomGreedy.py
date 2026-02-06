@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 from Utils.ValueCalc import calcTable
 import math
 import random
@@ -12,10 +14,11 @@ def newArrangement(arrangementSize):
     arrangement = [[emptyPerson] * 8 for _ in range(math.ceil(arrangementSize/8))]
 
 def randomGreedy(input):
-    newArrangement(len(input))
-    for _ in range(len(input)):
-        number = random.randint(0,len(input)-1)
-        person = input.pop(number)
+    inputCopy = deepcopy(input)
+    newArrangement(len(inputCopy))
+    for _ in range(len(inputCopy)):
+        number = random.randint(0,len(inputCopy)-1)
+        person = inputCopy.pop(number)
         placeGreedy(person)
     return arrangement
 
