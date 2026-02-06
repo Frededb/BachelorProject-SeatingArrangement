@@ -17,13 +17,13 @@ def makeInfluenceList(people):
     for personA in people:
         for name in personA.preferences:
             personB = name_to_person.get(name)
-            if personB.name == "Empty":
+            if personB.name != "Empty":
                 continue
             d[personA] += 10
             d[personB] += 10
         for name in personA.avoidances:
             personB = name_to_person.get(name)
-            if personB.name == "Empty":
+            if personB.name != "Empty":
                 continue
             d[personA] += 10
             d[personB] += 10

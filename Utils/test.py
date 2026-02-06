@@ -10,69 +10,65 @@ import ValueCalc
 from Algorithms.BruteForce import bruteForce
 import printer
 from Utils.bmalls import customArrangement
-import random
-
-random.seed(42)
 
 from Utils.ValueCalc import calcArrangement
 
-input1 = reader.readjson("../Inputs/input1.json")
-input2 = reader.readjson("../Inputs/input2.json")
-input3 = reader.readjson("../Inputs/input3.json")
-input100people = reader.readjson("../Inputs/input100people.json")
+input1Table = reader.readjson("../Inputs/input1Table.json")
+input6People = reader.readjson("../Inputs/input6People.json")
+input7People = reader.readjson("../Inputs/input7People.json")
+input100People = reader.readjson("../Inputs/input100People.json")
 
-def testcalcPerson(input = input1):
+def testcalcPerson(input = input1Table):
     print("lida: ", ValueCalc.calcPerson(input, 0))
-def testcalcTable(input = input1):
+def testcalcTable(input = input1Table):
     print("table: ", ValueCalc.calcTable(input))
 
-def testcalcTable2(input = input1):
-    print("table: ", ValueCalc.calcTable(input))
-
-def testbruteForce(input = input1):
+def testbruteForce(input = input1Table):
     value = bruteForce(input)
     print(value, calcArrangement(value))
 
-def testRandomGreedy(input = input1):
+def testRandomGreedy(input = input1Table):
     from Algorithms.RandomGreedy import randomGreedy
     value = randomGreedy(input)
     print("RandomGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
-def testInfluenceListGreedy(input = input1):
+def testInfluenceListGreedy(input = input1Table):
     from Algorithms.InfluenceListGreedy import influenceListGreedy
     value = influenceListGreedy(input)
     print("InfluenceListGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
-def testDefaultPlacement(input = input1):
+testInfluenceListGreedy(input7People)
+
+def testDefaultPlacement(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
     default = defaultPlacement(input)
     print("DefaultPlacement: ", calcArrangement(default)[0], default, calcArrangement(default))
 
-def testSwitcher(input = input1):
+def testSwitcher(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
     default = defaultPlacement(input)
     switchRandom(default)
     print("After switch:")
     printer.printArrangementWithValues(default)
 
-def testRandom(input = input1):
+def testRandom(input = input1Table):
     from Algorithms.Random import randomArrangement
     randomArrangement = randomArrangement(input)
     print("Random: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testRepeatedRandom(input = input1):
+def testRepeatedRandom(input = input1Table):
     from Algorithms.RepeatedRandom import repeatedRandom
     randomArrangement = repeatedRandom(100, input)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testLinearSwitch(input = input1):
+def testLinearSwitch(input = input1Table):
     from Algorithms.LinearSwitch import LinearSwitch
     from Algorithms.DefaultPlacement import defaultPlacement
     arrangement = defaultPlacement(input)
     LinearSwitch(arrangement)
     printer.printArrangementWithValues(arrangement)
 
-def testOpt(input = input1):
+def testOpt(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
     arrangement = defaultPlacement(input)
     print("Before optimization:")
@@ -82,14 +78,11 @@ def testOpt(input = input1):
     print("After optimization:")
     printer.printArrangementWithValues(arrangement)
 
-def testCustomArrangement(input = input1):
+def testCustomArrangement(input = input1Table):
     arr = customArrangement(input, ["Lida", "fbuu", "D2D2", "MMMM", "D1D1", "aubu", "joho", "nsio"])
     printer.printArrangementWithValues([arr])
-    print(input1)
+    print(input1Table)
 
 
-def testcalcTheoreticalMax(input = input1):
+def testcalcTheoreticalMax(input = input1Table):
     print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
-
-testInfluenceListGreedy(input2)
-testcalcTheoreticalMax(input1)
