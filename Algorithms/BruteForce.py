@@ -22,7 +22,7 @@ def bruteForce(initialArrangement):
     #here I will generate all permutations of input
     all_arrangements = get_2d_permutations(initialArrangement)
     bestValue = -math.inf
-    bestArrangement = -1
+    bestArrangement = []
 
     #we go through each and see if they are better than the previous best
     for arrangement in all_arrangements:
@@ -31,5 +31,23 @@ def bruteForce(initialArrangement):
         if permValue > bestValue:
             bestValue = permValue
             bestArrangement = arrangement
+    return bestArrangement
+
+def bruteForceEachTable(initialArrangement):
+    bestValue = -math.inf
+    bestArrangement = []
+
+    #we go through each and see if they are better than the previous best
+    for table in initialArrangement:
+        tablePerms = permutations(table)
+        bestValue = -math.inf
+        bestTable = []
+        for perm in tablePerms:
+            tableValue = calcTable(list(perm))[0]
+
+            if tableValue > bestValue:
+                bestValue = tableValue
+                bestTable = list(perm)
+        bestArrangement.append(bestTable)
     return bestArrangement
 
