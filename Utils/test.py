@@ -50,20 +50,21 @@ def testRepeatedRandom(input = input1Table, N = 100):
     randomArrangement = repeatedRandom(N, input)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testLinearSwitch(input = input1Table, N = 10):
+def testLinearSwitchDefault(input = input1Table, N = 10):
     from Algorithms.LinearSwitch import LinearSwitch
-    from Algorithms.Random import randomArrangement
     from Algorithms.DefaultPlacement import defaultPlacement
     arrangement = defaultPlacement(input)
     optimizedArrangement = LinearSwitch(arrangement, N)
     print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    printer.printArrangementWithValues(optimizedArrangement)
 
-def testLinearSwitchRandom(input = input1Table, N = 10):
+def testLinearSwitchRandom(input = input1Table, N = 10, seed = None):
     from Algorithms.LinearSwitch import LinearSwitch
     from Algorithms.Random import randomArrangement
-    arrangement = randomArrangement(input)
+    arrangement = randomArrangement(input, seed)
     optimizedArrangement = LinearSwitch(arrangement, N)
     print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    printer.printArrangementWithValues(optimizedArrangement)
 
 def testLinearSwitchInfluenceList(input = input1Table, N = 10):
     from Algorithms.LinearSwitch import LinearSwitch
@@ -79,22 +80,13 @@ def testRandomSwitch(input = input1Table):
     randomArrangement = randomSwitch(arrangement)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testCustomArrangement(input = input1Table):
-    arr = customArrangement(input, ["Lida", "fbuu", "D2D2", "MMMM", "D1D1", "aubu", "joho", "nsio"])
+def testCustomArrangement(input = input1Table, persons = []):
+    arr = customArrangement(input, persons)
     printer.printArrangementWithValues([arr])
-    print(input1Table)
 
 def testcalcTheoreticalMax(input = input1Table):
     print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
 
-# testRandom(input100People)
-# testRandomGreedy(input100People)
-# testInfluenceListGreedy(input100People)
-# testDefaultPlacement(input100People)
-# testRandomSwitch(input100People)
-testRepeatedRandom(input100People)
-# testcalcTheoreticalMax(input100People)
-# testLinearSwitch(input100People, 1)
-# testLinearSwitchRandom(input100People, 1)
-# testLinearSwitchInfluenceList(input100People, 1)
+
+testLinearSwitchRandom(input100People, 1, 69)
 
