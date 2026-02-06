@@ -1,0 +1,35 @@
+[
+
+    {
+
+        "name": "bast",
+        "studyprogram": "swu",
+        "year": "2023",
+        "preferences": ["rasm"],
+        "avoidances": [""]
+    },
+    {
+
+        "name": "vict",
+        "studyprogram": "ds",
+        "year": "2023",
+        "preferences": ["bast"],
+        "avoidances": []
+    },
+    {
+
+        "name": "rasm",
+        "studyprogram": "ds",
+        "year": "2023",
+        "preferences": ["bast"],
+        "avoidances": []
+    },
+    {
+
+        "name": "anto",
+        "studyprogram": "ku",
+        "year": "2022",
+        "preferences": ["rasm", "nsio", "fbuu"],
+        "avoidances": ["bast"]
+    }
+]
