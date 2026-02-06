@@ -37,8 +37,6 @@ def testInfluenceListGreedy(input = input1Table):
     value = influenceListGreedy(input)
     print("InfluenceListGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
-testInfluenceListGreedy(input7People)
-
 def testDefaultPlacement(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
     default = defaultPlacement(input)
@@ -56,9 +54,9 @@ def testRandom(input = input1Table):
     randomArrangement = randomArrangement(input)
     print("Random: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testRepeatedRandom(input = input1Table):
+def testRepeatedRandom(input = input1Table, N = 100):
     from Algorithms.RepeatedRandom import repeatedRandom
-    randomArrangement = repeatedRandom(100, input)
+    randomArrangement = repeatedRandom(N, input)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
 def testLinearSwitch(input = input1Table):
@@ -82,7 +80,6 @@ def testCustomArrangement(input = input1Table):
     arr = customArrangement(input, ["Lida", "fbuu", "D2D2", "MMMM", "D1D1", "aubu", "joho", "nsio"])
     printer.printArrangementWithValues([arr])
     print(input1Table)
-
 
 def testcalcTheoreticalMax(input = input1Table):
     print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
