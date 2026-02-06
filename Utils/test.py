@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import reader
 import ValueCalc
-from Algorithms.BruteForce import bruteForce
+from Algorithms.BruteForce import bruteForce, bruteForceEachTable
 import printer
 from Utils.bmalls import customArrangement
 
@@ -95,6 +95,12 @@ def testCustomArrangement(input = input1Table, persons = []):
 def testcalcTheoreticalMax(input = input1Table):
     print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
 
+def testbruteForceEachTable(input = input1Table):
+    from Algorithms.DefaultPlacement import defaultPlacement
+    arrangement = defaultPlacement(input)
+    arr = bruteForceEachTable(arrangement)
+    printer.printArrangementWithValues(arr)
+
 
 before = [["joho", "MMMM", "aubu", "fbuu", "GP02", "GGS5", "nsio", "Lida"], ["G4A6", "G4A2", "G4A1", "G4A8", "G4A3", "G4A4", "G4A5", "G4A7"], ["GS53", "GS52", "GS11", "GS13", "GS51", "G2A2", "G2A7", "GS12"], ["GBOB", "G3A7", "G3A4", "G3A10", "GGS9", "G3A6", "G3A9", "G3A8"], ["G2A5", "G2A4", "G2A1", "G2A8", "GGS6", "G2A9", "G2A6", "G2A3"], ["GP32", "GP31", "GP12", "GP11", "GGS7", "GGS2", "GGS4", "GP01"], ["G1A3", "G1A8", "G1A2", "G1A1", "G1A4", "G1A6", "G1A5", "G1A7"], ["D2D2", "GS41", "GS42", "GP72", "D1D1", "G523", "GS43", "GP71"], ["G3A3", "G3A12", "G3A11", "GP62", "G3A5", "G3A2", "G3A1", "GP61"], ["GS22", "GS23", "GS32", "GS31", "GS21", "GP51", "GS33", "GP52"], ["GP81", "GP21", "GP22", "G521", "GP82", "GGS3", "GP91", "GP92"], ["G534", "G531", "G512", "G522", "G532", "G513", "G533", "G511"], ["Empty", "Empty", "GP41", "GP42", "Empty", "Empty", "S1", "GGS8"]]
 after =  [["GP01", "MMMM", "aubu", "fbuu", "GP02", "GGS5", "nsio", "Lida"], ["G4A6", "G4A2", "G4A1", "G4A8", "G4A3", "G4A4", "G4A5", "G4A7"], ["GS53", "GS52", "GS11", "GS13", "GS51", "G2A2", "G2A7", "GS12"], ["GBOB", "G3A7", "G3A4", "G3A10", "GGS9", "G3A6", "G3A9", "G3A8"], ["G2A5", "G2A4", "G2A1", "G2A8", "GGS6", "G2A9", "G2A6", "G2A3"], ["GP32", "GP31", "GP12", "GP11", "GGS7", "GGS2", "GGS4", "joho"], ["G1A3", "G1A8", "G1A2", "G1A1", "G1A4", "G1A6", "G1A5", "G1A7"], ["D2D2", "GS41", "GS42", "GP72", "D1D1", "G523", "GS43", "GP71"], ["G3A3", "G3A12", "G3A11", "GP62", "G3A5", "G3A2", "G3A1", "GP61"], ["GS22", "GS23", "GS32", "GS31", "GS21", "GP51", "GS33", "GP52"], ["GP81", "GP21", "GP22", "G521", "GP82", "GGS3", "GP91", "GP92"], ["G534", "G531", "G512", "G522", "G532", "G513", "G533", "G511"], ["Empty", "Empty", "GP41", "GP42", "Empty", "Empty", "S1", "GGS8"]]
@@ -103,6 +109,7 @@ onetable2 = [["GP21", "GT53", "GT52", "G523", "GP22", "GT51", "G4A2", "GBOB"]]
 
 # testCustomArrangement(input100People, before)
 # testCustomArrangement(input100People, after)
-testCustomArrangement(input100People, onetable)
-testCustomArrangement(input100People, onetable2)
+# testCustomArrangement(input100People, onetable)
+# testCustomArrangement(input100People, onetable2)
 # testLinearSwitchRandom(input100People, 2, 69)
+testbruteForceEachTable()
