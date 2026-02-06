@@ -348,21 +348,21 @@
       "name": "G521",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G511", "G512", "G513"],
+      "preferences": ["G511", "G512", "G513", "G522", "G523"],
       "avoidances": ["G531", "G532", "G533", "G534"]
     },
     {
       "name": "G522",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G511", "G512", "G513"],
+      "preferences": ["G511", "G512", "G513", "G521", "G523"],
       "avoidances": ["G531", "G532", "G533", "G534"]
     },
     {
       "name": "G523",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G511", "G512", "G513"],
+      "preferences": ["G511", "G512", "G513", "G521", "G522"],
       "avoidances": ["G531", "G532", "G533", "G534"]
     },
     {
