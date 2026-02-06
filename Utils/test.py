@@ -88,5 +88,5 @@ def testcalcTheoreticalMax(input = input1Table):
     print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
 
 
-testLinearSwitchRandom(input100People, 1, 69)
+testLinearSwitchRandom(input100People, 2, 69)
 
