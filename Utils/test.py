@@ -12,6 +12,8 @@ from Utils.bmalls import customArrangement
 from Utils.ValueCalc import calcArrangement
 
 input1Table = reader.readjson("../Inputs/input1Table.json")
+input2People = reader.readjson("../Inputs/input2People.json")
+input4People = reader.readjson("../Inputs/input4People.json")
 input6People = reader.readjson("../Inputs/input6People.json")
 input7People = reader.readjson("../Inputs/input7People.json")
 input100People = reader.readjson("../Inputs/input100People.json")
@@ -26,7 +28,7 @@ def testcalcTable2(input = input1Table):
 
 def testbruteForce(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
-    value = bruteForce(defaultPlacement(input))
+    value = bruteForce([input1Table, input2People])
     print(value, calcArrangement(value))
 
 def testRandomGreedy(input = input1Table):
