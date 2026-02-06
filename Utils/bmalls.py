@@ -9,11 +9,11 @@ def switch(arrangement, personA, personB):
     return arrangement
 
 def customArrangement(arrangement, personList):
-    inputNames = [person.name for table in arrangement for person in table]
     peopleMap = {person.name: person for table in arrangement for person in table}
-    personSet = set([person for table in personList for person in table])
-    if set(inputNames) != personSet:
-        raise ValueError("Input and personList do not match")
+    for table in personList:
+        for person in table:
+            if person not in peopleMap:
+                raise ValueError(f"Person {person} not found in arrangement.")
     new_arrangement = [list(map(lambda name: peopleMap[name] or reader.emptyPerson, table)) for table in personList]
     return new_arrangement
 
