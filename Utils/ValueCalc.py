@@ -2,6 +2,8 @@ import math
 from queue import PriorityQueue
 from Utils.reader import emptyPerson
 
+calculatedTables = {}
+
 COORDS_MAP = {
     0: (0, 0),
     1: (0, 1),
@@ -12,9 +14,12 @@ COORDS_MAP = {
     6: (1, 2),
     7: (1, 3)
 }
-def getDistanceTo(personA, personB):
+def getDistanceTo(table, personA, personB):
     global COORDS_MAP
-    return math.sqrt((COORDS_MAP[personA][0] - COORDS_MAP[personB][0]) ** 2 + (COORDS_MAP[personA][1] - COORDS_MAP[personB][1]) ** 2)
+    width = len(table)//2
+    personACoords = (personA//width, personA%width)
+    personBCoords = (personB//width, personB%width)
+    return math.sqrt((personACoords[0] - personBCoords[0]) ** 2 + (personACoords[1] - personBCoords[1]) ** 2)
 
 def calcPerson(table, index):
     # print("Calculating person at index:", index)
@@ -37,13 +42,17 @@ def calcPerson(table, index):
             personSum = personSum + 10
         if personB.name in personA.avoidances:
             personSum = personSum - 10
-        sum = sum + (personSum * 1/getDistanceTo(index, i))
+        sum = sum + (personSum * 1/getDistanceTo(table, index, i))
     return round(sum, 1)
 
 def calcTable(table):
+    table_hash = hash(tuple(table))
+    if table_hash in calculatedTables:
+        return calculatedTables[table_hash]
     peopleValues = []
     for i in range(len(table)):
         peopleValues.append(calcPerson(table, i))
+    calculatedTables[table_hash] = (sum(peopleValues), peopleValues)
     return (sum(peopleValues), peopleValues)
 
 def calcArrangement(arrangement):
