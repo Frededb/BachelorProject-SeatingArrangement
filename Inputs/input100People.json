@@ -529,14 +529,14 @@
     },
 
     {
-      "name": "GP01",
+      "name": "GP101",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": ["GP102"],
       "avoidances": []
     },
     {
-      "name": "GP02",
+      "name": "GP102",
       "studyprogram": "SWU",
       "year": "2023",
       "preferences": ["GP101"],
