@@ -2,16 +2,18 @@ from Utils.bmalls import getPersonByName
 
 
 def findClosedGroups(input):
-    for person1 in input:
-        goal = person1.preferences + [person1.name]
-        for prefence in person1.preferences:
-            person2 = getPersonByName(prefence, input)
-            if not listContainsTheSame(goal, person2.preferences + [person2.name]):
+    inputCopy = input.copy()
+    closedGroups = set()
+    for person1 in inputCopy:
+        pre = person1.preferences.copy()
+        person1.preferences.add(person1.name)
+        for prefence in pre:
+            person2 = getPersonByName(prefence, inputCopy)
+            person2.preferences.add(person2.name)
+            if not person1.preferences == person2.preferences:
                 break
         else:
-            print("Closed group found: ", goal)
+            closedGroups.add(frozenset(person1.preferences))
 
-
-def listContainsTheSame(list1, list2):
-    return set(list1) == set(list2)
+    return closedGroups
 
