@@ -17,5 +17,9 @@ def customArrangement(arrangement, personList):
     new_arrangement = [list(map(lambda name: peopleMap[name] or reader.emptyPerson, table)) for table in personList]
     return new_arrangement
 
-    
-    
+def getPersonByName(name, input):
+    for person in input:
+        if person.name == name:
+            return person
+    print("Person not found: ", name)
+    return None
