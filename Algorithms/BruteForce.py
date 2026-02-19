@@ -1,5 +1,5 @@
 from Utils.ValueCalc import calcTable, calcArrangement
-from itertools import islice, permutations
+from itertools import islice, permutations, combinations
 import math
 
 arrangement = []
@@ -32,4 +32,3 @@ def bruteForce(initialArrangement):
             bestValue = permValue
             bestArrangement = arrangement
     return bestArrangement
-
