@@ -11,6 +11,7 @@ def findClosedGroups(input):
             person2 = getPersonByName(prefence, inputCopy)
             person2.preferences.add(person2.name)
             if not person1.preferences == person2.preferences:
+                closedGroups.add(frozenset({person1.name}))
                 break
         else:
             closedGroups.add(frozenset(person1.preferences))
