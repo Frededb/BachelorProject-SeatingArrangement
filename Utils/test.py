@@ -28,8 +28,9 @@ def testcalcTable2(input = input1Table):
 
 def testbruteForce(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
-    value = bruteForce([input1Table, input2People])
+    value = bruteForce([input1Table])
     print(value, calcArrangement(value))
+    printer.printArrangementWithValues(value)
 
 def testRandomGreedy(input = input1Table):
     from Algorithms.RandomGreedy import randomGreedy
@@ -49,7 +50,8 @@ def testDefaultPlacement(input = input1Table):
 def testRandom(input = input1Table):
     from Algorithms.Random import randomArrangement
     randomArrangement = randomArrangement(input)
-    print("Random: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
+    # print("Random: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
+    printer.printArrangementWithValues(randomArrangement)
 
 def testRepeatedRandom(input = input1Table, N = 100):
     from Algorithms.RepeatedRandom import repeatedRandom
@@ -61,7 +63,8 @@ def testLinearSwitchDefault(input = input1Table, N = 10):
     from Algorithms.DefaultPlacement import defaultPlacement
     arrangement = defaultPlacement(input)
     optimizedArrangement = LinearSwitch(arrangement, N)
-    print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    # print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    print("LinearSwithchDefault:")
     printer.printArrangementWithValues(optimizedArrangement)
 
 def testLinearSwitchRandom(input = input1Table, N = 10, seed = None):
@@ -69,7 +72,8 @@ def testLinearSwitchRandom(input = input1Table, N = 10, seed = None):
     from Algorithms.Random import randomArrangement
     arrangement = randomArrangement(input, seed)
     optimizedArrangement = LinearSwitch(arrangement, N)
-    print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    # print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    print("LinearSwithchRandom:")
     printer.printArrangementWithValues(optimizedArrangement)
 
 def testLinearSwitchInfluenceList(input = input1Table, N = 10):
@@ -77,7 +81,9 @@ def testLinearSwitchInfluenceList(input = input1Table, N = 10):
     from Algorithms.InfluenceListGreedy import influenceListGreedy
     arrangement = influenceListGreedy(input)
     optimizedArrangement = LinearSwitch(arrangement, N)
-    print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    # print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    print("LinearSwithchInfluenceList:")
+    printer.printArrangementWithValues(optimizedArrangement)
 
 def testRandomSwitch(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
