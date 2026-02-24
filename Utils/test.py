@@ -79,6 +79,15 @@ def testLinearSwitchInfluenceList(input = input1Table, N = 10):
     optimizedArrangement = LinearSwitch(arrangement, N)
     print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
 
+def testLinearSwitchFromClosedgroups(input = input1Table, N = 10):
+    from Algorithms.LinearSwitch import LinearSwitch
+    from Algorithms.FromClosedGroups import fromClosedGroups
+    emptyArrangement = makeEmptyArrangement(len(input), 8)
+    arrangement = fromClosedGroups(emptyArrangement, input)
+    optimizedArrangement = LinearSwitch(arrangement, N)
+    printer.printArrangementWithValues(optimizedArrangement)
+    print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+
 def testRandomSwitch(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
     arrangement = defaultPlacement(input)
@@ -112,4 +121,20 @@ def testFromClosedGroups(input = input1Table, tableSize = 8):
     arrangement = makeEmptyArrangement(len(input), tableSize)
     fromClosedGroups(arrangement, input)
 
-testFromClosedGroups(input100People, 8)
+def testFindPairs(input = input1Table):
+    from Algorithms.findPairs import findPairs
+    result = findPairs(input)
+    for pair in result:
+        print(pair)
+
+def testLinearSwitchPairs(input = input1Table, N = 10):
+    from Algorithms.LinearSwitchPairs import LinearSwitchPairs
+    from Algorithms.findPairs import findPairs
+    from Algorithms.DefaultPlacement import defaultPlacement
+    arrangement = defaultPlacement(input)
+    pairs = findPairs(input)
+    optimizedArrangement = LinearSwitchPairs(arrangement, pairs, N)
+    print("LinearSwitchPairs: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    printer.printArrangementWithValues(optimizedArrangement)
+
+testFindPairs(input1Table)
