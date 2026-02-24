@@ -15,6 +15,10 @@ def switchPair(arrangement, pairA, pairB):
     arrangement[pairA[1][0]][pairA[1][1]], arrangement[pairB[1][0]][pairB[1][1]] = arrangement[pairB[1][0]][pairB[1][1]], arrangement[pairA[1][0]][pairA[1][1]]
     return arrangement
 
+def switchSets(arrangement, setA, setB):
+    for personA, personB in zip(setA, setB):
+        arrangement[personA[0]][personA[1]], arrangement[personB[0]][personB[1]] = arrangement[personB[0]][personB[1]], arrangement[personA[0]][personA[1]]
+    return arrangement
 
 def customArrangement(arrangement, personList):
     peopleMap = {person.name: person for table in arrangement for person in table}

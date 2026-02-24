@@ -134,7 +134,15 @@ def testLinearSwitchPairs(input = input1Table, N = 10):
     arrangement = defaultPlacement(input)
     pairs = findPairs(input)
     optimizedArrangement = LinearSwitchPairs(arrangement, pairs, N)
-    print("LinearSwitchPairs: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
-    printer.printArrangementWithValues(optimizedArrangement)
+    # print("LinearSwitchPairs: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    # printer.printArrangementWithValues(optimizedArrangement)
 
-testFindPairs(input1Table)
+def testLinearSwitchSets(input = input1Table, size = 2, N = 10):
+    from Algorithms.LinearSwitchSets import LinearSwitchSets
+    from Algorithms.Random import randomArrangement
+    arrangement = randomArrangement(input, 69)
+    optimizedArrangement = LinearSwitchSets(arrangement, size, N)
+    # print("LinearSwitchSets: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
+    # printer.printArrangementWithValues(optimizedArrangement)
+
+testLinearSwitchPairs(input1Table, 5)

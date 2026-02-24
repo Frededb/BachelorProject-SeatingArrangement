@@ -1,35 +1,41 @@
 from Algorithms.findPairs import findPairs
 from Utils.ValueCalc import calcTable, calcArrangement
 from Utils.bmalls import switch, getAllPeople, switchPair
+from Utils.printer import printTableWithValues
 
 
 def LinearSwitchPairs(arrangement, pairs, N):
     for count in range(N):
+        print(pairs)
         for pair in pairs:
-            personA = pair[0]
-            personB = pair[1]
+            personA = list(pair)[0]
+            personB = list(pair)[1]
 
-            #find the coordinates of personA and personB
-            personACoords = None
-            personBCoords = None
             for i in range(len(arrangement)):
-                for j in range(len(arrangement[i])):
-                    if arrangement[i][j].name == personA.name:
-                        personACoords = (i, j)
-                    if arrangement[i][j].name == personB.name:
-                        personBCoords = (i, j)
+                table = arrangement[i]
 
-            pairCoords = (personACoords, personBCoords)
+                # find the coordinates of personA and personB
+                personACoords = None
+                personBCoords = None
+                for i in range(len(arrangement)):
+                    for j in range(len(arrangement[i])):
+                        if arrangement[i][j].name == personA.name:
+                            personACoords = (i, j)
+                        if arrangement[i][j].name == personB.name:
+                            personBCoords = (i, j)
 
-            for table in arrangement:
-                for i in range(len(table)-1):
+                pairCoords = (personACoords, personBCoords)
 
+
+                for j in range(len(table)-1):
                     preValueTableA = calcTable(arrangement[personACoords[0]])[0]
                     preValueTableB = calcTable(arrangement[personBCoords[0]])[0]
                     preValueTableC = calcTable(table)[0]
                     preValueTotal = preValueTableA + preValueTableB + preValueTableC
 
-                    switchPair(arrangement, pairCoords, (table[i], table[i+1]))
+                    tmpTable = table.copy()
+
+                    switchPair(arrangement, pairCoords, ((i, j), (i, j+1)))
 
                     postValueTableA = calcTable(arrangement[personACoords[0]])[0]
                     postValueTableB = calcTable(arrangement[personBCoords[0]])[0]
@@ -37,25 +43,32 @@ def LinearSwitchPairs(arrangement, pairs, N):
                     postValueTotal = postValueTableA + postValueTableB + postValueTableC
 
                     if postValueTotal < preValueTotal:
-                        switchPair(arrangement, pairCoords, (table[i], table[i+1]))  # Switch back if no improvement
+                        switchPair(arrangement, pairCoords, ((i, j), (i, j+1)))  # Switch back if no improvement
+                    else:
+                        print("===========================")
+                        printTableWithValues(tmpTable)
+                        print(f"Switched pair {personA.name} and {personB.name} with table {i} for improvement from {preValueTotal/3} to {postValueTotal/3}")
+                        printTableWithValues(table)
 
-            for table in arrangement:
-                for i in range(len(table)//2):
 
-                    preValueTableA = calcTable(arrangement[personACoords[0]])[0]
-                    preValueTableB = calcTable(arrangement[personBCoords[0]])[0]
-                    preValueTableC = calcTable(table)[0]
-                    preValueTotal = preValueTableA + preValueTableB + preValueTableC
-
-                    switchPair(arrangement, pairCoords, (table[i], table[i + 4]))
-
-                    postValueTableA = calcTable(arrangement[personACoords[0]])[0]
-                    postValueTableB = calcTable(arrangement[personBCoords[0]])[0]
-                    postValueTableC = calcTable(table)[0]
-                    postValueTotal = postValueTableA + postValueTableB + postValueTableC
-
-                    if postValueTotal < preValueTotal:
-                        switchPair(arrangement, pairCoords, (table[i], table[i + 1]))  # Switch back if no improvement
+            # for i in range(len(arrangement)):
+            #     table = arrangement[i]
+            #     for j in range(len(table)//2):
+            #
+            #         preValueTableA = calcTable(arrangement[personACoords[0]])[0]
+            #         preValueTableB = calcTable(arrangement[personBCoords[0]])[0]
+            #         preValueTableC = calcTable(table)[0]
+            #         preValueTotal = preValueTableA + preValueTableB + preValueTableC
+            #
+            #         switchPair(arrangement, pairCoords, ((i, j), (i, j+4)))
+            #
+            #         postValueTableA = calcTable(arrangement[personACoords[0]])[0]
+            #         postValueTableB = calcTable(arrangement[personBCoords[0]])[0]
+            #         postValueTableC = calcTable(table)[0]
+            #         postValueTotal = postValueTableA + postValueTableB + postValueTableC
+            #
+            #         if postValueTotal < preValueTotal:
+            #             switchPair(arrangement, pairCoords, ((i, j), (i, j+4)))  # Switch back if no improvement
 
         print(f"Iteration {count} complete with value: {calcArrangement(arrangement)}")
     return arrangement
