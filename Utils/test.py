@@ -114,16 +114,229 @@ def testFindClosedGroups(input = input1Table):
         print(group)
 
 
-before = [["joho", "MMMM", "aubu", "fbuu", "GP02", "GGS5", "nsio", "Lida"], ["G4A6", "G4A2", "G4A1", "G4A8", "G4A3", "G4A4", "G4A5", "G4A7"], ["GS53", "GS52", "GS11", "GS13", "GS51", "G2A2", "G2A7", "GS12"], ["GBOB", "G3A7", "G3A4", "G3A10", "GGS9", "G3A6", "G3A9", "G3A8"], ["G2A5", "G2A4", "G2A1", "G2A8", "GGS6", "G2A9", "G2A6", "G2A3"], ["GP32", "GP31", "GP12", "GP11", "GGS7", "GGS2", "GGS4", "GP01"], ["G1A3", "G1A8", "G1A2", "G1A1", "G1A4", "G1A6", "G1A5", "G1A7"], ["D2D2", "GS41", "GS42", "GP72", "D1D1", "G523", "GS43", "GP71"], ["G3A3", "G3A12", "G3A11", "GP62", "G3A5", "G3A2", "G3A1", "GP61"], ["GS22", "GS23", "GS32", "GS31", "GS21", "GP51", "GS33", "GP52"], ["GP81", "GP21", "GP22", "G521", "GP82", "GGS3", "GP91", "GP92"], ["G534", "G531", "G512", "G522", "G532", "G513", "G533", "G511"], ["Empty", "Empty", "GP41", "GP42", "Empty", "Empty", "S1", "GGS8"]]
-after =  [["GP01", "MMMM", "aubu", "fbuu", "GP02", "GGS5", "nsio", "Lida"], ["G4A6", "G4A2", "G4A1", "G4A8", "G4A3", "G4A4", "G4A5", "G4A7"], ["GS53", "GS52", "GS11", "GS13", "GS51", "G2A2", "G2A7", "GS12"], ["GBOB", "G3A7", "G3A4", "G3A10", "GGS9", "G3A6", "G3A9", "G3A8"], ["G2A5", "G2A4", "G2A1", "G2A8", "GGS6", "G2A9", "G2A6", "G2A3"], ["GP32", "GP31", "GP12", "GP11", "GGS7", "GGS2", "GGS4", "joho"], ["G1A3", "G1A8", "G1A2", "G1A1", "G1A4", "G1A6", "G1A5", "G1A7"], ["D2D2", "GS41", "GS42", "GP72", "D1D1", "G523", "GS43", "GP71"], ["G3A3", "G3A12", "G3A11", "GP62", "G3A5", "G3A2", "G3A1", "GP61"], ["GS22", "GS23", "GS32", "GS31", "GS21", "GP51", "GS33", "GP52"], ["GP81", "GP21", "GP22", "G521", "GP82", "GGS3", "GP91", "GP92"], ["G534", "G531", "G512", "G522", "G532", "G513", "G533", "G511"], ["Empty", "Empty", "GP41", "GP42", "Empty", "Empty", "S1", "GGS8"]]
-onetable = [["GP21", "GT53", "GT52", "GT51", "GP22", "G523", "G4A2", "GBOB"]]
-onetable2 = [["GP21", "GT53", "GT52", "G523", "GP22", "GT51", "G4A2", "GBOB"]]
 
-# testCustomArrangement(input100People, before)
-# testCustomArrangement(input100People, after)
-# testCustomArrangement(input100People, onetable)
-# testCustomArrangement(input100People, onetable2)
-# testLinearSwitchRandom(input100People, 2, 69)
-# testbruteForceEachTable()
 
-testFindClosedGroups(input100People)
+# testFindClosedGroups(input100People)
+# testLinearSwitchDefault(input100People)
+# testLinearSwitchRandom(input100People)
+# testLinearSwitchInfluenceList(input100People)
+
+# testCustomArrangement(input100People, [[
+#   "GP11",
+#   "S5",
+#   "GBOB",
+#   "G521",
+#   "G522",
+#   "S8",
+#   "G523",
+#   "G1A4"], [
+#   "GP51",
+#   "S2",
+#   "GP42",
+#   "GP61",
+#   "G2A7",
+#   "nsio",
+#   "GT12",
+#   "G1A5"], [
+#   "Lida",
+#   "GP81",
+#   "G511",
+#   "S6",
+#   "G533",
+#   "GT22",
+#   "GT32",
+#   "G1A8"], [
+#   "G4A3",
+#   "G4A5",
+#   "GP41",
+#   "G1A3",
+#   "G512",
+#   "S4",
+#   "G1A2",
+#   "G4A1"], [
+#   "G3A2",
+#   "GT11",
+#   "GP32",
+#   "G4A2",
+#   "GT51",
+#   "GP92",
+#   "GP22"], [
+#   "GT53",
+#   "G531",
+#   "GP101",
+#   "D1D1",
+#   "GT52",
+#   "G3A9",
+#   "GT33"], [
+#   "G2A5",
+#   "aubu",
+#   "G4A4",
+#   "G2A3",
+#   "G2A6",
+#   "G534",
+#   "G3A11",
+#   "GP102"], [
+#   "G4A8",
+#   "G2A8",
+#   "G513",
+#   "GP12",
+#   "GP91",
+#   "MMMM",
+#   "GT23",
+#   "G3A12"], [
+#   "GP72",
+#   "G3A5",
+#   "G2A9",
+#   "fbuu",
+#   "G3A8",
+#   "GP71",
+#   "G3A4",
+#   "G2A4"], [
+#   "S1",
+#   "GT31",
+#   "G4A7",
+#   "GP62",
+#   "S3",
+#   "GT13",
+#   "GT21",
+#   "G1A1"], [
+#   "GP21",
+#   "G1A7",
+#   "G532",
+#   "joho",
+#   "GT42",
+#   "G2A1",
+#   "G3A10",
+#   "G3A3"], [
+#   "GT41",
+#   "S7",
+#   "D2D2",
+#   "G4A6",
+#   "GP52",
+#   "GP82",
+#   "G3A6",
+#   "G3A1"], [
+#   "G1A6",
+#   "S9",
+#   "G3A7",
+#   "GT43",
+#   "GP31",
+#   "G2A2"]])
+# testCustomArrangement(input100People, [[
+#     "GP11",
+#     "S5",
+#     "GBOB",
+#     "G521",
+#     "G522",
+#     "S8",
+#     "G523",
+#     "G1A4"
+#     ], [
+#     "GP51",
+#     "S2",
+#     "GP42",
+#     "GP61",
+#     "G2A7",
+#     "nsio",
+#     "GT12",
+#     "G1A5"
+#     ], [
+#     "Lida",
+#     "GP81",
+#     "G511",
+#     "S6",
+#     "G533",
+#     "GT22",
+#     "GT32",
+#     "G1A8"
+#     ], [
+#     "G4A3",
+#     "G4A5",
+#     "GP41",
+#     "G1A3",
+#     "G512",
+#     "S4",
+#     "G1A2",
+#     "G4A1"
+#     ], [
+#     "G3A2",
+#     "GT11",
+#     "GP32",
+#     "G4A2",
+#     "GT51",
+#     "GP92",
+#     "GP22"
+#     ], [
+#     "GT53",
+#     "G531",
+#     "GP101",
+#     "D1D1",
+#     "GT52",
+#     "G3A9",
+#     "GT33"
+#     ], [
+#     "G2A5",
+#     "aubu",
+#     "G4A4",
+#     "G2A3",
+#     "G2A6",
+#     "G534",
+#     "G3A11",
+#     "GP102"
+#     ], [
+#     "G4A8",
+#     "G2A8",
+#     "G513",
+#     "GP12",
+#     "GP91",
+#     "MMMM",
+#     "GT23",
+#     "G3A12"
+#     ], [
+#     "GP72",
+#     "G3A5",
+#     "G2A9",
+#     "fbuu",
+#     "G3A8",
+#     "GP71",
+#     "G3A4",
+#     "G2A4"
+#     ], [
+#     "S1",
+#     "GT31",
+#     "G4A7",
+#     "GP62",
+#     "S3",
+#     "GT13",
+#     "GT21",
+#     "G1A1"
+#     ], [
+#     "GP21",
+#     "G1A7",
+#     "G532",
+#     "joho",
+#     "GT42",
+#     "G2A1",
+#     "G3A10",
+#     "G3A3"
+#     ], [
+#     "GT41",
+#     "S7",
+#     "D2D2",
+#     "G4A6",
+#     "GP52",
+#     "GP82",
+#     "G3A6",
+#     "G3A1"
+#     ], [
+#     "G1A6",
+#     "S9",
+#     "G3A7",
+#     "GT43",
+#     "GP31",
+#     "G2A2"
+# ]])
+
+# testRandom(input100People)
+testbruteForce()
+
