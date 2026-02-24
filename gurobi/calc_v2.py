@@ -43,9 +43,7 @@ def _distance_weights(table_size=TABLE_SIZE):
 	table_template = [None] * table_size
 	weights = {}
 	for seat_a in range(table_size):
-		for seat_b in range(table_size):
-			if seat_a == seat_b:
-				continue
+		for seat_b in range(seat_a + 1, table_size):
 			dist = ValueCalc.getDistanceTo(table_template, seat_a, seat_b)
 			weights[(seat_a, seat_b)] = 1.0 / dist
 	return weights
@@ -59,12 +57,12 @@ def optimize_seating(people, time_limit=60, mip_gap=0.01, threads=None, verbose=
 
 	pair_scores = {}
 	for i in range(person_count):
-		for j in range(person_count):
-			if i == j:
-				continue
-			score = _base_pair_score(padded_people[i], padded_people[j])
-			if score != 0:
-				pair_scores[(i, j)] = score
+		for j in range(i + 1, person_count):
+			score_ij = _base_pair_score(padded_people[i], padded_people[j])
+			score_ji = _base_pair_score(padded_people[j], padded_people[i])
+			combined_score = score_ij + score_ji
+			if combined_score != 0:
+				pair_scores[(i, j)] = combined_score
 
 	seat_weights = _distance_weights(TABLE_SIZE)
 
@@ -98,7 +96,9 @@ def optimize_seating(people, time_limit=60, mip_gap=0.01, threads=None, verbose=
 	for t in range(table_count):
 		for (i, j), pair_score in pair_scores.items():
 			for (seat_a, seat_b), seat_weight in seat_weights.items():
-				objective += pair_score * seat_weight * x[i, t, seat_a] * x[j, t, seat_b]
+				coeff = pair_score * seat_weight
+				objective += coeff * x[i, t, seat_a] * x[j, t, seat_b]
+				objective += coeff * x[i, t, seat_b] * x[j, t, seat_a]
 
 	model.setObjective(objective, GRB.MAXIMIZE)
 	model.optimize()
@@ -118,8 +118,8 @@ def optimize_seating(people, time_limit=60, mip_gap=0.01, threads=None, verbose=
 	print(f"Gurobi objective: {model.ObjVal:.4f}")
 	if model.Status in (GRB.OPTIMAL, GRB.TIME_LIMIT, GRB.SUBOPTIMAL, GRB.INTERRUPTED):
 		print(f"Best bound: {model.ObjBound:.4f}")
-		if model.ObjVal != 0:
-			print(f"Gap: {abs(model.ObjVal - model.ObjBound) / abs(model.ObjVal):.4%}")
+		if math.isfinite(model.MIPGap):
+			print(f"Gap: {model.MIPGap:.4%}")
 
 	printArrangementWithValues(arrangement)
 	return arrangement
