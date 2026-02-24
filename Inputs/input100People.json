@@ -369,28 +369,28 @@
       "name": "G531",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G511", "G512", "G513"],
+      "preferences": ["G511", "G512", "G513", "G532", "G533", "G534"],
       "avoidances": ["G521", "G522", "G523"]
     },
     {
       "name": "G532",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G511", "G512", "G513"],
+      "preferences": ["G511", "G512", "G513", "G531", "G533", "G534"],
       "avoidances": ["G521", "G522", "G523"]
     },
     {
       "name": "G533",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G511", "G512", "G513"],
+      "preferences": ["G511", "G512", "G513", "G531", "G532", "G534"],
       "avoidances": ["G521", "G522", "G523"]
     },
     {
       "name": "G534",
       "studyprogram": "SWU",
       "year": "2023",
-      "preferences": ["G511", "G512", "G513"],
+      "preferences": ["G511", "G512", "G513", "G531", "G532", "G533"],
       "avoidances": ["G521", "G522", "G523"]
     },
     {

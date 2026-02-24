@@ -1,3 +1,5 @@
+from math import ceil
+
 from Utils import reader
 
 def getAllPeople(arrangement):
@@ -7,6 +9,12 @@ def getAllPeople(arrangement):
 def switch(arrangement, personA, personB):
     arrangement[personA[0]][personA[1]], arrangement[personB[0]][personB[1]] = arrangement[personB[0]][personB[1]], arrangement[personA[0]][personA[1]]
     return arrangement
+
+def switchPair(arrangement, pairA, pairB):
+    arrangement[pairA[0][0]][pairA[0][1]], arrangement[pairB[0][0]][pairB[0][1]] = arrangement[pairB[0][0]][pairB[0][1]], arrangement[pairA[0][0]][pairA[0][1]]
+    arrangement[pairA[1][0]][pairA[1][1]], arrangement[pairB[1][0]][pairB[1][1]] = arrangement[pairB[1][0]][pairB[1][1]], arrangement[pairA[1][0]][pairA[1][1]]
+    return arrangement
+
 
 def customArrangement(arrangement, personList):
     peopleMap = {person.name: person for table in arrangement for person in table}
@@ -23,3 +31,18 @@ def getPersonByName(name, input):
             return person
     print("Person not found: ", name)
     return None
+
+def getPersonsByName(names, input):
+    persons = set()
+    for name in names:
+        person = getPersonByName(name, input)
+        if person is not None:
+            persons.add(person)
+        else:
+            print("Person not found: ", name)
+    return persons
+
+
+def makeEmptyArrangement(n, tableSize):
+    from Utils.reader import emptyPerson
+    return [[emptyPerson for _ in range(tableSize)] for _ in range(ceil(n/tableSize))]

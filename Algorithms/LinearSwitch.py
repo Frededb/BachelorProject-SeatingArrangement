@@ -1,10 +1,10 @@
-from Utils.ValueCalc import calcTable
+from Utils.ValueCalc import calcTable, calcArrangement
 from Utils.bmalls import switch, getAllPeople
 
 
 def LinearSwitch(arrangement, N):
     allPeople = getAllPeople(arrangement)
-    for _ in range(N):
+    for i in range(N):
         for personA in allPeople:
             for personB in allPeople:
                 if personA == personB:
@@ -23,5 +23,5 @@ def LinearSwitch(arrangement, N):
                     switch(arrangement, personA, personB)  # Switch back if no improvement
                 # else:
                 #     print(f"Switched {arrangement[personB[0]][personB[1]].name} and {arrangement[personA[0]][personA[1]].name} for improvement from {preValueTotal} to {postValueTotal}")
-
+        print(f"Iteration {i} complete with value: {calcArrangement(arrangement)}")
     return arrangement
