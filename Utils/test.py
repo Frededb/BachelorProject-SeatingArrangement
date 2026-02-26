@@ -14,7 +14,8 @@ from Utils.ValueCalc import calcArrangement
 import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input1Table.json"))
+input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input100People.json"))
+input1Table = reader.readjson(os.path.join(script_dir, "../Inputs/input1Table.json"))
 
 # input1Table = reader.readjson("../Inputs/input1Table.json")
 # input2People = reader.readjson("../Inputs/input2People.json")
