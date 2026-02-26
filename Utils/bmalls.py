@@ -11,9 +11,15 @@ def switch(arrangement, personA, personB):
     return arrangement
 
 def switchPair(arrangement, pairA, pairB):
+    arrangement[pairA[1][0]][pairA[1][1]], arrangement[pairB[1][0]][pairB[1][1]] = arrangement[pairB[1][0]][pairB[1][1]], arrangement[pairA[1][0]][pairA[1][1]]
+    arrangement[pairA[0][0]][pairA[0][1]], arrangement[pairB[0][0]][pairB[0][1]] = arrangement[pairB[0][0]][pairB[0][1]], arrangement[pairA[0][0]][pairA[0][1]]
+    return arrangement
+
+def switchPairBack(arrangement, pairA, pairB):
     arrangement[pairA[0][0]][pairA[0][1]], arrangement[pairB[0][0]][pairB[0][1]] = arrangement[pairB[0][0]][pairB[0][1]], arrangement[pairA[0][0]][pairA[0][1]]
     arrangement[pairA[1][0]][pairA[1][1]], arrangement[pairB[1][0]][pairB[1][1]] = arrangement[pairB[1][0]][pairB[1][1]], arrangement[pairA[1][0]][pairA[1][1]]
     return arrangement
+
 
 def switchSets(arrangement, setA, setB):
     for personA, personB in zip(setA, setB):
