@@ -1,6 +1,11 @@
 import sys
 import os
 
+from Algorithms.DefaultPlacement import defaultPlacement
+from Algorithms.Random import randomArrangement
+from Algorithms.findPairs import findPairs
+from Utils.printer import printArrangementWithValues
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import reader
@@ -48,7 +53,6 @@ def testInfluenceListGreedy(input = input1Table):
     print("InfluenceListGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
 def testDefaultPlacement(input = input1Table):
-    from Algorithms.DefaultPlacement import defaultPlacement
     default = defaultPlacement(input)
     print("DefaultPlacement: ", calcArrangement(default)[0], default, calcArrangement(default))
 
@@ -62,28 +66,20 @@ def testRepeatedRandom(input = input1Table, N = 100):
     randomArrangement = repeatedRandom(N, input)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testLinearSwitchDefault(input = input1Table, N = 10):
+def testLinearSwitch(arrangement):
     from Algorithms.LinearSwitch import LinearSwitch
-    from Algorithms.DefaultPlacement import defaultPlacement
-    arrangement = defaultPlacement(input)
-    optimizedArrangement = LinearSwitch(arrangement, N)
-    print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
-    printer.printArrangementWithValues(optimizedArrangement)
 
-def testLinearSwitchRandom(input = input1Table, N = 10, seed = None):
-    from Algorithms.LinearSwitch import LinearSwitch
-    from Algorithms.Random import randomArrangement
-    arrangement = randomArrangement(input, seed)
-    optimizedArrangement = LinearSwitch(arrangement, N)
-    print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
-    printer.printArrangementWithValues(optimizedArrangement)
+    # run linear switch untill it dosent improve anymore
+    best = calcArrangement(arrangement)[0]
+    while True:
+        LinearSwitch(arrangement)
+        calcOptimized = calcArrangement(arrangement)[0]
+        print("Best switch: ", calcOptimized)
+        if best == calcOptimized:
+            break
+        best = calcOptimized
+    return arrangement
 
-def testLinearSwitchInfluenceList(input = input1Table, N = 10):
-    from Algorithms.LinearSwitch import LinearSwitch
-    from Algorithms.InfluenceListGreedy import influenceListGreedy
-    arrangement = influenceListGreedy(input)
-    optimizedArrangement = LinearSwitch(arrangement, N)
-    print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
 
 def testLinearSwitchFromClosedgroups(input = input1Table, N = 10):
     from Algorithms.LinearSwitch import LinearSwitch
@@ -128,21 +124,23 @@ def testFromClosedGroups(input = input1Table, tableSize = 8):
     fromClosedGroups(arrangement, input)
 
 def testFindPairs(input = input1Table):
-    from Algorithms.findPairs import findPairs
     result = findPairs(input)
     for pair in result:
         print(pair)
 
-def testLinearSwitchPairs(input = input1Table, N = 10):
+def testLinearSwitchPairs(arrangement, pairs):
     from Algorithms.LinearSwitchPairs import LinearSwitchPairs
-    from Algorithms.findPairs import findPairs
-    from Algorithms.DefaultPlacement import defaultPlacement
-    arrangement = defaultPlacement(input)
-    pairs = findPairs(input)
-    optimizedArrangement = LinearSwitchPairs(arrangement, pairs, N)
-    return optimizedArrangement
-    # print("LinearSwitchPairs: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
-    # printer.printArrangementWithValues(optimizedArrangement)
+
+    #run linear switch pairs untill it dosent improve anymore
+    best = calcArrangement(arrangement)[0]
+    while True:
+        LinearSwitchPairs(arrangement, pairs)
+        calcOptimized = calcArrangement(arrangement)[0]
+        print("Best Pair switch: ", calcOptimized)
+        if best == calcOptimized:
+            break
+        best = calcOptimized
+    return arrangement
 
 def testLinearSwitchSets(input = input1Table, size = 2, N = 10):
     from Algorithms.LinearSwitchSets import LinearSwitchSets
@@ -152,4 +150,20 @@ def testLinearSwitchSets(input = input1Table, size = 2, N = 10):
     # print("LinearSwitchSets: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
     # printer.printArrangementWithValues(optimizedArrangement)
 
-testLinearSwitchPairs(input100People, 1)
+def testLinearSwitchCombined(input = input1Table):
+    pairs = findPairs(input)
+    arrangement = defaultPlacement(input)
+    best = calcArrangement(arrangement)[0]
+    while True:
+        testLinearSwitchPairs(arrangement, pairs)
+        testLinearSwitch(arrangement)
+
+        calcOptimized = calcArrangement(arrangement)[0]
+
+        if best == calcOptimized:
+            break
+        best = calcOptimized
+
+    printArrangementWithValues(arrangement)
+
+testLinearSwitchCombined(input100People)
