@@ -66,8 +66,8 @@ def testRepeatedRandom(input = input1Table, N = 100):
     randomArrangement = repeatedRandom(N, input)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testLinearSwitch(arrangement):
-    from Algorithms.LinearSwitch import LinearSwitch
+def testLinearSwitch2People(arrangement):
+    from Algorithms.LinearSwitch2People import LinearSwitch
 
     # run linear switch untill it dosent improve anymore
     best = calcArrangement(arrangement)[0]
@@ -82,7 +82,7 @@ def testLinearSwitch(arrangement):
 
 
 def testLinearSwitchFromClosedgroups(input = input1Table, N = 10):
-    from Algorithms.LinearSwitch import LinearSwitch
+    from Algorithms.LinearSwitch2People import LinearSwitch
     from Algorithms.FromClosedGroups import fromClosedGroups
     emptyArrangement = makeEmptyArrangement(len(input), 8)
     arrangement = fromClosedGroups(emptyArrangement, input)
@@ -142,13 +142,19 @@ def testLinearSwitchPairs(arrangement, pairs):
         best = calcOptimized
     return arrangement
 
-def testLinearSwitchSets(input = input1Table, size = 2, N = 10):
-    from Algorithms.LinearSwitchSets import LinearSwitchSets
-    from Algorithms.Random import randomArrangement
-    arrangement = randomArrangement(input, 69)
-    optimizedArrangement = LinearSwitchSets(arrangement, size, N)
-    # print("LinearSwitchSets: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
-    # printer.printArrangementWithValues(optimizedArrangement)
+def testLinearSwitch3People(arrangement):
+    from Algorithms.LinearSwitch3People import LinearSwitch3People
+
+    # run linear switch untill it dosent improve anymore
+    best = calcArrangement(arrangement)[0]
+    while True:
+        LinearSwitch3People(arrangement)
+        calcOptimized = calcArrangement(arrangement)[0]
+        print("Best switch 3 people: ", calcOptimized)
+        if best == calcOptimized:
+            break
+        best = calcOptimized
+    return arrangement
 
 def testLinearSwitchCombined(input = input1Table):
     pairs = findPairs(input)
@@ -156,7 +162,8 @@ def testLinearSwitchCombined(input = input1Table):
     best = calcArrangement(arrangement)[0]
     while True:
         testLinearSwitchPairs(arrangement, pairs)
-        testLinearSwitch(arrangement)
+        testLinearSwitch2People(arrangement)
+        testLinearSwitch3People(arrangement)
 
         calcOptimized = calcArrangement(arrangement)[0]
 
@@ -166,4 +173,9 @@ def testLinearSwitchCombined(input = input1Table):
 
     printArrangementWithValues(arrangement)
 
-testLinearSwitchCombined(input100People)
+# testLinearSwitchCombined(input100People)
+
+# testLinearSwitch3People(defaultPlacement(input100People))
+
+
+testLinearSwitch3People(defaultPlacement(input100People))
