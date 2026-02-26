@@ -23,23 +23,27 @@ from Utils.reader import emptyPerson, readjson
 TABLE_SIZE = 8
 
 
-def _base_pair_score(person_a, person_b):
+def base_pair_score(person_a, person_b):
 	if person_a.name == "Empty" or person_b.name == "Empty":
 		return 0.0
 
 	score = 0.0
 	if person_a.studyprogram == person_b.studyprogram:
-		score += 3.0
+		score += 3.0 * 2
 	if person_a.year == person_b.year:
-		score += 1.0
+		score += 1.0 * 2
 	if person_b.name in person_a.preferences:
 		score += 10.0
 	if person_b.name in person_a.avoidances:
 		score -= 10.0
+	if person_a.name in person_b.preferences:
+		score += 10.0
+	if person_a.name in person_b.avoidances:
+		score -= 10.0
 	return score
 
 
-def _distance_weights(table_size=TABLE_SIZE):
+def distance_weights(table_size=TABLE_SIZE):
 	table_template = [None] * table_size
 	weights = {}
 	for seat_a in range(table_size):
@@ -58,13 +62,9 @@ def optimize_seating(people, time_limit=60, mip_gap=0.01, threads=None, verbose=
 	pair_scores = {}
 	for i in range(person_count):
 		for j in range(i + 1, person_count):
-			score_ij = _base_pair_score(padded_people[i], padded_people[j])
-			score_ji = _base_pair_score(padded_people[j], padded_people[i])
-			combined_score = score_ij + score_ji
+			combined_score = base_pair_score(padded_people[j], padded_people[i])
 			if combined_score != 0:
 				pair_scores[(i, j)] = combined_score
-
-	seat_weights = _distance_weights(TABLE_SIZE)
 
 	model = gp.Model("seating_miqp")
 	model.Params.TimeLimit = time_limit
@@ -89,9 +89,7 @@ def optimize_seating(people, time_limit=60, mip_gap=0.01, threads=None, verbose=
 				name=f"fill_seat_t{t}_s{s}",
 			)
 
-	if person_count > 0:
-		model.addConstr(x[0, 0, 0] == 1, name="symmetry_anchor")
-
+	seat_weights = distance_weights(TABLE_SIZE)
 	objective = gp.QuadExpr()
 	for t in range(table_count):
 		for (i, j), pair_score in pair_scores.items():
