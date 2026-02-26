@@ -11,12 +11,17 @@ from Utils.bmalls import customArrangement, makeEmptyArrangement
 
 from Utils.ValueCalc import calcArrangement
 
-input1Table = reader.readjson("../Inputs/input1Table.json")
-input2People = reader.readjson("../Inputs/input2People.json")
-input4People = reader.readjson("../Inputs/input4People.json")
-input6People = reader.readjson("../Inputs/input6People.json")
-input7People = reader.readjson("../Inputs/input7People.json")
-input100People = reader.readjson("../Inputs/input100People.json")
+import os
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input1Table.json"))
+
+# input1Table = reader.readjson("../Inputs/input1Table.json")
+# input2People = reader.readjson("../Inputs/input2People.json")
+# input4People = reader.readjson("../Inputs/input4People.json")
+# input6People = reader.readjson("../Inputs/input6People.json")
+# input7People = reader.readjson("../Inputs/input7People.json")
+# input100People = reader.readjson("../Inputs/input100People.json")
 
 def testcalcPerson(input = input1Table):
     print("lida: ", ValueCalc.calcPerson(input, 0))
