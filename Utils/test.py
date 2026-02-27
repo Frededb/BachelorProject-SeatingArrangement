@@ -1,9 +1,7 @@
-import sys
-import os
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import path
 
 from Algorithms.LinearSwitch3PeopleSets import LinearSwitch3PeopleSets
+from Algorithms.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
 
 from Algorithms.DefaultPlacement import defaultPlacement
 from Algorithms.LinearSwitch2People import LinearSwitch2People
@@ -180,7 +178,6 @@ def testLinearSwitch4People(arrangement):
     return arrangement
 
 def testLinearSwitch4PeopleSets(arrangement):
-    from Algorithms.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
     # run linear switch untill it dosent improve anymore
     best = calcArrangement(arrangement)[0]
     while True:
@@ -222,4 +219,4 @@ def testLinearSwitchCombined(input = input1Table):
 
     printArrangementWithValues(arrangement)
 
-testLinearSwitchCombined(input100People)
+printArrangementWithValues(LinearSwitch4PeopleSets(randomArrangement(input100People, 69)))
