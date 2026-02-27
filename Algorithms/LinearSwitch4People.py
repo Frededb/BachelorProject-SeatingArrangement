@@ -10,8 +10,6 @@ def LinearSwitch4People(arrangement):
         for personB in allPeople:
             for personC in allPeople:
                 for personD in allPeople:
-                    if personA == personB or personA == personC or personB == personC or personA == personD or personB == personD or personC == personD:
-                        continue
 
                     preValueTotal = calcArrangement(arrangement)
 
@@ -21,4 +19,5 @@ def LinearSwitch4People(arrangement):
 
                     if postValueTotal < preValueTotal:
                         switch4PeopleBack(arrangement, personA, personB, personC, personD)  # Switch back if no improvementt))
+        print(f"Finished checking combinations for personA: {personA}")
     return arrangement

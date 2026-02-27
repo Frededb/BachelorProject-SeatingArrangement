@@ -1,5 +1,7 @@
 import sys
 import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 from Algorithms.DefaultPlacement import defaultPlacement
 from Algorithms.LinearSwitch2People import LinearSwitch2People
@@ -9,7 +11,7 @@ from Algorithms.Random import randomArrangement
 from Algorithms.findPairs import findPairs
 from Utils.printer import printArrangementWithValues
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 import reader
 import ValueCalc
@@ -159,6 +161,20 @@ def testLinearSwitch3People(arrangement):
         best = calcOptimized
     return arrangement
 
+def testLinearSwitch4People(arrangement):
+    from Algorithms.LinearSwitch3People import LinearSwitch3People
+
+    # run linear switch untill it dosent improve anymore
+    best = calcArrangement(arrangement)[0]
+    while True:
+        LinearSwitch4People(arrangement)
+        calcOptimized = calcArrangement(arrangement)[0]
+        print("Best switch 4 people: ", calcOptimized)
+        if best == calcOptimized:
+            break
+        best = calcOptimized
+    return arrangement
+
 def testLinearSwitchCombined(input = input1Table):
     pairs = findPairs(input)
     arrangement = defaultPlacement(input)
@@ -180,6 +196,4 @@ def testLinearSwitchCombined(input = input1Table):
 
 # testLinearSwitch3People(defaultPlacement(input100People))
 
-printArrangementWithValues(LinearSwitch4People(defaultPlacement(input1Table)))
-printArrangementWithValues(LinearSwitch3People(defaultPlacement(input1Table)))
-printArrangementWithValues(LinearSwitch2People(defaultPlacement(input1Table)))
+printArrangementWithValues(testLinearSwitch4People(defaultPlacement(input100People)))
