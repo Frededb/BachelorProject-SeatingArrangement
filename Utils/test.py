@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
@@ -44,8 +45,9 @@ def testcalcTable2(input = input1Table):
 
 def testbruteForce(input = input1Table):
     from Algorithms.DefaultPlacement import defaultPlacement
-    value = bruteForce([input1Table, input2People])
+    value = bruteForce([input1Table])
     print(value, calcArrangement(value))
+    printer.printArrangementWithValues(value)
 
 def testRandomGreedy(input = input1Table):
     from Algorithms.RandomGreedy import randomGreedy
@@ -58,13 +60,15 @@ def testInfluenceListGreedy(input = input1Table):
     print("InfluenceListGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
 def testDefaultPlacement(input = input1Table):
+    from Algorithms.DefaultPlacement import defaultPlacement
     default = defaultPlacement(input)
     print("DefaultPlacement: ", calcArrangement(default)[0], default, calcArrangement(default))
 
 def testRandom(input = input1Table):
     from Algorithms.Random import randomArrangement
     randomArrangement = randomArrangement(input)
-    print("Random: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
+    # print("Random: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
+    printer.printArrangementWithValues(randomArrangement)
 
 def testRepeatedRandom(input = input1Table, N = 100):
     from Algorithms.RepeatedRandom import repeatedRandom
