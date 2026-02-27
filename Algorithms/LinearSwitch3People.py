@@ -13,11 +13,11 @@ def LinearSwitch3People(arrangement):
                 if personA == personB or personA == personC or personB == personC:
                     continue
 
-                preValueTotal = calcArrangement(arrangement)
+                preValueTotal = calcArrangement(arrangement)[0]
 
                 switch3People(arrangement, personA, personB, personC)
 
-                postValueTotal = calcArrangement(arrangement)
+                postValueTotal = calcArrangement(arrangement)[0]
 
                 if postValueTotal < preValueTotal:
                     switch3PeopleBack(arrangement, personA, personB, personC)  # Switch back if no improvementt))

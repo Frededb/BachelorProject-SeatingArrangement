@@ -16,11 +16,11 @@ def LinearSwitch4People(arrangement):
                 for personD in allPeople:
                     if personD == personA or personD == personB or personD == personC:
                         continue
-                    preValueTotal = calcArrangement(arrangement)
+                    preValueTotal = calcArrangement(arrangement)[0]
 
                     switch4People(arrangement, personA, personB, personC, personD)
 
-                    postValueTotal = calcArrangement(arrangement)
+                    postValueTotal = calcArrangement(arrangement)[0]
 
                     if postValueTotal < preValueTotal:
                         switch4PeopleBack(arrangement, personA, personB, personC, personD)  # Switch back if no improvementt))
