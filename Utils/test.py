@@ -219,4 +219,5 @@ def testLinearSwitchCombined(input = input1Table):
 
     printArrangementWithValues(arrangement)
 
-printArrangementWithValues(LinearSwitch4PeopleSets(randomArrangement(input100People, 69)))
+
+testLinearSwitchCombined(input100People)
