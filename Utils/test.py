@@ -2,6 +2,9 @@ import sys
 import os
 
 from Algorithms.DefaultPlacement import defaultPlacement
+from Algorithms.LinearSwitch2People import LinearSwitch2People
+from Algorithms.LinearSwitch3People import LinearSwitch3People
+from Algorithms.LinearSwitch4People import LinearSwitch4People
 from Algorithms.Random import randomArrangement
 from Algorithms.findPairs import findPairs
 from Utils.printer import printArrangementWithValues
@@ -67,12 +70,12 @@ def testRepeatedRandom(input = input1Table, N = 100):
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
 def testLinearSwitch2People(arrangement):
-    from Algorithms.LinearSwitch2People import LinearSwitch
+    from Algorithms.LinearSwitch2People import LinearSwitch2People
 
     # run linear switch untill it dosent improve anymore
     best = calcArrangement(arrangement)[0]
     while True:
-        LinearSwitch(arrangement)
+        LinearSwitch2People(arrangement)
         calcOptimized = calcArrangement(arrangement)[0]
         print("Best switch: ", calcOptimized)
         if best == calcOptimized:
@@ -82,11 +85,11 @@ def testLinearSwitch2People(arrangement):
 
 
 def testLinearSwitchFromClosedgroups(input = input1Table, N = 10):
-    from Algorithms.LinearSwitch2People import LinearSwitch
+    from Algorithms.LinearSwitch2People import LinearSwitch2People
     from Algorithms.FromClosedGroups import fromClosedGroups
     emptyArrangement = makeEmptyArrangement(len(input), 8)
     arrangement = fromClosedGroups(emptyArrangement, input)
-    optimizedArrangement = LinearSwitch(arrangement, N)
+    optimizedArrangement = LinearSwitch2People(arrangement, N)
     printer.printArrangementWithValues(optimizedArrangement)
     print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
 
@@ -177,5 +180,6 @@ def testLinearSwitchCombined(input = input1Table):
 
 # testLinearSwitch3People(defaultPlacement(input100People))
 
-
-testLinearSwitch3People(defaultPlacement(input100People))
+printArrangementWithValues(LinearSwitch4People(defaultPlacement(input1Table)))
+printArrangementWithValues(LinearSwitch3People(defaultPlacement(input1Table)))
+printArrangementWithValues(LinearSwitch2People(defaultPlacement(input1Table)))

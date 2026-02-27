@@ -28,6 +28,14 @@ def switch3PeopleBack(arrangement, personA, personB, personC):
     arrangement[personA[0]][personA[1]], arrangement[personB[0]][personB[1]], arrangement[personC[0]][personC[1]] = arrangement[personC[0]][personC[1]], arrangement[personA[0]][personA[1]], arrangement[personB[0]][personB[1]]
     return arrangement
 
+def switch4People(arrangement, personA, personB, personC, personD):
+    arrangement[personA[0]][personA[1]], arrangement[personB[0]][personB[1]], arrangement[personC[0]][personC[1]], arrangement[personD[0]][personD[1]] = arrangement[personB[0]][personB[1]], arrangement[personC[0]][personC[1]], arrangement[personD[0]][personD[1]], arrangement[personA[0]][personA[1]]
+    return arrangement
+
+def switch4PeopleBack(arrangement, personA, personB, personC, personD):
+    arrangement[personA[0]][personA[1]], arrangement[personB[0]][personB[1]], arrangement[personC[0]][personC[1]], arrangement[personD[0]][personD[1]] = arrangement[personD[0]][personD[1]], arrangement[personA[0]][personA[1]], arrangement[personB[0]][personB[1]], arrangement[personC[0]][personC[1]]
+    return arrangement
+
 def customArrangement(arrangement, personList):
     peopleMap = {person.name: person for table in arrangement for person in table}
     for table in personList:
