@@ -219,5 +219,5 @@ def testLinearSwitchCombined(input = input1Table):
 
     printArrangementWithValues(arrangement)
 
-
-testLinearSwitchCombined(input100People)
+if __name__ == "__main__":
+    testLinearSwitchCombined(input100People)
