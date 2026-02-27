@@ -2,7 +2,7 @@ from Utils.ValueCalc import calcTable, calcArrangement
 from Utils.bmalls import switch, getAllPeople
 
 
-def LinearSwitch(arrangement):
+def LinearSwitch2People(arrangement):
     allPeople = getAllPeople(arrangement)
     for personA in allPeople:
         for personB in allPeople:
