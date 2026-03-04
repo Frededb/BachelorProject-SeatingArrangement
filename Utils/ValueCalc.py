@@ -32,7 +32,7 @@ def calcPerson(table, index):
         if personB.name in personA.avoidances:
             personSum = personSum - 10
         sum = sum + (personSum * 1/getDistanceTo(table, index, i))
-    return round(sum, 1)
+    return sum
 
 def calcTable(table):
     table_hash = hash(tuple(table))
@@ -51,7 +51,7 @@ def calcArrangement(arrangement):
         tableValue, table = calcTable(arrangement[i])
         tableValues.append(tableValue)
         peopleValues.append(table)
-    return (sum(tableValues), tableValues, peopleValues)
+    return (round(sum(tableValues), 2), tableValues, peopleValues)
 
 def calcTheoreticalMax(input, tableSize = 8):
     maxValue = 0
