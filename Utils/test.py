@@ -220,5 +220,24 @@ def testLinearSwitchCombined(input = input1Table):
 
     printArrangementWithValues(arrangement)
 
+def testLinearSwitchNTimes(input = input1Table, N = 5):
+    bestArrangement = randomArrangement(input)
+    bestScore = calcArrangement(bestArrangement)[0]
+
+    for i in range(N):
+        arrangement = randomArrangement(input)
+
+        testLinearSwitch4PeopleSets(arrangement)
+
+        calcOptimized = calcArrangement(arrangement)[0]
+        print(f"iteration {i}: ", calcOptimized)
+
+        if calcOptimized > bestScore:
+            bestScore = calcOptimized
+            bestArrangement = arrangement
+
+    printArrangementWithValues(bestArrangement)
+
 if __name__ == "__main__":
-    testLinearSwitchCombined(input100PeopleSimple)
+    # testLinearSwitchNTimes(input100People, 10)
+    printArrangementWithValues(LinearSwitch4PeopleSets(defaultPlacement(input100People)))

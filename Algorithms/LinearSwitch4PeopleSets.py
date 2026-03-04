@@ -26,8 +26,9 @@ def LinearSwitch4PeopleSets(arrangement):
             switch4PeopleBack(arrangement, permutation[0], permutation[1], permutation[2], permutation[3])
 
         count += 1
-        if count % 1000000 == 0:
-            count = 0
-            print(f"Finished checking combinations for set: {permutation}")
+
+
+        if count % 10000000 == 0:
+            print(f"Checked {count/110355024*100} %")
 
     return arrangement
