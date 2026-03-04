@@ -20,6 +20,8 @@ import printer
 from Utils.bmalls import customArrangement, makeEmptyArrangement
 
 from Utils.ValueCalc import calcArrangement
+import math
+import random
 
 import os
 
@@ -236,7 +238,7 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
             bestScore = calcOptimized
             bestArrangement = arrangement
 
-    printArrangementWithValues(bestArrangement)
+# printArrangementWithValues(testLinearSwitch4People(defaultPlacement(input100People)))
 
 if __name__ == "__main__":
     # testLinearSwitchNTimes(input100People, 10)
