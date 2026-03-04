@@ -21,6 +21,8 @@ import printer
 from Utils.bmalls import customArrangement, makeEmptyArrangement
 
 from Utils.ValueCalc import calcArrangement
+import math
+import random
 
 import os
 
@@ -200,4 +202,8 @@ def testLinearSwitchCombined(input = input1Table):
 
 # testLinearSwitch3People(defaultPlacement(input100People))
 
-printArrangementWithValues(testLinearSwitch4People(defaultPlacement(input100People)))
+# printArrangementWithValues(testLinearSwitch4People(defaultPlacement(input100People)))
+
+for i in [random.randint(0, 100) for x in range(90, 100)]:
+    for j in [random.randint(0, 100) for x in range(90, 100)]:
+        print(f"{i}, {j} = {(math.sqrt(i*j))}")
