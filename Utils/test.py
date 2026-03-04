@@ -26,6 +26,7 @@ import os
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input100People.json"))
 input1Table = reader.readjson(os.path.join(script_dir, "../Inputs/input1Table.json"))
+input100PeopleSimple = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSimple.json"))
 
 # input1Table = reader.readjson("../Inputs/input1Table.json")
 # input2People = reader.readjson("../Inputs/input2People.json")
@@ -203,13 +204,13 @@ def testLinearSwitch3PeopleSets(arrangement):
     return arrangement
 
 def testLinearSwitchCombined(input = input1Table):
-    pairs = findPairs(input)
+    # pairs = findPairs(input)
     arrangement = randomArrangement(input, 69)
     best = calcArrangement(arrangement)[0]
     while True:
+        testLinearSwitch4PeopleSets(arrangement)
         testLinearSwitch2People(arrangement)
         testLinearSwitch3PeopleSets(arrangement)
-        testLinearSwitch4PeopleSets(arrangement)
 
         calcOptimized = calcArrangement(arrangement)[0]
 
@@ -220,4 +221,4 @@ def testLinearSwitchCombined(input = input1Table):
     printArrangementWithValues(arrangement)
 
 if __name__ == "__main__":
-    testLinearSwitchCombined(input100People)
+    testLinearSwitchCombined(input100PeopleSimple)
