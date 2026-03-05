@@ -51,7 +51,7 @@ def calcArrangement(arrangement):
         tableValue, table = calcTable(arrangement[i])
         tableValues.append(tableValue)
         peopleValues.append(table)
-    return (round(sum(tableValues), 2), tableValues, peopleValues)
+    return round(sum(tableValues), 2), tableValues, peopleValues
 
 def calcTheoreticalMax(input, tableSize = 8):
     maxValue = 0
