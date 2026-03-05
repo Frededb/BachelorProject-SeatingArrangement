@@ -9,6 +9,7 @@ from Algorithms.LinearSwitch3People import LinearSwitch3People
 from Algorithms.LinearSwitch4People import LinearSwitch4People
 from Algorithms.Random import randomArrangement
 from Algorithms.findPairs import findPairs
+from Utils.isStable import isStable
 from Utils.printer import printArrangementWithValues
 
 
@@ -205,6 +206,19 @@ def testLinearSwitch3PeopleSets(arrangement):
         best = calcOptimized
     return arrangement
 
+def testLinearSwitch2PeopleSets(arrangement):
+    from Algorithms.LinearSwitch2PeopleSets import LinearSwitch2PeopleSets
+    # run linear switch untill it dosent improve anymore
+    best = calcArrangement(arrangement)[0]
+    while True:
+        LinearSwitch2PeopleSets(arrangement)
+        calcOptimized = calcArrangement(arrangement)[0]
+        print("Best switch 2 people sets: ", calcOptimized)
+        if best == calcOptimized:
+            break
+        best = calcOptimized
+    return arrangement
+
 def testLinearSwitchCombined(input = input1Table):
     # pairs = findPairs(input)
     arrangement = randomArrangement(input, 69)
@@ -243,5 +257,11 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
 # printArrangementWithValues(testLinearSwitch4People(defaultPlacement(input100People)))
 
 if __name__ == "__main__":
-    # testLinearSwitchNTimes(input100People, 10)
-    printArrangementWithValues(testLinearSwitchNTimes(input100People, 10))
+    randomNumber = random.randint(0, 100000)
+    print(randomNumber)
+    arrangementTest = LinearSwitch4PeopleSets(randomArrangement(input100People, randomNumber))
+    print("Here: ", calcArrangement(arrangementTest)[0], arrangementTest, calcArrangement(arrangementTest))
+    print(isStable(arrangementTest))
+
+    # testCustomArrangement(input100People, [["GT51", "fbuu", "aubu", "MMMM", "GT52", "GT53", "S9", "GBOB"], ["GP21", "GP22", "Lida", "nsio", "S3", "S6", "GP32", "GP31"]])
+    # testCustomArrangement(input100People, [["GT51", "fbuu", "aubu", "Lida", "GT52", "GT53", "S9", "GBOB"], ["GP21", "GP22", "MMMM", "nsio", "S3", "S6", "GP32", "GP31"]])
