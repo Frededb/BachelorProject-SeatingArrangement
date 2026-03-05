@@ -1,7 +1,7 @@
 import itertools
 
-from Utils.ValueCalc import calcTable, calcArrangement
-from Utils.bmalls import switch, getAllPeople, switch3People, switch3PeopleBack
+from Utils.ValueCalc import calcArrangement
+from Utils.bmalls import getAllPeople, switch3People, switch3PeopleBack
 from Utils.printer import printArrangementWithValues
 
 

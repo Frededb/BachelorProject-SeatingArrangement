@@ -14,6 +14,7 @@ def LinearSwitch2People(arrangement):
             preValueTotal = preValueTableA + preValueTableB
 
             switch(arrangement, personA, personB)
+
             postValueTableA = calcTable(arrangement[personA[0]])[0]
             postValueTableB = calcTable(arrangement[personB[0]])[0]
             postValueTotal = postValueTableA + postValueTableB
