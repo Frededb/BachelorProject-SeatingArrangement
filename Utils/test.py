@@ -229,7 +229,7 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
     for i in range(N):
         arrangement = randomArrangement(input)
 
-        testLinearSwitch4PeopleSets(arrangement)
+        testLinearSwitch3PeopleSets(arrangement)
 
         calcOptimized = calcArrangement(arrangement)[0]
         print(f"iteration {i}: ", calcOptimized)
@@ -238,8 +238,10 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
             bestScore = calcOptimized
             bestArrangement = arrangement
 
+    return bestArrangement
+
 # printArrangementWithValues(testLinearSwitch4People(defaultPlacement(input100People)))
 
 if __name__ == "__main__":
     # testLinearSwitchNTimes(input100People, 10)
-    printArrangementWithValues(LinearSwitch4PeopleSets(defaultPlacement(input100People)))
+    printArrangementWithValues(testLinearSwitchNTimes(input100People, 10))
