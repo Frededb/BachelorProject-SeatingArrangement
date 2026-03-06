@@ -1,0 +1,1211 @@
+[
+  {
+    "name": "GBI24_01",
+    "studyprogram": "GBI",
+    "year": "2024",
+    "preferences": [],
+    "avoidances": []
+  },
+  {
+    "name": "DS23_01",
+    "studyprogram": "DS",
+    "year": "2023",
+    "preferences": [
+      "DS23_04",
+      "DS25_01"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_01",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT24_02",
+      "SWU23_11",
+      "SWU24_06"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_02",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "SWU23_06",
+      "SWU23_11"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_01",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DS23_04",
+      "DS25_06",
+      "SWU23_07",
+      "SWU23_08"
+    ],
+    "avoidances": [
+      "DDIT24_04"
+    ]
+  },
+  {
+    "name": "DS25_01",
+    "studyprogram": "DS",
+    "year": "2025",
+    "preferences": [
+      "DDIT23_04",
+      "DDIT24_03",
+      "DS23_01",
+      "DS25_02",
+      "DS25_03",
+      "DS25_08"
+    ],
+    "avoidances": [
+      "DS24_01",
+      "DS24_02"
+    ]
+  },
+  {
+    "name": "SWU24_02",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DDIT23_03",
+      "DDIT23_08",
+      "DDIT24_04",
+      "DS24_03",
+      "SWU23_16",
+      "SWU24_14",
+      "SWU24_15"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT23_01",
+    "studyprogram": "DDIT",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_07",
+      "DS24_08"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU25_01",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [
+      "DDIT25_08",
+      "DS23_08",
+      "GBI25_01"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT23_02",
+    "studyprogram": "DDIT",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_03",
+      "SWU24_03"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_03",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_03",
+      "DDIT24_03",
+      "SWU25_08"
+    ],
+    "avoidances": [
+      "DS23_06"
+    ]
+  },
+  {
+    "name": "DS23_02",
+    "studyprogram": "DS",
+    "year": "2023",
+    "preferences": [
+      "DS23_07",
+      "DS25_08"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT25_01",
+    "studyprogram": "DDIT",
+    "year": "2025",
+    "preferences": [
+      "SWU23_08"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_03",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DDIT23_02",
+      "SWU24_08"
+    ],
+    "avoidances": [
+      "SWU23_03"
+    ]
+  },
+  {
+    "name": "GBI25_01",
+    "studyprogram": "GBI",
+    "year": "2025",
+    "preferences": [],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_04",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_07",
+      "DS23_01",
+      "DS25_04",
+      "SWU24_07",
+      "SWU25_05",
+      "SWU25_06"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_05",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT24_01",
+      "DDIT24_02",
+      "DDIT25_03",
+      "DS23_03",
+      "GBI23_03",
+      "SWU23_11",
+      "SWU25_12"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT25_02",
+    "studyprogram": "DDIT",
+    "year": "2025",
+    "preferences": [],
+    "avoidances": [
+      "DS25_05"
+    ]
+  },
+  {
+    "name": "GBI23_01",
+    "studyprogram": "GBI",
+    "year": "2023",
+    "preferences": [
+      "SWU25_02"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS25_02",
+    "studyprogram": "DS",
+    "year": "2025",
+    "preferences": [
+      "DS25_01"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT23_03",
+    "studyprogram": "DDIT",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_02",
+      "DDIT23_04",
+      "DDIT23_05",
+      "DS24_08",
+      "DS25_07",
+      "SWU23_03",
+      "SWU23_10"
+    ],
+    "avoidances": [
+      "DDIT24_04"
+    ]
+  },
+  {
+    "name": "DS24_01",
+    "studyprogram": "DS",
+    "year": "2024",
+    "preferences": [],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT24_01",
+    "studyprogram": "DDIT",
+    "year": "2024",
+    "preferences": [
+      "DDIT23_04",
+      "DDIT24_02",
+      "DDIT24_04",
+      "SWU23_05",
+      "SWU23_11",
+      "SWU24_06",
+      "SWU25_06"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_04",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DDIT23_02",
+      "DS23_06",
+      "DS23_08",
+      "DS25_01",
+      "SWU24_15",
+      "SWU25_09"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS25_03",
+    "studyprogram": "DS",
+    "year": "2025",
+    "preferences": [
+      "DS25_01"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU25_02",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [
+      "DDIT23_07",
+      "GBI23_01",
+      "SWU24_05",
+      "SWU25_05"
+    ],
+    "avoidances": [
+      "DDIT25_04"
+    ]
+  },
+  {
+    "name": "DS23_03",
+    "studyprogram": "DS",
+    "year": "2023",
+    "preferences": [
+      "SWU24_15"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_06",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT25_05",
+      "DS25_08",
+      "SWU23_02",
+      "SWU23_15"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU25_03",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [],
+    "avoidances": [
+      "SWU24_09"
+    ]
+  },
+  {
+    "name": "DDIT24_02",
+    "studyprogram": "DDIT",
+    "year": "2024",
+    "preferences": [
+      "DDIT24_01",
+      "SWU23_01"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS24_02",
+    "studyprogram": "DS",
+    "year": "2024",
+    "preferences": [
+      "DDIT23_03",
+      "DDIT23_06",
+      "DS23_02",
+      "DS24_03",
+      "DS24_07",
+      "DS25_04",
+      "SWU23_13",
+      "SWU24_06"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_07",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "SWU23_16",
+      "SWU23_18"
+    ],
+    "avoidances": [
+      "SWU24_03",
+      "SWU25_05"
+    ]
+  },
+  {
+    "name": "SWU25_04",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [],
+    "avoidances": [
+      "SWU23_01",
+      "SWU23_15"
+    ]
+  },
+  {
+    "name": "DDIT23_04",
+    "studyprogram": "DDIT",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_03",
+      "DDIT24_01",
+      "DS25_01"
+    ],
+    "avoidances": [
+      "SWU24_08"
+    ]
+  },
+  {
+    "name": "GBI23_02",
+    "studyprogram": "GBI",
+    "year": "2023",
+    "preferences": [],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT23_05",
+    "studyprogram": "DDIT",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_03",
+      "DS23_08"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_05",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DDIT25_05",
+      "SWU24_11",
+      "SWU24_15",
+      "SWU25_02"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS24_03",
+    "studyprogram": "DS",
+    "year": "2024",
+    "preferences": [
+      "DDIT24_02",
+      "DS24_06",
+      "SWU23_06",
+      "SWU23_15",
+      "SWU24_02"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_06",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DDIT24_01",
+      "DDIT24_06",
+      "DS24_02",
+      "GBI25_03",
+      "SWU23_01",
+      "SWU24_05"
+    ],
+    "avoidances": [
+      "SWU25_11"
+    ]
+  },
+  {
+    "name": "SWU23_08",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT25_01",
+      "SWU23_12",
+      "SWU23_16",
+      "SWU24_01"
+    ],
+    "avoidances": [
+      "SWU23_02"
+    ]
+  },
+  {
+    "name": "SWU25_05",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [
+      "DS24_04",
+      "SWU25_02"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT23_06",
+    "studyprogram": "DDIT",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_04",
+      "SWU23_12",
+      "SWU23_15"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS25_04",
+    "studyprogram": "DS",
+    "year": "2025",
+    "preferences": [
+      "SWU23_04",
+      "SWU24_07"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU25_06",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [
+      "DDIT25_06",
+      "SWU23_12"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_09",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT25_03",
+    "studyprogram": "DDIT",
+    "year": "2025",
+    "preferences": [
+      "DDIT23_01",
+      "DDIT23_03",
+      "DDIT23_07",
+      "DDIT25_05",
+      "DS24_06",
+      "GBI23_02"
+    ],
+    "avoidances": [
+      "SWU25_11"
+    ]
+  },
+  {
+    "name": "DDIT24_03",
+    "studyprogram": "DDIT",
+    "year": "2024",
+    "preferences": [
+      "DDIT24_04",
+      "DS25_01",
+      "SWU23_03"
+    ],
+    "avoidances": [
+      "DDIT23_08"
+    ]
+  },
+  {
+    "name": "GBI23_03",
+    "studyprogram": "GBI",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_05",
+      "DS23_02",
+      "DS23_05",
+      "DS23_07",
+      "SWU23_01",
+      "SWU23_05"
+    ],
+    "avoidances": [
+      "SWU24_15"
+    ]
+  },
+  {
+    "name": "SWU24_07",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DS23_08",
+      "DS24_06",
+      "DS25_04",
+      "SWU23_04",
+      "SWU24_04",
+      "SWU24_14"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT25_04",
+    "studyprogram": "DDIT",
+    "year": "2025",
+    "preferences": [
+      "SWU23_03"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_10",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_03",
+      "GBI23_02",
+      "GBI23_03",
+      "SWU23_05",
+      "SWU23_11",
+      "SWU23_12"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS24_04",
+    "studyprogram": "DS",
+    "year": "2024",
+    "preferences": [
+      "DS25_04",
+      "DS25_06",
+      "SWU25_05"
+    ],
+    "avoidances": [
+      "SWU24_11"
+    ]
+  },
+  {
+    "name": "SWU24_08",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DS25_07",
+      "SWU24_03",
+      "SWU24_15",
+      "SWU25_05"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT25_05",
+    "studyprogram": "DDIT",
+    "year": "2025",
+    "preferences": [
+      "DS25_08",
+      "SWU23_06",
+      "SWU24_05"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU25_07",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [
+      "DDIT23_08",
+      "SWU23_04"
+    ],
+    "avoidances": [
+      "SWU24_04"
+    ]
+  },
+  {
+    "name": "DS23_04",
+    "studyprogram": "DS",
+    "year": "2023",
+    "preferences": [
+      "DDIT25_08",
+      "DS23_01",
+      "DS23_07",
+      "DS24_04",
+      "SWU24_01",
+      "SWU24_09",
+      "SWU25_07"
+    ],
+    "avoidances": [
+      "DDIT24_06"
+    ]
+  },
+  {
+    "name": "DDIT25_06",
+    "studyprogram": "DDIT",
+    "year": "2025",
+    "preferences": [
+      "DDIT24_06",
+      "SWU23_10",
+      "SWU23_12",
+      "SWU25_06"
+    ],
+    "avoidances": [
+      "DDIT25_03"
+    ]
+  },
+  {
+    "name": "SWU25_08",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [
+      "SWU23_03",
+      "SWU23_18",
+      "SWU24_11"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT23_07",
+    "studyprogram": "DDIT",
+    "year": "2023",
+    "preferences": [
+      "SWU23_18",
+      "SWU25_02"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_09",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [],
+    "avoidances": [
+      "DDIT24_01",
+      "DS25_04"
+    ]
+  },
+  {
+    "name": "SWU25_09",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_11",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT24_01",
+      "DS23_06",
+      "SWU23_01",
+      "SWU23_02",
+      "SWU23_05"
+    ],
+    "avoidances": [
+      "SWU23_09"
+    ]
+  },
+  {
+    "name": "DDIT24_04",
+    "studyprogram": "DDIT",
+    "year": "2024",
+    "preferences": [
+      "DDIT24_01",
+      "DDIT24_03",
+      "DS24_05",
+      "GBI25_04",
+      "SWU24_02",
+      "SWU24_04",
+      "SWU25_11"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_12",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_06",
+      "DDIT25_06",
+      "DS23_07",
+      "SWU23_08",
+      "SWU23_10",
+      "SWU23_16",
+      "SWU25_06"
+    ],
+    "avoidances": [
+      "SWU23_05",
+      "SWU23_13"
+    ]
+  },
+  {
+    "name": "GBI25_02",
+    "studyprogram": "GBI",
+    "year": "2025",
+    "preferences": [
+      "DDIT24_05"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU25_10",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [
+      "DDIT23_02",
+      "DDIT23_07",
+      "SWU23_09",
+      "SWU23_15",
+      "SWU25_09"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS25_05",
+    "studyprogram": "DS",
+    "year": "2025",
+    "preferences": [
+      "DS23_06",
+      "DS24_01",
+      "SWU23_10",
+      "SWU23_17",
+      "SWU24_03",
+      "SWU25_09"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS24_05",
+    "studyprogram": "DS",
+    "year": "2024",
+    "preferences": [
+      "DDIT24_04",
+      "DS23_08",
+      "DS25_02",
+      "GBI23_02",
+      "SWU24_04",
+      "SWU24_14"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS25_06",
+    "studyprogram": "DS",
+    "year": "2025",
+    "preferences": [
+      "DDIT23_08",
+      "SWU24_01",
+      "SWU24_12",
+      "SWU25_05"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT24_05",
+    "studyprogram": "DDIT",
+    "year": "2024",
+    "preferences": [
+      "DDIT23_08",
+      "DDIT24_03",
+      "DS23_04",
+      "DS24_02",
+      "DS24_07",
+      "GBI25_02",
+      "SWU24_13"
+    ],
+    "avoidances": [
+      "DDIT24_04"
+    ]
+  },
+  {
+    "name": "SWU25_11",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [],
+    "avoidances": []
+  },
+  {
+    "name": "DS23_05",
+    "studyprogram": "DS",
+    "year": "2023",
+    "preferences": [
+      "GBI23_03",
+      "SWU23_01",
+      "SWU24_02",
+      "SWU24_14"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_10",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DS23_01",
+      "DS23_03",
+      "SWU23_06",
+      "SWU24_02",
+      "SWU24_15"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_13",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DS23_05",
+      "DS24_02",
+      "SWU24_10"
+    ],
+    "avoidances": [
+      "SWU23_10",
+      "SWU23_12"
+    ]
+  },
+  {
+    "name": "SWU23_14",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "SWU23_03",
+      "SWU23_11",
+      "SWU23_16"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_11",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "SWU23_15",
+      "SWU23_18",
+      "SWU24_05",
+      "SWU25_08",
+      "SWU25_10"
+    ],
+    "avoidances": [
+      "DDIT25_01",
+      "SWU25_02"
+    ]
+  },
+  {
+    "name": "DDIT24_06",
+    "studyprogram": "DDIT",
+    "year": "2024",
+    "preferences": [
+      "DDIT24_04",
+      "DDIT25_01",
+      "DDIT25_06",
+      "DS24_01",
+      "DS25_07",
+      "SWU23_02",
+      "SWU24_06"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_15",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "GBI25_04",
+      "SWU23_06",
+      "SWU24_11"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS24_06",
+    "studyprogram": "DS",
+    "year": "2024",
+    "preferences": [
+      "DDIT25_03",
+      "DS23_09",
+      "DS24_03",
+      "SWU24_07"
+    ],
+    "avoidances": [
+      "DS25_06"
+    ]
+  },
+  {
+    "name": "DDIT25_07",
+    "studyprogram": "DDIT",
+    "year": "2025",
+    "preferences": [
+      "DDIT25_08",
+      "SWU23_08"
+    ],
+    "avoidances": [
+      "DS23_06"
+    ]
+  },
+  {
+    "name": "SWU24_12",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DDIT24_04",
+      "DDIT25_08",
+      "DS25_06",
+      "SWU23_04",
+      "SWU24_07",
+      "SWU24_10",
+      "SWU25_08"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_13",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DDIT24_01",
+      "DDIT24_05",
+      "DS24_04",
+      "DS25_03",
+      "SWU23_14",
+      "SWU24_05",
+      "SWU25_05"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS23_06",
+    "studyprogram": "DS",
+    "year": "2023",
+    "preferences": [
+      "DS25_05",
+      "SWU23_11",
+      "SWU24_04"
+    ],
+    "avoidances": [
+      "SWU23_03"
+    ]
+  },
+  {
+    "name": "DS23_07",
+    "studyprogram": "DS",
+    "year": "2023",
+    "preferences": [
+      "DS23_02",
+      "GBI23_03"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_16",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "SWU23_07",
+      "SWU23_08",
+      "SWU23_12",
+      "SWU23_14",
+      "SWU23_18"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT25_08",
+    "studyprogram": "DDIT",
+    "year": "2025",
+    "preferences": [
+      "DDIT25_07",
+      "DS23_04",
+      "DS24_02",
+      "SWU24_12",
+      "SWU25_01"
+    ],
+    "avoidances": [
+      "DDIT24_06"
+    ]
+  },
+  {
+    "name": "DS23_08",
+    "studyprogram": "DS",
+    "year": "2023",
+    "preferences": [
+      "SWU24_07",
+      "SWU25_01"
+    ],
+    "avoidances": [
+      "DS23_05",
+      "DS23_07"
+    ]
+  },
+  {
+    "name": "GBI25_03",
+    "studyprogram": "GBI",
+    "year": "2025",
+    "preferences": [
+      "SWU24_06"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS25_07",
+    "studyprogram": "DS",
+    "year": "2025",
+    "preferences": [
+      "DDIT24_02",
+      "DS23_07",
+      "DS25_03",
+      "SWU23_14"
+    ],
+    "avoidances": [
+      "SWU24_01"
+    ]
+  },
+  {
+    "name": "SWU23_17",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DS25_05"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU23_18",
+    "studyprogram": "SWU",
+    "year": "2023",
+    "preferences": [
+      "DDIT23_07",
+      "DDIT25_03",
+      "DS25_08",
+      "SWU23_07",
+      "SWU23_16",
+      "SWU24_07",
+      "SWU24_11",
+      "SWU25_08"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "GBI25_04",
+    "studyprogram": "GBI",
+    "year": "2025",
+    "preferences": [
+      "DDIT24_03",
+      "DDIT24_04",
+      "DDIT25_08",
+      "SWU23_07",
+      "SWU23_12",
+      "SWU23_15",
+      "SWU25_06"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DDIT23_08",
+    "studyprogram": "DDIT",
+    "year": "2023",
+    "preferences": [
+      "SWU24_02"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_14",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DS24_05",
+      "SWU23_03",
+      "SWU24_02",
+      "SWU24_07"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS24_07",
+    "studyprogram": "DS",
+    "year": "2024",
+    "preferences": [],
+    "avoidances": []
+  },
+  {
+    "name": "DS25_08",
+    "studyprogram": "DS",
+    "year": "2025",
+    "preferences": [
+      "DDIT25_05",
+      "DS23_02",
+      "DS25_01",
+      "SWU23_06"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "DS24_08",
+    "studyprogram": "DS",
+    "year": "2024",
+    "preferences": [
+      "DDIT23_03"
+    ],
+    "avoidances": []
+  },
+  {
+    "name": "SWU24_15",
+    "studyprogram": "SWU",
+    "year": "2024",
+    "preferences": [
+      "DS23_03",
+      "SWU24_02",
+      "SWU24_04",
+      "SWU24_05",
+      "SWU24_08",
+      "SWU24_10"
+    ],
+    "avoidances": [
+      "GBI23_03"
+    ]
+  },
+  {
+    "name": "DS23_09",
+    "studyprogram": "DS",
+    "year": "2023",
+    "preferences": [
+      "DS24_08",
+      "SWU23_16"
+    ],
+    "avoidances": [
+      "SWU23_05",
+      "SWU23_09"
+    ]
+  },
+  {
+    "name": "SWU25_12",
+    "studyprogram": "SWU",
+    "year": "2025",
+    "preferences": [
+      "DDIT23_07",
+      "SWU23_05"
+    ],
+    "avoidances": [
+      "DDIT23_08",
+      "DS24_08"
+    ]
+  }
+]
