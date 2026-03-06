@@ -26,6 +26,8 @@ import random
 
 import os
 
+from graph.graph import makeGraphFromInput, print_graph
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input100People.json"))
 input1Table = reader.readjson(os.path.join(script_dir, "../Inputs/input1Table.json"))
@@ -257,11 +259,4 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
 
 
 if __name__ == "__main__":
-    randomNumber = random.randint(0, 100000)
-    print(randomNumber)
-    arrangementTest = LinearSwitch4PeopleSets(randomArrangement(input100People, randomNumber))
-    print("Here: ", calcArrangement(arrangementTest)[0], arrangementTest, calcArrangement(arrangementTest))
-    print(isStable(arrangementTest))
-
-    # testCustomArrangement(input100People, [["GT51", "fbuu", "aubu", "MMMM", "GT52", "GT53", "S9", "GBOB"], ["GP21", "GP22", "Lida", "nsio", "S3", "S6", "GP32", "GP31"]])
-    # testCustomArrangement(input100People, [["GT51", "fbuu", "aubu", "Lida", "GT52", "GT53", "S9", "GBOB"], ["GP21", "GP22", "MMMM", "nsio", "S3", "S6", "GP32", "GP31"]])
+    print_graph(makeGraphFromInput(input1Table), min_weight=5, sort_by_weight=True)
