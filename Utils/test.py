@@ -254,7 +254,7 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
 
     return bestArrangement
 
-# printArrangementWithValues(testLinearSwitch4People(defaultPlacement(input100People)))
+
 
 if __name__ == "__main__":
     randomNumber = random.randint(0, 100000)
