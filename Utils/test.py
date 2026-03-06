@@ -1,5 +1,7 @@
 import path
 from Algorithms.FromGroups import fromGroups
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 from Algorithms.LinearSwitch3PeopleSets import LinearSwitch3PeopleSets
 from Algorithms.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
@@ -259,11 +261,18 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
 
     return bestArrangement
 
-if __name__ == "__main__":
-    g = makeGraphFromInput(input100People)
-    groups = find_groups(g, input100People, weight_threshold=8)
+def testBestCompo(input = input1Table):
+    print(input)
+    g = makeGraphFromInput(input)
+    groups = find_groups(g, input, weight_threshold=8)
     print(groups)
-    a = fromGroups(makeEmptyArrangement(len(input100People), 8), groups)
+    a = fromGroups(makeEmptyArrangement(len(input), 8), groups)
     print(a)
     LinearSwitch4PeopleSets(a)
     printArrangementWithValues(a)
+
+
+if __name__ == "__main__":
+    # testBestCompo(input100PeopleSemiRandom)
+    # print(ValueCalc.calcTheoreticalMax(input100PeopleSemiRandom))
+    printArrangementWithValues(defaultPlacement(input100PeopleSemiRandom))
