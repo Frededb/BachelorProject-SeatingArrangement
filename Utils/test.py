@@ -1,3 +1,5 @@
+from orca.orca_gui_prefs import ACTUAL
+
 import path
 
 from Algorithms.LinearSwitch3PeopleSets import LinearSwitch3PeopleSets
@@ -30,6 +32,8 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input100People.json"))
 input1Table = reader.readjson(os.path.join(script_dir, "../Inputs/input1Table.json"))
 input100PeopleSimple = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSimple.json"))
+input100PeopleMoreRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleMoreRandom.json"))
+input100PeopleSemiRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSemiRandom.json"))
 
 # input1Table = reader.readjson("../Inputs/input1Table.json")
 # input2People = reader.readjson("../Inputs/input2People.json")
@@ -257,11 +261,25 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
 
 
 if __name__ == "__main__":
-    randomNumber = random.randint(0, 100000)
-    print(randomNumber)
-    arrangementTest = LinearSwitch4PeopleSets(randomArrangement(input100People, randomNumber))
-    print("Here: ", calcArrangement(arrangementTest)[0], arrangementTest, calcArrangement(arrangementTest))
-    print(isStable(arrangementTest))
+    GodScore100 = ValueCalc.calcTheoreticalMax(input100People)
+    print("GodScore100: ", GodScore100)
+    GodScore100semi = ValueCalc.calcTheoreticalMax(input100PeopleSemiRandom)
+    print("GodScore100semi: ", GodScore100semi)
+    GodScore100more = ValueCalc.calcTheoreticalMax(input100PeopleMoreRandom)
+    print("GodScore100more: ", GodScore100more)
+
+    actualScore100 = ValueCalc.calcArrangement(LinearSwitch4PeopleSets(randomArrangement(input100People, 100)))
+    print("actualScore100: ", actualScore100)
+    print("100 percentage of godscore: ", actualScore100 / GodScore100)
+    actualScore100semi = ValueCalc.calcArrangement(LinearSwitch4PeopleSets(randomArrangement(input100PeopleSemiRandom, 100)))
+    print("actualScore100semi: ", actualScore100semi)
+    print("100semi percentage of godscore: ", actualScore100semi / GodScore100semi)
+    actualScore100more = ValueCalc.calcArrangement(LinearSwitch4PeopleSets(randomArrangement(input100PeopleMoreRandom, 100)))
+    print("actualScore100more: ", actualScore100more)
+    print("100more percentage of godscore: ", actualScore100more / GodScore100more)
+
+
+
 
     # testCustomArrangement(input100People, [["GT51", "fbuu", "aubu", "MMMM", "GT52", "GT53", "S9", "GBOB"], ["GP21", "GP22", "Lida", "nsio", "S3", "S6", "GP32", "GP31"]])
     # testCustomArrangement(input100People, [["GT51", "fbuu", "aubu", "Lida", "GT52", "GT53", "S9", "GBOB"], ["GP21", "GP22", "MMMM", "nsio", "S3", "S6", "GP32", "GP31"]])
