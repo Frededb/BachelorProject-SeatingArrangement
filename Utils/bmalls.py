@@ -62,7 +62,6 @@ def getPersonsByName(names, input):
             print("Person not found: ", name)
     return persons
 
-
 def makeEmptyArrangement(n, tableSize):
     from Utils.reader import emptyPerson
     return [[emptyPerson for _ in range(tableSize)] for _ in range(ceil(n/tableSize))]
