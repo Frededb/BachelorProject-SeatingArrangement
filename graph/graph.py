@@ -7,6 +7,7 @@ if parent_dir not in sys.path:
     sys.path.append(parent_dir)
 
 from Utils.ValueCalc import calcTable
+from Utils.bmalls import getPersonsByName
 
 
 def makeGraphFromInput(people):
@@ -23,15 +24,22 @@ def makeGraphFromInput(people):
     names = list(name_to_person.keys())
     graph = {n: {} for n in names}
 
-    # Compute each unordered pair once and mirror the value
+    # Only add an edge if at least one person has the other in preferences or avoidances
     for i in range(len(names)):
         for j in range(i + 1, len(names)):
             a = name_to_person[names[i]]
             b = name_to_person[names[j]]
+            related = (b.name in a.preferences or b.name in a.avoidances or
+                       a.name in b.preferences or a.name in b.avoidances)
+            if not related:
+                continue
             try:
                 weight, _ = calcTable([a, b])
             except Exception:
                 weight = 0
+            # Skip pairs with no meaningful relationship (zero weight)
+            if weight == 0:
+                continue
             graph[names[i]][names[j]] = weight
             graph[names[j]][names[i]] = weight
 
@@ -63,3 +71,169 @@ def print_graph(graph, max_neighbors=None, min_weight=None, sort_by_weight=False
             continue
         for nb, w in items:
             print(f"  -> {nb}: {w}")
+
+
+def _induced_subgraph(graph, nodes):
+    """Return adjacency dict induced by nodes (subset of names)."""
+    return {u: {v: w for v, w in nbrs.items() if v in nodes} for u, nbrs in graph.items() if u in nodes}
+
+
+def _best_balanced_cut(graph):
+    """Run Stoer-Wagner but return the most balanced cut (by size) among all candidate cuts.
+
+    Instead of the globally minimum cut (which tends to peel off single nodes),
+    score each cut by cut_weight / min(|A|, |B|) and pick the one with the lowest score.
+    This strongly prefers cuts that split the graph roughly in half.
+
+    Returns: (cut_weight, (set_A, set_B))
+    """
+    adj = {u: dict(neigh) for u, neigh in graph.items()}
+    v_sets = {u: {u} for u in adj.keys()}
+    vertices = list(adj.keys())
+
+    best_score = float('inf')
+    best_partition = (set(), set())
+    best_cut = float('inf')
+
+    while len(vertices) > 1:
+        weights = {v: 0.0 for v in vertices}
+        added = []
+        for i in range(len(vertices)):
+            sel = max((v for v in vertices if v not in added), key=lambda x: weights[x])
+            added.append(sel)
+            if i < len(vertices) - 1:
+                for v in vertices:
+                    if v not in added:
+                        weights[v] += adj[sel].get(v, 0.0)
+            else:
+                t = sel
+                s = added[-2]
+                cut_weight = weights[t]
+
+                S = set()
+                for v in added[:-1]:
+                    S |= v_sets[v]
+                all_nodes = set().union(*v_sets.values())
+                T = all_nodes - S
+
+                # Score: cut_weight / (|A| * |B|) — sparsest cut metric.
+                # Low score = sparse connection between A and B = good split.
+                score = cut_weight / (len(S) * len(T))
+                if score < best_score:
+                    best_score = score
+                    best_partition = (S, T)
+                    best_cut = cut_weight
+
+                # merge t into s
+                for v in vertices:
+                    if v == s or v == t:
+                        continue
+                    adj[s][v] = adj[s].get(v, 0.0) + adj[t].get(v, 0.0)
+                    adj[v][s] = adj[s][v]
+                vertices.remove(t)
+                adj.pop(t, None)
+                for v in adj:
+                    adj[v].pop(t, None)
+                v_sets[s] |= v_sets[t]
+                v_sets.pop(t, None)
+                break
+
+    return best_cut, best_partition
+
+
+def find_connected_components(graph):
+    """Find connected components following only positive-weight edges."""
+    visited = set()
+    components = []
+    for start in graph:
+        if start in visited:
+            continue
+        comp = set()
+        queue = [start]
+        while queue:
+            node = queue.pop()
+            if node in visited:
+                continue
+            visited.add(node)
+            comp.add(node)
+            for nb, w in graph[node].items():
+                if w > 0 and nb not in visited:
+                    queue.append(nb)
+        components.append(comp)
+
+    return components
+
+
+def find_groups(graph, people, weight_threshold=None, max_groups=None, verbose=False):
+    """Find groups by splitting on connected components, then balanced min-cuts.
+
+    Parameters:
+    - graph: adjacency dict from makeGraphFromInput.
+    - people: original list of Person objects (from reader.readjson).
+    - weight_threshold: only accept a split when score (cut_weight / (|A|*|B|)) <= weight_threshold.
+    - max_groups: stop once this many groups have been produced.
+    - verbose: print cut info at each step.
+
+    Returns: list of sets of Person objects.
+    """
+    groups = []
+
+    def _rec(nodes):
+        if max_groups is not None and len(groups) >= max_groups:
+            groups.append(set(nodes))
+            return
+
+        sub = _induced_subgraph(graph, nodes)
+
+        # First split by connected components — isolates nodes with no edges immediately
+        components = find_connected_components(sub)
+        if len(components) > 1:
+            for comp in components:
+                _rec(comp)
+            return
+
+        # Single node — done
+        if len(nodes) == 1:
+            groups.append(set(nodes))
+            return
+
+        # Run balanced min-cut directly on the signed graph.
+        # Negative edges (avoidances) make those cuts cheaper, so avoiders naturally separate.
+        cut_weight, (A, B) = _best_balanced_cut(sub)
+
+        score = cut_weight / (len(A) * len(B))
+
+        # If all non-zero edges are the same weight it's a uniform component — no meaningful cut.
+        all_weights = [w for u in sub for v, w in sub[u].items() if u < v and w != 0]
+        if all_weights and max(all_weights) == min(all_weights):
+            if verbose:
+                print(f"Reject: uniform component (all edges = {all_weights[0]:.1f})")
+            groups.append(set(nodes))
+            return
+
+
+        if verbose:
+            print(f"Cut: weight={cut_weight:.1f}, |A|={len(A)}, |B|={len(B)}, score={score:.4f}")
+
+        if weight_threshold is not None and score > weight_threshold:
+            if verbose:
+                print(f"Reject: score {score:.4f} > threshold {weight_threshold}")
+            groups.append(set(nodes))
+            return
+
+        _rec(A)
+        _rec(B)
+
+    _rec(set(graph.keys()))
+    # Convert name sets to Person object sets
+    return [getPersonsByName(group, people) for group in groups]
+
+
+
+def print_groups(groups):
+    """Pretty-print a list of groups (each group is a set of Person objects)."""
+    for i, g in enumerate(groups, start=1):
+        print(f"Group {i} (size {len(g)}):")
+        for person in sorted(g, key=lambda p: p.name):
+            print(f"  - {person.name}")
+        print()

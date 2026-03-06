@@ -1,4 +1,5 @@
 import path
+from Algorithms.FromGroups import fromGroups
 
 from Algorithms.LinearSwitch3PeopleSets import LinearSwitch3PeopleSets
 from Algorithms.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
@@ -26,7 +27,7 @@ import random
 
 import os
 
-from graph.graph import makeGraphFromInput, print_graph
+from graph.graph import makeGraphFromInput, print_graph, find_groups, print_groups
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input100People.json"))
@@ -97,9 +98,9 @@ def testLinearSwitch2People(arrangement):
 
 def testLinearSwitchFromClosedgroups(input = input1Table, N = 10):
     from Algorithms.LinearSwitch2People import LinearSwitch2People
-    from Algorithms.FromClosedGroups import fromClosedGroups
+    from Algorithms.FromGroups import fromGroups
     emptyArrangement = makeEmptyArrangement(len(input), 8)
-    arrangement = fromClosedGroups(emptyArrangement, input)
+    arrangement = fromGroups(emptyArrangement, input)
     optimizedArrangement = LinearSwitch2People(arrangement, N)
     printer.printArrangementWithValues(optimizedArrangement)
     print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
@@ -133,9 +134,9 @@ def testFindClosedGroups(input = input1Table):
         print(group)
 
 def testFromClosedGroups(input = input1Table, tableSize = 8):
-    from Algorithms.FromClosedGroups import fromClosedGroups
+    from Algorithms.FromGroups import fromGroups
     arrangement = makeEmptyArrangement(len(input), tableSize)
-    fromClosedGroups(arrangement, input)
+    fromGroups(arrangement, input)
 
 def testFindPairs(input = input1Table):
     result = findPairs(input)
@@ -256,7 +257,11 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
 
     return bestArrangement
 
-
-
 if __name__ == "__main__":
-    print_graph(makeGraphFromInput(input1Table), min_weight=5, sort_by_weight=True)
+    g = makeGraphFromInput(input100People)
+    groups = find_groups(g, input100People, weight_threshold=8)
+    print(groups)
+    a = fromGroups(makeEmptyArrangement(len(input100People), 8), groups)
+    print(a)
+    LinearSwitch4PeopleSets(a)
+    printArrangementWithValues(a)

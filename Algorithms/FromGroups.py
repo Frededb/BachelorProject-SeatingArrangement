@@ -3,17 +3,16 @@ from Utils import printer
 from Utils.reader import emptyPerson
 
 
-def fromClosedGroups(emptyArrangement, input):
-    closedGroups = findClosedGroups(input)
-    #convert closedGroups to a list
-    closedGroups = list(closedGroups)
-    #sort closedGroups by size
-    closedGroups.sort(key=lambda x: len(x), reverse=True)
+def fromGroups(emptyArrangement, groups):
+        #convert groups to a list
+        # groups = list(groups)
+    #sort groups by size
+    groups.sort(key=lambda x: len(x), reverse=True)
     #sort emptyTables by number of seats
     emptyArrangement.sort(key=lambda x: len(x))
 
     #fill out the tables from smallest to biggest with the closed groups
-    for group in closedGroups:
+    for group in groups:
         group = list(group)
         for table in emptyArrangement:
             if len(group) <= countEmptySeats(table):
