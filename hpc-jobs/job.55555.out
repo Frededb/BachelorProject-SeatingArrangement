@@ -1,0 +1,62 @@
+cn9.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2787341
+Academic license 2787341 - for non-commercial use only - registered to ns___@itu.dk
+Set parameter TimeLimit to value 82800
+Set parameter MIPGap to value 0.01
+Set parameter Threads to value 96
+Gurobi Optimizer version 13.0.1 build v13.0.1rc0 (linux64 - "Debian GNU/Linux 13 (trixie)")
+
+CPU model: AMD EPYC 7643 48-Core Processor, instruction set [SSE2|AVX|AVX2]
+Thread count: 96 physical cores, 192 logical processors, using up to 96 threads
+
+Non-default parameters:
+TimeLimit  82800
+MIPGap  0.01
+Threads  96
+
+Academic license 2787341 - for non-commercial use only - registered to ns___@itu.dk
+Optimize a model with 208 rows, 10816 columns and 21632 nonzeros (Max)
+Model fingerprint: 0xfe3e2a3c
+Model has 0 linear objective coefficients
+Model has 3602144 quadratic objective terms
+Variable types: 0 continuous, 10816 integer (10816 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  QObjective range [1e+00, 6e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+
+Found heuristic solution: objective 2059.9452249
+Presolve removed 0 rows and 0 columns (presolve time = 23s)...
+Presolve time: 23.46s
+Presolved: 208 rows, 10816 columns, 21632 nonzeros
+Presolved model has 3612544 quadratic objective terms
+Variable types: 0 continuous, 10816 integer (10816 binary)
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -0.0000000e+00   0.000000e+00   2.332057e+05     24s
+    2121    1.9179077e+05   0.000000e+00   3.090247e+04     25s
+    3349    2.0076473e+05   0.000000e+00   1.247091e+04     30s
+    3930    2.0263800e+05   0.000000e+00   8.717565e+03     35s
+    4353    2.0358404e+05   0.000000e+00   6.833219e+03     41s
+    4625    2.0406536e+05   0.000000e+00   5.883061e+03     46s
+    4884    2.0446465e+05   0.000000e+00   5.090923e+03     51s
+    5149    2.0483148e+05   0.000000e+00   4.376478e+03     57s
+    5277    2.0498207e+05   0.000000e+00   4.081288e+03     61s
+    5546    2.0528804e+05   0.000000e+00   3.538624e+03     68s
+    5670    2.0539794e+05   0.000000e+00   3.345735e+03     74s
+    5794    2.0554509e+05   0.000000e+00   3.086899e+03     77s
+    5914    2.0568474e+05   0.000000e+00   2.871247e+03     82s
+    6059    2.0577343e+05   0.000000e+00   2.714279e+03     86s
+    6195    2.0586486e+05   0.000000e+00   2.516740e+03     91s
+    6311    2.0598962e+05   0.000000e+00   2.316681e+03     97s
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 55555.0 ON cn9 CANCELLED AT 2026-03-06T14:23:42 ***
+slurmstepd: error: *** JOB 55555 ON cn9 CANCELLED AT 2026-03-06T14:23:42 ***
