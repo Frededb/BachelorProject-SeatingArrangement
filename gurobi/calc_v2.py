@@ -133,7 +133,7 @@ def optimize_seating(people, time_limit=60, mip_gap=0.01, threads=None, verbose=
 	for t in range(table_count):
 		for (i, j), pair_score in pair_scores.items():
 			for (seat_a, seat_b), seat_weight in seat_weights.items():
-				nudge = math.sqrt(j*seat_a + i*seat_b) * 1e-6
+				nudge = math.sqrt(i+(t*seat_a*104)) + math.sqrt(j+(t*seat_b*104)) * 1e-4
 				coeff = pair_score * seat_weight + nudge
 				objective += coeff * x[i, t, seat_a] * x[j, t, seat_b]
 				objective += coeff * x[i, t, seat_b] * x[j, t, seat_a]

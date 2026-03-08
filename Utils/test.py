@@ -207,3 +207,11 @@ def testLinearSwitchCombined(input = input1Table):
 for i in [random.randint(0, 100) for x in range(90, 100)]:
     for j in [random.randint(0, 100) for x in range(90, 100)]:
         print(f"{i}, {j} = {(math.sqrt(i*j))}")
+
+pa = 79
+sa = 8
+pb = 80
+sb = 70
+print(f"{pa}, {sa}, {pb}, {sb} = {math.sqrt(pa+(sa*104)) + math.sqrt(pb+(sb*104))}")
+[pa, pb] = [pb, pa]
+print(f"{pa}, {sa}, {pb}, {sb} = {math.sqrt(pa+(sa*104)) + math.sqrt(pb+(sb*104))}")
