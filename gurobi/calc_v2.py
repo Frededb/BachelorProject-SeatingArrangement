@@ -133,7 +133,7 @@ def optimize_seating(people, time_limit=60, mip_gap=0.01, threads=None, verbose=
 	for t in range(table_count):
 		for (i, j), pair_score in pair_scores.items():
 			for (seat_a, seat_b), seat_weight in seat_weights.items():
-				nudge = math.sqrt(i+(t*seat_a*104)) + math.sqrt(j+(t*seat_b*104)) * 1e-4
+				nudge = (math.sqrt(i+(t*seat_a*104)) + math.sqrt(j+(t*seat_b*104))) * 1e-6
 				coeff = pair_score * seat_weight + nudge
 				objective += coeff * x[i, t, seat_a] * x[j, t, seat_b]
 				objective += coeff * x[i, t, seat_b] * x[j, t, seat_a]
@@ -172,7 +172,7 @@ def main():
 		default=os.path.join(ROOT_DIR, "Inputs", "input100People.json"),
 		help="Path to input json file.",
 	)
-	parser.add_argument("--time-limit", type=float, default=60.0, help="Gurobi time limit in seconds.")
+	parser.add_argument("--time-limit", type=float, default=99999999999, help="Gurobi time limit in seconds.")
 	parser.add_argument("--mip-gap", type=float, default=0.01, help="Target MIP gap.")
 	parser.add_argument("--threads", type=int, default=None, help="Optional thread count.")
 	parser.add_argument("--quiet", action="store_true", help="Disable Gurobi solver output.")
