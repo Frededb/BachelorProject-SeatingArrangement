@@ -13,6 +13,9 @@ From: python:3.11-slim
     #     build-essential \
     #     wget \
     #     && rm -rf /var/lib/apt/lists/*
+
+    # remove old containers
+    rm -f /opt/bachelorProject/hpc-jobs/container*.sif
     
     # Install Python packages
     pip install --no-cache-dir gurobipy

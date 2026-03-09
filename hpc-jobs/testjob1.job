@@ -13,4 +13,4 @@ hostname
 whoami
 echo $PWD
 # python3 /home/nsio/bachelorProject/gurobi/calc_v2.py
-srun apptainer exec container5.sif python ../gurobi/calc_v2.py --time-limit 82800 --threads 96
+srun apptainer exec container8.sif python ../gurobi/calc_v2.py --time-limit 82800 --threads 96
