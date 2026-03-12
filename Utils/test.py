@@ -21,7 +21,7 @@ import reader
 import ValueCalc
 from Algorithms.BruteForce import bruteForce, bruteForceEachTable
 import printer
-from Utils.bmalls import customArrangement, makeEmptyArrangement
+from Utils.bmalls import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount
 
 from Utils.ValueCalc import calcArrangement
 import math
@@ -37,6 +37,9 @@ input1Table = reader.readjson(os.path.join(script_dir, "../Inputs/input1Table.js
 input100PeopleSimple = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSimple.json"))
 input100PeopleMoreRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleMoreRandom.json"))
 input100PeopleSemiRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSemiRandom.json"))
+
+# 6*8+5*6+6*4
+emptyArrangementMixed = makeEmptyArrangementFromTableAmount(6, 8) + makeEmptyArrangementFromTableAmount(5, 6) + makeEmptyArrangementFromTableAmount(6, 4)
 
 # input1Table = reader.readjson("../Inputs/input1Table.json")
 # input2People = reader.readjson("../Inputs/input2People.json")
@@ -263,10 +266,9 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
 
 def testGroupsThenSwitch(input = input1Table):
     g = makeGraphFromInput(input)
-    groups = find_groups(g, input, weight_threshold=5)
+    groups = find_groups(g, input, weight_threshold=3)
     print(len(groups))
-    a = fromGroups(makeEmptyArrangement(len(input), 8), groups)
-    print(a)
+    a = fromGroups(emptyArrangementMixed, groups)
     LinearSwitch4PeopleSets(a)
     printArrangementWithValues(a)
 
@@ -274,7 +276,9 @@ def testGroupsRandomThenSwitch(input = input1Table):
     g = makeGraphFromInput(input)
     groups = find_groups(g, input, weight_threshold=5)
     bigGroups = [group for group in groups if len(group) > 2]
+    print("Big Groups", len(bigGroups))
     allOther = [group for group in groups if len(group) <= 2]
+    print("All Other", len(allOther))
     allOtherList = [person for group in allOther for person in group]
 
     a = placeGroupsRandom(makeEmptyArrangement(len(input100PeopleSemiRandom), 8), bigGroups)
@@ -293,5 +297,4 @@ def testGroupsRandomThenSwitch(input = input1Table):
 
 
 if __name__ == "__main__":
-    # testGroupsThenSwitch(input100People)
     testGroupsRandomThenSwitch(input100People)

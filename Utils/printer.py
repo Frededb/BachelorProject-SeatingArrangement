@@ -14,11 +14,11 @@ def __printTableWithValues__(table, tableValue, peopleValues):
     size = 12
     peopleValues = [round(v, 1) for v in peopleValues]
     print(''.join(f'{str(v):^{size}}' for v in table[0:len(table)//2]))
-    print('┌' + '─' * (size * 4) + '┐')
+    print('┌' + '─' * (size * len(table)//2) + '┐')
     print('│' + ''.join(f'{v:^{size}}' for v in peopleValues[0:len(table)//2]) + '│')
-    print(f'│{round(tableValue, 1): ^{size*4}}│')
+    print(f'│{round(tableValue, 1): ^{size * len(table)//2}}│')
     print('│' + ''.join(f'{v:^{size}}' for v in peopleValues[len(table)//2:len(table)]) + '│')
-    print('└' + '─' * (size * 4) + '┘')
+    print('└' + '─' * (size * len(table)//2) + '┘')
     print(''.join(f'{str(v):^{size}}' for v in table[len(table)//2:len(table)]))
 
 def printArrangementWithValues(arrangement):
