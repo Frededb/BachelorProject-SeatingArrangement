@@ -1,7 +1,5 @@
 import path
 from Algorithms.FromGroups import fromGroups
-import sys
-sys.stdout.reconfigure(encoding='utf-8')
 
 from Algorithms.LinearSwitch3PeopleSets import LinearSwitch3PeopleSets
 from Algorithms.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
@@ -11,7 +9,9 @@ from Algorithms.LinearSwitch2People import LinearSwitch2People
 from Algorithms.LinearSwitch3People import LinearSwitch3People
 from Algorithms.LinearSwitch4People import LinearSwitch4People
 from Algorithms.Random import randomArrangement
+from Algorithms.fill import fill
 from Algorithms.findPairs import findPairs
+from Algorithms.placeGroupsRandom import placeGroupsRandom
 from Utils.isStable import isStable
 from Utils.printer import printArrangementWithValues
 
@@ -261,18 +261,37 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
 
     return bestArrangement
 
-def testBestCompo(input = input1Table):
-    print(input)
+def testGroupsThenSwitch(input = input1Table):
     g = makeGraphFromInput(input)
-    groups = find_groups(g, input, weight_threshold=8)
-    print(groups)
+    groups = find_groups(g, input, weight_threshold=5)
+    print(len(groups))
     a = fromGroups(makeEmptyArrangement(len(input), 8), groups)
     print(a)
     LinearSwitch4PeopleSets(a)
     printArrangementWithValues(a)
 
+def testGroupsRandomThenSwitch(input = input1Table):
+    g = makeGraphFromInput(input)
+    groups = find_groups(g, input, weight_threshold=5)
+    bigGroups = [group for group in groups if len(group) > 2]
+    allOther = [group for group in groups if len(group) <= 2]
+    allOtherList = [person for group in allOther for person in group]
+
+    a = placeGroupsRandom(makeEmptyArrangement(len(input100PeopleSemiRandom), 8), bigGroups)
+    bruteForceEachTable(a)
+
+    allEmptyCoords = [(tableIndex, seatIndex) for tableIndex in range(len(a)) for seatIndex in range(len(a[tableIndex])) if a[tableIndex][seatIndex].name == "Empty"]
+
+    fill(a, allOtherList)
+
+    LinearSwitch4PeopleSets(a, allEmptyCoords)
+
+    bruteForceEachTable(a)
+
+    printArrangementWithValues(a)
+
+
 
 if __name__ == "__main__":
-    # testBestCompo(input100PeopleSemiRandom)
-    # print(ValueCalc.calcTheoreticalMax(input100PeopleSemiRandom))
-    printArrangementWithValues(defaultPlacement(input100PeopleSemiRandom))
+    # testGroupsThenSwitch(input100People)
+    testGroupsRandomThenSwitch(input100People)
