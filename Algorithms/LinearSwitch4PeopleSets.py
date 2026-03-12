@@ -5,10 +5,12 @@ from Utils.ValueCalc import calcTable, calcArrangement
 from Utils.bmalls import getAllPeople, switch4People, switch4PeopleBack
 
 
-def LinearSwitch4PeopleSets(arrangement):
-    allPeople = getAllPeople(arrangement)
+def LinearSwitch4PeopleSets(arrangement, coords=None):
+    if coords is None:
+        coords = getAllPeople(arrangement)
+
     #generate all permutations of 4 people
-    permutations = itertools.permutations(allPeople, 4)
+    permutations = itertools.permutations(coords, 4)
     count = 0
     for permutation in permutations:
 
