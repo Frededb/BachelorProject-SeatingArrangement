@@ -65,3 +65,7 @@ def getPersonsByName(names, input):
 def makeEmptyArrangement(n, tableSize):
     from Utils.reader import emptyPerson
     return [[emptyPerson for _ in range(tableSize)] for _ in range(ceil(n/tableSize))]
+
+def makeEmptyArrangementFromTableAmount(tableAmount, tableSize):
+    from Utils.reader import emptyPerson
+    return [[emptyPerson for _ in range(tableSize)] for _ in range(tableAmount)]
