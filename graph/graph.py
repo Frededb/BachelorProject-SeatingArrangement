@@ -6,42 +6,44 @@ parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if parent_dir not in sys.path:
     sys.path.append(parent_dir)
 
-from Utils.ValueCalc import calcTable
 from Utils.bmalls import getPersonsByName
 
 
 def makeGraphFromInput(people):
-    """Build a simple undirected weighted graph from a list of Person objects.
-
-    Input: `people` should be the list returned by `Utils.reader.readjson(...)` (i.e. a list
-    of `Utils.Person.Person` objects).
+    """Build a simple undirected weighted graph from Person objects.
 
     Returns: adjacency dict {name: {neighbor_name: weight, ...}, ...}
-    where weight = calcTable([personA, personB])[0].
+    where pair weight is the net sentiment across both directions:
+    +1 for each directed preference, -1 for each directed avoidance.
+
+    Example for pair (A, B):
+    weight = [A prefers B] + [B prefers A] - [A avoids B] - [B avoids A]
     """
 
     name_to_person = {p.name: p for p in people}
     names = list(name_to_person.keys())
     graph = {n: {} for n in names}
 
-    # Only add an edge if at least one person has the other in preferences or avoidances
     for i in range(len(names)):
         for j in range(i + 1, len(names)):
             a = name_to_person[names[i]]
             b = name_to_person[names[j]]
-            related = (b.name in a.preferences or b.name in a.avoidances or
-                       a.name in b.preferences or a.name in b.avoidances)
-            if not related:
-                continue
-            try:
-                weight, _ = calcTable([a, b])
-            except Exception:
-                weight = 0
-            # Skip pairs with no meaningful relationship (zero weight)
+
+            a_prefs = set(getattr(a, "preferences", []) or [])
+            a_avoids = set(getattr(a, "avoidances", []) or [])
+            b_prefs = set(getattr(b, "preferences", []) or [])
+            b_avoids = set(getattr(b, "avoidances", []) or [])
+
+            pref_count = int(b.name in a_prefs) + int(a.name in b_prefs)
+            avoid_count = int(b.name in a_avoids) + int(a.name in b_avoids)
+            weight = pref_count - avoid_count
+
+            # Fully canceled pairs have no edge.
             if weight == 0:
                 continue
-            graph[names[i]][names[j]] = weight
-            graph[names[j]][names[i]] = weight
+
+            graph[a.name][b.name] = weight
+            graph[b.name][a.name] = weight
 
     return graph
 

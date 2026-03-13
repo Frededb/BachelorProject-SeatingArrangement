@@ -28,9 +28,9 @@ def calcPerson(table, index):
         if personA.year == personB.year:
             personSum = personSum + 1
         if personB.name in personA.preferences:
-            personSum = personSum + 10
+            personSum = personSum + 15
         if personB.name in personA.avoidances:
-            personSum = personSum - 10
+            personSum = personSum - 20
         sum = sum + (personSum * 1/getDistanceTo(table, index, i))
     return sum
 
