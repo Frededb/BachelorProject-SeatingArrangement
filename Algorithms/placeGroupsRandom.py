@@ -1,10 +1,11 @@
-from random import random
+from random import Random
 
 from Algorithms.FromGroups import countEmptySeats
 from Utils.reader import emptyPerson
 
 
-def placeGroupsRandom(emptyArrangement, groups):
+def placeGroupsRandom(emptyArrangement, groups, seed=None):
+    rng = Random(seed) if seed is not None else Random()
     # sort groups by size
     groups.sort(key=lambda x: len(x), reverse=True)
     # sort emptyTables by number of seats
@@ -18,7 +19,7 @@ def placeGroupsRandom(emptyArrangement, groups):
         if len(emptyArrangement) == 0:
             raise ValueError("Cannot place groups: arrangement has no tables")
 
-        randomNumber = int(random() * len(emptyArrangement))
+        randomNumber = rng.randrange(len(emptyArrangement))
         # Start at a random index, then wrap to cover all tables.
         orderedTables = emptyArrangement[randomNumber:] + list(reversed(emptyArrangement[:randomNumber]))
 
@@ -30,9 +31,11 @@ def placeGroupsRandom(emptyArrangement, groups):
                 remaining = []
                 break
 
-        # If no single table can fit the whole group, spread across all tables.
+        # If no single table can fit the whole group, start with the table that
+        # currently has the most empty seats, then continue with the rest.
         if len(remaining) > 0:
-            for table in orderedTables:
+            splitTables = sorted(orderedTables, key=countEmptySeats, reverse=True)
+            for table in splitTables:
                 while len(remaining) > 0 and countEmptySeats(table) > 0:
                     table[table.index(emptyPerson)] = remaining.pop()
                 if len(remaining) == 0:

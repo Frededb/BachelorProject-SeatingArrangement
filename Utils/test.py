@@ -274,28 +274,58 @@ def testGroupsThenSwitch(input = input1Table):
 
 def testGroupsRandomThenSwitch(input = input1Table):
     g = makeGraphFromInput(input)
-    groups = find_groups(g, input, weight_threshold=5)
+    groups = find_groups(g, input, weight_threshold=1.4)
     bigGroups = [group for group in groups if len(group) > 2]
     print("Big Groups", len(bigGroups))
     allOther = [group for group in groups if len(group) <= 2]
     print("All Other", len(allOther))
     allOtherList = [person for group in allOther for person in group]
 
-    a = placeGroupsRandom(makeEmptyArrangement(len(input), 8), bigGroups)
+    bestArrangement = None
+    bestScore = -math.inf
 
-    a = bruteForceEachTable(a)
+    worstArrangement = None
+    worstScore = math.inf
 
-    allEmptyCoords = [(tableIndex, seatIndex) for tableIndex in range(len(a)) for seatIndex in range(len(a[tableIndex])) if a[tableIndex][seatIndex].name == "Empty"]
+    for _ in range(10):
 
-    fill(a, allOtherList)
+        a = placeGroupsRandom(makeEmptyArrangement(len(input), 8), bigGroups)
 
-    LinearSwitch4PeopleSets(a, allEmptyCoords)
+        a = bruteForceEachTable(a)
 
-    a = bruteForceEachTable(a)
+        allEmptyCoords = [(tableIndex, seatIndex) for tableIndex in range(len(a)) for seatIndex in range(len(a[tableIndex])) if a[tableIndex][seatIndex].name == "Empty"]
 
-    printArrangementWithValues(a)
+        fill(a, allOtherList)
+
+        LinearSwitch4PeopleSets(a, allEmptyCoords)
+
+        a = bruteForceEachTable(a)
+
+        score = calcArrangement(a)[0]
+        print("Score: ", score)
+        if score > bestScore:
+            bestScore = score
+            bestArrangement = a
+
+        if score < worstScore:
+            worstScore = score
+            worstArrangement = a
+
+    print("Best Score: ", bestScore)
+    printArrangementWithValues(bestArrangement)
+    print("Worst Score: ", worstScore)
+    printArrangementWithValues(worstArrangement)
 
 
 
 if __name__ == "__main__":
     testGroupsRandomThenSwitch(input100People)
+
+    # g = makeGraphFromInput(input100People)
+    # groups = find_groups(g, input100People, weight_threshold=1.4)
+    # print(len(groups))
+    # print(groups)
+    # bigGroups = [group for group in groups if len(group) > 2]
+    # print("Big Groups", len(bigGroups))
+    # a = placeGroupsRandom(makeEmptyArrangement(len(input100People), 8), bigGroups, 2)
+    # printArrangementWithValues(a)
