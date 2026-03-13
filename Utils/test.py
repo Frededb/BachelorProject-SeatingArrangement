@@ -281,8 +281,9 @@ def testGroupsRandomThenSwitch(input = input1Table):
     print("All Other", len(allOther))
     allOtherList = [person for group in allOther for person in group]
 
-    a = placeGroupsRandom(makeEmptyArrangement(len(input100PeopleSemiRandom), 8), bigGroups)
-    bruteForceEachTable(a)
+    a = placeGroupsRandom(makeEmptyArrangement(len(input), 8), bigGroups)
+
+    a = bruteForceEachTable(a)
 
     allEmptyCoords = [(tableIndex, seatIndex) for tableIndex in range(len(a)) for seatIndex in range(len(a[tableIndex])) if a[tableIndex][seatIndex].name == "Empty"]
 
@@ -290,7 +291,7 @@ def testGroupsRandomThenSwitch(input = input1Table):
 
     LinearSwitch4PeopleSets(a, allEmptyCoords)
 
-    bruteForceEachTable(a)
+    a = bruteForceEachTable(a)
 
     printArrangementWithValues(a)
 

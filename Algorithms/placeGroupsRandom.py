@@ -13,19 +13,33 @@ def placeGroupsRandom(emptyArrangement, groups):
 
     #RANDOMLY place the groups
     for group in groups:
-        group = list(group)
+        remaining = list(group)
+
+        if len(emptyArrangement) == 0:
+            raise ValueError("Cannot place groups: arrangement has no tables")
+
         randomNumber = int(random() * len(emptyArrangement))
-        for table in emptyArrangement[randomNumber:]:
-            if len(group) <= countEmptySeats(table):
-                for person in group:
+        # Start at a random index, then wrap to cover all tables.
+        orderedTables = emptyArrangement[randomNumber:] + list(reversed(emptyArrangement[:randomNumber]))
+
+        # Prefer keeping a whole group on one table when possible.
+        for table in orderedTables:
+            if len(remaining) <= countEmptySeats(table):
+                for person in remaining:
                     table[table.index(emptyPerson)] = person
+                remaining = []
                 break
-        else:
-            for table in reversed(emptyArrangement[:randomNumber]):
-                for _ in range(countEmptySeats(table)):
-                    if len(group) == 0:
-                        break
-                    table[table.index(emptyPerson)] = group.pop()
-                if len(group) == 0:
+
+        # If no single table can fit the whole group, spread across all tables.
+        if len(remaining) > 0:
+            for table in orderedTables:
+                while len(remaining) > 0 and countEmptySeats(table) > 0:
+                    table[table.index(emptyPerson)] = remaining.pop()
+                if len(remaining) == 0:
                     break
+
+        # Never silently lose people.
+        if len(remaining) > 0:
+            raise ValueError(f"Not enough empty seats to place all group members. Unplaced: {len(remaining)}")
+
     return emptyArrangement
