@@ -317,20 +317,60 @@ def testGroupsRandomThenSwitch(input = input1Table):
     print("Worst Score: ", worstScore)
     printArrangementWithValues(worstArrangement)
 
+def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
+    #shuffle the input
+    input = list(input)
+    random.shuffle(input)
+    
+    remainingPeople = list(input)
+    emptyArrangement.sort(key=lambda t: len(t), reverse=True)
+    print("Empty Arrangement: ", emptyArrangement)
+    
+    for table in emptyArrangement:
+        while len(remainingPeople) > 0:
+            emptySeatIndexes = [i for i, seat in enumerate(table) if seat.name == "Empty"]
+            if len(emptySeatIndexes) == 0:
+                break
+
+            maxGroupSize = len(emptySeatIndexes)
+            g = makeGraphFromInput(remainingPeople)
+            splittedGroups = splitGroupsByMaxSize(g, remainingPeople, maxGroupSize)
+
+            feasibleGroups = [group for group in splittedGroups if 0 < len(group) <= maxGroupSize]
+            if len(feasibleGroups) > 0:
+                feasibleGroups.sort(key=lambda group: (-len(group), sorted(person.name for person in group)))
+
+                # Fill this table with the biggest group that fits the available empty seats.
+                biggestGroup = sorted(list(feasibleGroups[0]), key=lambda person: person.name)
+            else:
+                # Fallback: if no fluent group fits, still fill seats to avoid leaving tables empty.
+                biggestGroup = list(remainingPeople[:maxGroupSize])
+
+            if len(biggestGroup) == 0:
+                break
+
+            for seatIndex, person in zip(emptySeatIndexes, biggestGroup):
+                table[seatIndex] = person
+
+            seatedNames = {person.name for person in biggestGroup}
+            remainingPeople = [person for person in remainingPeople if person.name not in seatedNames]
+
+
+    print("hej")
+
+    emptyArrangement = bruteForceEachTable(emptyArrangement)
+
+    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+
+    emptyArrangement = bruteForceEachTable(emptyArrangement)
+
+
+    return emptyArrangement
+
 
 if __name__ == "__main__":
-    # testGroupsRandomThenSwitch(input100People)
-    g = makeGraphFromInput(input100PeopleMoreRandom)
-    groups = find_groups(g, input100PeopleMoreRandom, weight_threshold=0)
-    print(len(groups))
-    #sort groups by size
-    groups.sort(key=lambda group: len(group), reverse=True)
-    print(groups)
+    a = fillEmptyArrangementWithFluentGroups(input100People, makeEmptyArrangement(len(input100People), 8))
 
-    print(splitGroupsByMaxSize(groups, 6))
+    printArrangementWithValues(a)
 
-    # findSmallerGroups(groups, emptyArrangementMixed)
-    # bigGroups = [group for group in groups if len(group) > 2]
-    # print("Big Groups", len(bigGroups))
-    # a = placeGroupsRandom(makeEmptyArrangement(len(input100People), 8), bigGroups, 2)
-    # printArrangementWithValues(a)
+
