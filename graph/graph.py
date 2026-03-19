@@ -232,11 +232,8 @@ def print_groups(groups):
             print(f"  - {person.name}")
         print()
 
-def splitGroupsByMaxSize(groups, maxGroupSize):
-    if maxGroupSize <= 0:
-        raise ValueError("maxGroupSize must be greater than 0")
-
-    pending = sorted([set(g) for g in groups], key=lambda g: len(g), reverse=True)
+def splitGroupsByMaxSize(graph, input, maxGroupSize):
+    pending = find_groups(graph, input, weight_threshold=0)
     newGroups = []
 
     while pending:
@@ -246,19 +243,17 @@ def splitGroupsByMaxSize(groups, maxGroupSize):
             newGroups.append(group)
             continue
 
-        did_split = False
         groupGraph = makeGraphFromInput(group)
 
         # Try increasingly permissive thresholds until a real split is found.
         for i in range(100):
             threshold = i / 10
-            smallerGroups = find_groups(groupGraph, group, weight_threshold=threshold)
+            smallerGroups = find_groups(groupGraph, input, weight_threshold=threshold)
 
-            # Ignore no-op results that did not split the group.
+            # Ignore results that did not split the group.
             if len(smallerGroups) <= 1:
                 continue
 
-            did_split = True
             for smallerGroup in smallerGroups:
                 if len(smallerGroup) <= maxGroupSize:
                     newGroups.append(smallerGroup)
@@ -266,13 +261,7 @@ def splitGroupsByMaxSize(groups, maxGroupSize):
                     pending.append(set(smallerGroup))
             break
 
-        if did_split:
-            pending.sort(key=lambda g: len(g), reverse=True)
-            continue
-
-        # Fallback: hard chunk to guarantee all returned groups are <= maxGroupSize.
-        ordered_people = sorted(group, key=lambda p: p.name)
-        for start in range(0, len(ordered_people), maxGroupSize):
-            newGroups.append(set(ordered_people[start:start + maxGroupSize]))
+        else:
+            print("EROOR GROUP DID NOT SPLIT: ", group)
 
     return newGroups
