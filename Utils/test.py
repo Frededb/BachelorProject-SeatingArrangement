@@ -21,7 +21,7 @@ import reader
 import ValueCalc
 from Algorithms.BruteForce import bruteForce, bruteForceEachTable
 import printer
-from Utils.bmalls import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount
+from Utils.bmalls import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount, findSmallerGroups
 
 from Utils.ValueCalc import calcArrangement
 import math
@@ -37,6 +37,7 @@ input1Table = reader.readjson(os.path.join(script_dir, "../Inputs/input1Table.js
 input100PeopleSimple = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSimple.json"))
 input100PeopleMoreRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleMoreRandom.json"))
 input100PeopleSemiRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSemiRandom.json"))
+input4People = reader.readjson(os.path.join(script_dir, "../Inputs/input4People.json"))
 
 # 6*8+5*6+6*4
 emptyArrangementMixed = makeEmptyArrangementFromTableAmount(6, 8) + makeEmptyArrangementFromTableAmount(5, 6) + makeEmptyArrangementFromTableAmount(6, 4)
@@ -317,14 +318,13 @@ def testGroupsRandomThenSwitch(input = input1Table):
     printArrangementWithValues(worstArrangement)
 
 
-
 if __name__ == "__main__":
-    testGroupsRandomThenSwitch(input100People)
-
-    # g = makeGraphFromInput(input100People)
-    # groups = find_groups(g, input100People, weight_threshold=1.4)
-    # print(len(groups))
-    # print(groups)
+    # testGroupsRandomThenSwitch(input100People)
+    g = makeGraphFromInput(input100PeopleMoreRandom)
+    groups = find_groups(g, input100PeopleMoreRandom, weight_threshold=100000000000000000)
+    print(len(groups))
+    print(groups)
+    # findSmallerGroups(groups, emptyArrangementMixed)
     # bigGroups = [group for group in groups if len(group) > 2]
     # print("Big Groups", len(bigGroups))
     # a = placeGroupsRandom(makeEmptyArrangement(len(input100People), 8), bigGroups, 2)
