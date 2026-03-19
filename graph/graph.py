@@ -205,14 +205,6 @@ def find_groups(graph, people, weight_threshold=None, max_groups=None, verbose=F
 
         score = cut_weight / (len(A) * len(B))
 
-        # If all non-zero edges are the same weight it's a uniform component — no meaningful cut.
-        all_weights = [w for u in sub for v, w in sub[u].items() if u < v and w != 0]
-        if all_weights and max(all_weights) == min(all_weights):
-            if verbose:
-                print(f"Reject: uniform component (all edges = {all_weights[0]:.1f})")
-            groups.append(set(nodes))
-            return
-
 
         if verbose:
             print(f"Cut: weight={cut_weight:.1f}, |A|={len(A)}, |B|={len(B)}, score={score:.4f}")
@@ -239,3 +231,48 @@ def print_groups(groups):
         for person in sorted(g, key=lambda p: p.name):
             print(f"  - {person.name}")
         print()
+
+def splitGroupsByMaxSize(groups, maxGroupSize):
+    if maxGroupSize <= 0:
+        raise ValueError("maxGroupSize must be greater than 0")
+
+    pending = sorted([set(g) for g in groups], key=lambda g: len(g), reverse=True)
+    newGroups = []
+
+    while pending:
+        group = pending.pop(0)
+
+        if len(group) <= maxGroupSize:
+            newGroups.append(group)
+            continue
+
+        did_split = False
+        groupGraph = makeGraphFromInput(group)
+
+        # Try increasingly permissive thresholds until a real split is found.
+        for i in range(100):
+            threshold = i / 10
+            smallerGroups = find_groups(groupGraph, group, weight_threshold=threshold)
+
+            # Ignore no-op results that did not split the group.
+            if len(smallerGroups) <= 1:
+                continue
+
+            did_split = True
+            for smallerGroup in smallerGroups:
+                if len(smallerGroup) <= maxGroupSize:
+                    newGroups.append(smallerGroup)
+                else:
+                    pending.append(set(smallerGroup))
+            break
+
+        if did_split:
+            pending.sort(key=lambda g: len(g), reverse=True)
+            continue
+
+        # Fallback: hard chunk to guarantee all returned groups are <= maxGroupSize.
+        ordered_people = sorted(group, key=lambda p: p.name)
+        for start in range(0, len(ordered_people), maxGroupSize):
+            newGroups.append(set(ordered_people[start:start + maxGroupSize]))
+
+    return newGroups

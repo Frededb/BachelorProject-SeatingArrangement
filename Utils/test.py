@@ -21,7 +21,7 @@ import reader
 import ValueCalc
 from Algorithms.BruteForce import bruteForce, bruteForceEachTable
 import printer
-from Utils.bmalls import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount, findSmallerGroups
+from Utils.bmalls import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount
 
 from Utils.ValueCalc import calcArrangement
 import math
@@ -29,7 +29,7 @@ import random
 
 import os
 
-from graph.graph import makeGraphFromInput, print_graph, find_groups, print_groups
+from graph.graph import makeGraphFromInput, print_graph, find_groups, print_groups, splitGroupsByMaxSize
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input100People.json"))
@@ -321,9 +321,14 @@ def testGroupsRandomThenSwitch(input = input1Table):
 if __name__ == "__main__":
     # testGroupsRandomThenSwitch(input100People)
     g = makeGraphFromInput(input100PeopleMoreRandom)
-    groups = find_groups(g, input100PeopleMoreRandom, weight_threshold=100000000000000000)
+    groups = find_groups(g, input100PeopleMoreRandom, weight_threshold=0)
     print(len(groups))
+    #sort groups by size
+    groups.sort(key=lambda group: len(group), reverse=True)
     print(groups)
+
+    print(splitGroupsByMaxSize(groups, 6))
+
     # findSmallerGroups(groups, emptyArrangementMixed)
     # bigGroups = [group for group in groups if len(group) > 2]
     # print("Big Groups", len(bigGroups))
