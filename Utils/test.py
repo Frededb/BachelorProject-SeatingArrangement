@@ -340,36 +340,61 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
         )
 
         table = tablesWithCapacity[0]
+
+        print("looking at table: ", table)
+
         emptySeatIndexes = [i for i, seat in enumerate(table) if seat.name == "Empty"]
+
+        print("emptySeatIndexes: ", emptySeatIndexes)
 
         maxGroupSize = len(emptySeatIndexes)
         g = makeGraphFromInput(remainingPeople)
         splittedGroups = splitGroupsByMaxSize(g, remainingPeople, maxGroupSize)
-        # splittedGroups = [group for group in splittedGroups if len(group) > 0]
 
-        splittedGroups.sort(key=lambda group: (-len(group), sorted(person.name for person in group)))
+        print("splittedGroups: ", splittedGroups)
 
-        biggestGroup = sorted(list(splittedGroups[0]), key=lambda person: person.name)
-        for seatIndex, person in zip(emptySeatIndexes, biggestGroup):
+        bestGroup = None
+        bestTableScore = -math.inf
+
+        for rawGroup in splittedGroups:
+            group = list(rawGroup)
+            simulatedTable = list(table)
+            for seatIndex, person in zip(emptySeatIndexes, group):
+                simulatedTable[seatIndex] = person
+
+            tableScore = ValueCalc.calcTable(simulatedTable)[0]
+
+            if tableScore > bestTableScore:
+                bestTableScore = tableScore
+                bestGroup = group
+
+        print("bestGroup (score-optimized): ", bestGroup)
+        print("bestTableScore: ", bestTableScore)
+
+        for seatIndex, person in zip(emptySeatIndexes, bestGroup):
             table[seatIndex] = person
 
-        seatedNames = {person.name for person in biggestGroup}
+
+        print("new table: ", table)
+
+        print("-----")
+        seatedNames = {person.name for person in bestGroup}
         remainingPeople = [person for person in remainingPeople if person.name not in seatedNames]
 
-    emptyArrangement = bruteForceEachTable(emptyArrangement)
-    print("score after first bruteforce: ", calcArrangement(emptyArrangement)[0])
-
-    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
-    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
-
-    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
-    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
-
-    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
-    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
-
-    emptyArrangement = bruteForceEachTable(emptyArrangement)
-    print("score after bruteforce: ", calcArrangement(emptyArrangement)[0])
+    # emptyArrangement = bruteForceEachTable(emptyArrangement)
+    # print("score after first bruteforce: ", calcArrangement(emptyArrangement)[0])
+    #
+    # emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    # print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
+    #
+    # emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    # print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
+    #
+    # emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    # print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
+    #
+    # emptyArrangement = bruteForceEachTable(emptyArrangement)
+    # print("score after bruteforce: ", calcArrangement(emptyArrangement)[0])
 
     return emptyArrangement
 
