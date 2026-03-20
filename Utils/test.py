@@ -38,6 +38,7 @@ input100PeopleSimple = reader.readjson(os.path.join(script_dir, "../Inputs/input
 input100PeopleMoreRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleMoreRandom.json"))
 input100PeopleSemiRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSemiRandom.json"))
 input4People = reader.readjson(os.path.join(script_dir, "../Inputs/input4People.json"))
+inputReal = reader.readjson(os.path.join(script_dir, "../Inputs/inputReal.json"))
 
 # 6*8+5*6+6*4
 emptyArrangementMixed = makeEmptyArrangementFromTableAmount(6, 8) + makeEmptyArrangementFromTableAmount(5, 6) + makeEmptyArrangementFromTableAmount(6, 4)
@@ -319,57 +320,63 @@ def testGroupsRandomThenSwitch(input = input1Table):
 
 def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
     #shuffle the input
-    input = list(input)
-    random.shuffle(input)
-    
+    # random.shuffle(input)
+
     remainingPeople = list(input)
-    emptyArrangement.sort(key=lambda t: len(t), reverse=True)
-    print("Empty Arrangement: ", emptyArrangement)
-    
-    for table in emptyArrangement:
-        while len(remainingPeople) > 0:
-            emptySeatIndexes = [i for i, seat in enumerate(table) if seat.name == "Empty"]
-            if len(emptySeatIndexes) == 0:
-                break
 
-            maxGroupSize = len(emptySeatIndexes)
-            g = makeGraphFromInput(remainingPeople)
-            splittedGroups = splitGroupsByMaxSize(g, remainingPeople, maxGroupSize)
+    while len(remainingPeople) > 0:
+        tablesWithCapacity = [
+            table for table in emptyArrangement
+            if any(seat.name == "Empty" for seat in table)
+        ]
 
-            feasibleGroups = [group for group in splittedGroups if 0 < len(group) <= maxGroupSize]
-            if len(feasibleGroups) > 0:
-                feasibleGroups.sort(key=lambda group: (-len(group), sorted(person.name for person in group)))
+        # Re-prioritize by current empty-seat capacity so partially filled tables
+        # compete as their remaining size (e.g. 10->4) against other tables.
+        tablesWithCapacity.sort(
+            key=lambda table: (
+                -sum(1 for seat in table if seat.name == "Empty"),
+                -len(table)
+            )
+        )
 
-                # Fill this table with the biggest group that fits the available empty seats.
-                biggestGroup = sorted(list(feasibleGroups[0]), key=lambda person: person.name)
-            else:
-                # Fallback: if no fluent group fits, still fill seats to avoid leaving tables empty.
-                biggestGroup = list(remainingPeople[:maxGroupSize])
+        table = tablesWithCapacity[0]
+        emptySeatIndexes = [i for i, seat in enumerate(table) if seat.name == "Empty"]
 
-            if len(biggestGroup) == 0:
-                break
+        maxGroupSize = len(emptySeatIndexes)
+        g = makeGraphFromInput(remainingPeople)
+        splittedGroups = splitGroupsByMaxSize(g, remainingPeople, maxGroupSize)
+        # splittedGroups = [group for group in splittedGroups if len(group) > 0]
 
-            for seatIndex, person in zip(emptySeatIndexes, biggestGroup):
-                table[seatIndex] = person
+        splittedGroups.sort(key=lambda group: (-len(group), sorted(person.name for person in group)))
 
-            seatedNames = {person.name for person in biggestGroup}
-            remainingPeople = [person for person in remainingPeople if person.name not in seatedNames]
+        biggestGroup = sorted(list(splittedGroups[0]), key=lambda person: person.name)
+        for seatIndex, person in zip(emptySeatIndexes, biggestGroup):
+            table[seatIndex] = person
 
-
-    print("hej")
+        seatedNames = {person.name for person in biggestGroup}
+        remainingPeople = [person for person in remainingPeople if person.name not in seatedNames]
 
     emptyArrangement = bruteForceEachTable(emptyArrangement)
+    print("score after first bruteforce: ", calcArrangement(emptyArrangement)[0])
 
     emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
+
+    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
+
+    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
 
     emptyArrangement = bruteForceEachTable(emptyArrangement)
-
+    print("score after bruteforce: ", calcArrangement(emptyArrangement)[0])
 
     return emptyArrangement
 
 
 if __name__ == "__main__":
-    a = fillEmptyArrangementWithFluentGroups(input100People, makeEmptyArrangement(len(input100People), 8))
+    testInput = input100People
+    a = fillEmptyArrangementWithFluentGroups(testInput, makeEmptyArrangement(len(testInput), 8))
 
     printArrangementWithValues(a)
 
