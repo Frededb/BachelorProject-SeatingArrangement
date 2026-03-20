@@ -30,7 +30,7 @@ def calcPerson(table, index):
         if personB.name in personA.preferences:
             personSum = personSum + 15
         if personB.name in personA.avoidances:
-            personSum = personSum - 20
+            personSum = personSum - 30
         sum = sum + (personSum * 1/getDistanceTo(table, index, i))
     return sum
 
