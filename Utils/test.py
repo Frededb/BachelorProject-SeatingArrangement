@@ -330,6 +330,62 @@ def testGroupsRandomThenSwitch(input = input1Table):
     printArrangementWithValues(worstArrangement)
 
 
+def _empty_seat_indexes(table):
+    return [i for i, seat in enumerate(table) if seat.name == "Empty"]
+
+
+def _group_cohesion_score(group, graph):
+    names = sorted(person.name for person in group)
+    if len(names) <= 1:
+        return (float("-inf"), len(names), 0.0)
+
+    total_weight = 0.0
+    pair_count = 0
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            pair_count += 1
+            total_weight += graph.get(names[i], {}).get(names[j], 0.0)
+
+    avg_weight = total_weight / pair_count if pair_count > 0 else float("-inf")
+    # Prefer stronger internal cohesion first, then larger groups.
+    return (avg_weight, len(names), total_weight)
+
+
+def _pick_most_cohesive_group(groups, graph):
+    best_group = None
+    best_score = (float("-inf"), float("-inf"), float("-inf"))
+    best_names = None
+
+    for raw_group in groups:
+        group = list(raw_group)
+        score = _group_cohesion_score(group, graph)
+        names = tuple(sorted(person.name for person in group))
+        if score > best_score or (score == best_score and (best_names is None or names < best_names)):
+            best_group = group
+            best_score = score
+            best_names = names
+
+    return best_group
+
+
+def _pick_best_fit_table(emptyArrangement, groupSize):
+    best = None
+    for table_index, table in enumerate(emptyArrangement):
+        empty_indexes = _empty_seat_indexes(table)
+        empty_count = len(empty_indexes)
+        if empty_count < groupSize:
+            continue
+
+        candidate_key = (empty_count, len(table), table_index)
+        if best is None or candidate_key < best[0]:
+            best = (candidate_key, table, empty_indexes)
+
+    if best is None:
+        return None, None
+
+    return best[1], best[2]
+
+
 
 
 
@@ -341,43 +397,20 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
     protectedNames = set()
 
     while len(remainingPeople) > 0:
-        tablesWithCapacity = [
-            table for table in emptyArrangement
-            if any(seat.name == "Empty" for seat in table)
-        ]
+        table_capacities = [len(_empty_seat_indexes(table)) for table in emptyArrangement]
+        maxGroupSize = max(table_capacities)
+        if maxGroupSize == 0:
+            break
 
-        # Re-prioritize by current empty-seat capacity so partially filled tables
-        # compete as their remaining size (e.g. 10->4) against other tables.
-        tablesWithCapacity.sort(
-            key=lambda table: (
-                -sum(1 for seat in table if seat.name == "Empty"),
-                -len(table)
-            )
-        )
-
-        table = tablesWithCapacity[0]
-        emptySeatIndexes = [i for i, seat in enumerate(table) if seat.name == "Empty"]
-
-        print("current table: ", table)
-
-        maxGroupSize = len(emptySeatIndexes)
         g = makeGraphFromInput(remainingPeople)
         splittedGroups = splitGroupsByMaxSize(g, remainingPeople, maxGroupSize)
+        bestGroup = _pick_most_cohesive_group(splittedGroups, g)
 
-        bestGroup = None
-        bestTableScore = -math.inf
+        table, emptySeatIndexes = _pick_best_fit_table(emptyArrangement, len(bestGroup))
+        if table is None:
+            raise RuntimeError("No table can fit selected group. Check splitGroupsByMaxSize constraints.")
 
-        for rawGroup in splittedGroups:
-            group = list(rawGroup)
-            simulatedTable = list(table)
-            for seatIndex, person in zip(emptySeatIndexes, group):
-                simulatedTable[seatIndex] = person
-
-            tableScore = ValueCalc.calcTable(simulatedTable)[0]
-
-            if tableScore > bestTableScore:
-                bestTableScore = tableScore
-                bestGroup = group
+        print("current table: ", table)
 
         print("best group: ", bestGroup)
 
