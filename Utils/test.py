@@ -317,9 +317,17 @@ def testGroupsRandomThenSwitch(input = input1Table):
     printArrangementWithValues(worstArrangement)
 
 
+def testCreateRandomInput():
+    from Utils.createRandomInput import createRandomInput
+    randomInput = createRandomInput(cp = 8, cpp = 0.1, ca = 1, n = 100)
+    print(randomInput)
+    arrangement = testLinearSwitch2PeopleSets(randomArrangement(randomInput, 69))
+    printArrangementWithValues(arrangement)
+
 
 if __name__ == "__main__":
-    testGroupsRandomThenSwitch(input100People)
+    testCreateRandomInput()
+    # testGroupsRandomThenSwitch(input100People)
 
     # g = makeGraphFromInput(input100People)
     # groups = find_groups(g, input100People, weight_threshold=1.4)
