@@ -1,5 +1,6 @@
 import os
 import sys
+import random
 
 # Ensure project root on sys.path so imports work when module is imported/run
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -232,6 +233,25 @@ def print_groups(groups):
             print(f"  - {person.name}")
         print()
 
+
+def _jitter_graph(graph, epsilon=0.001):
+    """Add tiny symmetric noise to edge weights to break perfect ties."""
+    names = list(graph.keys())
+    jittered = {name: {} for name in names}
+
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            a = names[i]
+            b = names[j]
+            if b not in graph[a]:
+                continue
+            delta = random.uniform(-epsilon, epsilon)
+            weight = graph[a][b] + delta
+            jittered[a][b] = weight
+            jittered[b][a] = weight
+
+    return jittered
+
 def splitGroupsByMaxSize(graph, input, maxGroupSize):
     pending = find_groups(graph, input, weight_threshold=0)
     newGroups = []
@@ -245,23 +265,29 @@ def splitGroupsByMaxSize(graph, input, maxGroupSize):
 
         groupGraph = makeGraphFromInput(group)
 
-        # Try increasingly permissive thresholds until a real split is found.
-        for i in range(100):
-            threshold = i / 10
-            smallerGroups = find_groups(groupGraph, input, weight_threshold=threshold)
+        # Try increasingly permissive thresholds with tiny edge jitter to break symmetry.
+        chosenSplit = None
+        for i in range(1000):
+            threshold = i / 100
+            jitteredGraph = _jitter_graph(groupGraph)
+            smallerGroups = find_groups(jitteredGraph, input, weight_threshold=threshold)
 
             # Ignore results that did not split the group.
             if len(smallerGroups) <= 1:
                 continue
 
-            for smallerGroup in smallerGroups:
-                if len(smallerGroup) <= maxGroupSize:
-                    newGroups.append(smallerGroup)
-                else:
-                    pending.append(set(smallerGroup))
+            chosenSplit = smallerGroups
             break
 
-        else:
-            print("EROOR GROUP DID NOT SPLIT: ", group)
+        if chosenSplit is None:
+            #throw error that group did not split
+            print("Error: could not split group:", group)
+            exit(1)
+
+        for smallerGroup in chosenSplit:
+            if len(smallerGroup) <= maxGroupSize:
+                newGroups.append(smallerGroup)
+            else:
+                pending.append(set(smallerGroup))
 
     return newGroups

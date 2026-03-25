@@ -28,6 +28,7 @@ import math
 import random
 
 import os
+import sys
 
 from graph.graph import makeGraphFromInput, print_graph, find_groups, print_groups, splitGroupsByMaxSize
 
@@ -39,6 +40,16 @@ input100PeopleMoreRandom = reader.readjson(os.path.join(script_dir, "../Inputs/i
 input100PeopleSemiRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSemiRandom.json"))
 input4People = reader.readjson(os.path.join(script_dir, "../Inputs/input4People.json"))
 inputReal = reader.readjson(os.path.join(script_dir, "../Inputs/inputReal.json"))
+
+INPUTS_BY_NAME = {
+    "input100People": input100People,
+    "input1Table": input1Table,
+    "input100PeopleSimple": input100PeopleSimple,
+    "input100PeopleMoreRandom": input100PeopleMoreRandom,
+    "input100PeopleSemiRandom": input100PeopleSemiRandom,
+    "input4People": input4People,
+    "inputReal": inputReal,
+}
 
 # 6*8+5*6+6*4
 emptyArrangementMixed = makeEmptyArrangementFromTableAmount(6, 8) + makeEmptyArrangementFromTableAmount(5, 6) + makeEmptyArrangementFromTableAmount(6, 4)
@@ -318,11 +329,16 @@ def testGroupsRandomThenSwitch(input = input1Table):
     print("Worst Score: ", worstScore)
     printArrangementWithValues(worstArrangement)
 
+
+
+
+
 def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
     #shuffle the input
     # random.shuffle(input)
 
     remainingPeople = list(input)
+    protectedNames = set()
 
     while len(remainingPeople) > 0:
         tablesWithCapacity = [
@@ -340,18 +356,13 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
         )
 
         table = tablesWithCapacity[0]
-
-        print("looking at table: ", table)
-
         emptySeatIndexes = [i for i, seat in enumerate(table) if seat.name == "Empty"]
 
-        print("emptySeatIndexes: ", emptySeatIndexes)
+        print("current table: ", table)
 
         maxGroupSize = len(emptySeatIndexes)
         g = makeGraphFromInput(remainingPeople)
         splittedGroups = splitGroupsByMaxSize(g, remainingPeople, maxGroupSize)
-
-        print("splittedGroups: ", splittedGroups)
 
         bestGroup = None
         bestTableScore = -math.inf
@@ -368,39 +379,52 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
                 bestTableScore = tableScore
                 bestGroup = group
 
-        print("bestGroup (score-optimized): ", bestGroup)
-        print("bestTableScore: ", bestTableScore)
+        print("best group: ", bestGroup)
 
         for seatIndex, person in zip(emptySeatIndexes, bestGroup):
             table[seatIndex] = person
 
-
         print("new table: ", table)
 
-        print("-----")
+        print("------------")
+
+        if len(bestGroup) >= 3:
+            for person in bestGroup:
+                protectedNames.add(person.name)
+
         seatedNames = {person.name for person in bestGroup}
         remainingPeople = [person for person in remainingPeople if person.name not in seatedNames]
 
-    # emptyArrangement = bruteForceEachTable(emptyArrangement)
-    # print("score after first bruteforce: ", calcArrangement(emptyArrangement)[0])
-    #
-    # emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
-    # print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
-    #
-    # emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
-    # print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
-    #
-    # emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
-    # print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
-    #
-    # emptyArrangement = bruteForceEachTable(emptyArrangement)
-    # print("score after bruteforce: ", calcArrangement(emptyArrangement)[0])
+    emptyArrangement = bruteForceEachTable(emptyArrangement)
+    print("score after first bruteforce: ", calcArrangement(emptyArrangement)[0])
+
+    movableCoords = [
+        (tableIndex, seatIndex)
+        for tableIndex, table in enumerate(emptyArrangement)
+        for seatIndex, person in enumerate(table)
+        if person.name not in protectedNames
+    ]
+
+    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
+
+    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
+
+    emptyArrangement = bruteForceEachTable(emptyArrangement)
+    print("score after bruteforce: ", calcArrangement(emptyArrangement)[0])
 
     return emptyArrangement
 
-
 if __name__ == "__main__":
-    testInput = input100People
+    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100PeopleMoreRandom"
+    if selectedInputName not in INPUTS_BY_NAME:
+        print("Unknown input:", selectedInputName)
+        print("Valid inputs:", ", ".join(sorted(INPUTS_BY_NAME.keys())))
+        raise SystemExit(1)
+
+    testInput = INPUTS_BY_NAME[selectedInputName]
+    print("Using input:", selectedInputName)
     a = fillEmptyArrangementWithFluentGroups(testInput, makeEmptyArrangement(len(testInput), 8))
 
     printArrangementWithValues(a)
