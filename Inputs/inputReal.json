@@ -239,5 +239,61 @@
         "year": "2023",
         "preferences": ["davj"],
         "avoidances": ["rads"]
+    },
+    {
+        "name": "jonv",
+        "studyprogram": "swu",
+        "year": "2023",
+        "preferences": ["mawc", "marho", "lukha", "mofb", "kwad"],
+        "avoidances": [""]
+    },
+    {
+        "name": "viea",
+        "studyprogram": "swu",
+        "year": "2023",
+        "preferences": ["rahu", "bapo"],
+        "avoidances": ["aubu"]
+    },
+    {
+        "name": "rarl",
+        "studyprogram": "swu",
+        "year": "2023",
+        "preferences": ["gryn", "mlao", "acah"],
+        "avoidances": ["joapu"]
+    },
+    {
+        "name": "pask",
+        "studyprogram": "swu",
+        "year": "2025",
+        "preferences": ["ellk", "mawb", "toov", "johbe", "aebn", "lrec"],
+        "avoidances": ["vkus"]
+    },
+    {
+        "name": "ghej",
+        "studyprogram": "swu",
+        "year": "2023",
+        "preferences": ["kajn", "sths", "aubu", "nals", "nhca"],
+        "avoidances": [""]
+    },
+    {
+        "name": "stik",
+        "studyprogram": "swu",
+        "year": "2023",
+        "preferences": ["alfd", "alby", "noav", "okre", "aarp", "anej", "mikcl", "allp", "emmm", "frij", "luen"],
+        "avoidances": [""]
+    },
+    {
+        "name": "loef",
+        "studyprogram": "swu",
+        "year": "2023",
+        "preferences": ["mnla", "ralc", "nals", "nhca", "kajn", "ghej", "gafa"],
+        "avoidances": ["llsa"]
+    },
+    {
+        "name": "mawc",
+        "studyprogram": "swu",
+        "year": "2023",
+        "preferences": ["marho", "mofb", "lukha", "kwad", "jonv", "jones", "mblh"],
+        "avoidances": [""]
     }
 ]
