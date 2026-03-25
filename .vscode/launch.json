@@ -11,6 +11,14 @@
             "program": "test.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}/Utils"
+        },
+        {
+            "name": "Python Debugger: gurobi",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "calc_v2.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/gurobi"
         }
     ]
 }
