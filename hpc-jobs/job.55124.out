@@ -1,0 +1,14 @@
+desktop12.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Traceback (most recent call last):
+  File "/home/nsio/bachelorProject/gurobi/calc_v2.py", line 151, in <module>
+    main()
+  File "/home/nsio/bachelorProject/gurobi/calc_v2.py", line 146, in main
+    verbose=not args.quiet,
+  File "/home/nsio/bachelorProject/gurobi/calc_v2.py", line 69, in optimize_seating
+    model = gp.Model("seating_miqp")
+  File "src/gurobipy/env.pxi", line 67, in gurobipy.Env.__init__
+  File "src/gurobipy/gurobi.pxi", line 32, in gurobipy.gurobi._getdefaultenv
+  File "src/gurobipy/env.pxi", line 67, in gurobipy.Env.__init__
+gurobipy.GurobiError: HostID mismatch (licensed to 723586af, hostid is d7612f39)

@@ -1,0 +1,4 @@
+cn15.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+FATAL:   While checking container encryption: could not open image /home/nsio/bachelorProject/hpc-jobs/python: failed to retrieve path for /home/nsio/bachelorProject/hpc-jobs/python: lstat /home/nsio/bachelorProject/hpc-jobs/python: no such file or directory

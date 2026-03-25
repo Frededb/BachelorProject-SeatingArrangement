@@ -2,6 +2,7 @@ import argparse
 import math
 import os
 import sys
+import time
 
 import gurobipy as gp
 from gurobipy import GRB
@@ -53,6 +54,44 @@ def distance_weights(table_size=TABLE_SIZE):
 	return weights
 
 
+def create_hourly_print_callback(x, padded_people, table_count, person_count):
+	"""Create a callback that prints the arrangement every hour."""
+	callback_state = {
+		'last_print_time': 0,
+		'start_time': time.time(),
+		'print_interval': 3600  # 1 hour in seconds
+	}
+
+	def print_callback(model, where):
+		if where == GRB.Callback.MIPSOL:
+			current_time = time.time()
+			elapsed = current_time - callback_state['last_print_time']
+			
+			if elapsed >= callback_state['print_interval']:
+				callback_state['last_print_time'] = current_time
+				total_elapsed = current_time - callback_state['start_time']
+				
+				print(f"\n{'='*60}")
+				print(f"Progress update at {total_elapsed/3600:.2f} hours:")
+				print(f"Current objective: {model.cbGet(GRB.Callback.MIPSOL_OBJ):.4f}")
+				print(f"Best bound: {model.cbGet(GRB.Callback.MIPSOL_OBJBND):.4f}")
+				print(f"{'='*60}")
+				
+				# Extract current solution
+				arrangement = [[emptyPerson] * TABLE_SIZE for _ in range(table_count)]
+				for t in range(table_count):
+					for s in range(TABLE_SIZE):
+						for i in range(person_count):
+							if model.cbGetSolution(x[i, t, s]) > 0.5:
+								arrangement[t][s] = padded_people[i]
+								break
+				
+				printArrangementWithValues(arrangement)
+				print(f"{'='*60}\n")
+	
+	return print_callback
+
+
 def optimize_seating(people, time_limit=60, mip_gap=0.01, threads=None, verbose=True):
 	table_count = math.ceil(len(people) / TABLE_SIZE)
 	seat_count = table_count * TABLE_SIZE
@@ -94,13 +133,15 @@ def optimize_seating(people, time_limit=60, mip_gap=0.01, threads=None, verbose=
 	for t in range(table_count):
 		for (i, j), pair_score in pair_scores.items():
 			for (seat_a, seat_b), seat_weight in seat_weights.items():
-				nudge = math.sqrt(j*seat_a + i*seat_b) * 1e-6
+				nudge = (math.sqrt(i+(t*seat_a*104)) + math.sqrt(j+(t*seat_b*104))) * 1e-6
 				coeff = pair_score * seat_weight + nudge
 				objective += coeff * x[i, t, seat_a] * x[j, t, seat_b]
 				objective += coeff * x[i, t, seat_b] * x[j, t, seat_a]
 
 	model.setObjective(objective, GRB.MAXIMIZE)
-	model.optimize()
+	
+	callback = create_hourly_print_callback(x, padded_people, table_count, person_count)
+	model.optimize(callback)
 
 	if model.SolCount == 0:
 		raise RuntimeError("Gurobi did not find a feasible seating arrangement.")
@@ -131,7 +172,7 @@ def main():
 		default=os.path.join(ROOT_DIR, "Inputs", "input100People.json"),
 		help="Path to input json file.",
 	)
-	parser.add_argument("--time-limit", type=float, default=60.0, help="Gurobi time limit in seconds.")
+	parser.add_argument("--time-limit", type=float, default=99999999999, help="Gurobi time limit in seconds.")
 	parser.add_argument("--mip-gap", type=float, default=0.01, help="Target MIP gap.")
 	parser.add_argument("--threads", type=int, default=None, help="Optional thread count.")
 	parser.add_argument("--quiet", action="store_true", help="Disable Gurobi solver output.")
