@@ -1,0 +1,4 @@
+cn15.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+FATAL:   While checking container encryption: could not open image /home/nsio/bachelorProject/gurobi/calc_v2.py: image format not recognized

@@ -1,0 +1,36 @@
+Bootstrap: docker
+From: python:3.11-slim
+
+%files
+    # Copy your project files
+    /home/nick/bachelorProject /opt/bachelorProject
+    # Copy Gurobi license file
+    /home/nick/Downloads/gurobi.lic /opt/gurobi/gurobi.lic
+
+%post
+    # Update and install basic dependencies
+    # apt update && apt install -y \
+    #     build-essential \
+    #     wget \
+    #     && rm -rf /var/lib/apt/lists/*
+
+    # remove old containers
+    rm -f /opt/bachelorProject/hpc-jobs/container*.sif
+    
+    # Install Python packages
+    pip install --no-cache-dir gurobipy
+    
+    # Set Gurobi license environment variable
+    # echo 'export GRB_LICENSE_FILE=/opt/gurobi/gurobi.lic' >> /environment
+
+%environment
+    export GRB_LICENSE_FILE=/opt/gurobi/gurobi.lic
+    export PYTHONPATH=/opt/bachelorProject:$PYTHONPATH
+
+%runscript
+    cd /opt/bachelorProject/gurobi/
+    exec python3 /opt/bachelorProject/gurobi/calc_v2.py --time-limit=3600
+
+%labels
+    Author nick
+    Version v1.0

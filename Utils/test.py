@@ -448,6 +448,13 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
     print("score after bruteforce: ", calcArrangement(emptyArrangement)[0])
 
     return emptyArrangement
+def testCreateRandomInput():
+    from Utils.createRandomInput import createRandomInput
+    randomInput = createRandomInput(cp = 8, cpp = 0.1, ca = 1, n = 100)
+    print(randomInput)
+    arrangement = testLinearSwitch2PeopleSets(randomArrangement(randomInput, 69))
+    printArrangementWithValues(arrangement)
+
 
 if __name__ == "__main__":
     selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100PeopleMoreRandom"
@@ -461,5 +468,3 @@ if __name__ == "__main__":
     a = fillEmptyArrangementWithFluentGroups(testInput, makeEmptyArrangement(len(testInput), 8))
 
     printArrangementWithValues(a)
-
-
