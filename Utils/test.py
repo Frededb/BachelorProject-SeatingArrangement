@@ -457,7 +457,7 @@ def testCreateRandomInput():
 
 
 if __name__ == "__main__":
-    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100PeopleMoreRandom"
+    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100People"
     if selectedInputName not in INPUTS_BY_NAME:
         print("Unknown input:", selectedInputName)
         print("Valid inputs:", ", ".join(sorted(INPUTS_BY_NAME.keys())))
