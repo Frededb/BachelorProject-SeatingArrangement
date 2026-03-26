@@ -24,5 +24,4 @@ def LinearSwitch4People(arrangement):
 
                     if postValueTotal < preValueTotal:
                         switch4PeopleBack(arrangement, personA, personB, personC, personD)  # Switch back if no improvementt))
-        print(f"Finished checking combinations for personA: {personA}")
     return arrangement
