@@ -1,6 +1,8 @@
+from Algorithms.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
 from Utils.ValueCalc import calcTable, calcArrangement
 from itertools import islice, permutations
 import math
+from Algorithms.LinearSwitch4People import LinearSwitch4People
 
 arrangement = []
 
@@ -37,7 +39,7 @@ def bruteForceEachTable(initialArrangement):
     bestValue = -math.inf
     bestArrangement = []
 
-    #we go through each and see if they are better than the previous best
+    # we go through each and see if they are better than the previous best
     for table in initialArrangement:
         tablePerms = permutations(table)
         bestValue = -math.inf
@@ -49,5 +51,15 @@ def bruteForceEachTable(initialArrangement):
                 bestValue = tableValue
                 bestTable = list(perm)
         bestArrangement.append(bestTable)
+    return bestArrangement
+
+
+def linearSwitch4PeopleEachTable(initialArrangement):
+    bestArrangement = []
+
+    # Optimize each table independently using linear 4-person switches.
+    for table in initialArrangement:
+        optimizedSingleTable = LinearSwitch4PeopleSets([list(table)])
+        bestArrangement.append(optimizedSingleTable[0])
     return bestArrangement
 

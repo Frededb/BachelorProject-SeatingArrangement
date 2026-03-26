@@ -19,7 +19,7 @@ from Utils.printer import printArrangementWithValues
 
 import reader
 import ValueCalc
-from Algorithms.BruteForce import bruteForce, bruteForceEachTable
+from Algorithms.BruteForce import bruteForce, bruteForceEachTable, linearSwitch4PeopleEachTable
 import printer
 from Utils.bmalls import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount
 
@@ -434,7 +434,7 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
         seatedNames = {person.name for person in bestGroup}
         remainingPeople = [person for person in remainingPeople if person.name not in seatedNames]
 
-    emptyArrangement = bruteForceEachTable(emptyArrangement)
+    emptyArrangement = linearSwitch4PeopleEachTable(emptyArrangement)
     print("score after first bruteforce: ", calcArrangement(emptyArrangement)[0])
 
     movableCoords = [
