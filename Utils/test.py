@@ -334,38 +334,46 @@ def _empty_seat_indexes(table):
     return [i for i, seat in enumerate(table) if seat.name == "Empty"]
 
 
-def _group_cohesion_score(group, graph):
-    names = sorted(person.name for person in group)
-    if len(names) <= 1:
-        return (float("-inf"), len(names), 0.0)
-
-    total_weight = 0.0
-    pair_count = 0
-    for i in range(len(names)):
-        for j in range(i + 1, len(names)):
-            pair_count += 1
-            total_weight += graph.get(names[i], {}).get(names[j], 0.0)
-
-    avg_weight = total_weight / pair_count if pair_count > 0 else float("-inf")
-    # Prefer stronger internal cohesion first, then larger groups.
-    return (avg_weight, len(names), total_weight)
-
-
-def _pick_most_cohesive_group(groups, graph):
+def _pick_highest_scoring_group(groups, emptyArrangement):
     best_group = None
-    best_score = (float("-inf"), float("-inf"), float("-inf"))
+    best_table = None
+    best_empty_indexes = None
+    best_score = float("-inf")
+    best_tiebreak = None
     best_names = None
 
     for raw_group in groups:
         group = list(raw_group)
-        score = _group_cohesion_score(group, graph)
+        table_index, table, empty_indexes = _pick_best_fit_table(emptyArrangement, len(group))
+        if table is None:
+            continue
+
+        # Evaluate this exact next move and keep the group that yields max score.
+        candidate_arrangement = [list(t) for t in emptyArrangement]
+        for seat_index, person in zip(empty_indexes, group):
+            candidate_arrangement[table_index][seat_index] = person
+
+        score = calcArrangement(candidate_arrangement)[0]
+        leftover_seats = len(empty_indexes) - len(group)
+        tiebreak = (
+            -leftover_seats,
+            len(group),
+        )
         names = tuple(sorted(person.name for person in group))
-        if score > best_score or (score == best_score and (best_names is None or names < best_names)):
+
+        if (
+            score > best_score
+            or (score == best_score and (best_tiebreak is None or tiebreak > best_tiebreak))
+            or (score == best_score and tiebreak == best_tiebreak and (best_names is None or names < best_names))
+        ):
             best_group = group
+            best_table = table
+            best_empty_indexes = empty_indexes
             best_score = score
+            best_tiebreak = tiebreak
             best_names = names
 
-    return best_group
+    return best_group, best_table, best_empty_indexes
 
 
 def _pick_best_fit_table(emptyArrangement, groupSize):
@@ -381,17 +389,17 @@ def _pick_best_fit_table(emptyArrangement, groupSize):
             best = (candidate_key, table, empty_indexes)
 
     if best is None:
-        return None, None
+        return None, None, None
 
-    return best[1], best[2]
+    return best[0][2], best[1], best[2]
 
 
 
 
 
 def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
-    #shuffle the input
-    # random.shuffle(input)
+    # shuffle the input
+    random.shuffle(input)
 
     remainingPeople = list(input)
     protectedNames = set()
@@ -404,22 +412,20 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
 
         g = makeGraphFromInput(remainingPeople)
         splittedGroups = splitGroupsByMaxSize(g, remainingPeople, maxGroupSize)
-        bestGroup = _pick_most_cohesive_group(splittedGroups, g)
-
-        table, emptySeatIndexes = _pick_best_fit_table(emptyArrangement, len(bestGroup))
+        bestGroup, table, emptySeatIndexes = _pick_highest_scoring_group(splittedGroups, emptyArrangement)
         if table is None:
             raise RuntimeError("No table can fit selected group. Check splitGroupsByMaxSize constraints.")
 
-        print("current table: ", table)
-
-        print("best group: ", bestGroup)
+        # print("current table: ", table)
+        #
+        # print("best group: ", bestGroup)
 
         for seatIndex, person in zip(emptySeatIndexes, bestGroup):
             table[seatIndex] = person
 
-        print("new table: ", table)
-
-        print("------------")
+        # print("new table: ", table)
+        #
+        # print("------------")
 
         if len(bestGroup) >= 3:
             for person in bestGroup:
@@ -438,14 +444,8 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
         if person.name not in protectedNames
     ]
 
-    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement, movableCoords)
     print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
-
-    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
-    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
-
-    emptyArrangement = bruteForceEachTable(emptyArrangement)
-    print("score after bruteforce: ", calcArrangement(emptyArrangement)[0])
 
     return emptyArrangement
 def testCreateRandomInput():
@@ -465,6 +465,7 @@ if __name__ == "__main__":
 
     testInput = INPUTS_BY_NAME[selectedInputName]
     print("Using input:", selectedInputName)
+    print("Theory Max: ", ValueCalc.calcTheoreticalMax(testInput, 8))
     a = fillEmptyArrangementWithFluentGroups(testInput, makeEmptyArrangement(len(testInput), 8))
 
     printArrangementWithValues(a)
