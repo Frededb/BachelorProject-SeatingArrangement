@@ -351,6 +351,35 @@ def _group_cohesion_score(group, graph):
     return (avg_weight, len(names), total_weight)
 
 
+def _directed_pair_value(personA, personB):
+    value = 0
+    if personA.studyprogram == personB.studyprogram:
+        value += 3
+    if personA.year == personB.year:
+        value += 1
+    if personB.name in personA.preferences:
+        value += 15
+    if personB.name in personA.avoidances:
+        value -= 30
+    return value
+
+
+def _group_internal_value(group):
+    """Score a group by intrinsic member compatibility only (no table placement context)."""
+    if len(group) <= 1:
+        return (float("-inf"), float("-inf"))
+
+    total = 0
+    for i in range(len(group)):
+        for j in range(i + 1, len(group)):
+            total += _directed_pair_value(group[i], group[j])
+            total += _directed_pair_value(group[j], group[i])
+
+    directed_pair_count = len(group) * (len(group) - 1)
+    average = total / directed_pair_count if directed_pair_count > 0 else float("-inf")
+    return (float(average), float(total))
+
+
 def _pick_most_cohesive_group(groups, graph):
     best_group = None
     best_score = (float("-inf"), float("-inf"), float("-inf"))
@@ -366,6 +395,45 @@ def _pick_most_cohesive_group(groups, graph):
             best_names = names
 
     return best_group
+
+
+def _pick_highest_score_group(groups, graph):
+    best_group = None
+    best_score = (float("-inf"), float("-inf"), float("-inf"), float("-inf"), float("-inf"))
+    best_names = None
+
+    for raw_group in groups:
+        group = list(raw_group)
+        avg_group_value, total_group_value = _group_internal_value(group)
+        avg_weight, group_size, total_weight = _group_cohesion_score(group, graph)
+        # Prefer highest internal value per pair first; use totals/ties second.
+        score = (avg_group_value, total_group_value, total_weight, group_size, avg_weight)
+        names = tuple(sorted(person.name for person in group))
+        if score > best_score or (score == best_score and (best_names is None or names < best_names)):
+            best_group = group
+            best_score = score
+            best_names = names
+
+    return best_group
+
+
+def _normalize_group_pick_mode(mode):
+    normalized = mode.strip().lower().replace("_", " ")
+    if normalized in {"cohesive", "cohesion"}:
+        return "cohesive"
+    if normalized in {"most score", "score", "highest score"}:
+        return "most score"
+
+    raise ValueError("Invalid groupPickMode. Use 'cohesive' or 'most score'.")
+
+
+def _pick_group_by_mode(groups, graph, groupPickMode):
+    if groupPickMode == "cohesive":
+        return _pick_most_cohesive_group(groups, graph)
+    if groupPickMode == "most score":
+        return _pick_highest_score_group(groups, graph)
+
+    raise ValueError("Invalid normalized groupPickMode.")
 
 
 def _pick_best_fit_table(emptyArrangement, groupSize):
@@ -389,9 +457,11 @@ def _pick_best_fit_table(emptyArrangement, groupSize):
 
 
 
-def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
+def fillEmptyArrangementWithFluentGroups(input, emptyArrangement, groupPickMode = "cohesive"):
     #shuffle the input
     # random.shuffle(input)
+
+    groupPickMode = _normalize_group_pick_mode(groupPickMode)
 
     remainingPeople = list(input)
     protectedNames = set()
@@ -404,7 +474,9 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
 
         g = makeGraphFromInput(remainingPeople)
         splittedGroups = splitGroupsByMaxSize(g, remainingPeople, maxGroupSize)
-        bestGroup = _pick_most_cohesive_group(splittedGroups, g)
+        exactFitGroups = [group for group in splittedGroups if len(group) == maxGroupSize]
+        candidateGroups = exactFitGroups if len(exactFitGroups) > 0 else splittedGroups
+        bestGroup = _pick_group_by_mode(candidateGroups, g, groupPickMode)
 
         table, emptySeatIndexes = _pick_best_fit_table(emptyArrangement, len(bestGroup))
         if table is None:
@@ -438,10 +510,10 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
         if person.name not in protectedNames
     ]
 
-    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement, movableCoords)
     print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
 
-    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement)
+    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement, movableCoords)
     print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
 
     emptyArrangement = bruteForceEachTable(emptyArrangement)
@@ -458,13 +530,21 @@ def testCreateRandomInput():
 
 if __name__ == "__main__":
     selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100People"
+    groupPickMode = sys.argv[2] if len(sys.argv) > 2 else "cohesive"
     if selectedInputName not in INPUTS_BY_NAME:
         print("Unknown input:", selectedInputName)
         print("Valid inputs:", ", ".join(sorted(INPUTS_BY_NAME.keys())))
         raise SystemExit(1)
 
+    try:
+        groupPickMode = _normalize_group_pick_mode(groupPickMode)
+    except ValueError as e:
+        print(str(e))
+        raise SystemExit(1)
+
     testInput = INPUTS_BY_NAME[selectedInputName]
     print("Using input:", selectedInputName)
-    a = fillEmptyArrangementWithFluentGroups(testInput, makeEmptyArrangement(len(testInput), 8))
+    print("Group pick mode:", groupPickMode)
+    a = fillEmptyArrangementWithFluentGroups(testInput, makeEmptyArrangement(len(testInput), 8), groupPickMode)
 
     printArrangementWithValues(a)

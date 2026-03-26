@@ -234,8 +234,19 @@ def print_groups(groups):
         print()
 
 
-def _jitter_graph(graph, epsilon=0.001):
+def _stable_seed_from_names(names):
+    text = "|".join(sorted(names))
+    seed = 0
+    for i, ch in enumerate(text, start=1):
+        seed = (seed + i * ord(ch)) % (2 ** 32)
+    return seed
+
+
+def _jitter_graph(graph, epsilon=0.001, rng=None):
     """Add tiny symmetric noise to edge weights to break perfect ties."""
+    if rng is None:
+        rng = random
+
     names = list(graph.keys())
     jittered = {name: {} for name in names}
 
@@ -245,15 +256,26 @@ def _jitter_graph(graph, epsilon=0.001):
             b = names[j]
             if b not in graph[a]:
                 continue
-            delta = random.uniform(-epsilon, epsilon)
+            delta = rng.uniform(-epsilon, epsilon)
             weight = graph[a][b] + delta
             jittered[a][b] = weight
             jittered[b][a] = weight
 
     return jittered
 
+
+def _split_priority_key(smallerGroups, maxGroupSize):
+    sizes = [len(g) for g in smallerGroups]
+    has_exact = 1 if any(s == maxGroupSize for s in sizes) else 0
+    largest_fit = max((s for s in sizes if s <= maxGroupSize), default=0)
+    oversize_count = sum(1 for s in sizes if s > maxGroupSize)
+    oversize_excess = sum(s - maxGroupSize for s in sizes if s > maxGroupSize)
+
+    # Prefer exact-fit groups first, then the largest fitting subgroup.
+    return (has_exact, largest_fit, -oversize_count, -oversize_excess, -len(smallerGroups))
+
 def splitGroupsByMaxSize(graph, input, maxGroupSize):
-    pending = find_groups(graph, input, weight_threshold=0)
+    pending = [set(input)]
     newGroups = []
 
     while pending:
@@ -265,19 +287,28 @@ def splitGroupsByMaxSize(graph, input, maxGroupSize):
 
         groupGraph = makeGraphFromInput(group)
 
-        # Try increasingly permissive thresholds with tiny edge jitter to break symmetry.
+        # Try increasingly permissive thresholds and keep the best split for table filling.
         chosenSplit = None
-        for i in range(1000):
-            threshold = i / 100
-            jitteredGraph = _jitter_graph(groupGraph)
-            smallerGroups = find_groups(jitteredGraph, input, weight_threshold=threshold)
+        chosenKey = None
+        groupSeed = _stable_seed_from_names(person.name for person in group)
+        for i in range(10000):
+            threshold = i / 1000
+            rng = random.Random(groupSeed + i)
+            jitteredGraph = _jitter_graph(groupGraph, rng=rng)
+            smallerGroups = find_groups(jitteredGraph, group, weight_threshold=threshold)
 
             # Ignore results that did not split the group.
             if len(smallerGroups) <= 1:
                 continue
 
-            chosenSplit = smallerGroups
-            break
+            currentKey = _split_priority_key(smallerGroups, maxGroupSize)
+            if chosenSplit is None or currentKey > chosenKey:
+                chosenSplit = smallerGroups
+                chosenKey = currentKey
+
+            # Early exit on ideal split quality.
+            if currentKey[0] == 1 and currentKey[2] == 0:
+                break
 
         if chosenSplit is None:
             #throw error that group did not split
