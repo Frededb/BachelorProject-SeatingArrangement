@@ -1,6 +1,5 @@
 import os
 import sys
-import random
 
 # Ensure project root on sys.path so imports work when module is imported/run
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -234,23 +233,34 @@ def print_groups(groups):
         print()
 
 
-def _jitter_graph(graph, epsilon=0.001):
-    """Add tiny symmetric noise to edge weights to break perfect ties."""
-    names = list(graph.keys())
-    jittered = {name: {} for name in names}
+def _split_group_capacity_first(groupGraph, group, maxGroupSize):
+    """Split one oversized group into a max-sized chunk plus overflow.
 
-    for i in range(len(names)):
-        for j in range(i + 1, len(names)):
-            a = names[i]
-            b = names[j]
-            if b not in graph[a]:
-                continue
-            delta = random.uniform(-epsilon, epsilon)
-            weight = graph[a][b] + delta
-            jittered[a][b] = weight
-            jittered[b][a] = weight
+    The max-sized chunk keeps the most internally connected members by
+    repeatedly removing the weakest-connected person.
+    """
+    if len(group) <= maxGroupSize:
+        return [set(group)]
 
-    return jittered
+    group_list = list(group)
+    people_by_name = {person.name: person for person in group_list}
+    remaining_names = set(people_by_name.keys())
+    overflow_names = set()
+
+    def internal_strength(name, names_pool):
+        return sum(groupGraph.get(name, {}).get(other, 0.0) for other in names_pool if other != name)
+
+    while len(remaining_names) > maxGroupSize:
+        weakest = min(
+            remaining_names,
+            key=lambda name: (internal_strength(name, remaining_names), name),
+        )
+        remaining_names.remove(weakest)
+        overflow_names.add(weakest)
+
+    primary_group = {people_by_name[name] for name in remaining_names}
+    overflow_group = {people_by_name[name] for name in overflow_names}
+    return [primary_group, overflow_group]
 
 def splitGroupsByMaxSize(graph, input, maxGroupSize):
     pending = find_groups(graph, input, weight_threshold=0)
@@ -265,24 +275,9 @@ def splitGroupsByMaxSize(graph, input, maxGroupSize):
 
         groupGraph = makeGraphFromInput(group)
 
-        # Try increasingly permissive thresholds with tiny edge jitter to break symmetry.
-        chosenSplit = None
-        for i in range(1000):
-            threshold = i / 100
-            jitteredGraph = _jitter_graph(groupGraph)
-            smallerGroups = find_groups(jitteredGraph, input, weight_threshold=threshold)
+        # Split to fill current table capacity first (e.g., 9 -> 8 + 1 for maxGroupSize=8).
+        chosenSplit = _split_group_capacity_first(groupGraph, group, maxGroupSize)
 
-            # Ignore results that did not split the group.
-            if len(smallerGroups) <= 1:
-                continue
-
-            chosenSplit = smallerGroups
-            break
-
-        if chosenSplit is None:
-            #throw error that group did not split
-            print("Error: could not split group:", group)
-            exit(1)
 
         for smallerGroup in chosenSplit:
             if len(smallerGroup) <= maxGroupSize:
