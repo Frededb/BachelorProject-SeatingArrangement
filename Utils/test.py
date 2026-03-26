@@ -115,7 +115,6 @@ def testLinearSwitch2People(arrangement):
         best = calcOptimized
     return arrangement
 
-
 def testLinearSwitchFromClosedgroups(input = input1Table, N = 10):
     from Algorithms.LinearSwitch2People import LinearSwitch2People
     from Algorithms.FromGroups import fromGroups
@@ -329,10 +328,8 @@ def testGroupsRandomThenSwitch(input = input1Table):
     print("Worst Score: ", worstScore)
     printArrangementWithValues(worstArrangement)
 
-
 def _empty_seat_indexes(table):
     return [i for i, seat in enumerate(table) if seat.name == "Empty"]
-
 
 def _group_cohesion_score(group, graph):
     names = sorted(person.name for person in group)
@@ -350,7 +347,6 @@ def _group_cohesion_score(group, graph):
     # Prefer stronger internal cohesion first, then larger groups.
     return (avg_weight, len(names), total_weight)
 
-
 def _pick_most_cohesive_group(groups, graph):
     best_group = None
     best_score = (float("-inf"), float("-inf"), float("-inf"))
@@ -366,7 +362,6 @@ def _pick_most_cohesive_group(groups, graph):
             best_names = names
 
     return best_group
-
 
 def _pick_best_fit_table(emptyArrangement, groupSize):
     best = None
@@ -384,10 +379,6 @@ def _pick_best_fit_table(emptyArrangement, groupSize):
         return None, None
 
     return best[1], best[2]
-
-
-
-
 
 def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
     #shuffle the input
@@ -448,6 +439,7 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
     print("score after bruteforce: ", calcArrangement(emptyArrangement)[0])
 
     return emptyArrangement
+
 def testCreateRandomInput():
     from Utils.createRandomInput import createRandomInput
     randomInput = createRandomInput(cp = 8, cpp = 0.1, ca = 1, n = 100)
@@ -455,9 +447,18 @@ def testCreateRandomInput():
     arrangement = testLinearSwitch2PeopleSets(randomArrangement(randomInput, 69))
     printArrangementWithValues(arrangement)
 
+def testAnealing():
+    from Algorithms.Anealing import AnealTwoPeople
+    arrangement = randomArrangement(input100People, 69)
+    print("Initial arrangement: {s}", calcArrangement(arrangement)[0])
+    optimizedArrangement = AnealTwoPeople(arrangement, k=1000)
+    print("Optimized arrangement: {s}", calcArrangement(optimizedArrangement)[0])
+    printArrangementWithValues(optimizedArrangement)
+
 
 if __name__ == "__main__":
-    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100PeopleMoreRandom"
+    random.seed(69)
+    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100People"
     if selectedInputName not in INPUTS_BY_NAME:
         print("Unknown input:", selectedInputName)
         print("Valid inputs:", ", ".join(sorted(INPUTS_BY_NAME.keys())))
@@ -465,6 +466,7 @@ if __name__ == "__main__":
 
     testInput = INPUTS_BY_NAME[selectedInputName]
     print("Using input:", selectedInputName)
-    a = fillEmptyArrangementWithFluentGroups(testInput, makeEmptyArrangement(len(testInput), 8))
+    random.shuffle(testInput)
+    a = testLinearSwitch2PeopleSets(defaultPlacement(testInput))
 
     printArrangementWithValues(a)
