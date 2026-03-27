@@ -266,96 +266,24 @@ def _max_cut_threshold_upper_bound(graph):
     return max_positive_degree + 1.0
 
 
-def _chunk_quality(group_graph, kept_names, all_names):
-    """Higher is better: cohesive kept chunk with weak positive ties to removed people."""
-    removed_names = all_names - kept_names
-    kept_sorted = sorted(kept_names)
-
-    internal = 0.0
-    for i in range(len(kept_sorted)):
-        for j in range(i + 1, len(kept_sorted)):
-            internal += group_graph.get(kept_sorted[i], {}).get(kept_sorted[j], 0.0)
-
-    boundary_positive = 0.0
-    for a in kept_names:
-        for b in removed_names:
-            w = group_graph.get(a, {}).get(b, 0.0)
-            if w > 0:
-                boundary_positive += w
-
-    return internal - boundary_positive
-
-
-def _best_chunk_from_split(split, group, max_group_size, required_leave, group_graph):
-    all_names = {person.name for person in group}
-    best_size = None
-    best_quality = None
+def _pick_largest_valid_chunk(split, group_size, max_group_size):
+    required_leave = group_size - max_group_size
+    best_size = -1
     best_names = None
 
     for subgroup in split:
         size = len(subgroup)
         if size == 0 or size > max_group_size:
             continue
-
-        leave_count = len(group) - size
-        if leave_count < required_leave:
+        if group_size - size < required_leave:
             continue
 
         names = tuple(sorted(person.name for person in subgroup))
-        quality = _chunk_quality(group_graph, set(names), all_names)
-
-        is_better = False
-        if best_size is None:
-            is_better = True
-        elif size > best_size:
-            is_better = True
-        elif size == best_size and quality > best_quality:
-            is_better = True
-        elif size == best_size and quality == best_quality and names < best_names:
-            is_better = True
-
-        if is_better:
+        if size > best_size or (size == best_size and (best_names is None or names < best_names)):
             best_size = size
-            best_quality = quality
             best_names = names
 
-    if best_size is None:
-        return None
-    return best_size, best_quality, best_names
-
-
-def _find_first_valid_chunk(jittered_graph, group, max_group_size, required_leave, group_graph):
-    max_threshold = _max_cut_threshold_upper_bound(jittered_graph)
-
-    # Coarse-to-fine threshold sweep to reduce expensive find_groups calls.
-    coarse_step = 0.05
-    medium_step = 0.005
-    fine_step = 0.001
-
-    def sweep(start, stop, step):
-        t = start
-        ordered_group = sorted(list(group), key=lambda person: person.name)
-        while t <= stop + 1e-12:
-            split = find_groups(jittered_graph, ordered_group, weight_threshold=t)
-            if len(split) > 1:
-                best = _best_chunk_from_split(split, group, max_group_size, required_leave, group_graph)
-                if best is not None:
-                    return t, best
-            t += step
-        return None, None
-
-    coarse_t, coarse_best = sweep(0.0, max_threshold, coarse_step)
-    if coarse_best is None:
-        return None
-
-    medium_start = max(0.0, coarse_t - coarse_step)
-    medium_t, medium_best = sweep(medium_start, coarse_t, medium_step)
-    if medium_best is None:
-        return coarse_best
-
-    fine_start = max(0.0, medium_t - medium_step)
-    _, fine_best = sweep(fine_start, medium_t, fine_step)
-    return fine_best or medium_best
+    return best_names
 
 def splitGroupsByMaxSize(graph, input, maxGroupSize):
     pending = find_groups(graph, input, weight_threshold=0)
@@ -369,29 +297,46 @@ def splitGroupsByMaxSize(graph, input, maxGroupSize):
             newGroups.append(group)
             continue
 
-        groupGraph = makeGraphFromInput(group)
+        ordered_group = sorted(list(group), key=lambda person: person.name)
+        groupGraph = makeGraphFromInput(ordered_group)
 
-        # Increase threshold until at least the overflow size can be cut off.
-        # Example: 12 with table size 8 => need to cut at least 4.
-        required_leave = len(group) - maxGroupSize
+        # Increase threshold until we can peel off enough people.
+        # Start near the first possible cut and use coarse-to-fine steps for speed.
         chosen_chunk_names = None
-
-        # Build one deterministic jittered graph once per group.
         jitteredGraph = _jitter_graph(groupGraph, epsilon=0.0001)
-        best_chunk = _find_first_valid_chunk(jitteredGraph, group, maxGroupSize, required_leave, groupGraph)
-        if best_chunk is not None:
-            chosen_chunk_names = best_chunk[2]
+        base_cut_weight, _ = _best_min_cut(jitteredGraph)
+        max_threshold = _max_cut_threshold_upper_bound(jitteredGraph)
+        coarse_step = 0.01
+        fine_step = 0.001
+        coarse_start = max(0.0, base_cut_weight - coarse_step)
+
+        first_valid_threshold = None
+        threshold = coarse_start
+        while threshold <= max_threshold + 1e-12:
+            split = find_groups(jitteredGraph, ordered_group, weight_threshold=threshold)
+            if len(split) > 1:
+                candidate = _pick_largest_valid_chunk(split, len(ordered_group), maxGroupSize)
+                if candidate is not None:
+                    first_valid_threshold = threshold
+                    break
+            threshold += coarse_step
+
+        if first_valid_threshold is not None:
+            threshold = max(coarse_start, first_valid_threshold - coarse_step)
+            while threshold <= first_valid_threshold + 1e-12:
+                split = find_groups(jitteredGraph, ordered_group, weight_threshold=threshold)
+                if len(split) > 1:
+                    chosen_chunk_names = _pick_largest_valid_chunk(split, len(ordered_group), maxGroupSize)
+                    if chosen_chunk_names is not None:
+                        break
+                threshold += fine_step
 
         if chosen_chunk_names is None:
             # Last chance: use the current min-cut weight directly as threshold.
-            cut_weight, _ = _best_min_cut(jitteredGraph)
-            ordered_group = sorted(list(group), key=lambda person: person.name)
-            split = find_groups(jitteredGraph, ordered_group, weight_threshold=cut_weight + 1e-6)
+            split = find_groups(jitteredGraph, ordered_group, weight_threshold=base_cut_weight + 1e-6)
 
             if len(split) > 1:
-                best_retry = _best_chunk_from_split(split, group, maxGroupSize, required_leave, groupGraph)
-                if best_retry is not None:
-                    chosen_chunk_names = best_retry[2]
+                chosen_chunk_names = _pick_largest_valid_chunk(split, len(ordered_group), maxGroupSize)
 
         if chosen_chunk_names is None:
             raise RuntimeError(f"Could not split group: {[p.name for p in group]}")
