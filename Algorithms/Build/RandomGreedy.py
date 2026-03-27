@@ -6,25 +6,17 @@ import random
 
 from Utils.reader import emptyPerson
 
-arrangement = []
-
-def newArrangement(arrangementSize):
-    global arrangement
-    #sets up the arrangement 2d array based on input size
-    arrangement = [[emptyPerson] * 8 for _ in range(math.ceil(arrangementSize/8))]
-
-def randomGreedy(input):
+def randomGreedy(input, emptyArrangement):
     inputCopy = deepcopy(input)
-    newArrangement(len(inputCopy))
+
     for _ in range(len(inputCopy)):
         number = random.randint(0,len(inputCopy)-1)
         person = inputCopy.pop(number)
-        placeGreedy(person)
-    return arrangement
+        _placeGreedy(person)
+    return emptyArrangement
 
 
-def placeGreedy(person):
-    global arrangement
+def _placeGreedy(person, arrangement):
     bestImprovement = -math.inf
     bestPlacement = (-1,-1)
     for i in range(len(arrangement)):

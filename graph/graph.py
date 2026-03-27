@@ -6,7 +6,7 @@ parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if parent_dir not in sys.path:
     sys.path.append(parent_dir)
 
-from Utils.bmalls import getPersonsByName
+from Utils.UtilFunctions import getPersonsByNames
 
 
 def makeGraphFromInput(people):
@@ -218,7 +218,7 @@ def find_groups(graph, people, weight_threshold=None, max_groups=None, verbose=F
 
     _rec(set(graph.keys()))
     # Convert name sets to Person object sets
-    return [getPersonsByName(group, people) for group in groups]
+    return [getPersonsByNames(group, people) for group in groups]
 
 
 

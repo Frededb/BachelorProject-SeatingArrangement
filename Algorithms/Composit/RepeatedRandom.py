@@ -1,4 +1,4 @@
-from Algorithms.Random import randomArrangement
+from Algorithms.Build.RandomPlacement import randomArrangement
 import math
 
 from Utils.ValueCalc import calcArrangement
