@@ -1,3 +1,5 @@
+import path
+
 from Algorithms.Build.placeGroups import fromGroups
 from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
 
@@ -187,6 +189,7 @@ if __name__ == "__main__":
 
     testInput = INPUTS_BY_NAME[selectedInputName]
     print("Using input:", selectedInputName)
+    print("theory max:", ValueCalc.calcTheoreticalMax(testInput))
     a = FluentWithSwitch(testInput, makeEmptyArrangement(len(testInput), 8))
 
     printArrangementWithValues(a)
