@@ -152,6 +152,20 @@ def testLinearSwitch2PeopleSets(arrangement):
         best = calcOptimized
     return arrangement
 
+def testLinearSwitch2PeopleRandom(arrangement):
+    from Algorithms.Optimizing.LinearSwitch2PeopleSets import LinearSwitch2PeopleRandom
+
+    # run linear switch untill it dosent improve anymore
+    best = calcArrangement(arrangement)[0]
+    while True:
+        LinearSwitch2PeopleRandom(arrangement)
+        calcOptimized = calcArrangement(arrangement)[0]
+        print("Best switch: ", calcOptimized)
+        if best == calcOptimized:
+            break
+        best = calcOptimized
+    return arrangement
+
 def testLinearSwitchNTimes(input = input1Table, N = 5):
     bestArrangement = randomArrangement(input)
     bestScore = calcArrangement(bestArrangement)[0]
