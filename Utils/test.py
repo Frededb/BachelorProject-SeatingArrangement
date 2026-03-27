@@ -1,36 +1,26 @@
 import path
+
+from Algorithms.FluentGroupsThenSwitch import fillEmptyArrangementWithFluentGroups
 from Algorithms.FromGroups import fromGroups
 
-from Algorithms.LinearSwitch3PeopleSets import LinearSwitch3PeopleSets
-from Algorithms.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
-
-from Algorithms.DefaultPlacement import defaultPlacement
-from Algorithms.LinearSwitch2People import LinearSwitch2People
-from Algorithms.LinearSwitch3People import LinearSwitch3People
-from Algorithms.LinearSwitch4People import LinearSwitch4People
+from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
 from Algorithms.Random import randomArrangement
-from Algorithms.fill import fill
-from Algorithms.findPairs import findPairs
-from Algorithms.placeGroupsRandom import placeGroupsRandom
-from Utils.isStable import isStable
 from Utils.printer import printArrangementWithValues
 
 
 
 import reader
 import ValueCalc
-from Algorithms.BruteForce import bruteForce, bruteForceEachTable, linearSwitch4PeopleEachTable
+from Algorithms.Optimizing.BruteForce import bruteForce, bruteForceEachTable
 import printer
 from Utils.bmalls import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount
 
 from Utils.ValueCalc import calcArrangement
-import math
-import random
 
 import os
 import sys
 
-from graph.graph import makeGraphFromInput, print_graph, find_groups, print_groups, splitGroupsByMaxSize
+from graph.graph import makeGraphFromInput, find_groups
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input100People.json"))
@@ -70,7 +60,6 @@ def testcalcTable2(input = input1Table):
     print("table: ", ValueCalc.calcTable(input))
 
 def testbruteForce(input = input1Table):
-    from Algorithms.DefaultPlacement import defaultPlacement
     value = bruteForce([input1Table])
     print(value, calcArrangement(value))
     printer.printArrangementWithValues(value)
@@ -86,7 +75,7 @@ def testInfluenceListGreedy(input = input1Table):
     print("InfluenceListGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
 def testDefaultPlacement(input = input1Table):
-    from Algorithms.DefaultPlacement import defaultPlacement
+    from Algorithms.Build.DefaultPlacement import defaultPlacement
     default = defaultPlacement(input)
     print("DefaultPlacement: ", calcArrangement(default)[0], default, calcArrangement(default))
 
@@ -101,39 +90,15 @@ def testRepeatedRandom(input = input1Table, N = 100):
     randomArrangement = repeatedRandom(N, input)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
-def testLinearSwitch2People(arrangement):
-    from Algorithms.LinearSwitch2People import LinearSwitch2People
-
-    # run linear switch untill it dosent improve anymore
-    best = calcArrangement(arrangement)[0]
-    while True:
-        LinearSwitch2People(arrangement)
-        calcOptimized = calcArrangement(arrangement)[0]
-        print("Best switch: ", calcOptimized)
-        if best == calcOptimized:
-            break
-        best = calcOptimized
-    return arrangement
-
-
-def testLinearSwitchFromClosedgroups(input = input1Table, N = 10):
-    from Algorithms.LinearSwitch2People import LinearSwitch2People
-    from Algorithms.FromGroups import fromGroups
-    emptyArrangement = makeEmptyArrangement(len(input), 8)
-    arrangement = fromGroups(emptyArrangement, input)
-    optimizedArrangement = LinearSwitch2People(arrangement, N)
-    printer.printArrangementWithValues(optimizedArrangement)
-    print("LinearSwitch: ", calcArrangement(optimizedArrangement)[0], optimizedArrangement, calcArrangement(optimizedArrangement))
-
 def testRandomSwitch(input = input1Table):
-    from Algorithms.DefaultPlacement import defaultPlacement
+    from Algorithms.Build.DefaultPlacement import defaultPlacement
     arrangement = defaultPlacement(input)
     from Algorithms.RandomSwitch import randomSwitch
     randomArrangement = randomSwitch(arrangement)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
 def testCustomArrangement(input = input1Table, persons = []):
-    from Algorithms.DefaultPlacement import defaultPlacement
+    from Algorithms.Build.DefaultPlacement import defaultPlacement
     arrangement = defaultPlacement(input)
     arr = customArrangement(arrangement, persons)
     printer.printArrangementWithValues(arr)
@@ -142,67 +107,15 @@ def testcalcTheoreticalMax(input = input1Table):
     print("Theoretical max for input100people:", ValueCalc.calcTheoreticalMax(input))
 
 def testbruteForceEachTable(input = input1Table):
-    from Algorithms.DefaultPlacement import defaultPlacement
+    from Algorithms.Build.DefaultPlacement import defaultPlacement
     arrangement = defaultPlacement(input)
     arr = bruteForceEachTable(arrangement)
     printer.printArrangementWithValues(arr)
-
-def testFindClosedGroups(input = input1Table):
-    from Algorithms.findClosedGroups import findClosedGroups
-    result = findClosedGroups(input)
-    for group in result:
-        print(group)
 
 def testFromClosedGroups(input = input1Table, tableSize = 8):
     from Algorithms.FromGroups import fromGroups
     arrangement = makeEmptyArrangement(len(input), tableSize)
     fromGroups(arrangement, input)
-
-def testFindPairs(input = input1Table):
-    result = findPairs(input)
-    for pair in result:
-        print(pair)
-
-def testLinearSwitchPairs(arrangement, pairs):
-    from Algorithms.LinearSwitchPairs import LinearSwitchPairs
-
-    #run linear switch pairs untill it dosent improve anymore
-    best = calcArrangement(arrangement)[0]
-    while True:
-        LinearSwitchPairs(arrangement, pairs)
-        calcOptimized = calcArrangement(arrangement)[0]
-        print("Best Pair switch: ", calcOptimized)
-        if best == calcOptimized:
-            break
-        best = calcOptimized
-    return arrangement
-
-def testLinearSwitch3People(arrangement):
-    from Algorithms.LinearSwitch3People import LinearSwitch3People
-
-    # run linear switch untill it dosent improve anymore
-    best = calcArrangement(arrangement)[0]
-    while True:
-        LinearSwitch3People(arrangement)
-        calcOptimized = calcArrangement(arrangement)[0]
-        print("Best switch 3 people: ", calcOptimized)
-        if best == calcOptimized:
-            break
-        best = calcOptimized
-    return arrangement
-
-def testLinearSwitch4People(arrangement):
-    from Algorithms.LinearSwitch3People import LinearSwitch3People
-    # run linear switch untill it dosent improve anymore
-    best = calcArrangement(arrangement)[0]
-    while True:
-        LinearSwitch4People(arrangement)
-        calcOptimized = calcArrangement(arrangement)[0]
-        print("Best switch 4 people: ", calcOptimized)
-        if best == calcOptimized:
-            break
-        best = calcOptimized
-    return arrangement
 
 def testLinearSwitch4PeopleSets(arrangement):
     # run linear switch untill it dosent improve anymore
@@ -217,7 +130,7 @@ def testLinearSwitch4PeopleSets(arrangement):
     return arrangement
 
 def testLinearSwitch3PeopleSets(arrangement):
-    from Algorithms.LinearSwitch3PeopleSets import LinearSwitch3PeopleSets
+    from Algorithms.Optimizing.LinearSwitch3PeopleSets import LinearSwitch3PeopleSets
     # run linear switch untill it dosent improve anymore
     best = calcArrangement(arrangement)[0]
     while True:
@@ -230,7 +143,7 @@ def testLinearSwitch3PeopleSets(arrangement):
     return arrangement
 
 def testLinearSwitch2PeopleSets(arrangement):
-    from Algorithms.LinearSwitch2PeopleSets import LinearSwitch2PeopleSets
+    from Algorithms.Optimizing.LinearSwitch2PeopleSets import LinearSwitch2PeopleSets
     # run linear switch untill it dosent improve anymore
     best = calcArrangement(arrangement)[0]
     while True:
@@ -285,176 +198,12 @@ def testGroupsThenSwitch(input = input1Table):
     LinearSwitch4PeopleSets(a)
     printArrangementWithValues(a)
 
-def testGroupsRandomThenSwitch(input = input1Table):
-    g = makeGraphFromInput(input)
-    groups = find_groups(g, input, weight_threshold=1.4)
-    bigGroups = [group for group in groups if len(group) > 2]
-    print("Big Groups", len(bigGroups))
-    allOther = [group for group in groups if len(group) <= 2]
-    print("All Other", len(allOther))
-    allOtherList = [person for group in allOther for person in group]
-
-    bestArrangement = None
-    bestScore = -math.inf
-
-    worstArrangement = None
-    worstScore = math.inf
-
-    for _ in range(10):
-
-        a = placeGroupsRandom(makeEmptyArrangement(len(input), 8), bigGroups)
-
-        a = bruteForceEachTable(a)
-
-        allEmptyCoords = [(tableIndex, seatIndex) for tableIndex in range(len(a)) for seatIndex in range(len(a[tableIndex])) if a[tableIndex][seatIndex].name == "Empty"]
-
-        fill(a, allOtherList)
-
-        LinearSwitch4PeopleSets(a, allEmptyCoords)
-
-        a = bruteForceEachTable(a)
-
-        score = calcArrangement(a)[0]
-        print("Score: ", score)
-        if score > bestScore:
-            bestScore = score
-            bestArrangement = a
-
-        if score < worstScore:
-            worstScore = score
-            worstArrangement = a
-
-    print("Best Score: ", bestScore)
-    printArrangementWithValues(bestArrangement)
-    print("Worst Score: ", worstScore)
-    printArrangementWithValues(worstArrangement)
-
-
-def _empty_seat_indexes(table):
-    return [i for i, seat in enumerate(table) if seat.name == "Empty"]
-
-
-def _pick_highest_scoring_group(groups, emptyArrangement):
-    best_group = None
-    best_table = None
-    best_empty_indexes = None
-    best_score = float("-inf")
-    best_tiebreak = None
-    best_names = None
-
-    for raw_group in groups:
-        group = list(raw_group)
-        table_index, table, empty_indexes = _pick_best_fit_table(emptyArrangement, len(group))
-        if table is None:
-            continue
-
-        # Evaluate this exact next move and keep the group that yields max score.
-        candidate_arrangement = [list(t) for t in emptyArrangement]
-        for seat_index, person in zip(empty_indexes, group):
-            candidate_arrangement[table_index][seat_index] = person
-
-        score = calcArrangement(candidate_arrangement)[0]
-        leftover_seats = len(empty_indexes) - len(group)
-        tiebreak = (
-            -leftover_seats,
-            len(group),
-        )
-        names = tuple(sorted(person.name for person in group))
-
-        if (
-            score > best_score
-            or (score == best_score and (best_tiebreak is None or tiebreak > best_tiebreak))
-            or (score == best_score and tiebreak == best_tiebreak and (best_names is None or names < best_names))
-        ):
-            best_group = group
-            best_table = table
-            best_empty_indexes = empty_indexes
-            best_score = score
-            best_tiebreak = tiebreak
-            best_names = names
-
-    return best_group, best_table, best_empty_indexes
-
-
-def _pick_best_fit_table(emptyArrangement, groupSize):
-    best = None
-    for table_index, table in enumerate(emptyArrangement):
-        empty_indexes = _empty_seat_indexes(table)
-        empty_count = len(empty_indexes)
-        if empty_count < groupSize:
-            continue
-
-        candidate_key = (empty_count, len(table), table_index)
-        if best is None or candidate_key < best[0]:
-            best = (candidate_key, table, empty_indexes)
-
-    if best is None:
-        return None, None, None
-
-    return best[0][2], best[1], best[2]
-
-
-
-
-
-def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
-    # shuffle the input
-    random.shuffle(input)
-
-    remainingPeople = list(input)
-    protectedNames = set()
-
-    while len(remainingPeople) > 0:
-        table_capacities = [len(_empty_seat_indexes(table)) for table in emptyArrangement]
-        maxGroupSize = max(table_capacities)
-        if maxGroupSize == 0:
-            break
-
-        g = makeGraphFromInput(remainingPeople)
-        splittedGroups = splitGroupsByMaxSize(g, remainingPeople, maxGroupSize)
-        bestGroup, table, emptySeatIndexes = _pick_highest_scoring_group(splittedGroups, emptyArrangement)
-        if table is None:
-            raise RuntimeError("No table can fit selected group. Check splitGroupsByMaxSize constraints.")
-
-        print("current table: ", table)
-
-        print("best group: ", bestGroup)
-
-        for seatIndex, person in zip(emptySeatIndexes, bestGroup):
-            table[seatIndex] = person
-
-        print("new table: ", table)
-
-        print("------------")
-
-        if len(bestGroup) >= 3:
-            for person in bestGroup:
-                protectedNames.add(person.name)
-
-        seatedNames = {person.name for person in bestGroup}
-        remainingPeople = [person for person in remainingPeople if person.name not in seatedNames]
-
-    emptyArrangement = linearSwitch4PeopleEachTable(emptyArrangement)
-    print("score after first bruteforce: ", calcArrangement(emptyArrangement)[0])
-
-    movableCoords = [
-        (tableIndex, seatIndex)
-        for tableIndex, table in enumerate(emptyArrangement)
-        for seatIndex, person in enumerate(table)
-        if person.name not in protectedNames
-    ]
-
-    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement, movableCoords)
-    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
-
-    return emptyArrangement
 def testCreateRandomInput():
     from Utils.createRandomInput import createRandomInput
     randomInput = createRandomInput(cp = 8, cpp = 0.1, ca = 1, n = 100)
     print(randomInput)
     arrangement = testLinearSwitch2PeopleSets(randomArrangement(randomInput, 69))
     printArrangementWithValues(arrangement)
-
 
 if __name__ == "__main__":
     selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100People"

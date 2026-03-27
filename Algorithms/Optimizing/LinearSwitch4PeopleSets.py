@@ -1,5 +1,4 @@
 import itertools
-from time import perf_counter
 
 from Utils.ValueCalc import calcTable, calcArrangement
 from Utils.bmalls import getAllPeople, switch4People, switch4PeopleBack
@@ -34,3 +33,12 @@ def LinearSwitch4PeopleSets(arrangement, coords=None):
             print(f"Checked {count/110355024*100} %")
 
     return arrangement
+
+def linearSwitch4PeopleEachTable(initialArrangement):
+    bestArrangement = []
+
+    # Optimize each table independently using linear 4-person switches.
+    for table in initialArrangement:
+        optimizedSingleTable = LinearSwitch4PeopleSets([list(table)])
+        bestArrangement.append(optimizedSingleTable[0])
+    return bestArrangement
