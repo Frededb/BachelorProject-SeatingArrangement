@@ -21,7 +21,7 @@ def makeGraphFromInput(people):
     """
 
     name_to_person = {p.name: p for p in people}
-    names = list(name_to_person.keys())
+    names = sorted(name_to_person.keys())
     graph = {n: {} for n in names}
 
     for i in range(len(names)):
@@ -80,20 +80,17 @@ def _induced_subgraph(graph, nodes):
     return {u: {v: w for v, w in nbrs.items() if v in nodes} for u, nbrs in graph.items() if u in nodes}
 
 
-def _best_balanced_cut(graph):
-    """Run Stoer-Wagner but return the most balanced cut (by size) among all candidate cuts.
+def _best_min_cut(graph):
+    """Run Stoer-Wagner and return the global minimum cut.
 
-    Instead of the globally minimum cut (which tends to peel off single nodes),
-    score each cut by cut_weight / min(|A|, |B|) and pick the one with the lowest score.
-    This strongly prefers cuts that split the graph roughly in half.
-
-    Returns: (cut_weight, (set_A, set_B))
+    Returns: (cut_weight, (set_A, set_B)).
+    If multiple cuts share the same weight, prefer the one with the smaller side
+    to encourage peeling one/few nodes when ties happen.
     """
     adj = {u: dict(neigh) for u, neigh in graph.items()}
     v_sets = {u: {u} for u in adj.keys()}
-    vertices = list(adj.keys())
+    vertices = sorted(adj.keys())
 
-    best_score = float('inf')
     best_partition = (set(), set())
     best_cut = float('inf')
 
@@ -101,7 +98,7 @@ def _best_balanced_cut(graph):
         weights = {v: 0.0 for v in vertices}
         added = []
         for i in range(len(vertices)):
-            sel = max((v for v in vertices if v not in added), key=lambda x: weights[x])
+            sel = max((v for v in vertices if v not in added), key=lambda x: (weights[x], x))
             added.append(sel)
             if i < len(vertices) - 1:
                 for v in vertices:
@@ -118,11 +115,13 @@ def _best_balanced_cut(graph):
                 all_nodes = set().union(*v_sets.values())
                 T = all_nodes - S
 
-                # Score: cut_weight / (|A| * |B|) — sparsest cut metric.
-                # Low score = sparse connection between A and B = good split.
-                score = cut_weight / (len(S) * len(T))
-                if score < best_score:
-                    best_score = score
+                if (
+                    cut_weight < best_cut
+                    or (
+                        cut_weight == best_cut
+                        and min(len(S), len(T)) < min(len(best_partition[0]), len(best_partition[1]))
+                    )
+                ):
                     best_partition = (S, T)
                     best_cut = cut_weight
 
@@ -147,7 +146,7 @@ def find_connected_components(graph):
     """Find connected components following only positive-weight edges."""
     visited = set()
     components = []
-    for start in graph:
+    for start in sorted(graph.keys()):
         if start in visited:
             continue
         comp = set()
@@ -158,7 +157,7 @@ def find_connected_components(graph):
                 continue
             visited.add(node)
             comp.add(node)
-            for nb, w in graph[node].items():
+            for nb, w in sorted(graph[node].items(), key=lambda item: item[0]):
                 if w > 0 and nb not in visited:
                     queue.append(nb)
         components.append(comp)
@@ -167,12 +166,12 @@ def find_connected_components(graph):
 
 
 def find_groups(graph, people, weight_threshold=None, max_groups=None, verbose=False):
-    """Find groups by splitting on connected components, then balanced min-cuts.
+    """Find groups by splitting on connected components, then global min-cuts.
 
     Parameters:
     - graph: adjacency dict from makeGraphFromInput.
     - people: original list of Person objects (from reader.readjson).
-    - weight_threshold: only accept a split when score (cut_weight / (|A|*|B|)) <= weight_threshold.
+    - weight_threshold: only accept a split when cut_weight <= weight_threshold.
     - max_groups: stop once this many groups have been produced.
     - verbose: print cut info at each step.
 
@@ -190,6 +189,7 @@ def find_groups(graph, people, weight_threshold=None, max_groups=None, verbose=F
         # First split by connected components — isolates nodes with no edges immediately
         components = find_connected_components(sub)
         if len(components) > 1:
+            components.sort(key=lambda comp: tuple(sorted(comp)))
             for comp in components:
                 _rec(comp)
             return
@@ -199,19 +199,17 @@ def find_groups(graph, people, weight_threshold=None, max_groups=None, verbose=F
             groups.append(set(nodes))
             return
 
-        # Run balanced min-cut directly on the signed graph.
+        # Run global min-cut directly on the signed graph.
         # Negative edges (avoidances) make those cuts cheaper, so avoiders naturally separate.
-        cut_weight, (A, B) = _best_balanced_cut(sub)
-
-        score = cut_weight / (len(A) * len(B))
+        cut_weight, (A, B) = _best_min_cut(sub)
 
 
         if verbose:
-            print(f"Cut: weight={cut_weight:.1f}, |A|={len(A)}, |B|={len(B)}, score={score:.4f}")
+            print(f"Cut: weight={cut_weight:.4f}, |A|={len(A)}, |B|={len(B)}")
 
-        if weight_threshold is not None and score > weight_threshold:
+        if weight_threshold is not None and cut_weight > weight_threshold:
             if verbose:
-                print(f"Reject: score {score:.4f} > threshold {weight_threshold}")
+                print(f"Reject: cut_weight {cut_weight:.4f} > threshold {weight_threshold}")
             groups.append(set(nodes))
             return
 
@@ -233,37 +231,135 @@ def print_groups(groups):
         print()
 
 
-def _split_group_capacity_first(groupGraph, group, maxGroupSize):
-    """Split one oversized group into a max-sized chunk plus overflow.
+def _jitter_graph(graph, epsilon=0.75):
+    """Add tiny deterministic symmetric noise to edge weights to break perfect ties."""
+    names = sorted(graph.keys())
+    jittered = {name: {} for name in names}
 
-    The max-sized chunk keeps the most internally connected members by
-    repeatedly removing the weakest-connected person.
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            a = names[i]
+            b = names[j]
+            if b not in graph[a]:
+                continue
+            # Deterministic pseudo-noise from pair index (stable across runs).
+            raw = ((i + 1) * 131 + (j + 1) * 17) % 2001
+            delta = ((raw / 1000.0) - 1.0) * epsilon
+            weight = graph[a][b] + delta
+            jittered[a][b] = weight
+            jittered[b][a] = weight
+
+    return jittered
+
+
+def _max_cut_threshold_upper_bound(graph):
+    """Safe threshold cap for one group's min-cut sweep.
+
+    For signed weights, a conservative upper bound is the largest positive
+    weighted degree of any node.
     """
-    if len(group) <= maxGroupSize:
-        return [set(group)]
+    max_positive_degree = 0.0
+    for _, neighbors in graph.items():
+        positive_degree = sum(weight for weight in neighbors.values() if weight > 0)
+        if positive_degree > max_positive_degree:
+            max_positive_degree = positive_degree
+    return max_positive_degree + 1.0
 
-    group_list = list(group)
-    people_by_name = {person.name: person for person in group_list}
-    remaining_names = set(people_by_name.keys())
-    overflow_names = set()
 
-    def internal_strength(name, names_pool):
-        return sum(groupGraph.get(name, {}).get(other, 0.0) for other in names_pool if other != name)
+def _chunk_quality(group_graph, kept_names, all_names):
+    """Higher is better: cohesive kept chunk with weak positive ties to removed people."""
+    removed_names = all_names - kept_names
+    kept_sorted = sorted(kept_names)
 
-    while len(remaining_names) > maxGroupSize:
-        weakest = min(
-            remaining_names,
-            key=lambda name: (internal_strength(name, remaining_names), name),
-        )
-        remaining_names.remove(weakest)
-        overflow_names.add(weakest)
+    internal = 0.0
+    for i in range(len(kept_sorted)):
+        for j in range(i + 1, len(kept_sorted)):
+            internal += group_graph.get(kept_sorted[i], {}).get(kept_sorted[j], 0.0)
 
-    primary_group = {people_by_name[name] for name in remaining_names}
-    overflow_group = {people_by_name[name] for name in overflow_names}
-    return [primary_group, overflow_group]
+    boundary_positive = 0.0
+    for a in kept_names:
+        for b in removed_names:
+            w = group_graph.get(a, {}).get(b, 0.0)
+            if w > 0:
+                boundary_positive += w
+
+    return internal - boundary_positive
+
+
+def _best_chunk_from_split(split, group, max_group_size, required_leave, group_graph):
+    all_names = {person.name for person in group}
+    best_size = None
+    best_quality = None
+    best_names = None
+
+    for subgroup in split:
+        size = len(subgroup)
+        if size == 0 or size > max_group_size:
+            continue
+
+        leave_count = len(group) - size
+        if leave_count < required_leave:
+            continue
+
+        names = tuple(sorted(person.name for person in subgroup))
+        quality = _chunk_quality(group_graph, set(names), all_names)
+
+        is_better = False
+        if best_size is None:
+            is_better = True
+        elif size > best_size:
+            is_better = True
+        elif size == best_size and quality > best_quality:
+            is_better = True
+        elif size == best_size and quality == best_quality and names < best_names:
+            is_better = True
+
+        if is_better:
+            best_size = size
+            best_quality = quality
+            best_names = names
+
+    if best_size is None:
+        return None
+    return best_size, best_quality, best_names
+
+
+def _find_first_valid_chunk(jittered_graph, group, max_group_size, required_leave, group_graph):
+    max_threshold = _max_cut_threshold_upper_bound(jittered_graph)
+
+    # Coarse-to-fine threshold sweep to reduce expensive find_groups calls.
+    coarse_step = 0.05
+    medium_step = 0.005
+    fine_step = 0.001
+
+    def sweep(start, stop, step):
+        t = start
+        ordered_group = sorted(list(group), key=lambda person: person.name)
+        while t <= stop + 1e-12:
+            split = find_groups(jittered_graph, ordered_group, weight_threshold=t)
+            if len(split) > 1:
+                best = _best_chunk_from_split(split, group, max_group_size, required_leave, group_graph)
+                if best is not None:
+                    return t, best
+            t += step
+        return None, None
+
+    coarse_t, coarse_best = sweep(0.0, max_threshold, coarse_step)
+    if coarse_best is None:
+        return None
+
+    medium_start = max(0.0, coarse_t - coarse_step)
+    medium_t, medium_best = sweep(medium_start, coarse_t, medium_step)
+    if medium_best is None:
+        return coarse_best
+
+    fine_start = max(0.0, medium_t - medium_step)
+    _, fine_best = sweep(fine_start, medium_t, fine_step)
+    return fine_best or medium_best
 
 def splitGroupsByMaxSize(graph, input, maxGroupSize):
     pending = find_groups(graph, input, weight_threshold=0)
+    pending.sort(key=lambda group: tuple(sorted(person.name for person in group)))
     newGroups = []
 
     while pending:
@@ -275,14 +371,38 @@ def splitGroupsByMaxSize(graph, input, maxGroupSize):
 
         groupGraph = makeGraphFromInput(group)
 
-        # Split to fill current table capacity first (e.g., 9 -> 8 + 1 for maxGroupSize=8).
-        chosenSplit = _split_group_capacity_first(groupGraph, group, maxGroupSize)
+        # Increase threshold until at least the overflow size can be cut off.
+        # Example: 12 with table size 8 => need to cut at least 4.
+        required_leave = len(group) - maxGroupSize
+        chosen_chunk_names = None
 
+        # Build one deterministic jittered graph once per group.
+        jitteredGraph = _jitter_graph(groupGraph, epsilon=0.0001)
+        best_chunk = _find_first_valid_chunk(jitteredGraph, group, maxGroupSize, required_leave, groupGraph)
+        if best_chunk is not None:
+            chosen_chunk_names = best_chunk[2]
 
-        for smallerGroup in chosenSplit:
-            if len(smallerGroup) <= maxGroupSize:
-                newGroups.append(smallerGroup)
-            else:
-                pending.append(set(smallerGroup))
+        if chosen_chunk_names is None:
+            # Last chance: use the current min-cut weight directly as threshold.
+            cut_weight, _ = _best_min_cut(jitteredGraph)
+            ordered_group = sorted(list(group), key=lambda person: person.name)
+            split = find_groups(jitteredGraph, ordered_group, weight_threshold=cut_weight + 1e-6)
+
+            if len(split) > 1:
+                best_retry = _best_chunk_from_split(split, group, maxGroupSize, required_leave, groupGraph)
+                if best_retry is not None:
+                    chosen_chunk_names = best_retry[2]
+
+        if chosen_chunk_names is None:
+            raise RuntimeError(f"Could not split group: {[p.name for p in group]}")
+
+        chosen_name_set = set(chosen_chunk_names)
+        chosen_group = {person for person in group if person.name in chosen_name_set}
+        remainder = {person for person in group if person.name not in chosen_name_set}
+
+        newGroups.append(chosen_group)
+        if remainder:
+            pending.append(remainder)
+            pending.sort(key=lambda group: tuple(sorted(person.name for person in group)))
 
     return newGroups

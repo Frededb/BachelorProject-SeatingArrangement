@@ -416,16 +416,16 @@ def fillEmptyArrangementWithFluentGroups(input, emptyArrangement):
         if table is None:
             raise RuntimeError("No table can fit selected group. Check splitGroupsByMaxSize constraints.")
 
-        # print("current table: ", table)
-        #
-        # print("best group: ", bestGroup)
+        print("current table: ", table)
+
+        print("best group: ", bestGroup)
 
         for seatIndex, person in zip(emptySeatIndexes, bestGroup):
             table[seatIndex] = person
 
-        # print("new table: ", table)
-        #
-        # print("------------")
+        print("new table: ", table)
+
+        print("------------")
 
         if len(bestGroup) >= 3:
             for person in bestGroup:
