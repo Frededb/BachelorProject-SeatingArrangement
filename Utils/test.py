@@ -447,23 +447,26 @@ def testCreateRandomInput():
     arrangement = testLinearSwitch2PeopleSets(randomArrangement(randomInput, 69))
     printArrangementWithValues(arrangement)
 
-def testAnealing(arrangement):
+def testAnealing(arrangement, seed=69):
     from Algorithms.Anealing import AnealTwoPeople
+    arrangement = testLinearSwitch2PeopleSets(arrangement)
     print("Initial arrangement: {s}", calcArrangement(arrangement)[0])
-    optimizedArrangement = AnealTwoPeople(arrangement, k=1000000)
+    optimizedArrangement = AnealTwoPeople(arrangement, k=100000, seed=seed)
     print("Optimized arrangement: {s}", calcArrangement(optimizedArrangement)[0])
     return optimizedArrangement
 
 
 if __name__ == "__main__":
     selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100People"
+    seed_arg = int(sys.argv[2]) if len(sys.argv) > 2 else 69
+    
     if selectedInputName not in INPUTS_BY_NAME:
         print("Unknown input:", selectedInputName)
         print("Valid inputs:", ", ".join(sorted(INPUTS_BY_NAME.keys())))
         raise SystemExit(1)
 
     testInput = INPUTS_BY_NAME[selectedInputName]
-    print("Using input:", selectedInputName)
-    a = testAnealing(defaultPlacement(testInput))
+    print(f"Using input: {selectedInputName} | Seed: {seed_arg}")
+    a = testAnealing(defaultPlacement(testInput), seed=seed_arg)
 
-    printArrangementWithValues(a)
+    # printArrangementWithValues(a)
