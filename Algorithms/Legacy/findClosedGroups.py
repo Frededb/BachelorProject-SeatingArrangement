@@ -1,4 +1,4 @@
-from Utils.bmalls import getPersonByName, getPersonsByName
+from Utils.UtilFunctions import getPersonByName, getPersonsByNames
 
 
 def findClosedGroups(input):
@@ -14,7 +14,7 @@ def findClosedGroups(input):
                 closedGroups.add(frozenset({person1}))
                 break
         else:
-            persons = getPersonsByName(person1.preferences, input)
+            persons = getPersonsByNames(person1.preferences, input)
             closedGroups.add(frozenset(persons))
 
     return closedGroups

@@ -1,5 +1,5 @@
 from Utils.ValueCalc import calcTable, calcArrangement
-from itertools import islice, permutations
+from itertools import permutations
 import math
 
 arrangement = []
@@ -37,7 +37,7 @@ def bruteForceEachTable(initialArrangement):
     bestValue = -math.inf
     bestArrangement = []
 
-    #we go through each and see if they are better than the previous best
+    # we go through each and see if they are better than the previous best
     for table in initialArrangement:
         tablePerms = permutations(table)
         bestValue = -math.inf
@@ -50,4 +50,3 @@ def bruteForceEachTable(initialArrangement):
                 bestTable = list(perm)
         bestArrangement.append(bestTable)
     return bestArrangement
-
