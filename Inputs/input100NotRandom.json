@@ -1,0 +1,127 @@
+[
+  {"name":"aubu","studyprogram":"SWU","year":"2023","preferences":["T1A1","T1A2","T2A1","T3A1","T4A1","L1A1","L2A1","D1A1","P1A1","R1"],"avoidances":[]},
+  {"name":"fbuu","studyprogram":"SWU","year":"2023","preferences":[],"avoidances":["aubu","T1A1","T2A1","T3A1","T4A1","L1A1","D1A1","P1A1"]},
+
+  {"name":"T1A1","studyprogram":"SWU","year":"2023","preferences":["T1A2","T1A3","T1A4","T1A5","T1A6","aubu","L1A1","P1A1"],"avoidances":["fbuu"]},
+  {"name":"T1A2","studyprogram":"SWU","year":"2023","preferences":["T1A1","T1A3","T1A4","T1A5","T1A6","aubu","L1A2"],"avoidances":["T1A6"]},
+  {"name":"T1A3","studyprogram":"SWU","year":"2023","preferences":["T1A1","T1A2","T1A4","T1A5","T1A6","P9A1"],"avoidances":[]},
+  {"name":"T1A4","studyprogram":"SWU","year":"2023","preferences":["T1A1","T1A2","T1A3","T1A5","T1A6","D1A1"],"avoidances":[]},
+  {"name":"T1A5","studyprogram":"SWU","year":"2023","preferences":["T1A1","T1A2","T1A3","T1A4","T1A6","R2"],"avoidances":["fbuu"]},
+  {"name":"T1A6","studyprogram":"SWU","year":"2023","preferences":["T1A1","T1A2","T1A3","T1A4","T1A5","L3A1"],"avoidances":["T1A2"]},
+
+  {"name":"T2A1","studyprogram":"SWU","year":"2023","preferences":["T2A2","T2A3","T2A4","T2A5","T2A6","aubu","L2A1","P2A1"],"avoidances":["fbuu"]},
+  {"name":"T2A2","studyprogram":"SWU","year":"2023","preferences":["T2A1","T2A3","T2A4","T2A5","T2A6","D2A1"],"avoidances":[]},
+  {"name":"T2A3","studyprogram":"SWU","year":"2023","preferences":["T2A1","T2A2","T2A4","T2A5","T2A6","L1A3"],"avoidances":["T2A5"]},
+  {"name":"T2A4","studyprogram":"SWU","year":"2023","preferences":["T2A1","T2A2","T2A3","T2A5","T2A6","P10A1"],"avoidances":[]},
+  {"name":"T2A5","studyprogram":"SWU","year":"2023","preferences":["T2A1","T2A2","T2A3","T2A4","T2A6","R3"],"avoidances":["T2A3"]},
+  {"name":"T2A6","studyprogram":"SWU","year":"2023","preferences":["T2A1","T2A2","T2A3","T2A4","T2A5","L4A1"],"avoidances":["fbuu"]},
+
+  {"name":"T3A1","studyprogram":"SWU","year":"2023","preferences":["T3A2","T3A3","T3A4","T3A5","T3A6","aubu","L3A1","P3A1"],"avoidances":["fbuu"]},
+  {"name":"T3A2","studyprogram":"SWU","year":"2023","preferences":["T3A1","T3A3","T3A4","T3A5","T3A6","D3A1"],"avoidances":[]},
+  {"name":"T3A3","studyprogram":"SWU","year":"2023","preferences":["T3A1","T3A2","T3A4","T3A5","T3A6","L2A3"],"avoidances":[]},
+  {"name":"T3A4","studyprogram":"SWU","year":"2023","preferences":["T3A1","T3A2","T3A3","T3A5","T3A6","P11A1"],"avoidances":["T3A6"]},
+  {"name":"T3A5","studyprogram":"SWU","year":"2023","preferences":["T3A1","T3A2","T3A3","T3A4","T3A6","R4"],"avoidances":[]},
+  {"name":"T3A6","studyprogram":"SWU","year":"2023","preferences":["T3A1","T3A2","T3A3","T3A4","T3A5","L1A1"],"avoidances":["T3A4"]},
+
+  {"name":"T4A1","studyprogram":"SWU","year":"2023","preferences":["T4A2","T4A3","T4A4","T4A5","T4A6","aubu","L4A1","P4A1"],"avoidances":["fbuu"]},
+  {"name":"T4A2","studyprogram":"SWU","year":"2023","preferences":["T4A1","T4A3","T4A4","T4A5","T4A6","D4A1"],"avoidances":[]},
+  {"name":"T4A3","studyprogram":"SWU","year":"2023","preferences":["T4A1","T4A2","T4A4","T4A5","T4A6","L3A3"],"avoidances":[]},
+  {"name":"T4A4","studyprogram":"SWU","year":"2023","preferences":["T4A1","T4A2","T4A3","T4A5","T4A6","P12A1"],"avoidances":["fbuu"]},
+  {"name":"T4A5","studyprogram":"SWU","year":"2023","preferences":["T4A1","T4A2","T4A3","T4A4","T4A6","R5"],"avoidances":["T4A6"]},
+  {"name":"T4A6","studyprogram":"SWU","year":"2023","preferences":["T4A1","T4A2","T4A3","T4A4","T4A5","L2A1"],"avoidances":["T4A5"]},
+
+  {"name":"P1A1","studyprogram":"SWU","year":"2023","preferences":["P1A2","aubu","T1A1","L1A1"],"avoidances":["fbuu"]},
+  {"name":"P1A2","studyprogram":"SWU","year":"2023","preferences":["P1A1","D1A2"],"avoidances":[]},
+
+  {"name":"P2A1","studyprogram":"SWU","year":"2023","preferences":["P2A2","aubu","T2A1","L2A1"],"avoidances":["fbuu"]},
+  {"name":"P2A2","studyprogram":"SWU","year":"2023","preferences":["P2A1","D2A2"],"avoidances":[]},
+
+  {"name":"P3A1","studyprogram":"SWU","year":"2023","preferences":["P3A2","aubu","T3A1","L3A1"],"avoidances":["fbuu"]},
+  {"name":"P3A2","studyprogram":"SWU","year":"2023","preferences":["P3A1","D3A2"],"avoidances":[]},
+
+  {"name":"P4A1","studyprogram":"SWU","year":"2023","preferences":["P4A2","aubu","T4A1","L4A1"],"avoidances":["fbuu"]},
+  {"name":"P4A2","studyprogram":"SWU","year":"2023","preferences":["P4A1","D4A2"],"avoidances":[]},
+
+  {"name":"P5A1","studyprogram":"SWU","year":"2023","preferences":["P5A2","L1A2"],"avoidances":["L2A2"]},
+  {"name":"P5A2","studyprogram":"SWU","year":"2023","preferences":["P5A1","T1A2"],"avoidances":[]},
+
+  {"name":"P6A1","studyprogram":"SWU","year":"2023","preferences":["P6A2","L2A2"],"avoidances":["L3A2"]},
+  {"name":"P6A2","studyprogram":"SWU","year":"2023","preferences":["P6A1","T2A2"],"avoidances":[]},
+
+  {"name":"P7A1","studyprogram":"SWU","year":"2023","preferences":["P7A2","L3A2"],"avoidances":["L4A2"]},
+  {"name":"P7A2","studyprogram":"SWU","year":"2023","preferences":["P7A1","T3A2"],"avoidances":[]},
+
+  {"name":"P8A1","studyprogram":"SWU","year":"2023","preferences":["P8A2","L4A2"],"avoidances":["L1A2"]},
+  {"name":"P8A2","studyprogram":"SWU","year":"2023","preferences":["P8A1","T4A2"],"avoidances":[]},
+
+  {"name":"P9A1","studyprogram":"SWU","year":"2023","preferences":["P9A2","P9A3","T1A3","aubu"],"avoidances":["D1A3"]},
+  {"name":"P9A2","studyprogram":"SWU","year":"2023","preferences":["P9A1","P9A3","L1A4"],"avoidances":[]},
+  {"name":"P9A3","studyprogram":"SWU","year":"2023","preferences":["P9A1","P9A2","R6"],"avoidances":["fbuu"]},
+
+  {"name":"P10A1","studyprogram":"SWU","year":"2023","preferences":["P10A2","P10A3","T2A4","aubu"],"avoidances":["D2A3"]},
+  {"name":"P10A2","studyprogram":"SWU","year":"2023","preferences":["P10A1","P10A3","L2A4"],"avoidances":[]},
+  {"name":"P10A3","studyprogram":"SWU","year":"2023","preferences":["P10A1","P10A2","R1"],"avoidances":["fbuu"]},
+
+  {"name":"P11A1","studyprogram":"SWU","year":"2023","preferences":["P11A2","P11A3","T3A4","aubu"],"avoidances":["D3A3"]},
+  {"name":"P11A2","studyprogram":"SWU","year":"2023","preferences":["P11A1","P11A3","L3A4"],"avoidances":[]},
+  {"name":"P11A3","studyprogram":"SWU","year":"2023","preferences":["P11A1","P11A2","R2"],"avoidances":["fbuu"]},
+
+  {"name":"P12A1","studyprogram":"SWU","year":"2023","preferences":["P12A2","P12A3","T4A4","aubu"],"avoidances":["D4A3"]},
+  {"name":"P12A2","studyprogram":"SWU","year":"2023","preferences":["P12A1","P12A3","L4A4"],"avoidances":[]},
+  {"name":"P12A3","studyprogram":"SWU","year":"2023","preferences":["P12A1","P12A2","R3"],"avoidances":["fbuu"]},
+
+  {"name":"L1A1","studyprogram":"SWU","year":"2023","preferences":["L1A2","L1A3","T1A1","T3A6","aubu","P1A1"],"avoidances":["D1A4"]},
+  {"name":"L1A2","studyprogram":"SWU","year":"2023","preferences":["L1A1","L1A4","T1A2","P5A1"],"avoidances":["L2A2"]},
+  {"name":"L1A3","studyprogram":"SWU","year":"2023","preferences":["L1A1","L1A5","T2A3"],"avoidances":["D2A4"]},
+  {"name":"L1A4","studyprogram":"SWU","year":"2023","preferences":["L1A2","P9A2","R4"],"avoidances":[]},
+  {"name":"L1A5","studyprogram":"SWU","year":"2023","preferences":["L1A3","D3A5"],"avoidances":["fbuu"]},
+
+  {"name":"L2A1","studyprogram":"SWU","year":"2023","preferences":["L2A2","L2A3","T2A1","T4A6","aubu","P2A1"],"avoidances":["D2A4"]},
+  {"name":"L2A2","studyprogram":"SWU","year":"2023","preferences":["L2A1","L2A4","T2A2","P6A1"],"avoidances":["L3A2"]},
+  {"name":"L2A3","studyprogram":"SWU","year":"2023","preferences":["L2A1","L2A5","T3A3"],"avoidances":["D3A4"]},
+  {"name":"L2A4","studyprogram":"SWU","year":"2023","preferences":["L2A2","P10A2","R5"],"avoidances":[]},
+  {"name":"L2A5","studyprogram":"SWU","year":"2023","preferences":["L2A3","D4A5"],"avoidances":["fbuu"]},
+
+  {"name":"L3A1","studyprogram":"SWU","year":"2023","preferences":["L3A2","L3A3","T3A1","T1A6","aubu","P3A1"],"avoidances":["D3A4"]},
+  {"name":"L3A2","studyprogram":"SWU","year":"2023","preferences":["L3A1","L3A4","T3A2","P7A1"],"avoidances":["L4A2"]},
+  {"name":"L3A3","studyprogram":"SWU","year":"2023","preferences":["L3A1","L3A5","T4A3"],"avoidances":["D4A4"]},
+  {"name":"L3A4","studyprogram":"SWU","year":"2023","preferences":["L3A2","P11A2","R6"],"avoidances":[]},
+  {"name":"L3A5","studyprogram":"SWU","year":"2023","preferences":["L3A3","D1A5"],"avoidances":["fbuu"]},
+
+  {"name":"L4A1","studyprogram":"SWU","year":"2023","preferences":["L4A2","L4A3","T4A1","T2A6","aubu","P4A1"],"avoidances":["D4A4"]},
+  {"name":"L4A2","studyprogram":"SWU","year":"2023","preferences":["L4A1","L4A4","T4A2","P8A1"],"avoidances":["L1A2"]},
+  {"name":"L4A3","studyprogram":"SWU","year":"2023","preferences":["L4A1","L4A5","T1A4"],"avoidances":["D1A4"]},
+  {"name":"L4A4","studyprogram":"SWU","year":"2023","preferences":["L4A2","P12A2","R1"],"avoidances":[]},
+  {"name":"L4A5","studyprogram":"SWU","year":"2023","preferences":["L4A3","D2A5"],"avoidances":["fbuu"]},
+
+  {"name":"D1A1","studyprogram":"SWU","year":"2023","preferences":["D1A2","aubu","T1A4","L1A1"],"avoidances":["D1A3","D1A4","fbuu"]},
+  {"name":"D1A2","studyprogram":"SWU","year":"2023","preferences":["D1A1","P1A2","R1"],"avoidances":["D1A3","D1A5"]},
+  {"name":"D1A3","studyprogram":"SWU","year":"2023","preferences":["D1A4","D1A5","L2A5"],"avoidances":["D1A1","D1A2","P9A1"]},
+  {"name":"D1A4","studyprogram":"SWU","year":"2023","preferences":["D1A3","L4A5"],"avoidances":["D1A1","L1A1","L4A3"]},
+  {"name":"D1A5","studyprogram":"SWU","year":"2023","preferences":["D1A3","L3A5"],"avoidances":["D1A2"]},
+
+  {"name":"D2A1","studyprogram":"SWU","year":"2023","preferences":["D2A2","aubu","T2A2","L2A1"],"avoidances":["D2A3","D2A4","fbuu"]},
+  {"name":"D2A2","studyprogram":"SWU","year":"2023","preferences":["D2A1","P2A2","R2"],"avoidances":["D2A3","D2A5"]},
+  {"name":"D2A3","studyprogram":"SWU","year":"2023","preferences":["D2A4","D2A5","L3A5"],"avoidances":["D2A1","D2A2","P10A1"]},
+  {"name":"D2A4","studyprogram":"SWU","year":"2023","preferences":["D2A3","L1A5"],"avoidances":["D2A1","L1A3","L2A1"]},
+  {"name":"D2A5","studyprogram":"SWU","year":"2023","preferences":["D2A3","L4A5"],"avoidances":["D2A2"]},
+
+  {"name":"D3A1","studyprogram":"SWU","year":"2023","preferences":["D3A2","aubu","T3A2","L3A1"],"avoidances":["D3A3","D3A4","fbuu"]},
+  {"name":"D3A2","studyprogram":"SWU","year":"2023","preferences":["D3A1","P3A2","R3"],"avoidances":["D3A3","D3A5"]},
+  {"name":"D3A3","studyprogram":"SWU","year":"2023","preferences":["D3A4","D3A5","L4A5"],"avoidances":["D3A1","D3A2","P11A1"]},
+  {"name":"D3A4","studyprogram":"SWU","year":"2023","preferences":["D3A3","L2A5"],"avoidances":["D3A1","L2A3","L3A1"]},
+  {"name":"D3A5","studyprogram":"SWU","year":"2023","preferences":["D3A3","L1A5"],"avoidances":["D3A2"]},
+
+  {"name":"D4A1","studyprogram":"SWU","year":"2023","preferences":["D4A2","aubu","T4A2","L4A1"],"avoidances":["D4A3","D4A4","fbuu"]},
+  {"name":"D4A2","studyprogram":"SWU","year":"2023","preferences":["D4A1","P4A2","R4"],"avoidances":["D4A3","D4A5"]},
+  {"name":"D4A3","studyprogram":"SWU","year":"2023","preferences":["D4A4","D4A5","L1A5"],"avoidances":["D4A1","D4A2","P12A1"]},
+  {"name":"D4A4","studyprogram":"SWU","year":"2023","preferences":["D4A3","L3A5"],"avoidances":["D4A1","L3A3","L4A1"]},
+  {"name":"D4A5","studyprogram":"SWU","year":"2023","preferences":["D4A3","L2A5"],"avoidances":["D4A2"]},
+
+  {"name":"R1","studyprogram":"SWU","year":"2023","preferences":["aubu","P10A3","D1A2","L4A4"],"avoidances":["fbuu"]},
+  {"name":"R2","studyprogram":"SWU","year":"2023","preferences":["aubu","P11A3","D2A2","T1A5"],"avoidances":[]},
+  {"name":"R3","studyprogram":"SWU","year":"2023","preferences":["aubu","P12A3","D3A2","T2A5"],"avoidances":["fbuu"]},
+  {"name":"R4","studyprogram":"SWU","year":"2023","preferences":["aubu","D4A2","L1A4","T3A5"],"avoidances":[]},
+  {"name":"R5","studyprogram":"SWU","year":"2023","preferences":["aubu","L2A4","T4A5"],"avoidances":["fbuu"]},
+  {"name":"R6","studyprogram":"SWU","year":"2023","preferences":["aubu","L3A4","P9A3"],"avoidances":[]}
+]

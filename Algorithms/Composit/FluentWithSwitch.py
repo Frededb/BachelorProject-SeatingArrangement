@@ -1,4 +1,5 @@
 from Algorithms.Build.FluentGroupsFill import fluentGroupsFill
+from Algorithms.Optimizing.BruteForce import bruteForceEachTable
 from Algorithms.Optimizing.LinearSwitch4PeopleSets import linearSwitch4PeopleEachTable, LinearSwitch4PeopleSets
 from Utils.ValueCalc import calcArrangement
 

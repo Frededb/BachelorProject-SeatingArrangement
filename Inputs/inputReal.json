@@ -372,5 +372,12 @@
         "year": "2025",
         "preferences": ["macj", "csfr", "natp", "alcn", "dmil", "olmo", "mgon"],
         "avoidances": []
+    },
+    {
+        "name": "clwj",
+        "studyprogram": "swu",
+        "year": "2021",
+        "preferences": ["aarv", "nsel", "oska", "ghej", "kajn", "sths"],
+        "avoidances": ["tael"]
     }
 ]
