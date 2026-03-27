@@ -1,5 +1,3 @@
-from Algorithms.findClosedGroups import findClosedGroups
-from Utils import printer
 from Utils.reader import emptyPerson
 
 
