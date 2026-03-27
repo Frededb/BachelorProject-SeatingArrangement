@@ -6,6 +6,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
+from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
 
 from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
@@ -29,6 +30,7 @@ input100PeopleSemiRandom = reader.readjson(os.path.join(script_dir, "../Inputs/i
 input4People = reader.readjson(os.path.join(script_dir, "../Inputs/input4People.json"))
 inputReal = reader.readjson(os.path.join(script_dir, "../Inputs/inputReal.json"))
 input300 = reader.readjson(os.path.join(script_dir, "../Inputs/input300.json"))
+input100NotRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100NotRandom.json"))
 
 INPUTS_BY_NAME = {
     "input100People": input100People,
@@ -39,6 +41,7 @@ INPUTS_BY_NAME = {
     "input4People": input4People,
     "inputReal": inputReal,
     "input300": input300,
+    "input100NotRandom": input100NotRandom,
 }
 
 # 6*8+5*6+6*4
@@ -187,3 +190,7 @@ if __name__ == "__main__":
     a = FluentWithSwitch(testInput, makeEmptyArrangement(len(testInput), 8))
 
     printArrangementWithValues(a)
+
+    # print("=========================")
+    #
+    # printArrangementWithValues(testLinearSwitch2PeopleSets(defaultPlacement(testInput)))
