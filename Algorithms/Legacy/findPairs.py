@@ -1,4 +1,4 @@
-from Utils.bmalls import getPersonByName
+from Utils.UtilFunctions import getPersonByName
 
 
 def findPairs(input):

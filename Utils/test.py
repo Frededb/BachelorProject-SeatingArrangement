@@ -1,19 +1,15 @@
-import path
-
-from Algorithms.FluentGroupsThenSwitch import fillEmptyArrangementWithFluentGroups
-from Algorithms.FromGroups import fromGroups
+from Algorithms.Build.placeGroups import fromGroups
+from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
 
 from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
-from Algorithms.Random import randomArrangement
+from Algorithms.Build.RandomPlacement import randomArrangement
 from Utils.printer import printArrangementWithValues
-
-
 
 import reader
 import ValueCalc
 from Algorithms.Optimizing.BruteForce import bruteForce, bruteForceEachTable
 import printer
-from Utils.bmalls import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount
+from Utils.UtilFunctions import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount
 
 from Utils.ValueCalc import calcArrangement
 
@@ -44,12 +40,6 @@ INPUTS_BY_NAME = {
 # 6*8+5*6+6*4
 emptyArrangementMixed = makeEmptyArrangementFromTableAmount(6, 8) + makeEmptyArrangementFromTableAmount(5, 6) + makeEmptyArrangementFromTableAmount(6, 4)
 
-# input1Table = reader.readjson("../Inputs/input1Table.json")
-# input2People = reader.readjson("../Inputs/input2People.json")
-# input4People = reader.readjson("../Inputs/input4People.json")
-# input6People = reader.readjson("../Inputs/input6People.json")
-# input7People = reader.readjson("../Inputs/input7People.json")
-# input100People = reader.readjson("../Inputs/input100People.json")
 
 def testcalcPerson(input = input1Table):
     print("lida: ", ValueCalc.calcPerson(input, 0))
@@ -65,12 +55,12 @@ def testbruteForce(input = input1Table):
     printer.printArrangementWithValues(value)
 
 def testRandomGreedy(input = input1Table):
-    from Algorithms.RandomGreedy import randomGreedy
+    from Algorithms.Build.RandomGreedy import randomGreedy
     value = randomGreedy(input)
     print("RandomGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
 def testInfluenceListGreedy(input = input1Table):
-    from Algorithms.InfluenceListGreedy import influenceListGreedy
+    from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
     value = influenceListGreedy(input)
     print("InfluenceListGreedy: ", calcArrangement(value)[0], value, calcArrangement(value))
 
@@ -80,20 +70,20 @@ def testDefaultPlacement(input = input1Table):
     print("DefaultPlacement: ", calcArrangement(default)[0], default, calcArrangement(default))
 
 def testRandom(input = input1Table):
-    from Algorithms.Random import randomArrangement
+    from Algorithms.Build.RandomPlacement import randomArrangement
     randomArrangement = randomArrangement(input)
     # print("Random: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
     printer.printArrangementWithValues(randomArrangement)
 
 def testRepeatedRandom(input = input1Table, N = 100):
-    from Algorithms.RepeatedRandom import repeatedRandom
+    from Algorithms.Composit.RepeatedRandom import repeatedRandom
     randomArrangement = repeatedRandom(N, input)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
 def testRandomSwitch(input = input1Table):
     from Algorithms.Build.DefaultPlacement import defaultPlacement
     arrangement = defaultPlacement(input)
-    from Algorithms.RandomSwitch import randomSwitch
+    from Algorithms.Optimizing.RandomSwitch import randomSwitch
     randomArrangement = randomSwitch(arrangement)
     print("RepeatedRandom: ", calcArrangement(randomArrangement)[0], randomArrangement, calcArrangement(randomArrangement))
 
@@ -113,7 +103,7 @@ def testbruteForceEachTable(input = input1Table):
     printer.printArrangementWithValues(arr)
 
 def testFromClosedGroups(input = input1Table, tableSize = 8):
-    from Algorithms.FromGroups import fromGroups
+    from Algorithms.Build.placeGroups import fromGroups
     arrangement = makeEmptyArrangement(len(input), tableSize)
     fromGroups(arrangement, input)
 
@@ -155,23 +145,6 @@ def testLinearSwitch2PeopleSets(arrangement):
         best = calcOptimized
     return arrangement
 
-def testLinearSwitchCombined(input = input1Table):
-    # pairs = findPairs(input)
-    arrangement = randomArrangement(input, 69)
-    best = calcArrangement(arrangement)[0]
-    while True:
-        testLinearSwitch4PeopleSets(arrangement)
-        testLinearSwitch2People(arrangement)
-        testLinearSwitch3PeopleSets(arrangement)
-
-        calcOptimized = calcArrangement(arrangement)[0]
-
-        if best == calcOptimized:
-            break
-        best = calcOptimized
-
-    printArrangementWithValues(arrangement)
-
 def testLinearSwitchNTimes(input = input1Table, N = 5):
     bestArrangement = randomArrangement(input)
     bestScore = calcArrangement(bestArrangement)[0]
@@ -199,7 +172,7 @@ def testGroupsThenSwitch(input = input1Table):
     printArrangementWithValues(a)
 
 def testCreateRandomInput():
-    from Utils.createRandomInput import createRandomInput
+    from Algorithms.Legacy.createRandomInput import createRandomInput
     randomInput = createRandomInput(cp = 8, cpp = 0.1, ca = 1, n = 100)
     print(randomInput)
     arrangement = testLinearSwitch2PeopleSets(randomArrangement(randomInput, 69))
@@ -214,7 +187,6 @@ if __name__ == "__main__":
 
     testInput = INPUTS_BY_NAME[selectedInputName]
     print("Using input:", selectedInputName)
-    print("Theory Max: ", ValueCalc.calcTheoreticalMax(testInput, 8))
-    a = fillEmptyArrangementWithFluentGroups(testInput, makeEmptyArrangement(len(testInput), 8))
+    a = FluentWithSwitch(testInput, makeEmptyArrangement(len(testInput), 8))
 
     printArrangementWithValues(a)

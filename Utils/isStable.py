@@ -1,7 +1,7 @@
 import itertools
 
 from Utils.ValueCalc import calcPerson
-from Utils.bmalls import getAllPeople, switch
+from Utils.UtilFunctions import getAllPeople, switch
 from Utils.printer import printTableWithValues
 
 

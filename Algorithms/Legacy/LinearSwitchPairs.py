@@ -1,5 +1,5 @@
 from Utils.ValueCalc import calcArrangement
-from Utils.bmalls import switchPair, switchPairBack
+from Utils.UtilFunctions import switchPair, switchPairBack
 
 
 def LinearSwitchPairs(arrangement, pairs):

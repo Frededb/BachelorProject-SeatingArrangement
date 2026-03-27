@@ -1,7 +1,7 @@
 import itertools
 
 from Utils.ValueCalc import calcTable, calcArrangement
-from Utils.bmalls import getAllPeople, switch4People, switch4PeopleBack
+from Utils.UtilFunctions import getAllPeople, switch4People, switch4PeopleBack
 
 
 def LinearSwitch4PeopleSets(arrangement, coords=None):

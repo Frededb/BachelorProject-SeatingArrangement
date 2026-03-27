@@ -52,7 +52,7 @@ def getPersonByName(name, input):
     print("Person not found: ", name)
     return None
 
-def getPersonsByName(names, input):
+def getPersonsByNames(names, input):
     persons = set()
     for name in names:
         person = getPersonByName(name, input)
