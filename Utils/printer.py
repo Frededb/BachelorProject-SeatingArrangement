@@ -1,4 +1,3 @@
-import reader
 import ValueCalc
 
 def printTable(table):

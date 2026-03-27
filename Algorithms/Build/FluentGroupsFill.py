@@ -1,4 +1,3 @@
-from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets, linearSwitch4PeopleEachTable
 from Utils.ValueCalc import calcArrangement
 from graph.graph import splitGroupsByMaxSize, makeGraphFromInput
 

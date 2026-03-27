@@ -1,5 +1,4 @@
 from Utils.Person import Person
-import math
 import random
 
 

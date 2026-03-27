@@ -358,5 +358,19 @@
         "year": "2023",
         "preferences": ["mlao", "gryn", "rarl", "aubu", "olibr", "brka", "jork"],
         "avoidances": []
+    },
+    {
+        "name": "anyp",
+        "studyprogram": "swu",
+        "year": "2023",
+        "preferences": ["kamp", "stik", "brop", "alby", "lish"],
+        "avoidances": []
+    },
+    {
+        "name": "mbko",
+        "studyprogram": "cs",
+        "year": "2025",
+        "preferences": ["macj", "csfr", "natp", "alcn", "dmil", "olmo", "mgon"],
+        "avoidances": []
     }
 ]
