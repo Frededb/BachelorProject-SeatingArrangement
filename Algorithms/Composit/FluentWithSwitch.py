@@ -5,7 +5,7 @@ from Utils.ValueCalc import calcArrangement
 
 def FluentWithSwitch(input, emptyArrangement):
 
-    emptyArrangement, protectedNames = fluentGroupsFill(input, emptyArrangement)
+    emptyArrangement, protectedNames = fluentGroupsFill(input, emptyArrangement, True)
 
     emptyArrangement = linearSwitch4PeopleEachTable(emptyArrangement)
     print("score after first bruteforce: ", calcArrangement(emptyArrangement)[0])

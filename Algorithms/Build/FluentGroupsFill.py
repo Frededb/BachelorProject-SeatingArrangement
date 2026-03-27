@@ -65,7 +65,7 @@ def _pick_best_fit_table(emptyArrangement, groupSize):
 
     return best[0][2], best[1], best[2]
 
-def fluentGroupsFill(input, emptyArrangement):
+def fluentGroupsFill(input, emptyArrangement, verbose=False):
     remainingPeople = list(input)
     protectedNames = set()
 
@@ -81,8 +81,16 @@ def fluentGroupsFill(input, emptyArrangement):
         if table is None:
             raise RuntimeError("No table can fit selected group. Check splitGroupsByMaxSize constraints.")
 
+        if verbose:
+            print("current table: ", table)
+            print("best group: ", bestGroup)
+
         for seatIndex, person in zip(emptySeatIndexes, bestGroup):
             table[seatIndex] = person
+
+        if verbose:
+            print("new table: ", table)
+            print("------------")
 
         if len(bestGroup) >= 3:
             for person in bestGroup:
