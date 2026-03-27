@@ -1,7 +1,7 @@
 import itertools
 
-from Utils.ValueCalc import calcTable, calcArrangement
-from Utils.UtilFunctions import getAllPeople, switch4People, switch4PeopleBack, switch3People, switch3PeopleBack, switch
+from Utils.ValueCalc import calcArrangement
+from Utils.UtilFunctions import getAllPeople, switch
 
 
 def LinearSwitch2PeopleSets(arrangement):

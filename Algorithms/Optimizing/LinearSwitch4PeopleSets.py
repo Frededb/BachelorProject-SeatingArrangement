@@ -1,6 +1,6 @@
 import itertools
 
-from Utils.ValueCalc import calcTable, calcArrangement
+from Utils.ValueCalc import calcTable
 from Utils.UtilFunctions import getAllPeople, switch4People, switch4PeopleBack
 
 

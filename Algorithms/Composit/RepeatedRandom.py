@@ -3,7 +3,6 @@ import math
 
 from Utils.ValueCalc import calcArrangement
 
-
 def repeatedRandom(input, N):
     bestArrangement = []
     bestValue = -math.inf

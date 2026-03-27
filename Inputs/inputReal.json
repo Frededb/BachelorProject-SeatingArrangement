@@ -360,7 +360,7 @@
         "avoidances": []
     },
     {
-        "name": "anyp",
+        "name": "anyp",w
         "studyprogram": "swu",
         "year": "2023",
         "preferences": ["kamp", "stik", "brop", "alby", "lish"],

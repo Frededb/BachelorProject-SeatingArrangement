@@ -1,24 +1,24 @@
-import path
+import os
+import sys
 
-from Algorithms.Build.placeGroups import fromGroups
+# Ensure the project root is importable when this file is run directly.
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if PROJECT_ROOT not in sys.path:
+    sys.path.append(PROJECT_ROOT)
+
 from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
 
 from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
 from Algorithms.Build.RandomPlacement import randomArrangement
 from Utils.printer import printArrangementWithValues
 
-import reader
-import ValueCalc
+from Utils import reader
+from Utils import ValueCalc
 from Algorithms.Optimizing.BruteForce import bruteForce, bruteForceEachTable
-import printer
+from Utils import printer
 from Utils.UtilFunctions import customArrangement, makeEmptyArrangement, makeEmptyArrangementFromTableAmount
 
 from Utils.ValueCalc import calcArrangement
-
-import os
-import sys
-
-from graph.graph import makeGraphFromInput, find_groups
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input100People = reader.readjson(os.path.join(script_dir, "../Inputs/input100People.json"))
@@ -164,14 +164,6 @@ def testLinearSwitchNTimes(input = input1Table, N = 5):
             bestArrangement = arrangement
 
     return bestArrangement
-
-def testGroupsThenSwitch(input = input1Table):
-    g = makeGraphFromInput(input)
-    groups = find_groups(g, input, weight_threshold=3)
-    print(len(groups))
-    a = fromGroups(emptyArrangementMixed, groups)
-    LinearSwitch4PeopleSets(a)
-    printArrangementWithValues(a)
 
 def testCreateRandomInput():
     from Algorithms.Legacy.createRandomInput import createRandomInput
