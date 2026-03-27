@@ -1,10 +1,5 @@
 import cProfile
-import path
-from Algorithms.DefaultPlacement import defaultPlacement
-from Algorithms.LinearSwitch2People import LinearSwitch2People
-from Algorithms.LinearSwitch3People import LinearSwitch3People
-from Algorithms.LinearSwitch4People import LinearSwitch4People
-from Utils.printer import printArrangementWithValues
+from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Utils.test import input100People, testLinearSwitch2People, testLinearSwitch3People, testLinearSwitch4People, testLinearSwitch4PeopleSets
 pr = cProfile.Profile()
 

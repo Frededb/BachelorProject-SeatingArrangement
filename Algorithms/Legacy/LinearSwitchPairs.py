@@ -1,7 +1,5 @@
-from Algorithms.findPairs import findPairs
-from Utils.ValueCalc import calcTable, calcArrangement
-from Utils.bmalls import switch, getAllPeople, switchPair, switchPairBack
-from Utils.printer import printTableWithValues
+from Utils.ValueCalc import calcArrangement
+from Utils.bmalls import switchPair, switchPairBack
 
 
 def LinearSwitchPairs(arrangement, pairs):
