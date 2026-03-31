@@ -6,9 +6,9 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
-from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
 
+from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
 from Algorithms.Build.RandomPlacement import randomArrangement
 from Utils.printer import printArrangementWithValues
@@ -178,7 +178,7 @@ def testCreateRandomInput():
     printArrangementWithValues(arrangement)
 
 if __name__ == "__main__":
-    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100People"
+    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "inputReal"
     if selectedInputName not in INPUTS_BY_NAME:
         print("Unknown input:", selectedInputName)
         print("Valid inputs:", ", ".join(sorted(INPUTS_BY_NAME.keys())))
@@ -191,6 +191,10 @@ if __name__ == "__main__":
 
     printArrangementWithValues(a)
 
-    # print("=========================")
-    #
-    # printArrangementWithValues(testLinearSwitch2PeopleSets(defaultPlacement(testInput)))
+    print("========================================")
+
+    printArrangementWithValues(testLinearSwitch2PeopleSets(defaultPlacement(inputReal)))
+
+    # graph = makeGraphFromInput(inputReal)
+    # groups = splitGroupsByMaxSize(graph, inputReal, 30)
+    # print_groups(groups)

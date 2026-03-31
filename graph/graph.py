@@ -262,43 +262,11 @@ def splitGroupsByMaxSize(graph, input, maxGroupSize):
     pending = []
     seq = count()
     person_by_name = {person.name: person for person in input}
-    greedy_cutoff = max(maxGroupSize * 4, 32)
 
     def _group_key(group):
         return tuple(sorted(person.name for person in group))
 
-    def _pick_greedy_chunk_names(group_graph, chunk_size):
-        if not group_graph:
-            return None
-
-        target_size = min(chunk_size, len(group_graph))
-        names = sorted(group_graph.keys())
-        seed = max(
-            names,
-            key=lambda name: (sum(weight for weight in group_graph[name].values() if weight > 0), name),
-        )
-        chosen = {seed}
-
-        while len(chosen) < target_size:
-            best_name = None
-            best_score = None
-            for candidate in names:
-                if candidate in chosen:
-                    continue
-                attach = sum(group_graph[candidate].get(member, 0.0) for member in chosen)
-                positive_degree = sum(weight for weight in group_graph[candidate].values() if weight > 0)
-                score = (attach, positive_degree, candidate)
-                if best_score is None or score > best_score:
-                    best_score = score
-                    best_name = candidate
-
-            if best_name is None:
-                break
-            chosen.add(best_name)
-
-        return tuple(sorted(chosen))
-
-    # Fast initial split: avoid global min-cut on the full graph when possible.
+    # Fast initial split: avoid heavy work on the full graph when possible.
     components = find_connected_components(graph)
     for component in components:
         people_group = {person_by_name[name] for name in component if name in person_by_name}
@@ -320,79 +288,13 @@ def splitGroupsByMaxSize(graph, input, maxGroupSize):
 
         ordered_group = sorted(list(group), key=lambda person: person.name)
         groupGraph = makeGraphFromInput(ordered_group)
-        group_size = len(ordered_group)
-        required_leave = group_size - maxGroupSize
 
-        if group_size >= greedy_cutoff:
-            chosen_chunk_names = _pick_greedy_chunk_names(groupGraph, maxGroupSize)
-        else:
-            chosen_chunk_names = None
-
-        def pick_chunk(split):
-            best_size = -1
-            best_names = None
-            for subgroup in split:
-                size = len(subgroup)
-                if size == 0 or size > maxGroupSize or group_size - size < required_leave:
-                    continue
-                names = tuple(sorted(person.name for person in subgroup))
-                if size > best_size or (size == best_size and (best_names is None or names < best_names)):
-                    best_size = size
-                    best_names = names
-            return best_names
-
-        # Increase threshold until we can peel off enough people.
-        # Start near the first possible cut and use coarse-to-fine steps for speed.
-        base_cut_weight = None
-        if chosen_chunk_names is None:
-            jitteredGraph = _jitter_graph(groupGraph, epsilon=0.0001)
-            base_cut_weight, _ = _best_min_cut(jitteredGraph)
-            max_threshold = max(
-                (sum(weight for weight in neighbors.values() if weight > 0) for neighbors in jitteredGraph.values()),
-                default=0.0,
-            ) + 1.0
-            coarse_step = 0.01
-            fine_step = 0.001
-            coarse_start = max(0.0, base_cut_weight - coarse_step)
-
-            first_valid_threshold = None
-            split_cache = {}
-
-            def get_split(threshold_value):
-                cache_key = round(threshold_value, 6)
-                if cache_key not in split_cache:
-                    split_cache[cache_key] = find_groups(jitteredGraph, ordered_group, weight_threshold=threshold_value)
-                return split_cache[cache_key]
-
-            threshold = coarse_start
-            while threshold <= max_threshold + 1e-12:
-                split = get_split(threshold)
-                if len(split) > 1:
-                    candidate = pick_chunk(split)
-                    if candidate is not None:
-                        first_valid_threshold = threshold
-                        break
-                threshold += coarse_step
-
-            if chosen_chunk_names is None and first_valid_threshold is not None:
-                threshold = max(coarse_start, first_valid_threshold - coarse_step)
-                while threshold <= first_valid_threshold + 1e-12:
-                    split = get_split(threshold)
-                    if len(split) > 1:
-                        chosen_chunk_names = pick_chunk(split)
-                        if chosen_chunk_names is not None:
-                            break
-                    threshold += fine_step
-
-            if chosen_chunk_names is None and base_cut_weight is not None:
-                # Last chance: use the current min-cut weight directly as threshold.
-                split = find_groups(jitteredGraph, ordered_group, weight_threshold=base_cut_weight + 1e-6)
-
-                if len(split) > 1:
-                    chosen_chunk_names = pick_chunk(split)
-
-        if chosen_chunk_names is None:
-            raise RuntimeError(f"Could not split group: {[p.name for p in group]}")
+        # Density-weighted cohesion-based chunk selection
+        chosen_chunk_names = _cohesion_chunk_names(groupGraph, maxGroupSize)
+        if not chosen_chunk_names:
+            # Fallback: if cohesion fails (e.g., extremely sparse/negative graph),
+            # just take an arbitrary maxGroupSize subset by name to ensure progress.
+            chosen_chunk_names = tuple(sorted(p.name for p in ordered_group[:maxGroupSize]))
 
         chosen_name_set = set(chosen_chunk_names)
         chosen_group = {person for person in group if person.name in chosen_name_set}
@@ -403,3 +305,56 @@ def splitGroupsByMaxSize(graph, input, maxGroupSize):
             heapq.heappush(pending, (_group_key(remainder), next(seq), remainder))
 
     return newGroups
+
+
+def _cohesion_chunk_names(group_graph, chunk_size, alpha=2.0):
+    """Select a cohesive chunk of up to chunk_size nodes using a density-weighted cohesion score.
+
+    score(x, C) = (sum_{c in C} max(w(x,c), 0) - alpha * sum_{c in C} max(-w(x,c), 0)) / max(1, |C|)
+
+    Returns a sorted tuple of chosen node names, or None if graph empty.
+    """
+    if not group_graph:
+        return None
+
+    names = sorted(group_graph.keys())
+    target_size = min(chunk_size, len(names))
+
+    # Precompute positive degree as a good seed heuristic
+    def positive_degree(name):
+        return sum(w for w in group_graph[name].values() if w > 0)
+
+    # Seed: node with highest positive degree
+    seed = max(names, key=lambda n: (positive_degree(n), n))
+    chosen = {seed}
+
+    while len(chosen) < target_size:
+        best_name = None
+        best_score = None
+        for candidate in names:
+            if candidate in chosen:
+                continue
+            pos_sum = 0.0
+            neg_sum = 0.0
+            for member in chosen:
+                w = group_graph[candidate].get(member, 0.0)
+                if w > 0:
+                    pos_sum += w
+                elif w < 0:
+                    neg_sum += -w
+            score = (pos_sum - alpha * neg_sum) / max(1, len(chosen))
+            # Only accept candidates that do not decrease cohesion; require score > 0
+            if score <= 0:
+                continue
+            key = (score, positive_degree(candidate), candidate)
+            if best_score is None or key > best_score:
+                best_score = key
+                best_name = candidate
+
+        if best_name is None:
+            break
+        chosen.add(best_name)
+
+    # If for some reason only the seed was acceptable but target_size > 1,
+    # we still return that single highly cohesive node.
+    return tuple(sorted(chosen))

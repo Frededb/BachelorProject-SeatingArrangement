@@ -9,7 +9,8 @@ def FluentWithSwitch(input, emptyArrangement):
     emptyArrangement, protectedNames = fluentGroupsFill(input, emptyArrangement, True)
 
     emptyArrangement = linearSwitch4PeopleEachTable(emptyArrangement)
-    print("score after first bruteforce: ", calcArrangement(emptyArrangement)[0])
+    # emptyArrangement = bruteForceEachTable(emptyArrangement)
+    print("score after first: ", calcArrangement(emptyArrangement)[0])
 
     movableCoords = [
         (tableIndex, seatIndex)
@@ -20,5 +21,6 @@ def FluentWithSwitch(input, emptyArrangement):
 
     emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement, movableCoords)
     print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
+
 
     return emptyArrangement
