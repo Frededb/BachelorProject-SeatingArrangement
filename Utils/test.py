@@ -28,7 +28,7 @@ input100PeopleSimple = reader.readjson(os.path.join(script_dir, "../Inputs/input
 input100PeopleMoreRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleMoreRandom.json"))
 input100PeopleSemiRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSemiRandom.json"))
 input4People = reader.readjson(os.path.join(script_dir, "../Inputs/input4People.json"))
-inputReal = reader.readjson(os.path.join(script_dir, "../Inputs/inputReal.json"))
+inputReal = reader.readjson(os.path.join(script_dir, "../Inputs/realData/inputReal.json"))
 input300 = reader.readjson(os.path.join(script_dir, "../Inputs/input300.json"))
 input100NotRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100NotRandom.json"))
 
