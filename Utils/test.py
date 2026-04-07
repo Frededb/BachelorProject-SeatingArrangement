@@ -6,9 +6,9 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
-from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
 
+from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
 from Algorithms.Build.RandomPlacement import randomArrangement
 from Utils.printer import printArrangementWithValues
