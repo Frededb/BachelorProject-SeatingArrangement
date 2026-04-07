@@ -28,9 +28,10 @@ input100PeopleSimple = reader.readjson(os.path.join(script_dir, "../Inputs/input
 input100PeopleMoreRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleMoreRandom.json"))
 input100PeopleSemiRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSemiRandom.json"))
 input4People = reader.readjson(os.path.join(script_dir, "../Inputs/input4People.json"))
-inputReal = reader.readjson(os.path.join(script_dir, "../Inputs/inputReal.json"))
+inputReal = reader.readjson(os.path.join(script_dir, "../Inputs/realData/inputReal.json"))
 input300 = reader.readjson(os.path.join(script_dir, "../Inputs/input300.json"))
 input100NotRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100NotRandom.json"))
+inputGenerated = reader.readjson(os.path.join(script_dir, "../Inputs/generated100.json"))
 
 INPUTS_BY_NAME = {
     "input100People": input100People,
@@ -178,19 +179,13 @@ def testCreateRandomInput():
     printArrangementWithValues(arrangement)
 
 if __name__ == "__main__":
-    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100People"
-    if selectedInputName not in INPUTS_BY_NAME:
-        print("Unknown input:", selectedInputName)
-        print("Valid inputs:", ", ".join(sorted(INPUTS_BY_NAME.keys())))
-        raise SystemExit(1)
+    print("=========================")
+    for person in inputGenerated:
+        print(person.name)
+    
+    for person in inputGenerated:
+        for pref in person.preferences:
+                print(f"{person.name} {pref}")
 
-    testInput = INPUTS_BY_NAME[selectedInputName]
-    print("Using input:", selectedInputName)
-    print("theory max:", ValueCalc.calcTheoreticalMax(testInput))
-    a = FluentWithSwitch(testInput, makeEmptyArrangement(len(testInput), 8))
 
-    printArrangementWithValues(a)
-
-    # print("=========================")
-    #
-    # printArrangementWithValues(testLinearSwitch2PeopleSets(defaultPlacement(testInput)))
+    

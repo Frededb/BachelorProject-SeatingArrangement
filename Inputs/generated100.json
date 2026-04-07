@@ -1,0 +1,1177 @@
+[
+    {
+        "name": "P1",
+        "studyprogram": "SWU",
+        "year": "2024",
+        "preferences": [
+            "P43",
+            "P10",
+            "P13",
+            "P64",
+            "P73"
+        ],
+        "avoidances": [
+            "P55"
+        ]
+    },
+    {
+        "name": "P2",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P27",
+            "P73",
+            "P76",
+            "P8",
+            "P64"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P3",
+        "studyprogram": "CS",
+        "year": "2022",
+        "preferences": [
+            "P90",
+            "P58",
+            "P1",
+            "P53"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P4",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P8",
+            "P51",
+            "P2",
+            "P68"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P5",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P61",
+            "P97"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P6",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P71",
+            "P65",
+            "P20",
+            "P25",
+            "P39",
+            "P76"
+        ],
+        "avoidances": [
+            "P66"
+        ]
+    },
+    {
+        "name": "P7",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P77"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P8",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P2",
+            "P68",
+            "P91",
+            "P28"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P9",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P63",
+            "P29",
+            "P41",
+            "P94",
+            "P96"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P10",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P73",
+            "P41"
+        ],
+        "avoidances": [
+            "P47"
+        ]
+    },
+    {
+        "name": "P11",
+        "studyprogram": "CS",
+        "year": "2024",
+        "preferences": [
+            "P42",
+            "P87",
+            "P97",
+            "P99"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P12",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P16",
+            "P89"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P13",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P24",
+            "P89",
+            "P16"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P14",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [],
+        "avoidances": [
+            "P44",
+            "P80"
+        ]
+    },
+    {
+        "name": "P15",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P64"
+        ],
+        "avoidances": [
+            "P34",
+            "P90"
+        ]
+    },
+    {
+        "name": "P16",
+        "studyprogram": "SWU",
+        "year": "2022",
+        "preferences": [
+            "P12",
+            "P38",
+            "P89",
+            "P99",
+            "P87"
+        ],
+        "avoidances": [
+            "P25"
+        ]
+    },
+    {
+        "name": "P17",
+        "studyprogram": "Math",
+        "year": "2023",
+        "preferences": [
+            "P18",
+            "P19",
+            "P26",
+            "P22",
+            "P68",
+            "P48"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P18",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P48",
+            "P86"
+        ],
+        "avoidances": [
+            "P70"
+        ]
+    },
+    {
+        "name": "P19",
+        "studyprogram": "SWU",
+        "year": "2022",
+        "preferences": [
+            "P17"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P20",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P6",
+            "P39",
+            "P95",
+            "P40",
+            "P76"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P21",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P72",
+            "P98",
+            "P41"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P22",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P17",
+            "P64",
+            "P18"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P23",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P86",
+            "P69",
+            "P55",
+            "P58",
+            "P94"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P24",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P38",
+            "P51",
+            "P18",
+            "P86",
+            "P81"
+        ],
+        "avoidances": [
+            "P45"
+        ]
+    },
+    {
+        "name": "P25",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P23",
+            "P76",
+            "P6",
+            "P88",
+            "P71"
+        ],
+        "avoidances": [
+            "P49"
+        ]
+    },
+    {
+        "name": "P26",
+        "studyprogram": "SWU",
+        "year": "2024",
+        "preferences": [
+            "P29"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P27",
+        "studyprogram": "CS",
+        "year": "2024",
+        "preferences": [
+            "P80",
+            "P54"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P28",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P44",
+            "P30",
+            "P91",
+            "P69"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P29",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P9",
+            "P41"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P30",
+        "studyprogram": "Math",
+        "year": "2023",
+        "preferences": [
+            "P28",
+            "P69",
+            "P58"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P31",
+        "studyprogram": "SWU",
+        "year": "2024",
+        "preferences": [
+            "P89",
+            "P40",
+            "P66"
+        ],
+        "avoidances": [
+            "P54"
+        ]
+    },
+    {
+        "name": "P32",
+        "studyprogram": "ds",
+        "year": "2023",
+        "preferences": [
+            "P9",
+            "P29"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P33",
+        "studyprogram": "SWU",
+        "year": "2022",
+        "preferences": [
+            "P66",
+            "P61"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P34",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P87",
+            "P62",
+            "P93"
+        ],
+        "avoidances": [
+            "P3"
+        ]
+    },
+    {
+        "name": "P35",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P63",
+            "P88"
+        ],
+        "avoidances": [
+            "P100"
+        ]
+    },
+    {
+        "name": "P36",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P3",
+            "P46",
+            "P90",
+            "P53"
+        ],
+        "avoidances": [
+            "P23",
+            "P64"
+        ]
+    },
+    {
+        "name": "P37",
+        "studyprogram": "CS",
+        "year": "2022",
+        "preferences": [
+            "P68"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P38",
+        "studyprogram": "Math",
+        "year": "2023",
+        "preferences": [
+            "P16",
+            "P41"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P39",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P40",
+            "P71",
+            "P83"
+        ],
+        "avoidances": [
+            "P1"
+        ]
+    },
+    {
+        "name": "P40",
+        "studyprogram": "Math",
+        "year": "2023",
+        "preferences": [],
+        "avoidances": [
+            "P17"
+        ]
+    },
+    {
+        "name": "P41",
+        "studyprogram": "ds",
+        "year": "2022",
+        "preferences": [
+            "P38",
+            "P9",
+            "P73",
+            "P29"
+        ],
+        "avoidances": [
+            "P99"
+        ]
+    },
+    {
+        "name": "P42",
+        "studyprogram": "SWU",
+        "year": "2024",
+        "preferences": [
+            "P11",
+            "P46"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P43",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P42",
+            "P64",
+            "P11",
+            "P46"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P44",
+        "studyprogram": "ds",
+        "year": "2023",
+        "preferences": [
+            "P62",
+            "P59",
+            "P34"
+        ],
+        "avoidances": [
+            "P42"
+        ]
+    },
+    {
+        "name": "P45",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P2",
+            "P34"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P46",
+        "studyprogram": "SWU",
+        "year": "2024",
+        "preferences": [
+            "P36",
+            "P90"
+        ],
+        "avoidances": [
+            "P21"
+        ]
+    },
+    {
+        "name": "P47",
+        "studyprogram": "Math",
+        "year": "2023",
+        "preferences": [
+            "P95",
+            "P76"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P48",
+        "studyprogram": "ds",
+        "year": "2022",
+        "preferences": [
+            "P18"
+        ],
+        "avoidances": [
+            "P90"
+        ]
+    },
+    {
+        "name": "P49",
+        "studyprogram": "Math",
+        "year": "2023",
+        "preferences": [
+            "P55",
+            "P9",
+            "P67",
+            "P29"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P50",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P32",
+            "P33",
+            "P61",
+            "P9",
+            "P29"
+        ],
+        "avoidances": [
+            "P85",
+            "P41"
+        ]
+    },
+    {
+        "name": "P51",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P24",
+            "P81"
+        ],
+        "avoidances": [
+            "P65"
+        ]
+    },
+    {
+        "name": "P52",
+        "studyprogram": "ds",
+        "year": "2022",
+        "preferences": [],
+        "avoidances": [
+            "P55",
+            "P60"
+        ]
+    },
+    {
+        "name": "P53",
+        "studyprogram": "SWU",
+        "year": "2024",
+        "preferences": [
+            "P85"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P54",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P27",
+            "P80"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P55",
+        "studyprogram": "CS",
+        "year": "2022",
+        "preferences": [
+            "P94",
+            "P85"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P56",
+        "studyprogram": "ds",
+        "year": "2023",
+        "preferences": [
+            "P78"
+        ],
+        "avoidances": [
+            "P7",
+            "P23"
+        ]
+    },
+    {
+        "name": "P57",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P49",
+            "P62"
+        ],
+        "avoidances": [
+            "P59",
+            "P68"
+        ]
+    },
+    {
+        "name": "P58",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P83",
+            "P95"
+        ],
+        "avoidances": [
+            "P90"
+        ]
+    },
+    {
+        "name": "P59",
+        "studyprogram": "SWU",
+        "year": "2022",
+        "preferences": [
+            "P32",
+            "P93",
+            "P9",
+            "P29"
+        ],
+        "avoidances": [
+            "P44",
+            "P70"
+        ]
+    },
+    {
+        "name": "P60",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P31",
+            "P69",
+            "P76"
+        ],
+        "avoidances": [
+            "P95"
+        ]
+    },
+    {
+        "name": "P61",
+        "studyprogram": "CS",
+        "year": "2022",
+        "preferences": [
+            "P50",
+            "P9"
+        ],
+        "avoidances": [
+            "P28",
+            "P80"
+        ]
+    },
+    {
+        "name": "P62",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P34"
+        ],
+        "avoidances": [
+            "P16"
+        ]
+    },
+    {
+        "name": "P63",
+        "studyprogram": "CS",
+        "year": "2024",
+        "preferences": [
+            "P35"
+        ],
+        "avoidances": [
+            "P64"
+        ]
+    },
+    {
+        "name": "P64",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P22",
+            "P99",
+            "P17"
+        ],
+        "avoidances": [
+            "P62"
+        ]
+    },
+    {
+        "name": "P65",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P6",
+            "P40"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P66",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P49",
+            "P9",
+            "P67"
+        ],
+        "avoidances": [
+            "P96"
+        ]
+    },
+    {
+        "name": "P67",
+        "studyprogram": "ds",
+        "year": "2023",
+        "preferences": [
+            "P49",
+            "P55",
+            "P29"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P68",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P17"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P69",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P84",
+            "P58",
+            "P95"
+        ],
+        "avoidances": [
+            "P88"
+        ]
+    },
+    {
+        "name": "P70",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P63"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P71",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P6",
+            "P39",
+            "P83",
+            "P25",
+            "P76"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P72",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P21"
+        ],
+        "avoidances": [
+            "P43"
+        ]
+    },
+    {
+        "name": "P73",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P10",
+            "P64",
+            "P41",
+            "P99"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P74",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P95",
+            "P85",
+            "P1"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P75",
+        "studyprogram": "SWU",
+        "year": "2022",
+        "preferences": [],
+        "avoidances": []
+    },
+    {
+        "name": "P76",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [],
+        "avoidances": [
+            "P18"
+        ]
+    },
+    {
+        "name": "P77",
+        "studyprogram": "CS",
+        "year": "2023",
+        "preferences": [
+            "P7",
+            "P85",
+            "P78",
+            "P30"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P78",
+        "studyprogram": "Math",
+        "year": "2023",
+        "preferences": [
+            "P77",
+            "P30",
+            "P28"
+        ],
+        "avoidances": [
+            "P26",
+            "P45"
+        ]
+    },
+    {
+        "name": "P79",
+        "studyprogram": "Math",
+        "year": "2022",
+        "preferences": [
+            "P83",
+            "P77",
+            "P71",
+            "P78"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P80",
+        "studyprogram": "CS",
+        "year": "2024",
+        "preferences": [
+            "P54",
+            "P33"
+        ],
+        "avoidances": [
+            "P66"
+        ]
+    },
+    {
+        "name": "P81",
+        "studyprogram": "ds",
+        "year": "2022",
+        "preferences": [
+            "P51"
+        ],
+        "avoidances": [
+            "P100"
+        ]
+    },
+    {
+        "name": "P82",
+        "studyprogram": "ds",
+        "year": "2022",
+        "preferences": [],
+        "avoidances": [
+            "P73"
+        ]
+    },
+    {
+        "name": "P83",
+        "studyprogram": "ds",
+        "year": "2023",
+        "preferences": [
+            "P79",
+            "P71",
+            "P6"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P84",
+        "studyprogram": "ds",
+        "year": "2023",
+        "preferences": [
+            "P69"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P85",
+        "studyprogram": "Math",
+        "year": "2023",
+        "preferences": [
+            "P53",
+            "P55"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P86",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P42",
+            "P24"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P87",
+        "studyprogram": "SWU",
+        "year": "2024",
+        "preferences": [
+            "P34",
+            "P93",
+            "P99"
+        ],
+        "avoidances": [
+            "P58",
+            "P28"
+        ]
+    },
+    {
+        "name": "P88",
+        "studyprogram": "CS",
+        "year": "2022",
+        "preferences": [
+            "P35",
+            "P25"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P89",
+        "studyprogram": "CS",
+        "year": "2022",
+        "preferences": [
+            "P13",
+            "P66",
+            "P16",
+            "P67"
+        ],
+        "avoidances": [
+            "P48"
+        ]
+    },
+    {
+        "name": "P90",
+        "studyprogram": "ds",
+        "year": "2023",
+        "preferences": [
+            "P3",
+            "P1",
+            "P53",
+            "P58",
+            "P13",
+            "P85"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P91",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P8",
+            "P28"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P92",
+        "studyprogram": "CS",
+        "year": "2024",
+        "preferences": [
+            "P95",
+            "P32",
+            "P85",
+            "P20",
+            "P53",
+            "P55"
+        ],
+        "avoidances": [
+            "P54"
+        ]
+    },
+    {
+        "name": "P93",
+        "studyprogram": "CS",
+        "year": "2022",
+        "preferences": [
+            "P59",
+            "P35",
+            "P29",
+            "P88"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P94",
+        "studyprogram": "CS",
+        "year": "2024",
+        "preferences": [
+            "P55",
+            "P9",
+            "P31",
+            "P85",
+            "P89"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P95",
+        "studyprogram": "ds",
+        "year": "2022",
+        "preferences": [
+            "P76",
+            "P20",
+            "P39"
+        ],
+        "avoidances": [
+            "P81"
+        ]
+    },
+    {
+        "name": "P96",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P9",
+            "P29",
+            "P41"
+        ],
+        "avoidances": [
+            "P98"
+        ]
+    },
+    {
+        "name": "P97",
+        "studyprogram": "CS",
+        "year": "2022",
+        "preferences": [
+            "P83",
+            "P5",
+            "P11",
+            "P6",
+            "P42",
+            "P99"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P98",
+        "studyprogram": "ds",
+        "year": "2024",
+        "preferences": [
+            "P21",
+            "P41",
+            "P73",
+            "P29"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P99",
+        "studyprogram": "Math",
+        "year": "2024",
+        "preferences": [
+            "P64",
+            "P87",
+            "P16",
+            "P93",
+            "P89"
+        ],
+        "avoidances": []
+    },
+    {
+        "name": "P100",
+        "studyprogram": "SWU",
+        "year": "2023",
+        "preferences": [
+            "P30",
+            "P67",
+            "P28",
+            "P55"
+        ],
+        "avoidances": []
+    }
+]
