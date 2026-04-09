@@ -19,8 +19,8 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
     for name in names:
         people.append({
             "name": name,
-            "studyprogram": random.choice(["SWU", "ds", "CS", "Math"]),
-            "year": random.choice(["2022", "2023", "2024"]),
+            "studyprogram": random.choices(["cs", "swu"], weights=[0.037, 0.963], k=1)[0],
+            "year": random.choices(["2021", "2022", "2023", "2025"], weights=[0.0185, 0.0185, 0.8148, 0.1481], k=1)[0],
             "preferences": [],
             "avoidances": []
         })
@@ -33,41 +33,51 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
     preferences = {name: set() for name in names}
     avoidances = {name: set() for name in names}
     
-    # 1. Generate base wishes based on wish_count_dist
-    for name in names:
-        target_wish_count = get_count(wish_count_dist)
-        available_targets = [n for n in names if n != name and n not in preferences[name]]
+    # Pre-calculate target out-degrees based on distributions
+    target_wish_counts = {name: get_count(wish_count_dist) for name in names}
+    target_avoid_counts = {name: get_count(avoidance_count_dist) for name in names}
+
+    # Group people into clusters to mimic real-life friend groups
+    group_count = max(1, people_count // 5) # average group size of 5
+    groups = {name: random.randint(1, group_count) for name in names}
+    popularities = {name: random.paretovariate(3) for name in names}
+
+    def get_affinity(a, b, is_avoidance=False):
+        if is_avoidance:
+            return 1.0 
+            
+        # Massive affinity for same-group members to create cliques
+        same_group = (groups[a] == groups[b])
+        base_weight = 1000.0 if same_group else 1.0
         
-        while len(preferences[name]) < target_wish_count and available_targets:
-            target = random.choice(available_targets)
+        # Boost if already reciprocal 
+        if a in preferences[b]:
+            base_weight *= (1.0 + wishback_chance * 10)
+            
+        return base_weight * popularities[b]
+
+    # Helper function to pick a target using weighted probabilities
+    def pick_target(chooser, available_targets, is_avoidance=False):
+        weights = [get_affinity(chooser, t, is_avoidance) for t in available_targets]
+        return random.choices(available_targets, weights=weights, k=1)[0]
+
+    # Generate preferences
+    for name in names:
+        count = target_wish_counts[name]
+        available_targets = [n for n in names if n != name]
+        
+        while len(preferences[name]) < count and available_targets:
+            target = pick_target(name, available_targets, is_avoidance=False)
             preferences[name].add(target)
             available_targets.remove(target)
-            
-            # Apply wishback chance
-            if random.random() < wishback_chance:
-                # Target wishes back for 'name'
-                target_wish_count_for_target = get_count(wish_count_dist) 
-                # Give target at least one wish if they didn't have one, or just add it anyway
-                preferences[target].add(name)
-                
-    # 2. Apply double wish chance (Triadic closure: A -> B, B -> C  => A -> C)
-    for name in names:
-        friends = list(preferences[name])
-        for friend in friends:
-            friends_of_friend = list(preferences[friend])
-            for fof in friends_of_friend:
-                if fof != name and fof not in preferences[name]:
-                    if random.random() < double_wish_chance:
-                        preferences[name].add(fof)
 
-    # 3. Generate avoidances based on avoidance_count_dist
+    # Generate avoidances (no complex triadic closure needed, keep simple)
     for name in names:
-        target_avoid_count = get_count(avoidance_count_dist)
-        # Cannot avoid self and cannot avoid someone already preferred
-        available_targets = [n for n in names if n != name and n not in preferences[name] and n not in avoidances[name]]
+        count = target_avoid_counts[name]
+        available_targets = [n for n in names if n != name and n not in preferences[name]]
         
-        while len(avoidances[name]) < target_avoid_count and available_targets:
-            target = random.choice(available_targets)
+        while len(avoidances[name]) < count and available_targets:
+            target = pick_target(name, available_targets, is_avoidance=True)
             avoidances[name].add(target)
             available_targets.remove(target)
 
@@ -83,14 +93,19 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
 
 if __name__ == "__main__":
     # Example usage
-    wish_dist = {0: 0.1, 1: 0.3, 2: 0.4, 3: 0.2}
-    avoid_dist = {0: 0.6, 1: 0.3, 2: 0.1}
+    wish_dist = {
+        0: 0.0926, 1: 0.2037, 2: 0.0556, 3: 0.1667, 4: 0.1111, 
+        5: 0.2222, 6: 0.0185, 7: 0.0556, 8: 0.0185, 9: 0.0370, 10: 0.0185
+    }
+    avoid_dist = {
+        0: 0.8148, 1: 0.1667, 3: 0.0185
+    }
     
     generate_data(
-        people_count=100,
+        people_count=54,
         wish_count_dist=wish_dist,
         avoidance_count_dist=avoid_dist,
-        wishback_chance=0.4,
-        double_wish_chance=0.2,
-        output_file="Inputs/generated100.json"
+        wishback_chance=0.6073,
+        double_wish_chance=0.5071,
+        output_file="generated100.json"
     )
