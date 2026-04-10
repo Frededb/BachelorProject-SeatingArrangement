@@ -1,7 +1,7 @@
 import json
 import random
 
-def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_chance, double_wish_chance, output_file="generated_data.json"):
+def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_chance, group_cohesion=80, output_file="generated_data.json"):
     """
     Generate randomized student preference data.
     
@@ -9,7 +9,7 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
     :param wish_count_dist: Dictionary mapping number of wishes to their probability (e.g., {0: 0.1, 1: 0.3, 2: 0.6}).
     :param avoidance_count_dist: Dictionary mapping number of avoidances to their probability.
     :param wishback_chance: Probability that if A wishes for B, B will also wish for A.
-    :param double_wish_chance: Probability that if A wishes for B, and B wishes for C, A will also wish for C.
+    :param group_cohesion: Value from 0-100. 0 = one random unstructured blob, 100 = completely isolated small groups, 80 = small groups with a few clear bridges.
     :param output_file: Output path for the JSON file.
     """
     people = []
@@ -56,6 +56,27 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
         current_group += 1
 
     popularities = {name: random.paretovariate(3) for name in names}
+    
+    # Calculate group logic weights smoothly based on cohesion scale (0 to 100)
+    cohesion_factor = max(0, min(100, group_cohesion)) / 100.0
+    
+    # Range mappings:
+    # Cohesion 0 (blob): intra = 1, adjacent = 1, distant = 1
+    # Cohesion 80 (nice bridges): intra = ~300, adjacent = ~5, distant = ~0.5
+    # Cohesion 100 (isolated): intra = 1000, adjacent = 0.01, distant = 0.001
+    
+    intra_weight = 1.0 + (999.0 * (cohesion_factor ** 2))
+    
+    if cohesion_factor < 0.5:
+        # 0 to 50: transitioning from random uniform mapping to very loose groups
+        p = cohesion_factor / 0.5
+        adj_weight = 1.0 + (9.0 * p)
+        dist_weight = 1.0
+    else:
+        # 50 to 100: creating distinct bridges, dropping distant connections, eventually breaking bridges altogether at 100
+        p = (cohesion_factor - 0.5) / 0.5
+        adj_weight = 10.0 - (9.99 * p)   # Shrinks down to 0.01
+        dist_weight = 1.0 - (0.999 * p)  # Shrinks down to 0.001
 
     def get_affinity(a, b, is_avoidance=False):
         if is_avoidance:
@@ -64,14 +85,13 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
         group_a = groups[a]
         group_b = groups[b]
         
-        # Stochastic Block Model tier weights
+        # Stochastic Block Model tier weights assigned by the group cohesion slider
         if group_a == group_b:
-            base_weight = 300.0  # Intra-group: Strong clique formation
+            base_weight = intra_weight
         elif abs(group_a - group_b) == 1 or abs(group_a - group_b) == current_group - 2:
-            # Adjacent-group (including wrap-around to form a ring of groups): Creates bridges between communities
-            base_weight = 5.0   
+            base_weight = adj_weight
         else:
-            base_weight = 0.5    # Distant-group: Rare distant connections
+            base_weight = dist_weight
         
         # Boost if already reciprocal 
         if a in preferences[b]:
@@ -131,10 +151,10 @@ if __name__ == "__main__":
     }
     
     generate_data(
-        people_count=54,
+        people_count=50,
         wish_count_dist=wish_dist,
         avoidance_count_dist=avoid_dist,
         wishback_chance=0.6073,
-        double_wish_chance=0.5071,
+        group_cohesion=99, # Try 0 (blob) through 100 (isolated islands)
         output_file="generated100.json"
     )
