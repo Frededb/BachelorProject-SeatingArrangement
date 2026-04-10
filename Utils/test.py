@@ -6,9 +6,9 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
-from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
 
+from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
 from Algorithms.Build.RandomPlacement import randomArrangement
 from Utils.printer import printArrangementWithValues
@@ -28,7 +28,7 @@ input100PeopleSimple = reader.readjson(os.path.join(script_dir, "../Inputs/input
 input100PeopleMoreRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleMoreRandom.json"))
 input100PeopleSemiRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100PeopleSemiRandom.json"))
 input4People = reader.readjson(os.path.join(script_dir, "../Inputs/input4People.json"))
-inputReal = reader.readjson(os.path.join(script_dir, "../Inputs/inputReal.json"))
+inputReal = reader.readjson(os.path.join(script_dir, "../Inputs/realData/inputReal.json"))
 input300 = reader.readjson(os.path.join(script_dir, "../Inputs/input300.json"))
 input100NotRandom = reader.readjson(os.path.join(script_dir, "../Inputs/input100NotRandom.json"))
 
@@ -201,16 +201,23 @@ def testAnealing(arrangement, seed=69):
 
 
 if __name__ == "__main__":
-    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "input100People"
-    seed_arg = int(sys.argv[2]) if len(sys.argv) > 2 else 69
-    
+    selectedInputName = sys.argv[1] if len(sys.argv) > 1 else "inputReal"
     if selectedInputName not in INPUTS_BY_NAME:
         print("Unknown input:", selectedInputName)
         print("Valid inputs:", ", ".join(sorted(INPUTS_BY_NAME.keys())))
         raise SystemExit(1)
 
     testInput = INPUTS_BY_NAME[selectedInputName]
-    print(f"Using input: {selectedInputName} | Seed: {seed_arg}")
-    a = testAnealing(defaultPlacement(testInput), seed=seed_arg)
+    print("Using input:", selectedInputName)
+    print("theory max:", ValueCalc.calcTheoreticalMax(testInput))
+    a = FluentWithSwitch(testInput, makeEmptyArrangement(len(testInput), 8))
 
-    # printArrangementWithValues(a)
+    printArrangementWithValues(a)
+
+    print("========================================")
+
+    printArrangementWithValues(testLinearSwitch2PeopleSets(defaultPlacement(inputReal)))
+
+    # graph = makeGraphFromInput(inputReal)
+    # groups = splitGroupsByMaxSize(graph, inputReal, 30)
+    # print_groups(groups)
