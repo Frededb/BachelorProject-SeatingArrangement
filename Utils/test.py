@@ -1,14 +1,12 @@
 import os
 import sys
-
 # Ensure the project root is importable when this file is run directly.
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
 from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
-
-from Algorithms.Build.DefaultPlacement import defaultPlacement
+from Algorithms.Discruption.TearDown import TearDown
 from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
 from Algorithms.Build.RandomPlacement import randomArrangement
 from Utils.printer import printArrangementWithValues
@@ -192,7 +190,7 @@ def testCreateRandomInput():
     printArrangementWithValues(arrangement)
 
 def testAnealing(input, seed=69):
-    from Algorithms.Anealing import AnealTwoPeople
+    from Algorithms.Optimizing.Anealing import AnealTwoPeople
     arrangement = randomArrangement(input, seed)
     print("Initial arrangement: {s}", calcArrangement(arrangement)[0])
     optimizedArrangement = AnealTwoPeople(arrangement, k=1000000, seed=seed)
@@ -214,9 +212,7 @@ if __name__ == "__main__":
 
     printArrangementWithValues(a)
 
-    print("========================================")
-
-    printArrangementWithValues(testLinearSwitch2PeopleSets(defaultPlacement(inputReal)))
+    TearDown(a)
 
     # graph = makeGraphFromInput(inputReal)
     # groups = splitGroupsByMaxSize(graph, inputReal, 30)
