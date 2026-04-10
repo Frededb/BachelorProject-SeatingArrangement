@@ -2,8 +2,8 @@ import itertools
 import random
 import math
 
-from Utils.ValueCalc import calcTable, calcArrangement
-from Utils.bmalls import getAllPeople, switch4People, switch4PeopleBack, switch3People, switch3PeopleBack, switch
+from Utils.UtilFunctions import getAllPeople, switch
+from Utils.ValueCalc import calcArrangement
 
 
 def AnealTwoPeople(arrangement, k=1000, seed=None):

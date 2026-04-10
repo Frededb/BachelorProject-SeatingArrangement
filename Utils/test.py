@@ -191,11 +191,11 @@ def testCreateRandomInput():
     arrangement = testLinearSwitch2PeopleSets(randomArrangement(randomInput, 69))
     printArrangementWithValues(arrangement)
 
-def testAnealing(arrangement, seed=69):
+def testAnealing(input, seed=69):
     from Algorithms.Anealing import AnealTwoPeople
-    arrangement = testLinearSwitch2PeopleSets(arrangement)
+    arrangement = randomArrangement(input, seed)
     print("Initial arrangement: {s}", calcArrangement(arrangement)[0])
-    optimizedArrangement = AnealTwoPeople(arrangement, k=100000, seed=seed)
+    optimizedArrangement = AnealTwoPeople(arrangement, k=1000000, seed=seed)
     print("Optimized arrangement: {s}", calcArrangement(optimizedArrangement)[0])
     return optimizedArrangement
 
