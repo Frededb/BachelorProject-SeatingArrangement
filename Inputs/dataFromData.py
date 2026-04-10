@@ -264,9 +264,68 @@ def incoming_distributions(people: PersonLinks) -> Dict[str, Any]:
     }
 
 
+def network_structure_metrics(people: PersonLinks) -> Dict[str, Any]:
+    # Undirected adjacency for Weakly Connected Components & neighbors
+    undirected_adj = {name: set() for name in people}
+    for a, links in people.items():
+        for b in links["preferences"]:
+            if b in undirected_adj:
+                undirected_adj[a].add(b)
+                undirected_adj[b].add(a)
+
+    visited = set()
+    component_sizes = []
+    for name in undirected_adj:
+        if name not in visited:
+            comp_size = 0
+            queue = [name]
+            visited.add(name)
+            while queue:
+                curr = queue.pop(0)
+                comp_size += 1
+                for neighbor in undirected_adj[curr]:
+                    if neighbor not in visited:
+                        visited.add(neighbor)
+                        queue.append(neighbor)
+            component_sizes.append(comp_size)
+
+    component_sizes.sort(reverse=True)
+
+    clustering_coeffs = []
+    for a, neighbors_set in undirected_adj.items():
+        neighbors = list(neighbors_set)
+        degree = len(neighbors)
+        if degree < 2:
+            clustering_coeffs.append(0.0)
+            continue
+
+        edges_between = 0
+        for i in range(len(neighbors)):
+            for j in range(len(neighbors)):
+                if i != j:
+                    n_i = neighbors[i]
+                    n_j = neighbors[j]
+                    if n_j in people.get(n_i, {}).get("preferences", set()):
+                        edges_between += 1
+
+        possible_edges = degree * (degree - 1)
+        clustering_coeffs.append(edges_between / possible_edges)
+
+    avg_clustering = sum(clustering_coeffs) / len(clustering_coeffs) if clustering_coeffs else 0.0
+
+    return {
+        "weakly_connected_components": {
+            "count": len(component_sizes),
+            "sizes": component_sizes,
+        },
+        "average_local_clustering_coefficient_percentage": avg_clustering * 100,
+    }
+
+
 def run_all_analyses(people: PersonLinks) -> Dict[str, Any]:
     return {
         "people_count": len(people),
+        "network_structure": network_structure_metrics(people),
         "conditional_probabilities": {
             "P(B_prefers_A | A_prefers_B)": chance_b_prefers_a_given_a_prefers_b(people),
             "P(B_avoids_A | A_avoids_B)": chance_b_avoids_a_given_a_avoids_b(people),

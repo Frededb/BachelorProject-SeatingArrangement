@@ -37,18 +37,37 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
     target_wish_counts = {name: get_count(wish_count_dist) for name in names}
     target_avoid_counts = {name: get_count(avoidance_count_dist) for name in names}
 
-    # Group people into clusters to mimic real-life friend groups
-    group_count = max(1, people_count // 5) # average group size of 5
-    groups = {name: random.randint(1, group_count) for name in names}
+    # Group people into clusters to mimic real-life component sizes
+    # Real data often has one large giant component (~80% of people) and several tiny isolated components
+    names_shuffled = list(names)
+    random.shuffle(names_shuffled)
+    
+    main_group_size = int(people_count * 0.8)
+    groups = {}
+    current_group = 1
+    
+    for i in range(main_group_size):
+        groups[names_shuffled[i]] = current_group
+        
+    current_group += 1
+    idx = main_group_size
+    while idx < people_count:
+        size = random.choices([1, 2], weights=[0.6, 0.4])[0]
+        for _ in range(size):
+            if idx < people_count:
+                groups[names_shuffled[idx]] = current_group
+                idx += 1
+        current_group += 1
+
     popularities = {name: random.paretovariate(3) for name in names}
 
     def get_affinity(a, b, is_avoidance=False):
         if is_avoidance:
             return 1.0 
             
-        # Massive affinity for same-group members to create cliques
+        # Very low affinity for different groups to create isolated weakly connected components
         same_group = (groups[a] == groups[b])
-        base_weight = 1000.0 if same_group else 1.0
+        base_weight = 1000.0 if same_group else 0.0001
         
         # Boost if already reciprocal 
         if a in preferences[b]:
@@ -59,6 +78,11 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
     # Helper function to pick a target using weighted probabilities
     def pick_target(chooser, available_targets, is_avoidance=False):
         weights = [get_affinity(chooser, t, is_avoidance) for t in available_targets]
+        
+        # If all weights effectively round down to 0, fallback to pure structural random so they at least meet their input distributions safely
+        if sum(weights) <= 0.0001:
+            return random.choice(available_targets)
+            
         return random.choices(available_targets, weights=weights, k=1)[0]
 
     # Generate preferences
@@ -74,6 +98,7 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
     # Generate avoidances (no complex triadic closure needed, keep simple)
     for name in names:
         count = target_avoid_counts[name]
+        # Allow people in tiny isolated groups to just use 0 if they don't have valid targets inside to avoid hanging loops
         available_targets = [n for n in names if n != name and n not in preferences[name]]
         
         while len(avoidances[name]) < count and available_targets:
