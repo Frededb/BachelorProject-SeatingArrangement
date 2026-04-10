@@ -37,26 +37,22 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
     target_wish_counts = {name: get_count(wish_count_dist) for name in names}
     target_avoid_counts = {name: get_count(avoidance_count_dist) for name in names}
 
-    # Group people into clusters to mimic real-life component sizes
-    # Real data often has one large giant component (~80% of people) and several tiny isolated components
+    # Group people into small communities (Explicit Stochastic Block Model)
     names_shuffled = list(names)
     random.shuffle(names_shuffled)
     
-    main_group_size = int(people_count * 0.8)
     groups = {}
     current_group = 1
-    
-    for i in range(main_group_size):
-        groups[names_shuffled[i]] = current_group
-        
-    current_group += 1
-    idx = main_group_size
+    idx = 0
     while idx < people_count:
-        size = random.choices([1, 2], weights=[0.6, 0.4])[0]
+        # Community sizes roughly between 4 and 8 people
+        size = random.randint(4, min(8, max(4, people_count - idx)))
+        if people_count - idx <= 8:
+            size = people_count - idx
+            
         for _ in range(size):
-            if idx < people_count:
-                groups[names_shuffled[idx]] = current_group
-                idx += 1
+            groups[names_shuffled[idx]] = current_group
+            idx += 1
         current_group += 1
 
     popularities = {name: random.paretovariate(3) for name in names}
@@ -65,13 +61,21 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
         if is_avoidance:
             return 1.0 
             
-        # Very low affinity for different groups to create isolated weakly connected components
-        same_group = (groups[a] == groups[b])
-        base_weight = 1000.0 if same_group else 0.0001
+        group_a = groups[a]
+        group_b = groups[b]
+        
+        # Stochastic Block Model tier weights
+        if group_a == group_b:
+            base_weight = 300.0  # Intra-group: Strong clique formation
+        elif abs(group_a - group_b) == 1 or abs(group_a - group_b) == current_group - 2:
+            # Adjacent-group (including wrap-around to form a ring of groups): Creates bridges between communities
+            base_weight = 5.0   
+        else:
+            base_weight = 0.5    # Distant-group: Rare distant connections
         
         # Boost if already reciprocal 
         if a in preferences[b]:
-            base_weight *= (1.0 + wishback_chance * 10)
+            base_weight *= (1.0 + wishback_chance * 20)
             
         return base_weight * popularities[b]
 

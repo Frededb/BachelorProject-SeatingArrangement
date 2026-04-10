@@ -4,46 +4,46 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P39",
-            "P48",
-            "P46",
-            "P30",
-            "P21",
-            "P33",
-            "P42"
+            "P17",
+            "P47",
+            "P25",
+            "P37",
+            "P16",
+            "P9",
+            "P43",
+            "P40",
+            "P44"
         ],
-        "avoidances": [
-            "P35"
-        ]
+        "avoidances": []
     },
     {
         "name": "P2",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": [],
+        "preferences": [
+            "P4"
+        ],
         "avoidances": []
     },
     {
         "name": "P3",
         "studyprogram": "swu",
-        "year": "2025",
+        "year": "2023",
         "preferences": [
-            "P16",
-            "P35",
-            "P17",
-            "P22",
-            "P53"
+            "P18"
         ],
-        "avoidances": []
+        "avoidances": [
+            "P28"
+        ]
     },
     {
         "name": "P4",
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P35",
-            "P48",
-            "P15"
+            "P26",
+            "P3",
+            "P2"
         ],
         "avoidances": []
     },
@@ -52,19 +52,24 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
+            "P22",
+            "P8",
             "P19",
-            "P45",
             "P30",
-            "P23",
-            "P44"
+            "P24"
         ],
         "avoidances": []
     },
     {
         "name": "P6",
         "studyprogram": "swu",
-        "year": "2021",
-        "preferences": [],
+        "year": "2023",
+        "preferences": [
+            "P11",
+            "P28",
+            "P45",
+            "P12"
+        ],
         "avoidances": []
     },
     {
@@ -72,16 +77,7 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P3",
-            "P17",
-            "P45",
-            "P46",
-            "P21",
-            "P23",
-            "P4",
-            "P49",
-            "P40",
-            "P42"
+            "P51"
         ],
         "avoidances": []
     },
@@ -90,38 +86,37 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P9",
-            "P3",
-            "P6",
-            "P25",
-            "P28",
-            "P33",
-            "P42"
+            "P5",
+            "P22",
+            "P19",
+            "P30",
+            "P24"
         ],
-        "avoidances": [
-            "P27"
-        ]
+        "avoidances": []
     },
     {
         "name": "P9",
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P10",
-            "P46",
+            "P1",
             "P16",
-            "P3"
+            "P47"
         ],
         "avoidances": []
     },
     {
         "name": "P10",
         "studyprogram": "swu",
-        "year": "2023",
+        "year": "2025",
         "preferences": [
-            "P9",
-            "P34",
-            "P4"
+            "P18",
+            "P3",
+            "P2",
+            "P12",
+            "P20",
+            "P4",
+            "P31"
         ],
         "avoidances": []
     },
@@ -129,104 +124,114 @@
         "name": "P11",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": [],
+        "preferences": [
+            "P6",
+            "P28",
+            "P49",
+            "P34"
+        ],
         "avoidances": []
     },
     {
         "name": "P12",
         "studyprogram": "swu",
-        "year": "2025",
+        "year": "2023",
         "preferences": [
-            "P46",
-            "P13",
-            "P2",
-            "P49"
+            "P11",
+            "P6",
+            "P45"
         ],
         "avoidances": []
     },
     {
         "name": "P13",
         "studyprogram": "swu",
-        "year": "2023",
-        "preferences": [],
-        "avoidances": [
-            "P26"
-        ]
+        "year": "2025",
+        "preferences": [
+            "P50"
+        ],
+        "avoidances": []
     },
     {
         "name": "P14",
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P9",
-            "P27",
-            "P44"
+            "P54",
+            "P32",
+            "P21",
+            "P36"
         ],
         "avoidances": []
     },
     {
         "name": "P15",
         "studyprogram": "swu",
-        "year": "2023",
+        "year": "2025",
         "preferences": [
-            "P53",
-            "P24",
-            "P23",
-            "P4"
+            "P38"
         ],
-        "avoidances": [
-            "P51"
-        ]
+        "avoidances": []
     },
     {
         "name": "P16",
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P30"
+            "P1"
         ],
         "avoidances": []
     },
     {
         "name": "P17",
         "studyprogram": "swu",
-        "year": "2023",
+        "year": "2025",
         "preferences": [
-            "P45",
-            "P34",
-            "P20",
-            "P48"
+            "P12",
+            "P37",
+            "P15",
+            "P38",
+            "P33"
         ],
-        "avoidances": []
+        "avoidances": [
+            "P43"
+        ]
     },
     {
         "name": "P18",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": [
-            "P32",
-            "P35",
-            "P21"
-        ],
-        "avoidances": []
+        "preferences": [],
+        "avoidances": [
+            "P28"
+        ]
     },
     {
         "name": "P19",
         "studyprogram": "swu",
-        "year": "2025",
+        "year": "2023",
         "preferences": [
-            "P37"
+            "P24",
+            "P8",
+            "P5",
+            "P30"
         ],
         "avoidances": [
-            "P30"
+            "P45"
         ]
     },
     {
         "name": "P20",
-        "studyprogram": "swu",
+        "studyprogram": "cs",
         "year": "2023",
         "preferences": [
-            "P17"
+            "P18",
+            "P26",
+            "P10",
+            "P2",
+            "P3",
+            "P4",
+            "P31"
         ],
         "avoidances": []
     },
@@ -234,13 +239,7 @@
         "name": "P21",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": [
-            "P9",
-            "P13",
-            "P7",
-            "P49",
-            "P33"
-        ],
+        "preferences": [],
         "avoidances": []
     },
     {
@@ -248,8 +247,7 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P39",
-            "P40"
+            "P5"
         ],
         "avoidances": []
     },
@@ -258,9 +256,8 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P46",
-            "P16",
-            "P31"
+            "P35",
+            "P48"
         ],
         "avoidances": []
     },
@@ -269,18 +266,22 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P34"
+            "P8",
+            "P5",
+            "P19"
         ],
-        "avoidances": []
+        "avoidances": [
+            "P16"
+        ]
     },
     {
         "name": "P25",
         "studyprogram": "swu",
-        "year": "2025",
+        "year": "2023",
         "preferences": [
-            "P38",
-            "P35",
-            "P53"
+            "P1",
+            "P9",
+            "P16"
         ],
         "avoidances": []
     },
@@ -289,8 +290,9 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P7",
-            "P49"
+            "P28",
+            "P20",
+            "P4"
         ],
         "avoidances": []
     },
@@ -299,21 +301,16 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P14"
+            "P37",
+            "P7"
         ],
         "avoidances": []
     },
     {
         "name": "P28",
         "studyprogram": "swu",
-        "year": "2023",
-        "preferences": [
-            "P36",
-            "P46",
-            "P31",
-            "P10",
-            "P37"
-        ],
+        "year": "2025",
+        "preferences": [],
         "avoidances": []
     },
     {
@@ -322,21 +319,25 @@
         "year": "2023",
         "preferences": [
             "P46",
-            "P13",
-            "P51",
-            "P15"
+            "P42",
+            "P1",
+            "P54",
+            "P40",
+            "P50",
+            "P13"
         ],
         "avoidances": []
     },
     {
         "name": "P30",
         "studyprogram": "swu",
-        "year": "2023",
+        "year": "2025",
         "preferences": [
-            "P32",
-            "P44",
-            "P1",
-            "P3"
+            "P5",
+            "P22",
+            "P8",
+            "P19",
+            "P24"
         ],
         "avoidances": []
     },
@@ -345,21 +346,19 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P39",
-            "P13",
-            "P53",
+            "P18",
+            "P26",
+            "P3",
             "P10",
-            "P44"
+            "P20"
         ],
         "avoidances": []
     },
     {
         "name": "P32",
         "studyprogram": "swu",
-        "year": "2023",
-        "preferences": [
-            "P47"
-        ],
+        "year": "2025",
+        "preferences": [],
         "avoidances": []
     },
     {
@@ -367,19 +366,22 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P1"
+            "P17"
         ],
         "avoidances": []
     },
     {
         "name": "P34",
         "studyprogram": "swu",
-        "year": "2025",
+        "year": "2023",
         "preferences": [
-            "P10",
+            "P3",
+            "P6",
+            "P12",
             "P45",
-            "P31",
-            "P17"
+            "P49",
+            "P11",
+            "P28"
         ],
         "avoidances": []
     },
@@ -388,26 +390,17 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P39",
-            "P40",
-            "P4"
+            "P23"
         ],
         "avoidances": []
     },
     {
         "name": "P36",
-        "studyprogram": "swu",
+        "studyprogram": "cs",
         "year": "2023",
         "preferences": [
-            "P39",
-            "P34",
-            "P48",
-            "P46",
-            "P21",
-            "P7",
-            "P8",
-            "P24",
-            "P2"
+            "P54",
+            "P21"
         ],
         "avoidances": []
     },
@@ -416,44 +409,50 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P39",
-            "P41"
+            "P15",
+            "P38",
+            "P33",
+            "P17"
         ],
-        "avoidances": []
+        "avoidances": [
+            "P8"
+        ]
     },
     {
         "name": "P38",
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P9",
-            "P16",
-            "P45",
-            "P26",
-            "P50",
-            "P31",
-            "P4",
-            "P53",
-            "P49",
-            "P44"
+            "P15",
+            "P33",
+            "P17"
         ],
-        "avoidances": []
+        "avoidances": [
+            "P8"
+        ]
     },
     {
         "name": "P39",
         "studyprogram": "swu",
-        "year": "2023",
-        "preferences": [
-            "P36",
-            "P23"
-        ],
+        "year": "2025",
+        "preferences": [],
         "avoidances": []
     },
     {
         "name": "P40",
         "studyprogram": "swu",
-        "year": "2022",
-        "preferences": [],
+        "year": "2023",
+        "preferences": [
+            "P46",
+            "P42",
+            "P1",
+            "P29",
+            "P47",
+            "P16",
+            "P50",
+            "P20",
+            "P13"
+        ],
         "avoidances": []
     },
     {
@@ -461,7 +460,9 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P48"
+            "P54",
+            "P53",
+            "P14"
         ],
         "avoidances": []
     },
@@ -470,49 +471,54 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P1"
+            "P29"
         ],
         "avoidances": []
     },
     {
         "name": "P43",
-        "studyprogram": "swu",
+        "studyprogram": "cs",
         "year": "2023",
         "preferences": [
-            "P39",
-            "P48",
-            "P31",
-            "P52",
-            "P40"
+            "P47"
         ],
-        "avoidances": []
+        "avoidances": [
+            "P1"
+        ]
     },
     {
         "name": "P44",
         "studyprogram": "swu",
-        "year": "2025",
+        "year": "2023",
         "preferences": [
-            "P39",
-            "P20",
-            "P3"
+            "P42",
+            "P16",
+            "P1"
         ],
-        "avoidances": [
-            "P19"
-        ]
+        "avoidances": []
     },
     {
         "name": "P45",
         "studyprogram": "swu",
         "year": "2023",
-        "preferences": [],
+        "preferences": [
+            "P11",
+            "P6",
+            "P12",
+            "P34"
+        ],
         "avoidances": []
     },
     {
         "name": "P46",
         "studyprogram": "swu",
-        "year": "2023",
+        "year": "2025",
         "preferences": [
-            "P1"
+            "P42",
+            "P29",
+            "P40",
+            "P50",
+            "P13"
         ],
         "avoidances": []
     },
@@ -521,9 +527,11 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P38",
-            "P48",
-            "P15"
+            "P1",
+            "P25",
+            "P16",
+            "P43",
+            "P9"
         ],
         "avoidances": []
     },
@@ -532,29 +540,23 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P17",
-            "P47",
-            "P1",
-            "P4"
+            "P41",
+            "P39",
+            "P23",
+            "P20",
+            "P35"
         ],
-        "avoidances": [
-            "P40",
-            "P35",
-            "P15"
-        ]
+        "avoidances": []
     },
     {
         "name": "P49",
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P39",
-            "P41",
-            "P46",
-            "P21",
-            "P7",
-            "P25",
-            "P6"
+            "P11",
+            "P28",
+            "P34",
+            "P12"
         ],
         "avoidances": []
     },
@@ -563,20 +565,27 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P30",
-            "P3",
-            "P21"
+            "P46",
+            "P42",
+            "P29",
+            "P16",
+            "P40",
+            "P44",
+            "P13"
         ],
-        "avoidances": []
+        "avoidances": [
+            "P49"
+        ]
     },
     {
         "name": "P51",
-        "studyprogram": "cs",
+        "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P53",
-            "P29",
-            "P49"
+            "P41",
+            "P7",
+            "P27",
+            "P52"
         ],
         "avoidances": []
     },
@@ -585,33 +594,38 @@
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P34",
-            "P1",
-            "P49",
-            "P6",
-            "P43"
+            "P27",
+            "P5",
+            "P8",
+            "P22",
+            "P32",
+            "P7",
+            "P28",
+            "P51"
         ],
-        "avoidances": []
+        "avoidances": [
+            "P38"
+        ]
     },
     {
         "name": "P53",
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P38",
-            "P39",
-            "P25"
+            "P32",
+            "P41",
+            "P36"
         ],
-        "avoidances": [
-            "P18"
-        ]
+        "avoidances": []
     },
     {
         "name": "P54",
         "studyprogram": "swu",
         "year": "2023",
         "preferences": [
-            "P26"
+            "P32",
+            "P41",
+            "P36"
         ],
         "avoidances": []
     }
