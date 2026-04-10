@@ -1,10 +1,13 @@
 import os
 import sys
+
 # Ensure the project root is importable when this file is run directly.
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
+from Algorithms.Legacy.createRandomInput import createRandomInput
+from Algorithms.Optimizing.tabuSearch import tabuSearch
 from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
 from Algorithms.Discruption.TearDown import TearDown
 from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
@@ -212,7 +215,7 @@ if __name__ == "__main__":
 
     printArrangementWithValues(a)
 
-    TearDown(a)
+    printArrangementWithValues(a)
 
     # graph = makeGraphFromInput(inputReal)
     # groups = splitGroupsByMaxSize(graph, inputReal, 30)
