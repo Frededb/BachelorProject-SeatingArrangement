@@ -78,20 +78,36 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
         adj_weight = 10.0 - (9.99 * p)   # Shrinks down to 0.01
         dist_weight = 1.0 - (0.999 * p)  # Shrinks down to 0.001
 
+    # To ensure massive populations don't mathematically drown out the cliques (since 10,000 distant people * 0.001 weight = 10.0 > 1 inner group),
+    # we precalculate the size of the tiers relative to each group to distribute the probability mass evenly
+    from collections import Counter
+    group_sizes = Counter(groups.values())
+    tier_counts = {}
+    
+    for g in range(1, current_group):
+        intra_count = group_sizes[g] - 1
+        adj_count = 0
+        for other_g, size in group_sizes.items():
+            if other_g != g and (abs(g - other_g) == 1 or abs(g - other_g) == current_group - 2):
+                adj_count += size
+        dist_count = people_count - 1 - intra_count - adj_count
+        tier_counts[g] = (max(1, intra_count), max(1, adj_count), max(1, dist_count))
+
     def get_affinity(a, b, is_avoidance=False):
         if is_avoidance:
             return 1.0 
             
         group_a = groups[a]
         group_b = groups[b]
+        intra_c, adj_c, dist_c = tier_counts[group_a]
         
-        # Stochastic Block Model tier weights assigned by the group cohesion slider
+        # Stochastic Block Model tier mass scaled by the size of the tier
         if group_a == group_b:
-            base_weight = intra_weight
+            base_weight = intra_weight / intra_c
         elif abs(group_a - group_b) == 1 or abs(group_a - group_b) == current_group - 2:
-            base_weight = adj_weight
+            base_weight = adj_weight / adj_c
         else:
-            base_weight = dist_weight
+            base_weight = dist_weight / dist_c
         
         # Boost if already reciprocal 
         if a in preferences[b]:
@@ -151,10 +167,10 @@ if __name__ == "__main__":
     }
     
     generate_data(
-        people_count=50,
+        people_count=100,
         wish_count_dist=wish_dist,
         avoidance_count_dist=avoid_dist,
         wishback_chance=0.6073,
-        group_cohesion=99, # Try 0 (blob) through 100 (isolated islands)
+        group_cohesion=10, # Try 0 (blob) through 100 (isolated islands)
         output_file="generated100.json"
     )
