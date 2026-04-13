@@ -57,26 +57,20 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
 
     popularities = {name: random.paretovariate(3) for name in names}
     
-    # Calculate group logic weights smoothly based on cohesion scale (0 to 100)
+    # Base calculations for scaling smoothly: 
+    # Use exponential scaling across the 0-100 spectrum because probabilities are experienced logarithmically.
     cohesion_factor = max(0, min(100, group_cohesion)) / 100.0
+    p = cohesion_factor
     
-    # Range mappings:
-    # Cohesion 0 (blob): intra = 1, adjacent = 1, distant = 1
-    # Cohesion 80 (nice bridges): intra = ~300, adjacent = ~5, distant = ~0.5
-    # Cohesion 100 (isolated): intra = 1000, adjacent = 0.01, distant = 0.001
+    # At 0: intra = 1.0. At 100: intra = 10,000.0
+    intra_weight = 10.0 ** (4.0 * p)
     
-    intra_weight = 1.0 + (999.0 * (cohesion_factor ** 2))
+    # At 0: dist = 1.0. At 100: dist = 0.0001
+    dist_weight = 10.0 ** (-4.0 * p)
     
-    if cohesion_factor < 0.5:
-        # 0 to 50: transitioning from random uniform mapping to very loose groups
-        p = cohesion_factor / 0.5
-        adj_weight = 1.0 + (9.0 * p)
-        dist_weight = 1.0
-    else:
-        # 50 to 100: creating distinct bridges, dropping distant connections, eventually breaking bridges altogether at 100
-        p = (cohesion_factor - 0.5) / 0.5
-        adj_weight = 10.0 - (9.99 * p)   # Shrinks down to 0.01
-        dist_weight = 1.0 - (0.999 * p)  # Shrinks down to 0.001
+    # Adjacent peaks slightly in the middle (at 50) to create bridges, then scales down to 1.0 at extremes.
+    # At p=0.5: 10^(0.5 * 3 * 0.5) = 10^0.75 ≈ 5.62
+    adj_weight = 10.0 ** (p * 3.0 * (1.0 - p))
 
     # To ensure massive populations don't mathematically drown out the cliques (since 10,000 distant people * 0.001 weight = 10.0 > 1 inner group),
     # we precalculate the size of the tiers relative to each group to distribute the probability mass evenly
@@ -171,6 +165,6 @@ if __name__ == "__main__":
         wish_count_dist=wish_dist,
         avoidance_count_dist=avoid_dist,
         wishback_chance=0.6073,
-        group_cohesion=10, # Try 0 (blob) through 100 (isolated islands)
+        group_cohesion=30, # Try 0 (blob) through 100 (isolated islands)
         output_file="generated100.json"
     )
