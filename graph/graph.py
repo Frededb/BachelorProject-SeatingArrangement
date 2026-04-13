@@ -27,10 +27,34 @@ def makeGraphFromInput(people):
     avoid_sets = {}
     for name in names:
         person = name_to_person[name]
-        prefs = getattr(person, "preferences", set()) or set()
-        avoids = getattr(person, "avoidances", set()) or set()
-        pref_sets[name] = prefs if isinstance(prefs, set) else set(prefs)
-        avoid_sets[name] = avoids if isinstance(avoids, set) else set(avoids)
+
+        prefs = set(getattr(person, "preferences", set()) or set())
+        avoids = set(getattr(person, "avoidances", set()) or set())
+
+        # Derive link sets from dynamic attributes when available.
+        atributes = getattr(person, "atributes", []) or []
+        atribute_set = getattr(person, "atribute_set", []) or []
+        for idx, values in enumerate(atributes):
+            if idx >= len(atribute_set) or not isinstance(values, list):
+                continue
+            meta = atribute_set[idx] if isinstance(atribute_set[idx], dict) else {}
+            kind = str(meta.get("kind", "")).strip().lower()
+            if kind not in {"prefence", "preference"}:
+                continue
+
+            try:
+                weight = float(meta.get("weight", 0))
+            except (TypeError, ValueError):
+                weight = 0.0
+
+            cleaned = {v for v in values if isinstance(v, str) and v}
+            if weight < 0:
+                avoids.update(cleaned)
+            else:
+                prefs.update(cleaned)
+
+        pref_sets[name] = prefs
+        avoid_sets[name] = avoids
 
     for i in range(len(names)):
         for j in range(i + 1, len(names)):

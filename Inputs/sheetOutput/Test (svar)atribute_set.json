@@ -1,0 +1,29 @@
+{
+    "schema_version": 1,
+    "atribute_set": [
+        {
+            "index": 0,
+            "header": "Pref",
+            "kind": "prefence",
+            "weight": 15
+        },
+        {
+            "index": 1,
+            "header": "AfPref",
+            "kind": "prefence",
+            "weight": -30
+        },
+        {
+            "index": 2,
+            "header": "Yndlingsfag",
+            "kind": "traits",
+            "weight": 5
+        },
+        {
+            "index": 3,
+            "header": "Dyr du synes er okay eller bedre",
+            "kind": "traits",
+            "weight": 2
+        }
+    ]
+}
