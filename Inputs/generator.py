@@ -1,7 +1,7 @@
 import json
 import random
 
-def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_chance, group_cohesion=80, output_file="generated_data.json"):
+def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_chance, double_wish_chance, group_cohesion=80, output_file="generated_data.json"):
     """
     Generate randomized student preference data.
     
@@ -102,15 +102,25 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
             base_weight = adj_weight / adj_c
         else:
             base_weight = dist_weight / dist_c
-        
-        # Boost if already reciprocal 
-        if a in preferences[b]:
-            base_weight *= (1.0 + wishback_chance * 20)
             
         return base_weight * popularities[b]
 
     # Helper function to pick a target using weighted probabilities
     def pick_target(chooser, available_targets, is_avoidance=False):
+        if not is_avoidance:
+            # 1. Chance to explicitly reciprocate requests (decoupled from cohesion math)
+            reciprocal_targets = [t for t in available_targets if chooser in preferences[t]]
+            if reciprocal_targets and random.random() < wishback_chance:
+                weights = [popularities[t] for t in reciprocal_targets]
+                return random.choices(reciprocal_targets, weights=weights, k=1)[0]
+                
+            # 2. Chance to explicitly form a triadic closure (friend of a friend)
+            fof_targets = [t for t in available_targets if any(t in preferences[f] for f in preferences[chooser])]
+            if fof_targets and random.random() < double_wish_chance:
+                weights = [popularities[t] for t in fof_targets]
+                return random.choices(fof_targets, weights=weights, k=1)[0]
+
+        # 3. Fallback to Stochastic Block Model structural probability
         weights = [get_affinity(chooser, t, is_avoidance) for t in available_targets]
         
         # If all weights effectively round down to 0, fallback to pure structural random so they at least meet their input distributions safely
@@ -165,6 +175,7 @@ if __name__ == "__main__":
         wish_count_dist=wish_dist,
         avoidance_count_dist=avoid_dist,
         wishback_chance=0.6073,
-        group_cohesion=30, # Try 0 (blob) through 100 (isolated islands)
+        double_wish_chance=0.5071,
+        group_cohesion=85, # Try 0 (blob) through 100 (isolated islands)
         output_file="generated100.json"
     )
