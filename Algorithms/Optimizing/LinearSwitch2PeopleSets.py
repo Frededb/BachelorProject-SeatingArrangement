@@ -1,6 +1,7 @@
 import itertools
+import random
 
-from Utils.ValueCalc import calcArrangement
+from Utils.ValueCalc import calcArrangement, calcTable
 from Utils.UtilFunctions import getAllPeople, switch
 
 
