@@ -1,4 +1,4 @@
-import ValueCalc
+from Utils import ValueCalc
 
 def printTable(table):
     print(str(table[0:4]))

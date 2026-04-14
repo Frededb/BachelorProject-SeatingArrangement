@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import cast
 
 # Ensure the project root is importable when this file is run directly.
-PROJECT_ROOT = cast(str, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJECT_ROOT = cast(str, os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
@@ -87,12 +87,12 @@ ALGORITHMS = {
 if __name__ == "__main__":
     # Parse command line arguments
     if len(sys.argv) != 4:
-        print("Usage: python test.py <algorithm> <input_file> <atribute_set_file>")
+        print("Usage: python runAlgorithm.py <algorithm> <input_file> <atribute_set_file>")
         print("\nAvailable algorithms:")
         for algo in ALGORITHMS:
             print(f"  - {algo}")
         print("\nExample:")
-        print("  python test.py FluentWithSwitch ../Inputs/sheetOutput/Test\\ \\(svar\\)input.json ../Inputs/sheetOutput/Test\\ \\(svar\\)atribute_set.json")
+        print("  python runAlgorithm.py FluentWithSwitch Inputs/sheetOutput/Test\\ \\(svar\\)input.json Inputs/sheetOutput/Test\\ \\(svar\\)atribute_set.json")
         raise SystemExit(1)
 
     algorithm_name = sys.argv[1]

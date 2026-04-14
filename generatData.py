@@ -1,5 +1,6 @@
 import json
 import random
+import os
 
 def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_chance, double_wish_chance, group_cohesion=80, output_file="generated_data.json"):
     """
@@ -155,7 +156,9 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
         person["preferences"] = list(preferences[person["name"]])
         person["avoidances"] = list(avoidances[person["name"]])
 
-    with open(output_file, 'w') as f:
+    output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), output_file)
+
+    with open(output_path, 'w') as f:
         json.dump(people, f, indent=4)
         
     return people
@@ -170,12 +173,13 @@ if __name__ == "__main__":
         0: 0.8148, 1: 0.1667, 3: 0.0185
     }
     
+    
     generate_data(
         people_count=100,
         wish_count_dist=wish_dist,
         avoidance_count_dist=avoid_dist,
         wishback_chance=0.6073,
         double_wish_chance=0.5071,
-        group_cohesion=85, # Try 0 (blob) through 100 (isolated islands)
-        output_file="generated100.json"
+        group_cohesion=85,
+        output_file="Inputs/generated100.json"
     )
