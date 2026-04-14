@@ -1,6 +1,6 @@
 from random import Random
 
-from Algorithms.Build.placeGroups import countEmptySeats
+from Algorithms.GroupBuild.placeGroups import countEmptySeats
 from Utils.reader import emptyPerson
 
 

@@ -8,12 +8,13 @@ from Utils.reader import emptyPerson
 
 def randomGreedy(input, emptyArrangement):
     inputCopy = deepcopy(input)
+    arrangement = deepcopy(emptyArrangement)
 
     for _ in range(len(inputCopy)):
         number = random.randint(0,len(inputCopy)-1)
         person = inputCopy.pop(number)
-        _placeGreedy(person)
-    return emptyArrangement
+        _placeGreedy(person, arrangement)
+    return arrangement
 
 
 def _placeGreedy(person, arrangement):

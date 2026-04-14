@@ -1,13 +1,13 @@
-from Algorithms.Build.RandomPlacement import randomArrangement
+from Algorithms.Build.RandomPlacement import randomPlacement
 import math
 
 from Utils.ValueCalc import calcArrangement
 
-def repeatedRandom(input, N):
+def repeatedRandom(input, emptyArrangement):
     bestArrangement = []
     bestValue = -math.inf
-    for _ in range(N):
-        arrangement = randomArrangement(input)
+    for _ in range(100):
+        arrangement = randomPlacement(input, emptyArrangement)
         value = calcArrangement(arrangement)[0]
         if value > bestValue:
             bestArrangement = arrangement

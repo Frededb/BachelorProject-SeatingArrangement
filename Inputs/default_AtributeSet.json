@@ -1,0 +1,29 @@
+{
+    "schema_version": 1,
+    "atribute_set": [
+        {
+            "index": 0,
+            "header": "studyprogram",
+            "kind": "traits",
+            "weight": 3
+        },
+        {
+            "index": 1,
+            "header": "year",
+            "kind": "traits",
+            "weight": 1
+        },
+        {
+            "index": 2,
+            "header": "preferences",
+            "kind": "prefence",
+            "weight": 15
+        },
+        {
+            "index": 3,
+            "header": "avoidances",
+            "kind": "prefence",
+            "weight": -30
+        }
+    ]
+}
