@@ -13,8 +13,15 @@ from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
 from Algorithms.Build.RandomGreedy import randomGreedy
 from Algorithms.Build.RandomPlacement import randomPlacement
-from Algorithms.Composit.FluentWithSwitch import FluentWithSwitch
-from Algorithms.Composit.RepeatedRandom import repeatedRandom
+from Algorithms.Composite.Anealing import anealingFromRandom
+from Algorithms.Composite.BruteForce import bruteForceFromRandom
+from Algorithms.Composite.FluentWithSwitch import FluentWithSwitch
+from Algorithms.Composite.LinearSwitch2PeopleSets import linearSwitch2PeopleSetsFromRandom
+from Algorithms.Composite.LinearSwitch3PeopleSets import linearSwitch3PeopleSetsFromRandom
+from Algorithms.Composite.LinearSwitch4PeopleSets import linearSwitch4PeopleSetsFromRandom
+from Algorithms.Composite.RandomSwitch import randomSwitchFromRandom
+from Algorithms.Composite.RepeatedRandom import repeatedRandom
+from Algorithms.Composite.tabuSearch import tabuSearchFromRandom
 from Utils.printer import printArrangementWithValues
 
 from Utils import ValueCalc
@@ -67,6 +74,13 @@ ALGORITHMS = {
     "randomPlacement": randomPlacement,
     "repeatedRandom": repeatedRandom,
     "FluentWithSwitch": FluentWithSwitch,
+    "anealing": anealingFromRandom,
+    "bruteForce": bruteForceFromRandom,
+    "switch2People": linearSwitch2PeopleSetsFromRandom,
+    "switch3People": linearSwitch3PeopleSetsFromRandom,
+    "switch4People": linearSwitch4PeopleSetsFromRandom,
+    "randomSwitch": randomSwitchFromRandom,
+    "tabuSearch": tabuSearchFromRandom,
 }
 
 
