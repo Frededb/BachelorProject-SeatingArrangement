@@ -159,7 +159,7 @@ import json
 if __name__ == "__main__":
     # Load data from input100People.json
     try:
-        with open("../Inputs/input100People.json", "r") as f:
+        with open("../Inputs/LegacyInputs/input100People.json", "r") as f:
             people_data = json.load(f)
             
         people_list = []

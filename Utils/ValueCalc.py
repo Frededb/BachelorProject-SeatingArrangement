@@ -4,6 +4,17 @@ from Utils.reader import emptyPerson
 
 calculatedTables = {}
 
+
+def _normalize_kind(value):
+    return str(value).strip().lower() if value is not None else ""
+
+
+def _weight_value(value):
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return 0.0
+
 def getDistanceTo(table, personA, personB):
     width = len(table)//2
     personACoords = (personA//width, personA%width)
@@ -14,23 +25,41 @@ def calcPerson(table, index):
     # print("Calculating person at index:", index)
     sum = 0
     personA = table[index]
-    if personA.name == "Empty":
+    if getattr(personA, "id", "") == "Empty":
         return 0.0
+
+    atribute_set = getattr(personA, "atribute_set", [])
+    atributes_a = getattr(personA, "atributes", [])
     for i in range(len(table)):
         if i == index:
             continue
         personSum = 0
         personB = table[i]
-        if personB.name == "Empty":
+        if getattr(personB, "id", "") == "Empty":
             continue
-        if personA.studyprogram == personB.studyprogram:
-            personSum = personSum + 3
-        if personA.year == personB.year:
-            personSum = personSum + 1
-        if personB.name in personA.preferences:
-            personSum = personSum + 15
-        if personB.name in personA.avoidances:
-            personSum = personSum - 30
+
+        atributes_b = getattr(personB, "atributes", [])
+        for attr_index, attr_meta in enumerate(atribute_set):
+            if attr_index >= len(atributes_a):
+                continue
+
+            values_a = atributes_a[attr_index]
+            values_b = atributes_b[attr_index] if attr_index < len(atributes_b) else []
+            if not isinstance(values_a, list):
+                continue
+            if not isinstance(values_b, list):
+                values_b = []
+
+            weight = _weight_value(attr_meta.get("weight") if isinstance(attr_meta, dict) else 0)
+            kind = _normalize_kind(attr_meta.get("kind") if isinstance(attr_meta, dict) else "")
+
+            if kind in {"prefence", "preference"}:
+                if personB.id in values_a:
+                    personSum += weight
+            elif kind in {"traits", "trait"}:
+                shared_traits = set(values_a).intersection(values_b)
+                personSum += weight * len(shared_traits)
+
         sum = sum + (personSum * 1/getDistanceTo(table, index, i))
     return sum
 

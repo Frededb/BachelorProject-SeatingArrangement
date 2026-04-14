@@ -1,12 +1,18 @@
 import math
+from copy import deepcopy
 
 from Utils.reader import emptyPerson
 
 
-def defaultPlacement(input):
-    arrangement = [[emptyPerson] * 8 for _ in range(math.ceil(len(input) / 8))]
-    for i in range(len(input)):
-        arrangement[i//8][i%8] = input[i]
+def defaultPlacement(input, emptyArrangement):
+    arrangement = deepcopy(emptyArrangement)
+    index = 0
+    for table in arrangement:
+        for seatIndex in range(len(table)):
+            if index >= len(input):
+                return arrangement
+            table[seatIndex] = input[index]
+            index += 1
     return arrangement
 
 

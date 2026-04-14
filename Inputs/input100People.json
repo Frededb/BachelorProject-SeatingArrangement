@@ -1,725 +1,1896 @@
-[
-
-    {
-
-        "name": "Lida",
-        "studyprogram": "SWU",
-        "year": "2023",
-        "preferences": ["fbuu"],
-        "avoidances": ["D2D2"]
-    },
-    {
-
-        "name": "D1D1",
-        "studyprogram": "ds",
-        "year": "2023",
-        "preferences": ["D2D2"],
-        "avoidances": []
-    },
-    {
-
-        "name": "D2D2",
-        "studyprogram": "ds",
-        "year": "2023",
-        "preferences": ["D1D1"],
-        "avoidances": []
-    },
-    {
-
-        "name": "aubu",
-        "studyprogram": "SWU",
-        "year": "2023",
-        "preferences": ["fbuu", "Lida", "MMMM"],
-        "avoidances": []
-    },
-    {
-
-        "name": "MMMM",
-        "studyprogram": "SWU",
-        "year": "2024",
-        "preferences": [],
-        "avoidances": []
-    },
-    {
-
-        "name": "fbuu",
-        "studyprogram": "SWU",
-        "year": "2023",
-        "preferences": ["Lida", "aubu"],
-        "avoidances": []
-    },
-    {
-
-        "name": "nsio",
-        "studyprogram": "SWU",
-        "year": "2023",
-        "preferences": ["aubu", "Lida"],
-        "avoidances": ["fbuu"]
-    },
-    {
-
-        "name": "joho",
-        "studyprogram": "SWU",
-        "year": "2023",
-        "preferences": [],
-        "avoidances": ["aubu", "Lida", "nsio"]
-    },
-    {
-    "name": "G1A1",
-    "studyprogram": "SWU",
-    "year": "2023",
-    "preferences": ["G1A2", "G1A3", "G1A4", "G1A5", "G1A6", "G1A7", "G1A8"],
-    "avoidances": []
-    },
-    {
-    "name": "G1A2",
-    "studyprogram": "SWU",
-    "year": "2023",
-    "preferences": ["G1A1", "G1A3", "G1A4", "G1A5", "G1A6", "G1A7", "G1A8"],
-    "avoidances": []
-    },
-    {
-    "name": "G1A3",
-    "studyprogram": "SWU",
-    "year": "2023",
-    "preferences": ["G1A1", "G1A2", "G1A4", "G1A5", "G1A6", "G1A7", "G1A8"],
-    "avoidances": []
-    },
-    {
-    "name": "G1A4",
-    "studyprogram": "SWU",
-    "year": "2023",
-    "preferences": ["G1A1", "G1A2", "G1A3", "G1A5", "G1A6", "G1A7", "G1A8"],
-    "avoidances": []
-    },
-    {
-    "name": "G1A5",
-    "studyprogram": "SWU",
-    "year": "2023",
-    "preferences": ["G1A1", "G1A2", "G1A3", "G1A4", "G1A6", "G1A7", "G1A8"],
-    "avoidances": []
-    },
-    {
-    "name": "G1A6",
-    "studyprogram": "SWU",
-    "year": "2023",
-    "preferences": ["G1A1", "G1A2", "G1A3", "G1A4", "G1A5", "G1A7", "G1A8"],
-    "avoidances": []
-    },
-    {
-    "name": "G1A7",
-    "studyprogram": "SWU",
-    "year": "2023",
-    "preferences": ["G1A1", "G1A2", "G1A3", "G1A4", "G1A5", "G1A6", "G1A8"],
-    "avoidances": []
-    },
-    {
-    "name": "G1A8",
-    "studyprogram": "SWU",
-    "year": "2023",
-    "preferences": ["G1A1", "G1A2", "G1A3", "G1A4", "G1A5", "G1A6", "G1A7"],
-    "avoidances": []
-    },
-    {
-    "name": "G2A1",
-    "studyprogram": "SWU",
-    "year": "2023",
-    "preferences": ["G2A2", "G2A3", "G2A4", "G2A5", "G2A6", "G2A7", "G2A8", "G2A9"],
-    "avoidances": []
-    },
-    {
-      "name": "G2A2",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G2A1", "G2A3", "G2A4", "G2A5", "G2A6", "G2A7", "G2A8", "G2A9"],
-      "avoidances": []
-    },
-    {
-      "name": "G2A3",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G2A1", "G2A2", "G2A4", "G2A5", "G2A6", "G2A7", "G2A8", "G2A9"],
-      "avoidances": []
-    },
-    {
-      "name": "G2A4",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G2A1", "G2A2", "G2A3", "G2A5", "G2A6", "G2A7", "G2A8", "G2A9"],
-      "avoidances": []
-    },
-    {
-      "name": "G2A5",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G2A1", "G2A2", "G2A3", "G2A4", "G2A6", "G2A7", "G2A8", "G2A9"],
-      "avoidances": []
-    },
-    {
-      "name": "G2A6",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G2A1", "G2A2", "G2A3", "G2A4", "G2A5", "G2A7", "G2A8", "G2A9"],
-      "avoidances": []
-    },
-    {
-      "name": "G2A7",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G2A1", "G2A2", "G2A3", "G2A4", "G2A5", "G2A6", "G2A8", "G2A9"],
-      "avoidances": []
-    },
-    {
-      "name": "G2A8",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G2A1", "G2A2", "G2A3", "G2A4", "G2A5", "G2A6", "G2A7", "G2A9"],
-      "avoidances": []
-    },
-    {
-      "name": "G2A9",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G2A1", "G2A2", "G2A3", "G2A4", "G2A5", "G2A6", "G2A7", "G2A8"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A1",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A2", "G3A3", "G3A4", "G3A5", "G3A6", "G3A7", "G3A8", "G3A9", "G3A10", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A2",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A3", "G3A4", "G3A5", "G3A6", "G3A7", "G3A8", "G3A9", "G3A10", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A3",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A4", "G3A5", "G3A6", "G3A7", "G3A8", "G3A9", "G3A10", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A4",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A3", "G3A5", "G3A6", "G3A7", "G3A8", "G3A9", "G3A10", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A5",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A3", "G3A4", "G3A6", "G3A7", "G3A8", "G3A9", "G3A10", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A6",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A3", "G3A4", "G3A5", "G3A7", "G3A8", "G3A9", "G3A10", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A7",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A3", "G3A4", "G3A5", "G3A6", "G3A8", "G3A9", "G3A10", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A8",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A3", "G3A4", "G3A5", "G3A6", "G3A7", "G3A9", "G3A10", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A9",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A3", "G3A4", "G3A5", "G3A6", "G3A7", "G3A8", "G3A10", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A10",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A3", "G3A4", "G3A5", "G3A6", "G3A7", "G3A8", "G3A9", "G3A11", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A11",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A3", "G3A4", "G3A5", "G3A6", "G3A7", "G3A8", "G3A9", "G3A10", "G3A12"],
-      "avoidances": []
-    },
-    {
-      "name": "G3A12",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G3A1", "G3A2", "G3A3", "G3A4", "G3A5", "G3A6", "G3A7", "G3A8", "G3A9", "G3A10", "G3A11"],
-      "avoidances": []
-    },
-    {
-      "name": "G4A1",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G4A2", "G4A3", "G4A4", "G4A5", "G4A6", "G4A7","GBOB"],
-      "avoidances": ["G4A8"]
-    },
-    {
-      "name": "G4A2",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G4A1", "G4A3", "G4A4", "G4A5", "G4A6", "G4A7","GBOB"],
-      "avoidances": ["G4A8"]
-    },
-    {
-      "name": "G4A3",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G4A1", "G4A2", "G4A4", "G4A5", "G4A6", "G4A7", "GBOB"],
-      "avoidances": ["G4A8"]
-    },
-    {
-      "name": "G4A4",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G4A1", "G4A2", "G4A3", "G4A5", "G4A6", "G4A7","G4A8"],
-      "avoidances": []
-    },
-    {
-      "name": "G4A5",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G4A1", "G4A2", "G4A3", "G4A4", "G4A6", "G4A7", "G4A8"],
-      "avoidances": []
-    },
-    {
-      "name": "G4A6",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G4A1", "G4A2", "G4A3", "G4A4", "G4A5", "G4A7", "G4A8"],
-      "avoidances": []
-    },
-    {
-      "name": "G4A7",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G4A1", "G4A2", "G4A3", "G4A4", "G4A5", "G4A6", "G4A8"],
-      "avoidances": []
-    },
-    {
-      "name": "G4A8",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G4A1", "G4A2", "G4A3", "G4A4", "G4A5", "G4A6", "G4A7"],
-      "avoidances": []
-    },
-    {
-      "name": "G511",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G512", "G513", "G521", "G522", "G523", "G531", "G532", "G533", "G534"],
-      "avoidances": []
-    },
-    {
-      "name": "G512",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G511", "G513", "G521", "G522", "G523", "G531", "G532", "G533", "G534"],
-      "avoidances": []
-    },
-    {
-      "name": "G513",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G511", "G512", "G521", "G522", "G523", "G531", "G532", "G533", "G534"],
-      "avoidances": []
-    },
-    {
-      "name": "G521",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G511", "G512", "G513", "G522", "G523"],
-      "avoidances": ["G531", "G532", "G533", "G534"]
-    },
-    {
-      "name": "G522",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G511", "G512", "G513", "G521", "G523"],
-      "avoidances": ["G531", "G532", "G533", "G534"]
-    },
-    {
-      "name": "G523",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G511", "G512", "G513", "G521", "G522"],
-      "avoidances": ["G531", "G532", "G533", "G534"]
-    },
-    {
-      "name": "G531",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G511", "G512", "G513", "G532", "G533", "G534"],
-      "avoidances": ["G521", "G522", "G523"]
-    },
-    {
-      "name": "G532",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G511", "G512", "G513", "G531", "G533", "G534"],
-      "avoidances": ["G521", "G522", "G523"]
-    },
-    {
-      "name": "G533",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G511", "G512", "G513", "G531", "G532", "G534"],
-      "avoidances": ["G521", "G522", "G523"]
-    },
-    {
-      "name": "G534",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G511", "G512", "G513", "G531", "G532", "G533"],
-      "avoidances": ["G521", "G522", "G523"]
-    },
-    {
-      "name": "GP11",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP12"],
-      "avoidances": []
-    },
-    {
-      "name": "GP12",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP11"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GP21",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP22"],
-      "avoidances": []
-    },
-    {
-      "name": "GP22",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP21"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GP31",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP32"],
-      "avoidances": []
-    },
-    {
-      "name": "GP32",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP31"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GP41",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP42"],
-      "avoidances": []
-    },
-    {
-      "name": "GP42",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP41"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GP51",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP52"],
-      "avoidances": []
-    },
-    {
-      "name": "GP52",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP51"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GP61",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP62"],
-      "avoidances": []
-    },
-    {
-      "name": "GP62",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP61"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GP71",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP72"],
-      "avoidances": []
-    },
-    {
-      "name": "GP72",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP71"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GP81",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP82"],
-      "avoidances": []
-    },
-    {
-      "name": "GP82",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP81"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GP91",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP92"],
-      "avoidances": []
-    },
-    {
-      "name": "GP92",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP91"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GP101",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP102"],
-      "avoidances": []
-    },
-    {
-      "name": "GP102",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GP101"],
-      "avoidances": []
-    },
-    {
-      "name": "GT11",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT12", "GT13"],
-      "avoidances": []
-    },
-    {
-      "name": "GT12",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT11", "GT13"],
-      "avoidances": []
-    },
-    {
-      "name": "GT13",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT11", "GT12"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GT21",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT22", "GT23"],
-      "avoidances": []
-    },
-    {
-      "name": "GT22",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT21", "GT23"],
-      "avoidances": []
-    },
-    {
-      "name": "GT23",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT21", "GT22"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GT31",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT32", "GT33"],
-      "avoidances": []
-    },
-    {
-      "name": "GT32",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT31", "GT33"],
-      "avoidances": []
-    },
-    {
-      "name": "GT33",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT31", "GT32"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GT41",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT42", "GT43"],
-      "avoidances": []
-    },
-    {
-      "name": "GT42",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT41", "GT43"],
-      "avoidances": []
-    },
-    {
-      "name": "GT43",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT41", "GT42"],
-      "avoidances": []
-    },
-
-    {
-      "name": "GT51",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT52", "GT53"],
-      "avoidances": []
-    },
-    {
-      "name": "GT52",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT51", "GT53"],
-      "avoidances": []
-    },
-    {
-      "name": "GT53",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["GT51", "GT52"],
-      "avoidances": []
-    },
-    {
-      "name": "S1",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G1A1"],
-      "avoidances": []
-    },
-    {
-      "name": "S2",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G1A1"],
-      "avoidances": []
-    },
-    {
-      "name": "S3",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G1A1"],
-      "avoidances": []
-    },
-    {
-      "name": "S4",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G1A1"],
-      "avoidances": []
-    },
-
-    {
-      "name": "S5",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": [],
-      "avoidances": []
-    },
-    {
-      "name": "S6",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": [],
-      "avoidances": []
-    },
-    {
-      "name": "S7",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": [],
-      "avoidances": []
-    },
-    {
-      "name": "S8",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": [],
-      "avoidances": []
-    },
-    {
-      "name": "S9",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": [],
-      "avoidances": []
-    },
-    {
-      "name": "GBOB",
-      "studyprogram": "SWU",
-      "year": "2023",
-      "preferences": ["G4A1", "G4A2", "G4A3", "G4A4", "G4A5", "G4A6", "G4A7"],
-      "avoidances": []
-    }
-]
+{
+    "schema_version": 1,
+    "people": [
+        {
+            "id": "Lida",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "fbuu"
+                ],
+                [
+                    "D2D2"
+                ]
+            ]
+        },
+        {
+            "id": "D1D1",
+            "atributes": [
+                [
+                    "ds"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "D2D2"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "D2D2",
+            "atributes": [
+                [
+                    "ds"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "D1D1"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "aubu",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "fbuu",
+                    "Lida",
+                    "MMMM"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "MMMM",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2024"
+                ],
+                [],
+                []
+            ]
+        },
+        {
+            "id": "fbuu",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "Lida",
+                    "aubu"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "nsio",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "aubu",
+                    "Lida"
+                ],
+                [
+                    "fbuu"
+                ]
+            ]
+        },
+        {
+            "id": "joho",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [],
+                [
+                    "aubu",
+                    "Lida",
+                    "nsio"
+                ]
+            ]
+        },
+        {
+            "id": "G1A1",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A2",
+                    "G1A3",
+                    "G1A4",
+                    "G1A5",
+                    "G1A6",
+                    "G1A7",
+                    "G1A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G1A2",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1",
+                    "G1A3",
+                    "G1A4",
+                    "G1A5",
+                    "G1A6",
+                    "G1A7",
+                    "G1A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G1A3",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1",
+                    "G1A2",
+                    "G1A4",
+                    "G1A5",
+                    "G1A6",
+                    "G1A7",
+                    "G1A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G1A4",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1",
+                    "G1A2",
+                    "G1A3",
+                    "G1A5",
+                    "G1A6",
+                    "G1A7",
+                    "G1A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G1A5",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1",
+                    "G1A2",
+                    "G1A3",
+                    "G1A4",
+                    "G1A6",
+                    "G1A7",
+                    "G1A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G1A6",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1",
+                    "G1A2",
+                    "G1A3",
+                    "G1A4",
+                    "G1A5",
+                    "G1A7",
+                    "G1A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G1A7",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1",
+                    "G1A2",
+                    "G1A3",
+                    "G1A4",
+                    "G1A5",
+                    "G1A6",
+                    "G1A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G1A8",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1",
+                    "G1A2",
+                    "G1A3",
+                    "G1A4",
+                    "G1A5",
+                    "G1A6",
+                    "G1A7"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G2A1",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G2A2",
+                    "G2A3",
+                    "G2A4",
+                    "G2A5",
+                    "G2A6",
+                    "G2A7",
+                    "G2A8",
+                    "G2A9"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G2A2",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G2A1",
+                    "G2A3",
+                    "G2A4",
+                    "G2A5",
+                    "G2A6",
+                    "G2A7",
+                    "G2A8",
+                    "G2A9"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G2A3",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G2A1",
+                    "G2A2",
+                    "G2A4",
+                    "G2A5",
+                    "G2A6",
+                    "G2A7",
+                    "G2A8",
+                    "G2A9"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G2A4",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G2A1",
+                    "G2A2",
+                    "G2A3",
+                    "G2A5",
+                    "G2A6",
+                    "G2A7",
+                    "G2A8",
+                    "G2A9"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G2A5",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G2A1",
+                    "G2A2",
+                    "G2A3",
+                    "G2A4",
+                    "G2A6",
+                    "G2A7",
+                    "G2A8",
+                    "G2A9"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G2A6",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G2A1",
+                    "G2A2",
+                    "G2A3",
+                    "G2A4",
+                    "G2A5",
+                    "G2A7",
+                    "G2A8",
+                    "G2A9"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G2A7",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G2A1",
+                    "G2A2",
+                    "G2A3",
+                    "G2A4",
+                    "G2A5",
+                    "G2A6",
+                    "G2A8",
+                    "G2A9"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G2A8",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G2A1",
+                    "G2A2",
+                    "G2A3",
+                    "G2A4",
+                    "G2A5",
+                    "G2A6",
+                    "G2A7",
+                    "G2A9"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G2A9",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G2A1",
+                    "G2A2",
+                    "G2A3",
+                    "G2A4",
+                    "G2A5",
+                    "G2A6",
+                    "G2A7",
+                    "G2A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A1",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A2",
+                    "G3A3",
+                    "G3A4",
+                    "G3A5",
+                    "G3A6",
+                    "G3A7",
+                    "G3A8",
+                    "G3A9",
+                    "G3A10",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A2",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A3",
+                    "G3A4",
+                    "G3A5",
+                    "G3A6",
+                    "G3A7",
+                    "G3A8",
+                    "G3A9",
+                    "G3A10",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A3",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A4",
+                    "G3A5",
+                    "G3A6",
+                    "G3A7",
+                    "G3A8",
+                    "G3A9",
+                    "G3A10",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A4",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A3",
+                    "G3A5",
+                    "G3A6",
+                    "G3A7",
+                    "G3A8",
+                    "G3A9",
+                    "G3A10",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A5",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A3",
+                    "G3A4",
+                    "G3A6",
+                    "G3A7",
+                    "G3A8",
+                    "G3A9",
+                    "G3A10",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A6",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A3",
+                    "G3A4",
+                    "G3A5",
+                    "G3A7",
+                    "G3A8",
+                    "G3A9",
+                    "G3A10",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A7",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A3",
+                    "G3A4",
+                    "G3A5",
+                    "G3A6",
+                    "G3A8",
+                    "G3A9",
+                    "G3A10",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A8",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A3",
+                    "G3A4",
+                    "G3A5",
+                    "G3A6",
+                    "G3A7",
+                    "G3A9",
+                    "G3A10",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A9",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A3",
+                    "G3A4",
+                    "G3A5",
+                    "G3A6",
+                    "G3A7",
+                    "G3A8",
+                    "G3A10",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A10",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A3",
+                    "G3A4",
+                    "G3A5",
+                    "G3A6",
+                    "G3A7",
+                    "G3A8",
+                    "G3A9",
+                    "G3A11",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A11",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A3",
+                    "G3A4",
+                    "G3A5",
+                    "G3A6",
+                    "G3A7",
+                    "G3A8",
+                    "G3A9",
+                    "G3A10",
+                    "G3A12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G3A12",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G3A1",
+                    "G3A2",
+                    "G3A3",
+                    "G3A4",
+                    "G3A5",
+                    "G3A6",
+                    "G3A7",
+                    "G3A8",
+                    "G3A9",
+                    "G3A10",
+                    "G3A11"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G4A1",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G4A2",
+                    "G4A3",
+                    "G4A4",
+                    "G4A5",
+                    "G4A6",
+                    "G4A7",
+                    "GBOB"
+                ],
+                [
+                    "G4A8"
+                ]
+            ]
+        },
+        {
+            "id": "G4A2",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G4A1",
+                    "G4A3",
+                    "G4A4",
+                    "G4A5",
+                    "G4A6",
+                    "G4A7",
+                    "GBOB"
+                ],
+                [
+                    "G4A8"
+                ]
+            ]
+        },
+        {
+            "id": "G4A3",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G4A1",
+                    "G4A2",
+                    "G4A4",
+                    "G4A5",
+                    "G4A6",
+                    "G4A7",
+                    "GBOB"
+                ],
+                [
+                    "G4A8"
+                ]
+            ]
+        },
+        {
+            "id": "G4A4",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G4A1",
+                    "G4A2",
+                    "G4A3",
+                    "G4A5",
+                    "G4A6",
+                    "G4A7",
+                    "G4A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G4A5",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G4A1",
+                    "G4A2",
+                    "G4A3",
+                    "G4A4",
+                    "G4A6",
+                    "G4A7",
+                    "G4A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G4A6",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G4A1",
+                    "G4A2",
+                    "G4A3",
+                    "G4A4",
+                    "G4A5",
+                    "G4A7",
+                    "G4A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G4A7",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G4A1",
+                    "G4A2",
+                    "G4A3",
+                    "G4A4",
+                    "G4A5",
+                    "G4A6",
+                    "G4A8"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G4A8",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G4A1",
+                    "G4A2",
+                    "G4A3",
+                    "G4A4",
+                    "G4A5",
+                    "G4A6",
+                    "G4A7"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G511",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G512",
+                    "G513",
+                    "G521",
+                    "G522",
+                    "G523",
+                    "G531",
+                    "G532",
+                    "G533",
+                    "G534"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G512",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G511",
+                    "G513",
+                    "G521",
+                    "G522",
+                    "G523",
+                    "G531",
+                    "G532",
+                    "G533",
+                    "G534"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G513",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G511",
+                    "G512",
+                    "G521",
+                    "G522",
+                    "G523",
+                    "G531",
+                    "G532",
+                    "G533",
+                    "G534"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "G521",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G511",
+                    "G512",
+                    "G513",
+                    "G522",
+                    "G523"
+                ],
+                [
+                    "G531",
+                    "G532",
+                    "G533",
+                    "G534"
+                ]
+            ]
+        },
+        {
+            "id": "G522",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G511",
+                    "G512",
+                    "G513",
+                    "G521",
+                    "G523"
+                ],
+                [
+                    "G531",
+                    "G532",
+                    "G533",
+                    "G534"
+                ]
+            ]
+        },
+        {
+            "id": "G523",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G511",
+                    "G512",
+                    "G513",
+                    "G521",
+                    "G522"
+                ],
+                [
+                    "G531",
+                    "G532",
+                    "G533",
+                    "G534"
+                ]
+            ]
+        },
+        {
+            "id": "G531",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G511",
+                    "G512",
+                    "G513",
+                    "G532",
+                    "G533",
+                    "G534"
+                ],
+                [
+                    "G521",
+                    "G522",
+                    "G523"
+                ]
+            ]
+        },
+        {
+            "id": "G532",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G511",
+                    "G512",
+                    "G513",
+                    "G531",
+                    "G533",
+                    "G534"
+                ],
+                [
+                    "G521",
+                    "G522",
+                    "G523"
+                ]
+            ]
+        },
+        {
+            "id": "G533",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G511",
+                    "G512",
+                    "G513",
+                    "G531",
+                    "G532",
+                    "G534"
+                ],
+                [
+                    "G521",
+                    "G522",
+                    "G523"
+                ]
+            ]
+        },
+        {
+            "id": "G534",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G511",
+                    "G512",
+                    "G513",
+                    "G531",
+                    "G532",
+                    "G533"
+                ],
+                [
+                    "G521",
+                    "G522",
+                    "G523"
+                ]
+            ]
+        },
+        {
+            "id": "GP11",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP12",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP11"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP21",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP22"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP22",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP21"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP31",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP32"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP32",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP31"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP41",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP42"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP42",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP41"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP51",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP52"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP52",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP51"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP61",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP62"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP62",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP61"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP71",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP72"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP72",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP71"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP81",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP82"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP82",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP81"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP91",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP92"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP92",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP91"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP101",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP102"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GP102",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GP101"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT11",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT12",
+                    "GT13"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT12",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT11",
+                    "GT13"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT13",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT11",
+                    "GT12"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT21",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT22",
+                    "GT23"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT22",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT21",
+                    "GT23"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT23",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT21",
+                    "GT22"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT31",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT32",
+                    "GT33"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT32",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT31",
+                    "GT33"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT33",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT31",
+                    "GT32"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT41",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT42",
+                    "GT43"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT42",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT41",
+                    "GT43"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT43",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT41",
+                    "GT42"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT51",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT52",
+                    "GT53"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT52",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT51",
+                    "GT53"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "GT53",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "GT51",
+                    "GT52"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "S1",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "S2",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "S3",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "S4",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G1A1"
+                ],
+                []
+            ]
+        },
+        {
+            "id": "S5",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [],
+                []
+            ]
+        },
+        {
+            "id": "S6",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [],
+                []
+            ]
+        },
+        {
+            "id": "S7",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [],
+                []
+            ]
+        },
+        {
+            "id": "S8",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [],
+                []
+            ]
+        },
+        {
+            "id": "S9",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [],
+                []
+            ]
+        },
+        {
+            "id": "GBOB",
+            "atributes": [
+                [
+                    "SWU"
+                ],
+                [
+                    "2023"
+                ],
+                [
+                    "G4A1",
+                    "G4A2",
+                    "G4A3",
+                    "G4A4",
+                    "G4A5",
+                    "G4A6",
+                    "G4A7"
+                ],
+                []
+            ]
+        }
+    ]
+}

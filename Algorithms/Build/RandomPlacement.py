@@ -1,15 +1,16 @@
-import math, random
+import random
 from copy import deepcopy
 
-from Utils.reader import emptyPerson
-
-def randomArrangement(input, seed = None):
-    # Use a local RNG seeded with `seed` so we don't change the global random state
-    rng = random.Random(seed)
+def randomPlacement(input, emptyArrangement):
+    rng = random.Random()
     inputCopy = deepcopy(input)
-    arrangement = [[emptyPerson] * 8 for _ in range(math.ceil(len(inputCopy) / 8))]
-    # shuffle using the local RNG
+    arrangement = deepcopy(emptyArrangement)
     rng.shuffle(inputCopy)
-    for i in range(len(inputCopy)):
-        arrangement[i//8][i%8] = inputCopy[i]
+    index = 0
+    for table in arrangement:
+        for seatIndex in range(len(table)):
+            if index >= len(inputCopy):
+                return arrangement
+            table[seatIndex] = inputCopy[index]
+            index += 1
     return arrangement

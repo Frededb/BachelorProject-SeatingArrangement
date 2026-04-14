@@ -1,0 +1,65 @@
+{
+    "schema_version": 1,
+    "people": [
+        {
+            "id": "niso",
+            "atributes": [
+                [
+                    "aubu",
+                    "fbuu"
+                ],
+                [
+                    "osta"
+                ],
+                [
+                    "f#"
+                ],
+                [
+                    "kamel",
+                    "solsort"
+                ]
+            ]
+        },
+        {
+            "id": "aubu",
+            "atributes": [
+                [
+                    "aubu",
+                    "niso",
+                    "fbuu"
+                ],
+                [
+                    "osta"
+                ],
+                [
+                    "f#"
+                ],
+                [
+                    "hjort",
+                    "vortesvin",
+                    "kamel",
+                    "solsort",
+                    "ræv"
+                ]
+            ]
+        },
+        {
+            "id": "fbuu",
+            "atributes": [
+                [
+                    "aubu",
+                    "niso"
+                ],
+                [
+                    "dtha"
+                ],
+                [
+                    "f#"
+                ],
+                [
+                    "kamel"
+                ]
+            ]
+        }
+    ]
+}

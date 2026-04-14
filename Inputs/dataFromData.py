@@ -244,6 +244,46 @@ def studyprogram_and_year_distributions_from_data(data: List[Dict[str, Any]]) ->
     }
 
 
+def _save_pie_chart(counts: Dict[Any, Any], title: str, output_path: Path) -> None:
+    if not counts:
+        return
+
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError as exc:
+        raise RuntimeError(
+            "Saving charts requires matplotlib. Install it with: pip install matplotlib"
+        ) from exc
+
+    labels = [str(label) for label in counts.keys()]
+    values = [counts[label] for label in counts.keys()]
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    plt.figure(figsize=(7, 7))
+    plt.pie(values, labels=labels, autopct="%1.1f%%", startangle=90)
+    plt.title(title)
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.close()
+
+
+def save_demographic_pie_charts(result: Dict[str, Any], output_dir: Path) -> Dict[str, str]:
+    demo = result.get("demographic_distributions", {})
+    studyprogram_counts = demo.get("studyprogram_distribution", {}).get("counts", {})
+    year_counts = demo.get("year_distribution", {}).get("counts", {})
+
+    studyprogram_chart = output_dir / "studyprogram_pie.png"
+    year_chart = output_dir / "year_pie.png"
+
+    _save_pie_chart(studyprogram_counts, "Study Program Distribution", studyprogram_chart)
+    _save_pie_chart(year_counts, "Year Distribution", year_chart)
+
+    return {
+        "studyprogram_pie": str(studyprogram_chart),
+        "year_pie": str(year_chart),
+    }
+
+
 def incoming_distributions(people: PersonLinks) -> Dict[str, Any]:
     preferred_by_count = {name: 0 for name in people}
     avoided_by_count = {name: 0 for name in people}
@@ -302,12 +342,32 @@ def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Analyze preference/avoidance patterns in input JSON")
     parser.add_argument("input_json", help="Path to input JSON file")
     parser.add_argument("--indent", type=int, default=2, help="JSON output indentation")
+    parser.add_argument(
+        "--save-charts",
+        action="store_true",
+        help="Save pie charts for study program and year distributions",
+    )
+    parser.add_argument(
+        "--charts-dir",
+        default="charts",
+        help="Output folder for charts, relative to Inputs if not absolute",
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = _parse_args()
     result = run_all_analyses_from_file(args.input_json)
+
+    if args.save_charts:
+        charts_dir = Path(args.charts_dir)
+        if not charts_dir.is_absolute():
+            charts_dir = Path(__file__).resolve().parent / charts_dir
+
+        dataset_name = resolve_input_path(args.input_json).stem
+        chart_paths = save_demographic_pie_charts(result, charts_dir / dataset_name)
+        result["chart_paths"] = chart_paths
+
     print(json.dumps(result, indent=args.indent))
 
 
