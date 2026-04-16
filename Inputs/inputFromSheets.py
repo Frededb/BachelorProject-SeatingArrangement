@@ -132,8 +132,8 @@ def inputFromSheets(
 
     xlsx_path = Path(xlsx_path)
     output_dir = Path(__file__).resolve().parent / "sheetOutput"
-    people_output_path = output_dir / f"{xlsx_path.stem}wishes.json"
-    trait_catalog_output_path = output_dir / f"{xlsx_path.stem}atribute_set.json"
+    people_output_path = output_dir / f"{xlsx_path.stem}_wishes.json"
+    trait_catalog_output_path = output_dir / f"{xlsx_path.stem}_atributeSet.json"
 
     people_output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(people_output_path, "w", encoding="utf-8") as file:
@@ -171,8 +171,8 @@ def main() -> None:
     )
     xlsx_path = Path(args.xlsx_path)
     output_dir = Path(__file__).resolve().parent / "sheetOutput"
-    people_output = output_dir / f"{xlsx_path.stem}wishes.json"
-    trait_catalog_output = output_dir / f"{xlsx_path.stem}atribute_set.json"
+    people_output = output_dir / f"{xlsx_path.stem}_wishes.json"
+    trait_catalog_output = output_dir / f"{xlsx_path.stem}_atributeSet.json"
     print(f"Wrote {len(result['people'])} people to {people_output} and {trait_catalog_output}")
 
 

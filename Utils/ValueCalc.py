@@ -23,7 +23,7 @@ def getDistanceTo(table, personA, personB):
 
 def calcPerson(table, index):
     # print("Calculating person at index:", index)
-    sum = 0
+    total = 0.0
     personA = table[index]
     if getattr(personA, "id", "") == "Empty":
         return 0.0
@@ -60,8 +60,13 @@ def calcPerson(table, index):
                 shared_traits = set(values_a).intersection(values_b)
                 personSum += weight * len(shared_traits)
 
-        sum = sum + (personSum * 1/getDistanceTo(table, index, i))
-    return sum
+        # TMP: ignore seat distance and use raw pair contribution only.
+        # total = total + (personSum * 1/getDistanceTo(table, index, i))
+        total = total + personSum
+
+    if total == 0:
+        return -10000
+    return total
 
 def calcTable(table):
     table_hash = hash(tuple(table))

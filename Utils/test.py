@@ -4,11 +4,15 @@ import json
 from pathlib import Path
 from typing import cast
 
+
+
 # Ensure the project root is importable when this file is run directly.
 PROJECT_ROOT = cast(str, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
+from Utils.reader import emptyPerson
+from Algorithms.Composite.testComposite import testComposite
 from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
 from Algorithms.Build.RandomGreedy import randomGreedy
@@ -81,6 +85,7 @@ ALGORITHMS = {
     "switch4People": linearSwitch4PeopleSetsFromRandom,
     "randomSwitch": randomSwitchFromRandom,
     "tabuSearch": tabuSearchFromRandom,
+    "testComposite": testComposite,
 }
 
 
@@ -124,7 +129,15 @@ if __name__ == "__main__":
     print()
 
     # Create initial arrangement
-    initial_arrangement = makeEmptyArrangement(len(testInput), 8)
+    initial_arrangement = makeEmptyArrangement(len(testInput), 6)
+
+    # Arrangement with 1 7-seat table, 1 6-seat table, and 2 5-seat tables.
+    mixed_arrangement = [
+        [emptyPerson] * 7,
+        [emptyPerson] * 6,
+        [emptyPerson] * 5,
+        [emptyPerson] * 5,
+    ]
 
     # Run the algorithm with the shared (input, emptyArrangement) signature
     result_arrangement = ALGORITHMS[algorithm_name](testInput, initial_arrangement)
