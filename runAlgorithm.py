@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 from typing import cast
 
+from Algorithms.Composite.RepeatedLinearSwitch import RepeatedLinearSwitch
+
 # Ensure the project root is importable when this file is run directly.
 PROJECT_ROOT = cast(str, os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
@@ -12,18 +14,15 @@ if PROJECT_ROOT not in sys.path:
 from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
 from Algorithms.Build.RandomGreedy import randomGreedy
-from Algorithms.Build.RandomPlacement import randomPlacement
+from Algorithms.Build.RandomPlacement import RandomPlacement
 from Algorithms.Composite.Anealing import anealingFromRandom
 from Algorithms.Composite.BruteForce import bruteForceFromRandom
 from Algorithms.Composite.FluentWithSwitch import FluentWithSwitch
-from Algorithms.Composite.LinearSwitch2PeopleSets import linearSwitch2PeopleSetsFromRandom
-from Algorithms.Composite.LinearSwitch3PeopleSets import linearSwitch3PeopleSetsFromRandom
-from Algorithms.Composite.LinearSwitch4PeopleSets import linearSwitch4PeopleSetsFromRandom
 from Algorithms.Composite.RandomSwitch import randomSwitchFromRandom
 from Algorithms.Composite.RepeatedRandom import repeatedRandom
 from Algorithms.Composite.tabuSearch import tabuSearchFromRandom
 from Utils.printer import printArrangementWithValues, printAsGraph
-from Utils.reader import readPeople 
+from Utils.reader import readPeople
 
 from Utils import ValueCalc
 from Utils.UtilFunctions import makeEmptyArrangement
@@ -33,17 +32,15 @@ ALGORITHMS = {
     "defaultPlacement": defaultPlacement,
     "influenceListGreedy": influenceListGreedy,
     "randomGreedy": randomGreedy,
-    "randomPlacement": randomPlacement,
+    "randomPlacement": RandomPlacement,
     "repeatedRandom": repeatedRandom,
     "FluentWithSwitch": FluentWithSwitch,
     "anealing": anealingFromRandom,
     "bruteForce": bruteForceFromRandom,
-    "switch2People": linearSwitch2PeopleSetsFromRandom,
-    "switch3People": linearSwitch3PeopleSetsFromRandom,
-    "switch4People": linearSwitch4PeopleSetsFromRandom,
     "randomSwitch": randomSwitchFromRandom,
     "tabuSearch": tabuSearchFromRandom,
     "createGraph": printAsGraph
+    "repeatedSwitch": RepeatedLinearSwitch,
 }
 
 

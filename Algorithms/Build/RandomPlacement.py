@@ -1,7 +1,7 @@
 import random
 from copy import deepcopy
 
-def randomPlacement(input, emptyArrangement):
+def RandomPlacement(input, emptyArrangement):
     rng = random.Random()
     inputCopy = deepcopy(input)
     arrangement = deepcopy(emptyArrangement)

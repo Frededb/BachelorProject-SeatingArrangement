@@ -1,5 +1,5 @@
 from Algorithms.GroupBuild.FluentGroupsFill import fluentGroupsFill
-from Algorithms.Optimizing.LinearSwitch4PeopleSets import linearSwitch4PeopleEachTable, LinearSwitch4PeopleSets
+from Algorithms.Optimizing.LinearSwitchPeopleSets import linearSwitchPeopleEachTable, LinearSwitchPeopleSets
 from Utils.ValueCalc import calcArrangement
 
 
@@ -7,7 +7,7 @@ def FluentWithSwitch(input, emptyArrangement):
 
     emptyArrangement, protectedNames = fluentGroupsFill(input, emptyArrangement, True)
 
-    emptyArrangement = linearSwitch4PeopleEachTable(emptyArrangement)
+    emptyArrangement = linearSwitchPeopleEachTable(emptyArrangement, 4)
     # emptyArrangement = bruteForceEachTable(emptyArrangement)
     print("score after first: ", calcArrangement(emptyArrangement)[0])
 
@@ -18,7 +18,7 @@ def FluentWithSwitch(input, emptyArrangement):
         if person.name not in protectedNames
     ]
 
-    emptyArrangement = LinearSwitch4PeopleSets(emptyArrangement, movableCoords)
+    emptyArrangement = LinearSwitchPeopleSets(emptyArrangement, 4, movableCoords)
     print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
 
 

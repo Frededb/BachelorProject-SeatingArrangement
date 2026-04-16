@@ -1,8 +1,8 @@
-from Algorithms.Build.RandomPlacement import randomPlacement
+from Algorithms.Build.RandomPlacement import RandomPlacement
 from Algorithms.Optimizing.tabuSearch import tabuSearch
 
 
 def tabuSearchFromRandom(input, emptyArrangement):
-    arrangement = randomPlacement(input, emptyArrangement)
+    arrangement = RandomPlacement(input, emptyArrangement)
     return tabuSearch(arrangement)
 
