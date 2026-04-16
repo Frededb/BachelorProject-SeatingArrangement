@@ -28,7 +28,7 @@ def calcPerson(table, index):
     if getattr(personA, "id", "") == "Empty":
         return 0.0
 
-    atribute_set = getattr(personA, "atribute_set", [])
+    attribute_set = getattr(personA, "attribute_set", [])
     attributes_a = getattr(personA, "attributes", [])
     for i in range(len(table)):
         if i == index:
@@ -39,7 +39,7 @@ def calcPerson(table, index):
             continue
 
         attributes_b = getattr(personB, "attributes", [])
-        for attr_index, attr_meta in enumerate(atribute_set):
+        for attr_index, attr_meta in enumerate(attribute_set):
             if attr_index >= len(attributes_a):
                 continue
 

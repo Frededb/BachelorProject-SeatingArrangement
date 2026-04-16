@@ -33,11 +33,11 @@ def makeGraphFromInput(people):
 
         # Derive link sets from dynamic attributes when available.
         attributes = getattr(person, "attributes", []) or []
-        atribute_set = getattr(person, "atribute_set", []) or []
+        attribute_set = getattr(person, "attribute_set", []) or []
         for idx, values in enumerate(attributes):
-            if idx >= len(atribute_set) or not isinstance(values, list):
+            if idx >= len(attribute_set) or not isinstance(values, list):
                 continue
-            meta = atribute_set[idx] if isinstance(atribute_set[idx], dict) else {}
+            meta = attribute_set[idx] if isinstance(attribute_set[idx], dict) else {}
             kind = str(meta.get("kind", "")).strip().lower()
             if kind not in {"prefence", "preference"}:
                 continue
