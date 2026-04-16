@@ -6,7 +6,7 @@ from runAlgorithm import ALGORITHMS
 from Utils.Person import Person
 from Utils.ValueCalc import calcArrangement
 from Utils.UtilFunctions import makeEmptyArrangement
-from Utils.reader import readjson
+from Utils.reader import readPeople
 import os
 
 def compare_algos():
@@ -25,7 +25,8 @@ def compare_algos():
     results = {algo: {c: [] for c in cohesion_scores} for algo in ALGORITHMS}
     
     # Create an output path for the temporary generated data or let generateData dump to a tmp file
-    temp_output_file = "Inputs/temp/compare_generated.json"
+    temp_output_file = "Inputs/temp/compareGenerated.json"
+    attribute_set_file = "Inputs/defaultAttributeSet.json"
     
     for algo_name, algo_func in ALGORITHMS.items():
         print(f"Running iterations for algorithm: {algo_name}")
@@ -35,7 +36,7 @@ def compare_algos():
             
                 # Always read fresh Person objects for each algorithm to avoid mutation
                 try:
-                    testInput = readjson(temp_output_file)
+                    testInput = readPeople(temp_output_file, attribute_set_file)
                     initial_arrangement = makeEmptyArrangement(len(testInput), 8)
                 
                     result_arrangement = algo_func(testInput, initial_arrangement)

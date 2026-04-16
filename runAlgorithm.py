@@ -23,48 +23,10 @@ from Algorithms.Composite.RandomSwitch import randomSwitchFromRandom
 from Algorithms.Composite.RepeatedRandom import repeatedRandom
 from Algorithms.Composite.tabuSearch import tabuSearchFromRandom
 from Utils.printer import printArrangementWithValues, printAsGraph
+from Utils.reader import readPeople 
 
 from Utils import ValueCalc
 from Utils.UtilFunctions import makeEmptyArrangement
-
-
-def load_input_with_attribute_set(input_file_path, attribute_set_file_path):
-    """Load people input and combine with attribute_set from separate files"""
-    from Utils.Person import Person
-
-    input_file_path = Path(input_file_path)
-    attribute_set_file_path = Path(attribute_set_file_path)
-
-    if not input_file_path.exists():
-        raise FileNotFoundError(f"Input file not found: {input_file_path}")
-    if not attribute_set_file_path.exists():
-        raise FileNotFoundError(f"Attribute set file not found: {attribute_set_file_path}")
-
-    # Load attribute set first
-    with open(attribute_set_file_path, encoding="utf-8") as f:
-        attribute_set_data = json.load(f)
-    attribute_set = attribute_set_data.get("attribute_set", []) if isinstance(attribute_set_data, dict) else []
-
-    # Load input data
-    with open(input_file_path, encoding="utf-8") as f:
-        input_data = json.load(f)
-
-    # Parse people from input data
-    people = []
-    if isinstance(input_data, dict):
-        rows = input_data.get("people", [])
-        if isinstance(rows, list):
-            for row in rows:
-                if isinstance(row, dict):
-                    person_id = row.get("id")
-                    if isinstance(person_id, str) and person_id.strip():
-                        attributes = row.get("attributes", [])
-                        if not isinstance(attributes, list):
-                            attributes = []
-                        person = Person(person_id.strip(), attributes=attributes, attribute_set=attribute_set)
-                        people.append(person)
-
-    return people
 
 
 ALGORITHMS = {
@@ -108,7 +70,7 @@ if __name__ == "__main__":
 
     # Load input and attribute set
     try:
-        testInput = load_input_with_attribute_set(input_file, attribute_set_file)
+        testInput = readPeople(input_file, attribute_set_file)
     except Exception as e:
         print(f"Error loading input: {e}")
         raise SystemExit(1)

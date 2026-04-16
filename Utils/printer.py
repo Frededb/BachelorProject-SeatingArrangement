@@ -34,7 +34,6 @@ def printAsGraph(testInput, arrangement):
         print(person.name)
     
     for person in testInput:
-        for prefs in person.attributes:
-            for pref in prefs:
-                print(f"{person.id} {pref}")
+        for preference in person.attributes[2]:
+            print(f"{person.name} {preference}")
     return []
