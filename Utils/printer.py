@@ -27,3 +27,14 @@ def printArrangementWithValues(arrangement):
         print()
         __printTableWithValues__(arrangement[tableIndex], tableValues[tableIndex], peopleValues[tableIndex])
     print("total value:", totalValue)
+
+def printAsGraph(testInput, arrangement):
+
+    for person in testInput:
+        print(person.name)
+    
+    for person in testInput:
+        for prefs in person.attributes:
+            for pref in prefs:
+                print(f"{person.id} {pref}")
+    return []

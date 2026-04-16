@@ -21,8 +21,8 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
         people.append({
             "id": name,
             "attributes": [
-                random.choices(["cs", "swu"], weights=[0.037, 0.963], k=1)[0],
-                random.choices(["2021", "2022", "2023", "2025"], weights=[0.0185, 0.0185, 0.8148, 0.1481], k=1)[0],
+                [random.choices(["cs", "swu"], weights=[0.037, 0.963], k=1)[0]],
+                [random.choices(["2021", "2022", "2023", "2025"], weights=[0.0185, 0.0185, 0.8148, 0.1481], k=1)[0]],
                 [],
                 [],
             ]
@@ -153,15 +153,19 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
             avoidances[name].add(target)
             available_targets.remove(target)
 
-    # Convert sets to lists and format output
+    # Assign preferences and avoidances back to the people data structure
     for person in people:
-        person["preferences"] = list(preferences[person["name"]])
-        person["avoidances"] = list(avoidances[person["name"]])
+        name = person["id"]
+        person["attributes"][2] = list(preferences[name])
+        person["attributes"][3] = list(avoidances[name])
 
     output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), output_file)
 
     with open(output_path, 'w') as f:
-        json.dump(people, f, indent=4)
+        json.dump({
+            "schema_version": 1,
+            "people": people
+        }, f, indent=4)
         
     return people
 

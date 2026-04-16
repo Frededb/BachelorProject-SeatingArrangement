@@ -22,7 +22,7 @@ from Algorithms.Composite.LinearSwitch4PeopleSets import linearSwitch4PeopleSets
 from Algorithms.Composite.RandomSwitch import randomSwitchFromRandom
 from Algorithms.Composite.RepeatedRandom import repeatedRandom
 from Algorithms.Composite.tabuSearch import tabuSearchFromRandom
-from Utils.printer import printArrangementWithValues
+from Utils.printer import printArrangementWithValues, printAsGraph
 
 from Utils import ValueCalc
 from Utils.UtilFunctions import makeEmptyArrangement
@@ -81,6 +81,7 @@ ALGORITHMS = {
     "switch4People": linearSwitch4PeopleSetsFromRandom,
     "randomSwitch": randomSwitchFromRandom,
     "tabuSearch": tabuSearchFromRandom,
+    "createGraph": printAsGraph
 }
 
 
