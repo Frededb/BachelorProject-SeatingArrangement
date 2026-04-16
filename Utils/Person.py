@@ -1,9 +1,9 @@
 class Person:
-    def __init__(self, person_id, atributes = None, atribute_set = None):
+    def __init__(self, person_id, attributes = None, atribute_set = None):
         self.id = person_id
         # Keep `name` as alias so existing utility code can still identify people.
         self.name = person_id
-        self.atributes = [] if atributes is None else atributes
+        self.attributes = [] if attributes is None else attributes
         self.atribute_set = [] if atribute_set is None else atribute_set
 
         # Temporary compatibility fields for modules not yet migrated.

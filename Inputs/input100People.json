@@ -3,7 +3,7 @@
     "people": [
         {
             "id": "Lida",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -20,7 +20,7 @@
         },
         {
             "id": "D1D1",
-            "atributes": [
+            "attributes": [
                 [
                     "ds"
                 ],
@@ -35,7 +35,7 @@
         },
         {
             "id": "D2D2",
-            "atributes": [
+            "attributes": [
                 [
                     "ds"
                 ],
@@ -50,7 +50,7 @@
         },
         {
             "id": "aubu",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -67,7 +67,7 @@
         },
         {
             "id": "MMMM",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -80,7 +80,7 @@
         },
         {
             "id": "fbuu",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -96,7 +96,7 @@
         },
         {
             "id": "nsio",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -114,7 +114,7 @@
         },
         {
             "id": "joho",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -131,7 +131,7 @@
         },
         {
             "id": "G1A1",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -152,7 +152,7 @@
         },
         {
             "id": "G1A2",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -173,7 +173,7 @@
         },
         {
             "id": "G1A3",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -194,7 +194,7 @@
         },
         {
             "id": "G1A4",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -215,7 +215,7 @@
         },
         {
             "id": "G1A5",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -236,7 +236,7 @@
         },
         {
             "id": "G1A6",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -257,7 +257,7 @@
         },
         {
             "id": "G1A7",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -278,7 +278,7 @@
         },
         {
             "id": "G1A8",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -299,7 +299,7 @@
         },
         {
             "id": "G2A1",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -321,7 +321,7 @@
         },
         {
             "id": "G2A2",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -343,7 +343,7 @@
         },
         {
             "id": "G2A3",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -365,7 +365,7 @@
         },
         {
             "id": "G2A4",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -387,7 +387,7 @@
         },
         {
             "id": "G2A5",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -409,7 +409,7 @@
         },
         {
             "id": "G2A6",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -431,7 +431,7 @@
         },
         {
             "id": "G2A7",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -453,7 +453,7 @@
         },
         {
             "id": "G2A8",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -475,7 +475,7 @@
         },
         {
             "id": "G2A9",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -497,7 +497,7 @@
         },
         {
             "id": "G3A1",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -522,7 +522,7 @@
         },
         {
             "id": "G3A2",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -547,7 +547,7 @@
         },
         {
             "id": "G3A3",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -572,7 +572,7 @@
         },
         {
             "id": "G3A4",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -597,7 +597,7 @@
         },
         {
             "id": "G3A5",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -622,7 +622,7 @@
         },
         {
             "id": "G3A6",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -647,7 +647,7 @@
         },
         {
             "id": "G3A7",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -672,7 +672,7 @@
         },
         {
             "id": "G3A8",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -697,7 +697,7 @@
         },
         {
             "id": "G3A9",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -722,7 +722,7 @@
         },
         {
             "id": "G3A10",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -747,7 +747,7 @@
         },
         {
             "id": "G3A11",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -772,7 +772,7 @@
         },
         {
             "id": "G3A12",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -797,7 +797,7 @@
         },
         {
             "id": "G4A1",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -820,7 +820,7 @@
         },
         {
             "id": "G4A2",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -843,7 +843,7 @@
         },
         {
             "id": "G4A3",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -866,7 +866,7 @@
         },
         {
             "id": "G4A4",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -887,7 +887,7 @@
         },
         {
             "id": "G4A5",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -908,7 +908,7 @@
         },
         {
             "id": "G4A6",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -929,7 +929,7 @@
         },
         {
             "id": "G4A7",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -950,7 +950,7 @@
         },
         {
             "id": "G4A8",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -971,7 +971,7 @@
         },
         {
             "id": "G511",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -994,7 +994,7 @@
         },
         {
             "id": "G512",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1017,7 +1017,7 @@
         },
         {
             "id": "G513",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1040,7 +1040,7 @@
         },
         {
             "id": "G521",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1064,7 +1064,7 @@
         },
         {
             "id": "G522",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1088,7 +1088,7 @@
         },
         {
             "id": "G523",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1112,7 +1112,7 @@
         },
         {
             "id": "G531",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1136,7 +1136,7 @@
         },
         {
             "id": "G532",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1160,7 +1160,7 @@
         },
         {
             "id": "G533",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1184,7 +1184,7 @@
         },
         {
             "id": "G534",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1208,7 +1208,7 @@
         },
         {
             "id": "GP11",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1223,7 +1223,7 @@
         },
         {
             "id": "GP12",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1238,7 +1238,7 @@
         },
         {
             "id": "GP21",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1253,7 +1253,7 @@
         },
         {
             "id": "GP22",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1268,7 +1268,7 @@
         },
         {
             "id": "GP31",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1283,7 +1283,7 @@
         },
         {
             "id": "GP32",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1298,7 +1298,7 @@
         },
         {
             "id": "GP41",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1313,7 +1313,7 @@
         },
         {
             "id": "GP42",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1328,7 +1328,7 @@
         },
         {
             "id": "GP51",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1343,7 +1343,7 @@
         },
         {
             "id": "GP52",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1358,7 +1358,7 @@
         },
         {
             "id": "GP61",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1373,7 +1373,7 @@
         },
         {
             "id": "GP62",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1388,7 +1388,7 @@
         },
         {
             "id": "GP71",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1403,7 +1403,7 @@
         },
         {
             "id": "GP72",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1418,7 +1418,7 @@
         },
         {
             "id": "GP81",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1433,7 +1433,7 @@
         },
         {
             "id": "GP82",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1448,7 +1448,7 @@
         },
         {
             "id": "GP91",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1463,7 +1463,7 @@
         },
         {
             "id": "GP92",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1478,7 +1478,7 @@
         },
         {
             "id": "GP101",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1493,7 +1493,7 @@
         },
         {
             "id": "GP102",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1508,7 +1508,7 @@
         },
         {
             "id": "GT11",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1524,7 +1524,7 @@
         },
         {
             "id": "GT12",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1540,7 +1540,7 @@
         },
         {
             "id": "GT13",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1556,7 +1556,7 @@
         },
         {
             "id": "GT21",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1572,7 +1572,7 @@
         },
         {
             "id": "GT22",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1588,7 +1588,7 @@
         },
         {
             "id": "GT23",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1604,7 +1604,7 @@
         },
         {
             "id": "GT31",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1620,7 +1620,7 @@
         },
         {
             "id": "GT32",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1636,7 +1636,7 @@
         },
         {
             "id": "GT33",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1652,7 +1652,7 @@
         },
         {
             "id": "GT41",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1668,7 +1668,7 @@
         },
         {
             "id": "GT42",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1684,7 +1684,7 @@
         },
         {
             "id": "GT43",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1700,7 +1700,7 @@
         },
         {
             "id": "GT51",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1716,7 +1716,7 @@
         },
         {
             "id": "GT52",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1732,7 +1732,7 @@
         },
         {
             "id": "GT53",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1748,7 +1748,7 @@
         },
         {
             "id": "S1",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1763,7 +1763,7 @@
         },
         {
             "id": "S2",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1778,7 +1778,7 @@
         },
         {
             "id": "S3",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1793,7 +1793,7 @@
         },
         {
             "id": "S4",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1808,7 +1808,7 @@
         },
         {
             "id": "S5",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1821,7 +1821,7 @@
         },
         {
             "id": "S6",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1834,7 +1834,7 @@
         },
         {
             "id": "S7",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1847,7 +1847,7 @@
         },
         {
             "id": "S8",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1860,7 +1860,7 @@
         },
         {
             "id": "S9",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],
@@ -1873,7 +1873,7 @@
         },
         {
             "id": "GBOB",
-            "atributes": [
+            "attributes": [
                 [
                     "SWU"
                 ],

@@ -116,11 +116,11 @@ def inputFromSheets(
         if not person_id:
             break
 
-        person: Dict[str, Any] = {"id": person_id, "atributes": []}
+        person: Dict[str, Any] = {"id": person_id, "attributes": []}
 
         for column_info in trait_columns:
             value = sheet.cell(row=row, column=column_info["column"]).value
-            person["atributes"].append(_parse_list(value))
+            person["attributes"].append(_parse_list(value))
 
         people.append(person)
 

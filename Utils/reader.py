@@ -24,9 +24,9 @@ def _load_atribute_set_for_people_file(people_file_path: Path, people_payload):
     stem = people_file_path.stem
     if "wishes" in stem:
         catalog_candidate = people_file_path.with_name(f"{stem.replace('wishes', 'atribute_set')}{people_file_path.suffix}")
-    elif "atributes" in stem:
+    elif "attributes" in stem:
         catalog_candidate = people_file_path.with_name(
-            f"{stem.replace('atributes', 'atribute_set')}{people_file_path.suffix}"
+            f"{stem.replace('attributes', 'atribute_set')}{people_file_path.suffix}"
         )
     else:
         catalog_candidate = people_file_path.with_name(f"{stem}atribute_set{people_file_path.suffix}")
@@ -69,14 +69,14 @@ def readjson(file):
         if not isinstance(person_id, str) or not person_id.strip():
             continue
 
-        atributes = row.get("atributes", [])
-        if not isinstance(atributes, list):
-            atributes = []
+        attributes = row.get("attributes", [])
+        if not isinstance(attributes, list):
+            attributes = []
 
-        person = Person(person_id.strip(), atributes=atributes, atribute_set=atribute_set)
+        person = Person(person_id.strip(), attributes=attributes, atribute_set=atribute_set)
 
         # Keep transitional compatibility fields derived from metadata.
-        for index, answers in enumerate(atributes):
+        for index, answers in enumerate(attributes):
             if index >= len(atribute_set) or not isinstance(answers, list):
                 continue
 
@@ -93,4 +93,4 @@ def readjson(file):
 
     return people
 
-emptyPerson = Person("Empty", atributes=[], atribute_set=[])
+emptyPerson = Person("Empty", attributes=[], atribute_set=[])

@@ -58,10 +58,10 @@ def load_input_with_atribute_set(input_file_path, atribute_set_file_path):
                 if isinstance(row, dict):
                     person_id = row.get("id")
                     if isinstance(person_id, str) and person_id.strip():
-                        atributes = row.get("atributes", [])
-                        if not isinstance(atributes, list):
-                            atributes = []
-                        person = Person(person_id.strip(), atributes=atributes, atribute_set=atribute_set)
+                        attributes = row.get("attributes", [])
+                        if not isinstance(attributes, list):
+                            attributes = []
+                        person = Person(person_id.strip(), attributes=attributes, atribute_set=atribute_set)
                         people.append(person)
 
     return people

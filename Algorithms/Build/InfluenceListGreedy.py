@@ -12,9 +12,9 @@ def _weighted_links_from_attributes(person):
     pref_links = []
     avoid_links = []
 
-    atributes = getattr(person, "atributes", [])
+    attributes = getattr(person, "attributes", [])
     atribute_set = getattr(person, "atribute_set", [])
-    for index, answers in enumerate(atributes):
+    for index, answers in enumerate(attributes):
         if index >= len(atribute_set) or not isinstance(answers, list):
             continue
 
