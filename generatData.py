@@ -19,11 +19,13 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
     # Initialize basic info
     for name in names:
         people.append({
-            "name": name,
-            "studyprogram": random.choices(["cs", "swu"], weights=[0.037, 0.963], k=1)[0],
-            "year": random.choices(["2021", "2022", "2023", "2025"], weights=[0.0185, 0.0185, 0.8148, 0.1481], k=1)[0],
-            "preferences": [],
-            "avoidances": []
+            "id": name,
+            "attributes": [
+                random.choices(["cs", "swu"], weights=[0.037, 0.963], k=1)[0],
+                random.choices(["2021", "2022", "2023", "2025"], weights=[0.0185, 0.0185, 0.8148, 0.1481], k=1)[0],
+                [],
+                [],
+            ]
         })
         
     def get_count(dist):
@@ -163,16 +165,16 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
         
     return people
 
+# real data values
+wish_dist = {
+    0: 0.0926, 1: 0.2037, 2: 0.0556, 3: 0.1667, 4: 0.1111, 
+    5: 0.2222, 6: 0.0185, 7: 0.0556, 8: 0.0185, 9: 0.0370, 10: 0.0185
+}
+avoid_dist = {
+    0: 0.8148, 1: 0.1667, 3: 0.0185
+}
+
 if __name__ == "__main__":
-    # Example usage
-    wish_dist = {
-        0: 0.0926, 1: 0.2037, 2: 0.0556, 3: 0.1667, 4: 0.1111, 
-        5: 0.2222, 6: 0.0185, 7: 0.0556, 8: 0.0185, 9: 0.0370, 10: 0.0185
-    }
-    avoid_dist = {
-        0: 0.8148, 1: 0.1667, 3: 0.0185
-    }
-    
     
     generate_data(
         people_count=100,
@@ -182,4 +184,18 @@ if __name__ == "__main__":
         double_wish_chance=0.5071,
         group_cohesion=85,
         output_file="Inputs/generated100.json"
+    )
+
+def generateData(count, cohesion, output_file, seed=None):
+    if seed is not None:
+        random.seed(seed)
+    
+    return generate_data(
+        people_count=count,
+        wish_count_dist=wish_dist,
+        avoidance_count_dist=avoid_dist,
+        wishback_chance=0.6073,
+        double_wish_chance=0.5071,
+        group_cohesion=cohesion,
+        output_file=output_file
     )
