@@ -5,11 +5,11 @@ from Utils.ValueCalc import calcArrangement
 
 def FluentWithSwitch(input, emptyArrangement):
 
-    emptyArrangement, protectedNames = fluentGroupsFill(input, emptyArrangement, True)
+    emptyArrangement, protectedNames = fluentGroupsFill(input, emptyArrangement, False)
 
     emptyArrangement = linearSwitchPeopleEachTable(emptyArrangement, 4)
     # emptyArrangement = bruteForceEachTable(emptyArrangement)
-    print("score after first: ", calcArrangement(emptyArrangement)[0])
+    # print("score after first: ", calcArrangement(emptyArrangement)[0])
 
     movableCoords = [
         (tableIndex, seatIndex)
@@ -19,7 +19,7 @@ def FluentWithSwitch(input, emptyArrangement):
     ]
 
     emptyArrangement = LinearSwitchPeopleSets(emptyArrangement, 4, movableCoords)
-    print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
+    # print("score after linear switch4people: ", calcArrangement(emptyArrangement)[0])
 
 
     return emptyArrangement

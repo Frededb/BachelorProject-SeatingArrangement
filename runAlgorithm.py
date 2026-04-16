@@ -39,7 +39,6 @@ ALGORITHMS = {
     "bruteForce": bruteForceFromRandom,
     "randomSwitch": randomSwitchFromRandom,
     "tabuSearch": tabuSearchFromRandom,
-    "createGraph": printAsGraph
     "repeatedSwitch": RepeatedLinearSwitch,
 }
 
@@ -58,6 +57,15 @@ if __name__ == "__main__":
     algorithm_name = sys.argv[1]
     input_file = sys.argv[2]
     attribute_set_file = sys.argv[3]
+
+    if algorithm_name == "printGraph":
+        try:
+            testInput = readPeople(input_file, attribute_set_file)
+            printAsGraph(testInput)
+        except Exception as e:
+            print(f"Error loading input for graph: {e}")
+            raise SystemExit(1)
+        raise SystemExit(0)
 
     # Validate algorithm
     if algorithm_name not in ALGORITHMS:

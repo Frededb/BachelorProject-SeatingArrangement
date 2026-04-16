@@ -36,5 +36,5 @@ def AnealTwoPeople(arrangement, k=10000, seed=None):
         else:
             switch(arrangement, personA, personB)
         percents[i*10//k][1] += 1
-    print("AnealTwoPeople: " + "".join(["\n" + str(percent[0]/percent[1]*100) + "%" for percent in percents]))
+    # print("AnealTwoPeople: " + "".join(["\n" + str(percent[0]/percent[1]*100) + "%" for percent in percents]))
     return arrangement
