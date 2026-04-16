@@ -17,8 +17,8 @@ def compare_algos():
         {"index": 3, "header": "avoidances", "kind": "prefence", "weight": -30}
     ]
     
-    cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    iterations = 10
+    cohesion_scores = [20, 50, 80]# [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    iterations = 2
     people_count = 100
     
     # Initialize results
@@ -30,6 +30,9 @@ def compare_algos():
     
     for algo_name, algo_func in ALGORITHMS.items():
         print(f"Running iterations for algorithm: {algo_name}")
+        if algo_name == "bruteForce" or algo_name == "switch4People":
+            print("  Skipping due to expected long runtime")
+            continue
         for c in cohesion_scores:
             for i in range(iterations):
                 generateData(people_count, c, temp_output_file, seed=i*157)
@@ -57,7 +60,7 @@ def compare_algos():
     # Header
     print(f"{'Algorithm':<25}", end="")
     for c in cohesion_scores:
-        print(f"{c:>6}", end="")
+        print(f"{c:>7}", end="")
     print("\n" + "-"*80)
     
     for algo_name in ALGORITHMS:
@@ -65,7 +68,7 @@ def compare_algos():
         for c in cohesion_scores:
             scores = results[algo_name][c]
             avg = sum(scores) / len(scores) if scores else 0
-            print(f"{avg:>6.1f}", end="")
+            print(f"{avg:>6.1f} ", end="")
         print()
 
 if __name__ == "__main__":
