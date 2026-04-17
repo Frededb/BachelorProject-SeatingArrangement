@@ -10,6 +10,7 @@ def RepeatedLinearSwitch(input, emptyArrangement):
     previous_score = best_score
 
     while True:
+        print("hello this is me your sweet friend mario")
         arrangement = LinearSwitchPeopleSets(arrangement, 4)
         score = calcArrangement(arrangement)[0]
 
