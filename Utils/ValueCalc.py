@@ -82,8 +82,14 @@ def calcArrangement(arrangement):
         peopleValues.append(table)
     return round(sum(tableValues), 2), tableValues, peopleValues
 
-def calcTheoreticalMax(input, tableSize = 8):
+
+
+def calcTheoreticalMax(input, emptyArrangement):
     maxValue = 0
+
+    #tableSize is the biggest table in emptyArrangement
+    emptyArrangement.sort(key=len, reverse=True)
+    tableSize = len(emptyArrangement[0])
 
     while len(input) < tableSize:
         input = input + [emptyPerson]
