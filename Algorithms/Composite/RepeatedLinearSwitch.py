@@ -10,7 +10,7 @@ def RepeatedLinearSwitch(input, emptyArrangement):
     previous_score = best_score
 
     while True:
-        arrangement = LinearSwitchPeopleSets(arrangement, 4)
+        arrangement = LinearSwitchPeopleSets(arrangement, 3)
         score = calcArrangement(arrangement)[0]
 
         if score > best_score:

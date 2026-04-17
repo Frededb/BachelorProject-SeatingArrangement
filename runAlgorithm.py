@@ -4,13 +4,13 @@ import json
 from pathlib import Path
 from typing import cast
 
-from Algorithms.Composite.RepeatedLinearSwitch import RepeatedLinearSwitch
-
 # Ensure the project root is importable when this file is run directly.
 PROJECT_ROOT = cast(str, os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
+
+from Algorithms.Composite.RepeatedLinearSwitch import RepeatedLinearSwitch
 from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
 from Algorithms.Build.RandomGreedy import randomGreedy
