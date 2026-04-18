@@ -12,13 +12,13 @@ def _weighted_links_from_attributes(person):
     pref_links = []
     avoid_links = []
 
-    atributes = getattr(person, "atributes", [])
-    atribute_set = getattr(person, "atribute_set", [])
-    for index, answers in enumerate(atributes):
-        if index >= len(atribute_set) or not isinstance(answers, list):
+    attributes = getattr(person, "attributes", [])
+    attribute_set = getattr(person, "attribute_set", [])
+    for index, answers in enumerate(attributes):
+        if index >= len(attribute_set) or not isinstance(answers, list):
             continue
 
-        metadata = atribute_set[index] if isinstance(atribute_set[index], dict) else {}
+        metadata = attribute_set[index] if isinstance(attribute_set[index], dict) else {}
         kind = str(metadata.get("kind", "")).strip().lower()
         if kind not in {"prefence", "preference"}:
             continue

@@ -32,22 +32,22 @@ from Utils import ValueCalc
 from Utils.UtilFunctions import makeEmptyArrangement
 
 
-def load_input_with_atribute_set(input_file_path, atribute_set_file_path):
-    """Load people input and combine with atribute_set from separate files"""
+def load_input_with_attribute_set(input_file_path, attribute_set_file_path):
+    """Load people input and combine with attribute_set from separate files"""
     from Utils.Person import Person
 
     input_file_path = Path(input_file_path)
-    atribute_set_file_path = Path(atribute_set_file_path)
+    attribute_set_file_path = Path(attribute_set_file_path)
 
     if not input_file_path.exists():
         raise FileNotFoundError(f"Input file not found: {input_file_path}")
-    if not atribute_set_file_path.exists():
-        raise FileNotFoundError(f"Atribute set file not found: {atribute_set_file_path}")
+    if not attribute_set_file_path.exists():
+        raise FileNotFoundError(f"Atribute set file not found: {attribute_set_file_path}")
 
     # Load atribute set first
-    with open(atribute_set_file_path, encoding="utf-8") as f:
-        atribute_set_data = json.load(f)
-    atribute_set = atribute_set_data.get("atribute_set", []) if isinstance(atribute_set_data, dict) else []
+    with open(attribute_set_file_path, encoding="utf-8") as f:
+        attribute_set_data = json.load(f)
+    attribute_set = attribute_set_data.get("attribute_set", []) if isinstance(attribute_set_data, dict) else []
 
     # Load input data
     with open(input_file_path, encoding="utf-8") as f:
@@ -62,10 +62,10 @@ def load_input_with_atribute_set(input_file_path, atribute_set_file_path):
                 if isinstance(row, dict):
                     person_id = row.get("id")
                     if isinstance(person_id, str) and person_id.strip():
-                        atributes = row.get("atributes", [])
-                        if not isinstance(atributes, list):
-                            atributes = []
-                        person = Person(person_id.strip(), atributes=atributes, atribute_set=atribute_set)
+                        attributes = row.get("attributes", [])
+                        if not isinstance(attributes, list):
+                            attributes = []
+                        person = Person(person_id.strip(), attributes=attributes, attribute_set=attribute_set)
                         people.append(person)
 
     return people
@@ -92,17 +92,17 @@ ALGORITHMS = {
 if __name__ == "__main__":
     # Parse command line arguments
     if len(sys.argv) != 4:
-        print("Usage: python test.py <algorithm> <input_file> <atribute_set_file>")
+        print("Usage: python test.py <algorithm> <input_file> <attribute_set_file>")
         print("\nAvailable algorithms:")
         for algo in ALGORITHMS:
             print(f"  - {algo}")
         print("\nExample:")
-        print("  python test.py FluentWithSwitch ../Inputs/sheetOutput/Test\\ \\(svar\\)input.json ../Inputs/sheetOutput/Test\\ \\(svar\\)atribute_set.json")
+        print("  python test.py FluentWithSwitch ../Inputs/sheetOutput/Test\\ \\(svar\\)input.json ../Inputs/sheetOutput/Test\\ \\(svar\\)attribute_set.json")
         raise SystemExit(1)
 
     algorithm_name = sys.argv[1]
     input_file = sys.argv[2]
-    atribute_set_file = sys.argv[3]
+    attribute_set_file = sys.argv[3]
 
     # Validate algorithm
     if algorithm_name not in ALGORITHMS:
@@ -112,7 +112,7 @@ if __name__ == "__main__":
 
     # Load input and atribute set
     try:
-        testInput = load_input_with_atribute_set(input_file, atribute_set_file)
+        testInput = load_input_with_attribute_set(input_file, attribute_set_file)
     except Exception as e:
         print(f"Error loading input: {e}")
         raise SystemExit(1)
@@ -123,13 +123,13 @@ if __name__ == "__main__":
 
     print(f"Using algorithm: {algorithm_name}")
     print(f"Using input file: {input_file}")
-    print(f"Using atribute set: {atribute_set_file}")
+    print(f"Using atribute set: {attribute_set_file}")
     print(f"Number of people: {len(testInput)}")
     print(f"Theory max: {ValueCalc.calcTheoreticalMax(testInput)}")
     print()
 
     # Create initial arrangement
-    initial_arrangement = makeEmptyArrangement(len(testInput), 6)
+    initial_arrangement = makeEmptyArrangement(len(testInput), 5)
 
     # Arrangement with 1 7-seat table, 1 6-seat table, and 2 5-seat tables.
     mixed_arrangement = [

@@ -32,12 +32,12 @@ def makeGraphFromInput(people):
         avoids = set(getattr(person, "avoidances", set()) or set())
 
         # Derive link sets from dynamic attributes when available.
-        atributes = getattr(person, "atributes", []) or []
-        atribute_set = getattr(person, "atribute_set", []) or []
-        for idx, values in enumerate(atributes):
-            if idx >= len(atribute_set) or not isinstance(values, list):
+        attributes = getattr(person, "attributes", []) or []
+        attribute_set = getattr(person, "attribute_set", []) or []
+        for idx, values in enumerate(attributes):
+            if idx >= len(attribute_set) or not isinstance(values, list):
                 continue
-            meta = atribute_set[idx] if isinstance(atribute_set[idx], dict) else {}
+            meta = attribute_set[idx] if isinstance(attribute_set[idx], dict) else {}
             kind = str(meta.get("kind", "")).strip().lower()
             if kind not in {"prefence", "preference"}:
                 continue
