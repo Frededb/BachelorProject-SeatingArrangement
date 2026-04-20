@@ -32,11 +32,46 @@ from Algorithms.Composite.RepeatedLinearSwitch import RepeatedLinearSwitch
 ALGORITHMS = {
     "influenceListGreedy": influenceListGreedy,
     "randomGreedy": randomGreedy,
-    "bruteForce": bruteForceFromRandom,
     "anealing": anealingFromRandom,
     "tabuSearch": tabuSearchFromRandom,
     "repeatedSwitch": RepeatedLinearSwitch,
+    "bruteForce": bruteForceFromRandom,
 }
+
+
+def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False):
+    # Helper function for JSON export safely handling DNF
+    def get_avg(data_list):
+        valid = [x for x in data_list if x != "DNF"]
+        return sum(valid) / len(valid) if valid else "DNF"
+
+    # Write results to JSON file
+    output_data = {
+        "full_dataset": not quicksave,
+        "timestamp": time.strftime("%Y-%m-%d %H:%M"),
+        "cohesion_scores": cohesion_scores,
+        "iterations": iterations,
+        "people_counts": people_counts,
+        "results": {
+            algo: {
+                str(p): {
+                    str(c): {
+                        "scores": results[algo][p][c],
+                        "times": time_results[algo][p][c],
+                        "avg_score": get_avg(results[algo][p][c]),
+                        "avg_time": get_avg(time_results[algo][p][c])
+                    } for c in cohesion_scores
+                } for p in people_counts
+            } for algo in ALGORITHMS
+        }
+    }
+    
+    timestamp_file = time.strftime("%y%m%d_%H%M")
+    filename = f"comparison_results_{timestamp_file}.json"
+    
+    with open(filename, "w") as f:
+        json.dump(output_data, f, indent=4)
+    print(f"\nResults successfully written to {filename}")
 
 def run_algo_wrapper(algo_func, testInput, initial_arrangement, return_dict):
     try:
@@ -56,9 +91,9 @@ def compare_algos():
         {"index": 3, "header": "avoidances", "kind": "prefence", "weight": -30}
     ]
     
-    cohesion_scores = [20, 50, 80]# [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    iterations = 10
-    people_counts = [8, 30, 100]
+    cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    iterations = 100
+    people_counts = [8, 30, 100, 300]
     
     # Initialize results
     results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
@@ -75,7 +110,7 @@ def compare_algos():
             # continue
         for p_count in people_counts:
             for c in cohesion_scores:
-                timeouts_limit = 3
+                timeouts_limit = 10
                 for i in range(iterations):
                     generateData(p_count, c, temp_output_file, seed=i*157)
                 
@@ -129,6 +164,7 @@ def compare_algos():
                         results[algo_name][p_count][c].append("DNF")
                         time_results[algo_name][p_count][c].append("DNF")
                 print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
+        print_results(results, time_results, cohesion_scores, people_counts, quicksave=True)
                     
     # Clean up temp file
     if os.path.exists(temp_output_file):
@@ -179,37 +215,7 @@ def compare_algos():
             print()
         print("\n" + "="*80)
 
-    # Helper function for JSON export safely handling DNF
-    def get_avg(data_list):
-        valid = [x for x in data_list if x != "DNF"]
-        return sum(valid) / len(valid) if valid else "DNF"
-
-    # Write results to JSON file
-    output_data = {
-        "timestamp": time.strftime("%Y-%m-%d %H:%M"),
-        "cohesion_scores": cohesion_scores,
-        "iterations": iterations,
-        "people_counts": people_counts,
-        "results": {
-            algo: {
-                str(p): {
-                    str(c): {
-                        "scores": results[algo][p][c],
-                        "times": time_results[algo][p][c],
-                        "avg_score": get_avg(results[algo][p][c]),
-                        "avg_time": get_avg(time_results[algo][p][c])
-                    } for c in cohesion_scores
-                } for p in people_counts
-            } for algo in ALGORITHMS
-        }
-    }
-    
-    timestamp_file = time.strftime("%y%m%d_%H%M")
-    filename = f"comparison_results_{timestamp_file}.json"
-    
-    with open(filename, "w") as f:
-        json.dump(output_data, f, indent=4)
-    print(f"\nResults successfully written to {filename}")
+    print_results(results, time_results, cohesion_scores, people_counts)
 
 if __name__ == "__main__":
     compare_algos()
