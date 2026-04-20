@@ -8,6 +8,7 @@ from Utils.ValueCalc import calcArrangement
 from Utils.UtilFunctions import makeEmptyArrangement
 from Utils.reader import readPeople
 import os
+import multiprocessing
 
 from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
@@ -33,6 +34,16 @@ ALGORITHMS = {
     "repeatedSwitch": RepeatedLinearSwitch,
 }
 
+def run_algo_wrapper(algo_func, testInput, initial_arrangement, return_dict):
+    try:
+        result = algo_func(testInput, initial_arrangement)
+        totalValue, _, _ = calcArrangement(result)
+        return_dict['value'] = totalValue
+        return_dict['success'] = True
+    except Exception as e:
+        return_dict['error'] = str(e)
+        return_dict['success'] = False
+
 def compare_algos():
     attribute_set = [
         {"index": 0, "header": "studyprogram", "kind": "traits", "weight": 3},
@@ -43,7 +54,7 @@ def compare_algos():
     
     cohesion_scores = [20, 50, 80]# [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     iterations = 2
-    people_counts = [8, 16, 24]
+    people_counts = [8] #, 16, 24]
     
     # Initialize results
     results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
@@ -68,17 +79,39 @@ def compare_algos():
                         testInput = readPeople(temp_output_file, attribute_set_file)
                         initial_arrangement = makeEmptyArrangement(len(testInput), 8)
                     
+                        manager = multiprocessing.Manager()
+                        return_dict = manager.dict()
+                        return_dict['success'] = False
+                        
                         start_time = time.time()
-                        result_arrangement = algo_func(testInput, initial_arrangement)
+                        p = multiprocessing.Process(target=run_algo_wrapper, args=(algo_func, testInput, initial_arrangement, return_dict))
+                        p.start()
+                        p.join(15)  # 15 seconds timeout
+                        
+                        if p.is_alive():
+                            print(f"  Timeout! {algo_name} at cohesion {c}, iter {i} took longer than 15 seconds.")
+                            p.terminate()
+                            p.join()
+                            results[algo_name][p_count][c].append("DNF")
+                            time_results[algo_name][p_count][c].append("DNF")
+                            continue
+                            
                         end_time = time.time()
                         
-                        totalValue, _, _ = calcArrangement(result_arrangement)
-                        results[algo_name][p_count][c].append(totalValue)
-                        time_results[algo_name][p_count][c].append(end_time - start_time)
+                        if return_dict.get('success'):
+                            totalValue = return_dict['value']
+                            results[algo_name][p_count][c].append(totalValue)
+                            time_results[algo_name][p_count][c].append(end_time - start_time)
+                        else:
+                            error_msg = return_dict.get('error', 'Unknown Error')
+                            print(f"  Error in {algo_name} at cohesion {c}, iter {i}: {error_msg}")
+                            results[algo_name][p_count][c].append("DNF")
+                            time_results[algo_name][p_count][c].append("DNF")
+                            
                     except Exception as e:
-                        print(f"  Error in {algo_name} at cohesion {c}, iter {i}: {e}")
-                        results[algo_name][p_count][c].append(0)
-                        time_results[algo_name][p_count][c].append(0)
+                        print(f"  Error setting up {algo_name} at cohesion {c}, iter {i}: {e}")
+                        results[algo_name][p_count][c].append("DNF")
+                        time_results[algo_name][p_count][c].append("DNF")
                     
     # Clean up temp file
     if os.path.exists(temp_output_file):
@@ -98,9 +131,12 @@ def compare_algos():
         for algo_name in ALGORITHMS:
             print(f"{algo_name:<25}", end="")
             for c in cohesion_scores:
-                scores = results[algo_name][p_count][c]
-                avg = sum(scores) / len(scores) if scores else 0
-                print(f"{avg:>6.1f} ", end="")
+                scores = [s for s in results[algo_name][p_count][c] if s != "DNF"]
+                avg = sum(scores) / len(scores) if scores else "DNF"
+                if avg == "DNF":
+                    print(f"{'DNF':>6} ", end="")
+                else:
+                    print(f"{avg:>6.1f} ", end="")
             print()
         print("\n" + "="*80)
 
@@ -117,11 +153,19 @@ def compare_algos():
         for algo_name in ALGORITHMS:
             print(f"{algo_name:<25}", end="")
             for c in cohesion_scores:
-                times = time_results[algo_name][p_count][c]
-                avg_time = sum(times) / len(times) if times else 0
-                print(f"{avg_time:>6.4f} ", end="")
+                times = [t for t in time_results[algo_name][p_count][c] if t != "DNF"]
+                avg_time = sum(times) / len(times) if times else "DNF"
+                if avg_time == "DNF":
+                    print(f"{'DNF':>6} ", end="")
+                else:
+                    print(f"{avg_time:>6.4f} ", end="")
             print()
         print("\n" + "="*80)
+
+    # Helper function for JSON export safely handling DNF
+    def get_avg(data_list):
+        valid = [x for x in data_list if x != "DNF"]
+        return sum(valid) / len(valid) if valid else "DNF"
 
     # Write results to JSON file
     output_data = {
@@ -135,8 +179,8 @@ def compare_algos():
                     str(c): {
                         "scores": results[algo][p][c],
                         "times": time_results[algo][p][c],
-                        "avg_score": sum(results[algo][p][c]) / len(results[algo][p][c]) if results[algo][p][c] else 0,
-                        "avg_time": sum(time_results[algo][p][c]) / len(time_results[algo][p][c]) if time_results[algo][p][c] else 0
+                        "avg_score": get_avg(results[algo][p][c]),
+                        "avg_time": get_avg(time_results[algo][p][c])
                     } for c in cohesion_scores
                 } for p in people_counts
             } for algo in ALGORITHMS
