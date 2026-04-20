@@ -7,7 +7,9 @@ from Algorithms.Optimizing.tabuSearch import tabuSearch
 def testComposite(input, emptyArrangement):
     from Algorithms.Optimizing.LinearSwitch4PeopleSets import LinearSwitch4PeopleSets
 
-    arrangement = FluentWithSwitch(input, emptyArrangement)
+    # arrangement = FluentWithSwitch(input, emptyArrangement)
+
+    arrangement = randomPlacement(input, emptyArrangement)
 
     arrangement = LinearSwitch4PeopleSets(arrangement)
 
