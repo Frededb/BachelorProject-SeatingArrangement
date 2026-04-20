@@ -43,11 +43,11 @@ def compare_algos():
     
     cohesion_scores = [20, 50, 80]# [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     iterations = 2
-    people_count = 10
+    people_counts = [8, 16, 24]
     
     # Initialize results
-    results = {algo: {c: [] for c in cohesion_scores} for algo in ALGORITHMS}
-    time_results = {algo: {c: [] for c in cohesion_scores} for algo in ALGORITHMS}
+    results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
+    time_results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
     
     # Create an output path for the temporary generated data or let generateData dump to a tmp file
     temp_output_file = "Inputs/temp/compareGenerated.json"
@@ -58,66 +58,97 @@ def compare_algos():
         # if algo_name == "bruteForce" or algo_name == "switch4People":
         #     print("  Skipping due to expected long runtime")
             # continue
-        for c in cohesion_scores:
-            for i in range(iterations):
-                generateData(people_count, c, temp_output_file, seed=i*157)
-            
-                # Always read fresh Person objects for each algorithm to avoid mutation
-                try:
-                    testInput = readPeople(temp_output_file, attribute_set_file)
-                    initial_arrangement = makeEmptyArrangement(len(testInput), 8)
+        for p_count in people_counts:
+            for c in cohesion_scores:
+                for i in range(iterations):
+                    generateData(p_count, c, temp_output_file, seed=i*157)
                 
-                    start_time = time.time()
-                    result_arrangement = algo_func(testInput, initial_arrangement)
-                    end_time = time.time()
+                    # Always read fresh Person objects for each algorithm to avoid mutation
+                    try:
+                        testInput = readPeople(temp_output_file, attribute_set_file)
+                        initial_arrangement = makeEmptyArrangement(len(testInput), 8)
                     
-                    totalValue, _, _ = calcArrangement(result_arrangement)
-                    results[algo_name][c].append(totalValue)
-                    time_results[algo_name][c].append(end_time - start_time)
-                except Exception as e:
-                    print(f"  Error in {algo_name} at cohesion {c}, iter {i}: {e}")
-                    results[algo_name][c].append(0)
-                    time_results[algo_name][c].append(0)
+                        start_time = time.time()
+                        result_arrangement = algo_func(testInput, initial_arrangement)
+                        end_time = time.time()
+                        
+                        totalValue, _, _ = calcArrangement(result_arrangement)
+                        results[algo_name][p_count][c].append(totalValue)
+                        time_results[algo_name][p_count][c].append(end_time - start_time)
+                    except Exception as e:
+                        print(f"  Error in {algo_name} at cohesion {c}, iter {i}: {e}")
+                        results[algo_name][p_count][c].append(0)
+                        time_results[algo_name][p_count][c].append(0)
                     
     # Clean up temp file
     if os.path.exists(temp_output_file):
         os.remove(temp_output_file)
 
     print("\n" + "="*80)
-    print("AVERAGE ARRANGEMENT SCORES")
-    print("="*80)
-    
-    # Header
-    print(f"{'Algorithm':<25}", end="")
-    for c in cohesion_scores:
-        print(f"{c:>7}", end="")
-    print("\n" + "-"*80)
-    
-    for algo_name in ALGORITHMS:
-        print(f"{algo_name:<25}", end="")
+    for p_count in people_counts:
+        print(f"AVERAGE ARRANGEMENT SCORES (People: {p_count})")
+        print("="*80)
+        
+        # Header
+        print(f"{'Algorithm':<25}", end="")
         for c in cohesion_scores:
-            scores = results[algo_name][c]
-            avg = sum(scores) / len(scores) if scores else 0
-            print(f"{avg:>6.1f} ", end="")
-        print()
+            print(f"{c:>7}", end="")
+        print("\n" + "-"*80)
+        
+        for algo_name in ALGORITHMS:
+            print(f"{algo_name:<25}", end="")
+            for c in cohesion_scores:
+                scores = results[algo_name][p_count][c]
+                avg = sum(scores) / len(scores) if scores else 0
+                print(f"{avg:>6.1f} ", end="")
+            print()
+        print("\n" + "="*80)
 
-    print("\n" + "="*80)
-    print("AVERAGE EXECUTION TIMES (seconds)")
-    print("="*80)
-    
-    # Header
-    print(f"{'Algorithm':<25}", end="")
-    for c in cohesion_scores:
-        print(f"{c:>7}", end="")
-    print("\n" + "-"*80)
-    
-    for algo_name in ALGORITHMS:
-        print(f"{algo_name:<25}", end="")
+    for p_count in people_counts:
+        print(f"AVERAGE EXECUTION TIMES (seconds) (People: {p_count})")
+        print("="*80)
+        
+        # Header
+        print(f"{'Algorithm':<25}", end="")
         for c in cohesion_scores:
-            times = time_results[algo_name][c]
-            avg_time = sum(times) / len(times) if times else 0
-            print(f"{avg_time:>6.4f} ", end="")
-        print()
+            print(f"{c:>7}", end="")
+        print("\n" + "-"*80)
+        
+        for algo_name in ALGORITHMS:
+            print(f"{algo_name:<25}", end="")
+            for c in cohesion_scores:
+                times = time_results[algo_name][p_count][c]
+                avg_time = sum(times) / len(times) if times else 0
+                print(f"{avg_time:>6.4f} ", end="")
+            print()
+        print("\n" + "="*80)
+
+    # Write results to JSON file
+    output_data = {
+        "timestamp": time.strftime("%Y-%m-%d %H:%M"),
+        "cohesion_scores": cohesion_scores,
+        "iterations": iterations,
+        "people_counts": people_counts,
+        "results": {
+            algo: {
+                str(p): {
+                    str(c): {
+                        "scores": results[algo][p][c],
+                        "times": time_results[algo][p][c],
+                        "avg_score": sum(results[algo][p][c]) / len(results[algo][p][c]) if results[algo][p][c] else 0,
+                        "avg_time": sum(time_results[algo][p][c]) / len(time_results[algo][p][c]) if time_results[algo][p][c] else 0
+                    } for c in cohesion_scores
+                } for p in people_counts
+            } for algo in ALGORITHMS
+        }
+    }
+    
+    timestamp_file = time.strftime("%y%m%d_%H%M")
+    filename = f"comparison_results_{timestamp_file}.json"
+    
+    with open(filename, "w") as f:
+        json.dump(output_data, f, indent=4)
+    print(f"\nResults successfully written to {filename}")
 
 if __name__ == "__main__":
     compare_algos()
