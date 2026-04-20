@@ -8,7 +8,11 @@ from Utils.ValueCalc import calcArrangement
 from Utils.UtilFunctions import makeEmptyArrangement
 from Utils.reader import readPeople
 import os
+import tempfile
 import multiprocessing
+
+os.environ["TMPDIR"] = "/tmp"
+tempfile.tempdir = "/tmp"
 
 from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
@@ -71,6 +75,7 @@ def compare_algos():
             # continue
         for p_count in people_counts:
             for c in cohesion_scores:
+                timeouts_limit = 3
                 for i in range(iterations):
                     generateData(p_count, c, temp_output_file, seed=i*157)
                 
@@ -79,40 +84,51 @@ def compare_algos():
                         testInput = readPeople(temp_output_file, attribute_set_file)
                         initial_arrangement = makeEmptyArrangement(len(testInput), 8)
                     
-                        manager = multiprocessing.Manager()
-                        return_dict = manager.dict()
-                        return_dict['success'] = False
-                        
-                        start_time = time.time()
-                        p = multiprocessing.Process(target=run_algo_wrapper, args=(algo_func, testInput, initial_arrangement, return_dict))
-                        p.start()
-                        limit = 30
-                        p.join(limit) # timeout
-                        
-                        if p.is_alive():
-                            print(f"  Timeout! {algo_name} at cohesion {c}, iter {i} took longer than {limit} seconds.")
-                            p.terminate()
-                            p.join()
-                            results[algo_name][p_count][c].append("DNF")
-                            time_results[algo_name][p_count][c].append("DNF")
-                            continue
+                        with multiprocessing.Manager() as manager:
+                            return_dict = manager.dict()
+                            return_dict['success'] = False
                             
-                        end_time = time.time()
-                        
-                        if return_dict.get('success'):
-                            totalValue = return_dict['value']
-                            results[algo_name][p_count][c].append(totalValue)
-                            time_results[algo_name][p_count][c].append(end_time - start_time)
-                        else:
-                            error_msg = return_dict.get('error', 'Unknown Error')
-                            print(f"  Error in {algo_name} at cohesion {c}, iter {i}: {error_msg}")
-                            results[algo_name][p_count][c].append("DNF")
-                            time_results[algo_name][p_count][c].append("DNF")
+                            start_time = time.time()
+                            p = multiprocessing.Process(target=run_algo_wrapper, args=(algo_func, testInput, initial_arrangement, return_dict))
+                            p.start()
+                            limit = 30
+                            p.join(limit) # timeout
+                            
+                            if p.is_alive():
+                                print(f"  Timeout! {algo_name} at size {p_count}, cohesion {c}, iter {i} took longer than {limit} seconds.")
+                                p.terminate()
+                                p.join()
+                                results[algo_name][p_count][c].append("DNF")
+                                time_results[algo_name][p_count][c].append("DNF")
+                                
+                                timeouts_limit -= 1
+                                if timeouts_limit == 0:
+                                    print(f"  First 3 runs timed out. Cancelling remaining iterations.")
+                                    remaining = iterations - (i + 1)
+                                    results[algo_name][p_count][c].extend(["DNF"] * remaining)
+                                    time_results[algo_name][p_count][c].extend(["DNF"] * remaining)
+                                    break
+                                
+                                continue
+                                
+                            timeouts_limit = -1
+                            end_time = time.time()
+                            
+                            if return_dict.get('success'):
+                                totalValue = return_dict['value']
+                                results[algo_name][p_count][c].append(totalValue)
+                                time_results[algo_name][p_count][c].append(end_time - start_time)
+                            else:
+                                error_msg = return_dict.get('error', 'Unknown Error')
+                                print(f"  Error in {algo_name} at cohesion {c}, iter {i}: {error_msg}")
+                                results[algo_name][p_count][c].append("DNF")
+                                time_results[algo_name][p_count][c].append("DNF")
                             
                     except Exception as e:
                         print(f"  Error setting up {algo_name} at cohesion {c}, iter {i}: {e}")
                         results[algo_name][p_count][c].append("DNF")
                         time_results[algo_name][p_count][c].append("DNF")
+                print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
                     
     # Clean up temp file
     if os.path.exists(temp_output_file):

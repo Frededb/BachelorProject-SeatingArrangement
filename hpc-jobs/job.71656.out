@@ -1,0 +1,37 @@
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: influenceListGreedy
+  Completed 10 iterations for size 8, cohesion 20.
+  Completed 10 iterations for size 8, cohesion 50.
+  Completed 10 iterations for size 8, cohesion 80.
+  Completed 10 iterations for size 30, cohesion 20.
+  Completed 10 iterations for size 30, cohesion 50.
+  Completed 10 iterations for size 30, cohesion 80.
+  Completed 10 iterations for size 100, cohesion 20.
+  Completed 10 iterations for size 100, cohesion 50.
+  Completed 10 iterations for size 100, cohesion 80.
+Running iterations for algorithm: randomGreedy
+  Completed 10 iterations for size 8, cohesion 20.
+  Completed 10 iterations for size 8, cohesion 50.
+  Completed 10 iterations for size 8, cohesion 80.
+  Completed 10 iterations for size 30, cohesion 20.
+  Completed 10 iterations for size 30, cohesion 50.
+  Completed 10 iterations for size 30, cohesion 80.
+  Completed 10 iterations for size 100, cohesion 20.
+  Completed 10 iterations for size 100, cohesion 50.
+  Completed 10 iterations for size 100, cohesion 80.
+Running iterations for algorithm: bruteForce
+  Completed 10 iterations for size 8, cohesion 20.
+  Completed 10 iterations for size 8, cohesion 50.
+  Completed 10 iterations for size 8, cohesion 80.
+  Timeout! bruteForce at size 30, cohesion 20, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 2 took longer than 30 seconds.
+  First 3 runs timed out. Cancelling remaining iterations.
+  Completed 10 iterations for size 30, cohesion 20.
+  Timeout! bruteForce at size 30, cohesion 50, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 50, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 50, iter 2 took longer than 30 seconds.
+  First 3 runs timed out. Cancelling remaining iterations.
+  Completed 10 iterations for size 30, cohesion 50.
