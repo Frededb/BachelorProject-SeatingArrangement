@@ -53,16 +53,16 @@ def compare_algos():
     ]
     
     cohesion_scores = [20, 50, 80]# [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    iterations = 2
-    people_counts = [8] #, 16, 24]
+    iterations = 10
+    people_counts = [8, 30, 100]
     
     # Initialize results
     results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
     time_results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
     
-    # Create an output path for the temporary generated data or let generateData dump to a tmp file
-    temp_output_file = "Inputs/temp/compareGenerated.json"
-    attribute_set_file = "Inputs/defaultAttributeSet.json"
+    # Create an output path for the temporary generated data in /tmp to avoid read-only FS in container
+    temp_output_file = "/tmp/compareGenerated.json"
+    attribute_set_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Inputs", "defaultAttributeSet.json")
     
     for algo_name, algo_func in ALGORITHMS.items():
         print(f"Running iterations for algorithm: {algo_name}")
@@ -86,10 +86,11 @@ def compare_algos():
                         start_time = time.time()
                         p = multiprocessing.Process(target=run_algo_wrapper, args=(algo_func, testInput, initial_arrangement, return_dict))
                         p.start()
-                        p.join(15)  # 15 seconds timeout
+                        limit = 30
+                        p.join(limit) # timeout
                         
                         if p.is_alive():
-                            print(f"  Timeout! {algo_name} at cohesion {c}, iter {i} took longer than 15 seconds.")
+                            print(f"  Timeout! {algo_name} at cohesion {c}, iter {i} took longer than {limit} seconds.")
                             p.terminate()
                             p.join()
                             results[algo_name][p_count][c].append("DNF")

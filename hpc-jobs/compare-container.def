@@ -1,11 +1,9 @@
 Bootstrap: docker
-From: python:3.11-slim
+From: pypy:3-slim
 
 %files
     # Copy your project files
     /home/nick/bachelorProject /opt/bachelorProject
-    # Copy Gurobi license file
-    # /home/nick/Downloads/gurobi.lic /opt/gurobi/gurobi.lic
 
 %post
     # Update and install basic dependencies
@@ -19,17 +17,14 @@ From: python:3.11-slim
     
     # Install Python packages
     # pip install --no-cache-dir gurobipy
-    
-    # Set Gurobi license environment variable
-    # echo 'export GRB_LICENSE_FILE=/opt/gurobi/gurobi.lic' >> /environment
 
 %environment
     # export GRB_LICENSE_FILE=/opt/gurobi/gurobi.lic
     export PYTHONPATH=/opt/bachelorProject:$PYTHONPATH
 
 %runscript
-    cd /opt/bachelorProject/
-    exec python3 /opt/bachelorProject/compareAlgos.py
+    # Run from the user's current directory (host $PWD) so output files save here
+    exec pypy3 /opt/bachelorProject/compareAlgos.py
 
 %labels
     Author nick
