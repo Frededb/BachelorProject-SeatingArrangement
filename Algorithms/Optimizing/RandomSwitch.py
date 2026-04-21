@@ -2,7 +2,7 @@ import random
 from Utils.ValueCalc import calcArrangement
 from Utils.UtilFunctions import switch, getAllPeople
 
-def randomSwitch(arrangement, N=1000):
+def randomSwitch(arrangement, N=100000):
     seat_indices = getAllPeople(arrangement)
     current_score, _, _ = calcArrangement(arrangement)
     for i in range(N):

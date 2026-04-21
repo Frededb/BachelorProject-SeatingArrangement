@@ -3,7 +3,7 @@
     "people": [
         {
             "id": "niso",
-            "atributes": [
+            "attributes": [
                 [
                     "aubu",
                     "fbuu"
@@ -22,7 +22,7 @@
         },
         {
             "id": "aubu",
-            "atributes": [
+            "attributes": [
                 [
                     "aubu",
                     "niso",
@@ -45,7 +45,7 @@
         },
         {
             "id": "fbuu",
-            "atributes": [
+            "attributes": [
                 [
                     "aubu",
                     "niso"

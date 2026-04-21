@@ -116,24 +116,24 @@ def inputFromSheets(
         if not person_id:
             break
 
-        person: Dict[str, Any] = {"id": person_id, "atributes": []}
+        person: Dict[str, Any] = {"id": person_id, "attributes": []}
 
         for column_info in trait_columns:
             value = sheet.cell(row=row, column=column_info["column"]).value
-            person["atributes"].append(_parse_list(value))
+            person["attributes"].append(_parse_list(value))
 
         people.append(person)
 
     result: Dict[str, Any] = {
         "schema_version": 1,
-        "atribute_set": trait_catalog,
+        "attribute_set": trait_catalog,
         "people": people,
     }
 
     xlsx_path = Path(xlsx_path)
     output_dir = Path(__file__).resolve().parent / "sheetOutput"
     people_output_path = output_dir / f"{xlsx_path.stem}wishes.json"
-    trait_catalog_output_path = output_dir / f"{xlsx_path.stem}atribute_set.json"
+    trait_catalog_output_path = output_dir / f"{xlsx_path.stem}attribute_set.json"
 
     people_output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(people_output_path, "w", encoding="utf-8") as file:
@@ -141,7 +141,7 @@ def inputFromSheets(
 
     trait_catalog_output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(trait_catalog_output_path, "w", encoding="utf-8") as file:
-        json.dump({"schema_version": 1, "atribute_set": trait_catalog}, file, indent=4, ensure_ascii=False)
+        json.dump({"schema_version": 1, "attribute_set": trait_catalog}, file, indent=4, ensure_ascii=False)
 
     return result
 
@@ -172,7 +172,7 @@ def main() -> None:
     xlsx_path = Path(args.xlsx_path)
     output_dir = Path(__file__).resolve().parent / "sheetOutput"
     people_output = output_dir / f"{xlsx_path.stem}wishes.json"
-    trait_catalog_output = output_dir / f"{xlsx_path.stem}atribute_set.json"
+    trait_catalog_output = output_dir / f"{xlsx_path.stem}attribute_set.json"
     print(f"Wrote {len(result['people'])} people to {people_output} and {trait_catalog_output}")
 
 

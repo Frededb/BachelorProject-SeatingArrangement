@@ -1,6 +1,6 @@
 {
     "schema_version": 1,
-    "atribute_set": [
+    "attribute_set": [
         {
             "index": 0,
             "header": "studyprogram",

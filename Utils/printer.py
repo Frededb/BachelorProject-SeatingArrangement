@@ -1,4 +1,4 @@
-import ValueCalc
+from Utils import ValueCalc
 
 def printTable(table):
     print(str(table[0:4]))
@@ -27,3 +27,11 @@ def printArrangementWithValues(arrangement):
         print()
         __printTableWithValues__(arrangement[tableIndex], tableValues[tableIndex], peopleValues[tableIndex])
     print("total value:", totalValue)
+
+def printAsGraph(testInput):
+    for person in testInput:
+        print(person.name)
+    
+    for person in testInput:
+        for preference in person.attributes[2]:
+            print(f"{person.name} {preference}")

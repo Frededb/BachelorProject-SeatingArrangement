@@ -1,0 +1,5 @@
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+FATAL:   While checking container encryption: could not open image /home/nsio/bachelorProject/hpc-jobs/container13.sif: failed to retrieve path for /home/nsio/bachelorProject/hpc-jobs/container13.sif: lstat /home/nsio/bachelorProject/hpc-jobs/container13.sif: no such file or directory
+srun: error: cn8: task 0: Exited with exit code 255

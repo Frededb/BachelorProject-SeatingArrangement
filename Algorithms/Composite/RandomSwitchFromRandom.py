@@ -4,5 +4,6 @@ from Algorithms.Optimizing.RandomSwitch import randomSwitch
 
 def randomSwitchFromRandom(input, emptyArrangement):
     arrangement = randomPlacement(input, emptyArrangement)
-    return randomSwitch(arrangement)
+    arrangement = randomSwitch(arrangement)
+    return arrangement
 

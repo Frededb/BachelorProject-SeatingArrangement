@@ -1,0 +1,31 @@
+Bootstrap: docker
+From: pypy:3-slim
+
+%files
+    # Copy your project files
+    /home/nick/bachelorProject /opt/bachelorProject
+
+%post
+    # Update and install basic dependencies
+    # apt update && apt install -y \
+    #     build-essential \
+    #     wget \
+    #     && rm -rf /var/lib/apt/lists/*
+
+    # remove old containers
+    rm -f /opt/bachelorProject/hpc-jobs/container*.sif
+    
+    # Install Python packages
+    # pip install --no-cache-dir gurobipy
+
+%environment
+    # export GRB_LICENSE_FILE=/opt/gurobi/gurobi.lic
+    export PYTHONPATH=/opt/bachelorProject:$PYTHONPATH
+
+%runscript
+    # Run from the user's current directory (host $PWD) so output files save here
+    exec pypy3 /opt/bachelorProject/compareAlgos.py
+
+%labels
+    Author nick
+    Version v1.0

@@ -7,7 +7,7 @@ from itertools import combinations
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Set
 
-PersonLinks = Dict[str, Dict[str, Set[str]]]
+PersonLinks = Dict[str, Dict[str, Any]]
 
 
 def _sanitize_links(names: Set[str], owner: str, links: Iterable[Any]) -> Set[str]:
@@ -19,14 +19,28 @@ def _sanitize_links(names: Set[str], owner: str, links: Iterable[Any]) -> Set[st
     return cleaned
 
 
+def _empty_person_record() -> Dict[str, Any]:
+    return {"preferences": set(), "avoidances": set(), "participant": False}
+
+
+def _participant_names(people: PersonLinks) -> Set[str]:
+    return {name for name, record in people.items() if record.get("participant")}
+
+
 def load_people_from_data(data: List[Dict[str, Any]]) -> PersonLinks:
-    """Normalize raw JSON rows into a name -> {preferences, avoidances} mapping."""
+    """Normalize raw JSON rows into a name -> {preferences, avoidances, participant} mapping."""
     names: Set[str] = set()
     for row in data:
         if isinstance(row, dict) and isinstance(row.get("name"), str):
             names.add(row["name"])
+            for field in ("preferences", "avoidances"):
+                values = row.get(field, [])
+                if isinstance(values, list):
+                    for value in values:
+                        if isinstance(value, str):
+                            names.add(value)
 
-    people: PersonLinks = {}
+    people: PersonLinks = {name: _empty_person_record() for name in names}
     for row in data:
         if not isinstance(row, dict):
             continue
@@ -37,6 +51,7 @@ def load_people_from_data(data: List[Dict[str, Any]]) -> PersonLinks:
         people[name] = {
             "preferences": _sanitize_links(names, name, row.get("preferences", [])),
             "avoidances": _sanitize_links(names, name, row.get("avoidances", [])),
+            "participant": True,
         }
 
     return people
@@ -86,8 +101,13 @@ def _distribution_with_percentages(counter: Counter, total: int) -> Dict[str, Di
 def chance_b_prefers_a_given_a_prefers_b(people: PersonLinks) -> Dict[str, Any]:
     numerator = 0
     denominator = 0
-    for a, links in people.items():
+    participants = _participant_names(people)
+
+    for a in participants:
+        links = people[a]
         for b in links["preferences"]:
+            if b not in participants:
+                continue
             denominator += 1
             if a in people[b]["preferences"]:
                 numerator += 1
@@ -97,8 +117,13 @@ def chance_b_prefers_a_given_a_prefers_b(people: PersonLinks) -> Dict[str, Any]:
 def chance_b_avoids_a_given_a_avoids_b(people: PersonLinks) -> Dict[str, Any]:
     numerator = 0
     denominator = 0
-    for a, links in people.items():
+    participants = _participant_names(people)
+
+    for a in participants:
+        links = people[a]
         for b in links["avoidances"]:
+            if b not in participants:
+                continue
             denominator += 1
             if a in people[b]["avoidances"]:
                 numerator += 1
@@ -108,8 +133,13 @@ def chance_b_avoids_a_given_a_avoids_b(people: PersonLinks) -> Dict[str, Any]:
 def chance_b_avoids_a_given_a_prefers_b(people: PersonLinks) -> Dict[str, Any]:
     numerator = 0
     denominator = 0
-    for a, links in people.items():
+    participants = _participant_names(people)
+
+    for a in participants:
+        links = people[a]
         for b in links["preferences"]:
+            if b not in participants:
+                continue
             denominator += 1
             if a in people[b]["avoidances"]:
                 numerator += 1
@@ -119,8 +149,13 @@ def chance_b_avoids_a_given_a_prefers_b(people: PersonLinks) -> Dict[str, Any]:
 def chance_b_prefers_a_given_a_avoids_b(people: PersonLinks) -> Dict[str, Any]:
     numerator = 0
     denominator = 0
-    for a, links in people.items():
+    participants = _participant_names(people)
+
+    for a in participants:
+        links = people[a]
         for b in links["avoidances"]:
+            if b not in participants:
+                continue
             denominator += 1
             if a in people[b]["preferences"]:
                 numerator += 1
@@ -130,8 +165,13 @@ def chance_b_prefers_a_given_a_avoids_b(people: PersonLinks) -> Dict[str, Any]:
 def chance_a_prefers_c_given_a_prefers_b_and_b_prefers_c(people: PersonLinks) -> Dict[str, Any]:
     numerator = 0
     denominator = 0
-    for a, links in people.items():
+    participants = _participant_names(people)
+
+    for a in participants:
+        links = people[a]
         for b in links["preferences"]:
+            if b not in participants:
+                continue
             for c in people[b]["preferences"]:
                 if c == a:
                     continue
@@ -144,8 +184,13 @@ def chance_a_prefers_c_given_a_prefers_b_and_b_prefers_c(people: PersonLinks) ->
 def chance_a_avoids_c_given_a_prefers_b_and_b_avoids_c(people: PersonLinks) -> Dict[str, Any]:
     numerator = 0
     denominator = 0
-    for a, links in people.items():
+    participants = _participant_names(people)
+
+    for a in participants:
+        links = people[a]
         for b in links["preferences"]:
+            if b not in participants:
+                continue
             for c in people[b]["avoidances"]:
                 if c == a:
                     continue
@@ -158,8 +203,13 @@ def chance_a_avoids_c_given_a_prefers_b_and_b_avoids_c(people: PersonLinks) -> D
 def chance_a_prefers_c_given_a_prefers_b_and_b_avoids_c(people: PersonLinks) -> Dict[str, Any]:
     numerator = 0
     denominator = 0
-    for a, links in people.items():
+    participants = _participant_names(people)
+
+    for a in participants:
+        links = people[a]
         for b in links["preferences"]:
+            if b not in participants:
+                continue
             for c in people[b]["avoidances"]:
                 if c == a:
                     continue
@@ -174,9 +224,13 @@ def chance_a_prefers_d_given_a_prefers_b_and_c_and_b_and_c_prefer_d(
 ) -> Dict[str, Any]:
     numerator = 0
     denominator = 0
+    participants = _participant_names(people)
 
-    for a, links in people.items():
+    for a in participants:
+        links = people[a]
         for b, c in combinations(sorted(links["preferences"]), 2):
+            if b not in participants or c not in participants:
+                continue
             common_targets = people[b]["preferences"].intersection(people[c]["preferences"])
             for d in common_targets:
                 if d == a:
@@ -189,10 +243,11 @@ def chance_a_prefers_d_given_a_prefers_b_and_c_and_b_and_c_prefer_d(
 
 
 def outgoing_distributions(people: PersonLinks) -> Dict[str, Any]:
-    """Distribution based on sanitized links used in graph calculations."""
-    prefers = Counter(len(links["preferences"]) for links in people.values())
-    avoids = Counter(len(links["avoidances"]) for links in people.values())
-    total_people = len(people)
+    """Distribution based on participant answers only."""
+    participants = _participant_names(people)
+    prefers = Counter(len(people[name]["preferences"]) for name in participants)
+    avoids = Counter(len(people[name]["avoidances"]) for name in participants)
+    total_people = len(participants)
     return {
         "prefers_distribution": _distribution_with_percentages(prefers, total_people),
         "avoids_distribution": _distribution_with_percentages(avoids, total_people),
@@ -285,6 +340,7 @@ def save_demographic_pie_charts(result: Dict[str, Any], output_dir: Path) -> Dic
 
 
 def incoming_distributions(people: PersonLinks) -> Dict[str, Any]:
+    """Distribution over all known names, including target-only references."""
     preferred_by_count = {name: 0 for name in people}
     avoided_by_count = {name: 0 for name in people}
 
@@ -305,8 +361,10 @@ def incoming_distributions(people: PersonLinks) -> Dict[str, Any]:
 
 
 def run_all_analyses(people: PersonLinks) -> Dict[str, Any]:
+    participant_count = len(_participant_names(people))
     return {
-        "people_count": len(people),
+        "people_count": participant_count,
+        "known_names_count": len(people),
         "conditional_probabilities": {
             "P(B_prefers_A | A_prefers_B)": chance_b_prefers_a_given_a_prefers_b(people),
             "P(B_avoids_A | A_avoids_B)": chance_b_avoids_a_given_a_avoids_b(people),

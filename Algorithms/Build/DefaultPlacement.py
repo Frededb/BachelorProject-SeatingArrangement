@@ -1,8 +1,4 @@
-import math
 from copy import deepcopy
-
-from Utils.reader import emptyPerson
-
 
 def defaultPlacement(input, emptyArrangement):
     arrangement = deepcopy(emptyArrangement)

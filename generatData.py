@@ -1,7 +1,8 @@
 import json
 import random
+import os
 
-def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_chance, double_wish_chance, group_cohesion=80, output_file="generated_data.json"):
+def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_chance, double_wish_chance, group_cohesion=80, output_file=None):
     """
     Generate randomized student preference data.
     
@@ -18,11 +19,13 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
     # Initialize basic info
     for name in names:
         people.append({
-            "name": name,
-            "studyprogram": random.choices(["cs", "swu"], weights=[0.037, 0.963], k=1)[0],
-            "year": random.choices(["2021", "2022", "2023", "2025"], weights=[0.0185, 0.0185, 0.8148, 0.1481], k=1)[0],
-            "preferences": [],
-            "avoidances": []
+            "id": name,
+            "attributes": [
+                [random.choices(["cs", "swu"], weights=[0.037, 0.963], k=1)[0]],
+                [random.choices(["2021", "2022", "2023", "2025"], weights=[0.0185, 0.0185, 0.8148, 0.1481], k=1)[0]],
+                [],
+                [],
+            ]
         })
         
     def get_count(dist):
@@ -150,25 +153,32 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
             avoidances[name].add(target)
             available_targets.remove(target)
 
-    # Convert sets to lists and format output
+    # Assign preferences and avoidances back to the people data structure
     for person in people:
-        person["preferences"] = list(preferences[person["name"]])
-        person["avoidances"] = list(avoidances[person["name"]])
+        name = person["id"]
+        person["attributes"][2] = list(preferences[name])
+        person["attributes"][3] = list(avoidances[name])
 
-    with open(output_file, 'w') as f:
-        json.dump(people, f, indent=4)
+    if output_file is not None:
+        output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), output_file)
+        with open(output_path, 'w') as f:
+            json.dump({
+                "schema_version": 1,
+                "people": people
+            }, f, indent=4)
         
     return people
 
+# real data values
+wish_dist = {
+    0: 0.0926, 1: 0.2037, 2: 0.0556, 3: 0.1667, 4: 0.1111, 
+    5: 0.2222, 6: 0.0185, 7: 0.0556, 8: 0.0185, 9: 0.0370, 10: 0.0185
+}
+avoid_dist = {
+    0: 0.8148, 1: 0.1667, 3: 0.0185
+}
+
 if __name__ == "__main__":
-    # Example usage
-    wish_dist = {
-        0: 0.0926, 1: 0.2037, 2: 0.0556, 3: 0.1667, 4: 0.1111, 
-        5: 0.2222, 6: 0.0185, 7: 0.0556, 8: 0.0185, 9: 0.0370, 10: 0.0185
-    }
-    avoid_dist = {
-        0: 0.8148, 1: 0.1667, 3: 0.0185
-    }
     
     generate_data(
         people_count=100,
@@ -176,6 +186,19 @@ if __name__ == "__main__":
         avoidance_count_dist=avoid_dist,
         wishback_chance=0.6073,
         double_wish_chance=0.5071,
-        group_cohesion=85, # Try 0 (blob) through 100 (isolated islands)
-        output_file="generated100.json"
+        group_cohesion=85,
+        output_file="Inputs/generated100.json"
+    )
+
+def generateData(count, cohesion, seed=None):
+    if seed is not None:
+        random.seed(seed)
+    
+    return generate_data(
+        people_count=count,
+        wish_count_dist=wish_dist,
+        avoidance_count_dist=avoid_dist,
+        wishback_chance=0.6073,
+        double_wish_chance=0.5071,
+        group_cohesion=cohesion,
     )

@@ -4,5 +4,6 @@ from Algorithms.Optimizing.BruteForce import bruteForce
 
 def bruteForceFromRandom(input, emptyArrangement):
     arrangement = randomPlacement(input, emptyArrangement)
-    return bruteForce(arrangement)
+    arrangement = bruteForce(arrangement)
+    return arrangement
 

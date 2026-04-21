@@ -1,0 +1,144 @@
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: influenceListGreedy
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Error setting up influenceListGreedy at cohesion 0, iter 0: [Errno 24] Too many open files
+  Error setting up influenceListGreedy at cohesion 0, iter 1: [Errno 24] Too many open files
+  Error setting up influenceListGreedy at cohesion 0, iter 2: [Errno 24] Too many open files
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+  Completed 100 iterations for size 300, cohesion 0.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 20.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 50.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 80.
+  Completed 100 iterations for size 300, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 100.
+
+Results successfully written to comparison_results_260421_0050.json
+Running iterations for algorithm: randomGreedy
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Error setting up randomGreedy at cohesion 90, iter 73: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 74: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 75: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 76: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 77: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 78: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 79: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 80: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 81: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 82: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 83: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 84: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 85: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 86: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 87: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 88: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 89: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 90: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 91: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 92: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 93: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 94: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 95: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 96: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 97: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 98: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 90, iter 99: [Errno 24] Too many open files
+  Completed 100 iterations for size 8, cohesion 90.
+  Error setting up randomGreedy at cohesion 100, iter 0: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 1: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 2: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 3: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 4: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 5: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 6: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 7: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 8: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 9: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 10: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 11: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 12: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 13: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 14: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 15: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 16: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 17: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 18: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 19: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 20: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 21: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 22: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 23: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 24: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 25: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 26: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 27: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 28: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 29: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 30: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 31: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 32: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 33: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 34: [Errno 24] Too many open files
+  Error setting up randomGreedy at cohesion 100, iter 35: [Errno 24] Too many open files
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 71758 ON cn14 CANCELLED AT 2026-04-21T00:52:12 ***
+slurmstepd: error: *** STEP 71758.0 ON cn14 CANCELLED AT 2026-04-21T00:52:12 ***

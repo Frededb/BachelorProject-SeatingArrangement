@@ -1,0 +1,175 @@
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: influenceListGreedy
+  Completed 10 iterations for size 8, cohesion 20.
+  Completed 10 iterations for size 8, cohesion 50.
+  Completed 10 iterations for size 8, cohesion 80.
+  Completed 10 iterations for size 30, cohesion 20.
+  Completed 10 iterations for size 30, cohesion 50.
+  Completed 10 iterations for size 30, cohesion 80.
+  Completed 10 iterations for size 100, cohesion 20.
+  Completed 10 iterations for size 100, cohesion 50.
+  Completed 10 iterations for size 100, cohesion 80.
+Running iterations for algorithm: randomGreedy
+  Completed 10 iterations for size 8, cohesion 20.
+  Completed 10 iterations for size 8, cohesion 50.
+  Completed 10 iterations for size 8, cohesion 80.
+  Completed 10 iterations for size 30, cohesion 20.
+  Completed 10 iterations for size 30, cohesion 50.
+  Completed 10 iterations for size 30, cohesion 80.
+  Completed 10 iterations for size 100, cohesion 20.
+  Completed 10 iterations for size 100, cohesion 50.
+  Completed 10 iterations for size 100, cohesion 80.
+Running iterations for algorithm: bruteForce
+  Completed 10 iterations for size 8, cohesion 20.
+  Completed 10 iterations for size 8, cohesion 50.
+  Completed 10 iterations for size 8, cohesion 80.
+  Timeout! bruteForce at size 30, cohesion 20, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 2 took longer than 30 seconds.
+  First 3 runs timed out. Cancelling remaining iterations.
+  Completed 10 iterations for size 30, cohesion 20.
+  Timeout! bruteForce at size 30, cohesion 50, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 50, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 50, iter 2 took longer than 30 seconds.
+  First 3 runs timed out. Cancelling remaining iterations.
+  Completed 10 iterations for size 30, cohesion 50.
+  Timeout! bruteForce at size 30, cohesion 80, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 80, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 80, iter 2 took longer than 30 seconds.
+  First 3 runs timed out. Cancelling remaining iterations.
+  Completed 10 iterations for size 30, cohesion 80.
+  Timeout! bruteForce at size 100, cohesion 20, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 100, cohesion 20, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 100, cohesion 20, iter 2 took longer than 30 seconds.
+  First 3 runs timed out. Cancelling remaining iterations.
+  Completed 10 iterations for size 100, cohesion 20.
+  Timeout! bruteForce at size 100, cohesion 50, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 100, cohesion 50, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 100, cohesion 50, iter 2 took longer than 30 seconds.
+  First 3 runs timed out. Cancelling remaining iterations.
+  Completed 10 iterations for size 100, cohesion 50.
+  Timeout! bruteForce at size 100, cohesion 80, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 100, cohesion 80, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 100, cohesion 80, iter 2 took longer than 30 seconds.
+  First 3 runs timed out. Cancelling remaining iterations.
+  Completed 10 iterations for size 100, cohesion 80.
+Running iterations for algorithm: anealing
+  Completed 10 iterations for size 8, cohesion 20.
+  Completed 10 iterations for size 8, cohesion 50.
+  Completed 10 iterations for size 8, cohesion 80.
+  Completed 10 iterations for size 30, cohesion 20.
+  Completed 10 iterations for size 30, cohesion 50.
+  Completed 10 iterations for size 30, cohesion 80.
+  Completed 10 iterations for size 100, cohesion 20.
+  Completed 10 iterations for size 100, cohesion 50.
+  Completed 10 iterations for size 100, cohesion 80.
+Running iterations for algorithm: tabuSearch
+  Completed 10 iterations for size 8, cohesion 20.
+  Completed 10 iterations for size 8, cohesion 50.
+  Completed 10 iterations for size 8, cohesion 80.
+  Completed 10 iterations for size 30, cohesion 20.
+  Completed 10 iterations for size 30, cohesion 50.
+  Completed 10 iterations for size 30, cohesion 80.
+  Completed 10 iterations for size 100, cohesion 20.
+  Timeout! tabuSearch at size 100, cohesion 50, iter 6 took longer than 30 seconds.
+  Completed 10 iterations for size 100, cohesion 50.
+  Completed 10 iterations for size 100, cohesion 80.
+Running iterations for algorithm: repeatedSwitch
+  Completed 10 iterations for size 8, cohesion 20.
+  Completed 10 iterations for size 8, cohesion 50.
+  Completed 10 iterations for size 8, cohesion 80.
+  Completed 10 iterations for size 30, cohesion 20.
+  Completed 10 iterations for size 30, cohesion 50.
+  Completed 10 iterations for size 30, cohesion 80.
+  Timeout! repeatedSwitch at size 100, cohesion 20, iter 0 took longer than 30 seconds.
+  Timeout! repeatedSwitch at size 100, cohesion 20, iter 3 took longer than 30 seconds.
+  Timeout! repeatedSwitch at size 100, cohesion 20, iter 4 took longer than 30 seconds.
+  Timeout! repeatedSwitch at size 100, cohesion 20, iter 6 took longer than 30 seconds.
+  Timeout! repeatedSwitch at size 100, cohesion 20, iter 8 took longer than 30 seconds.
+  Completed 10 iterations for size 100, cohesion 20.
+  Completed 10 iterations for size 100, cohesion 50.
+  Timeout! repeatedSwitch at size 100, cohesion 80, iter 0 took longer than 30 seconds.
+  Timeout! repeatedSwitch at size 100, cohesion 80, iter 1 took longer than 30 seconds.
+  Timeout! repeatedSwitch at size 100, cohesion 80, iter 3 took longer than 30 seconds.
+  Timeout! repeatedSwitch at size 100, cohesion 80, iter 7 took longer than 30 seconds.
+  Timeout! repeatedSwitch at size 100, cohesion 80, iter 8 took longer than 30 seconds.
+  Timeout! repeatedSwitch at size 100, cohesion 80, iter 9 took longer than 30 seconds.
+  Completed 10 iterations for size 100, cohesion 80.
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 8)
+================================================================================
+Algorithm                     20     50     80
+--------------------------------------------------------------------------------
+influenceListGreedy       379.9  379.9  379.9 
+randomGreedy              381.8  385.8  373.9 
+bruteForce                431.2  431.2  431.2 
+anealing                  430.1  430.7  430.5 
+tabuSearch                430.8  430.9  430.8 
+repeatedSwitch            429.6  429.3  428.5 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 30)
+================================================================================
+Algorithm                     20     50     80
+--------------------------------------------------------------------------------
+influenceListGreedy       757.7  785.1  758.6 
+randomGreedy              676.5  708.1  690.6 
+bruteForce                  DNF    DNF    DNF 
+anealing                 1361.1 1459.5 1512.1 
+tabuSearch               1352.4 1459.9 1507.6 
+repeatedSwitch           1327.2 1455.5 1500.9 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 100)
+================================================================================
+Algorithm                     20     50     80
+--------------------------------------------------------------------------------
+influenceListGreedy      1964.9 2004.5 1978.9 
+randomGreedy             1915.5 1909.8 1931.7 
+bruteForce                  DNF    DNF    DNF 
+anealing                 4137.2 4451.8 4544.5 
+tabuSearch               4515.5 4887.6 5149.7 
+repeatedSwitch           4534.6 4943.7 5152.9 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 8)
+================================================================================
+Algorithm                     20     50     80
+--------------------------------------------------------------------------------
+influenceListGreedy      0.0251 0.0264 0.0251 
+randomGreedy             0.0281 0.0293 0.0278 
+bruteForce               2.9569 3.0009 2.9694 
+anealing                 0.6147 0.6295 0.6278 
+tabuSearch               0.1199 0.1199 0.1227 
+repeatedSwitch           0.0861 0.0904 0.0859 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 30)
+================================================================================
+Algorithm                     20     50     80
+--------------------------------------------------------------------------------
+influenceListGreedy      0.0522 0.0532 0.0531 
+randomGreedy             0.0664 0.0549 0.0541 
+bruteForce                  DNF    DNF    DNF 
+anealing                 1.1922 1.2060 1.2075 
+tabuSearch               3.6699 3.9870 4.2260 
+repeatedSwitch           1.7442 1.6228 1.6643 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 100)
+================================================================================
+Algorithm                     20     50     80
+--------------------------------------------------------------------------------
+influenceListGreedy      0.0868 0.0846 0.0844 
+randomGreedy             0.1051 0.1086 0.1174 
+bruteForce                  DNF    DNF    DNF 
+anealing                 1.4879 1.4876 1.4866 
+tabuSearch               12.0222 12.0202 12.7227 
+repeatedSwitch           26.3862 25.9176 26.2560 
+
+================================================================================
+
+Results successfully written to comparison_results_260420_1748.json
