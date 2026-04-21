@@ -1,0 +1,10 @@
+Task 3 running algorithm: annealingFromFluent
+cn16.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Traceback (most recent call last):
+  File "/opt/bachelorProject/compareAlgos.py", line 25, in <module>
+srun: error: cn16: task 0: Exited with exit code 1
+    "defaultPlacement": defaultPlacement,
+                        ^^^^^^^^^^^^^^^^
+NameError: name 'defaultPlacement' is not defined

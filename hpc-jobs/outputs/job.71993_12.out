@@ -1,0 +1,6 @@
+Task 12 running algorithm: tabuSearchFromRandom
+cn12.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+srun: error: Unable to confirm allocation for job 72006: Zero Bytes were transmitted or received
+srun: Check SLURM_JOB_ID environment variable. Expired or invalid job 72006
