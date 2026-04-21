@@ -9,7 +9,7 @@ PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
-from Algorithms.Build.RandomPlacement import RandomPlacement
+from Algorithms.Build.RandomPlacement import randomPlacement
 from Utils.UtilFunctions import makeEmptyArrangement
 from Utils.printer import printArrangementWithValues
 from Utils.reader import readPeople
@@ -18,7 +18,7 @@ from Utils.reader import readPeople
 
 testInput = readPeople("./Inputs/input100People.json", "./Inputs/defaultAttributeSet.json")
 initial_arrangement = makeEmptyArrangement(len(testInput), 8)
-a = RandomPlacement(testInput, initial_arrangement)
+a = randomPlacement(testInput, initial_arrangement)
 
 
 printArrangementWithValues(a)

@@ -5,7 +5,7 @@ from Utils.UtilFunctions import getAllPeople, switch
 from Utils.ValueCalc import calcArrangement
 
 
-def AnealTwoPeople(arrangement, k=10000, seed=None):
+def annealing(arrangement, k=50000, seed=None):
     if seed is not None:
         random.seed(seed)
     allPeople = getAllPeople(arrangement)

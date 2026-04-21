@@ -1,16 +1,14 @@
-from Algorithms.Build.RandomPlacement import RandomPlacement
 from Algorithms.Optimizing.LinearSwitchPeopleSets import LinearSwitchPeopleSets
 from Utils.ValueCalc import calcArrangement
 
 
-def RepeatedLinearSwitch(input, emptyArrangement):
-    arrangement = RandomPlacement(input, emptyArrangement)
+def repeatedLinearSwitch(arrangement, v, movableCoords = None):
     best_arrangement = arrangement
     best_score = calcArrangement(arrangement)[0]
     previous_score = best_score
 
     while True:
-        arrangement = LinearSwitchPeopleSets(arrangement, 3)
+        arrangement = LinearSwitchPeopleSets(arrangement, v, movableCoords)
         score = calcArrangement(arrangement)[0]
 
         if score > best_score:
