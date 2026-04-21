@@ -1,0 +1,111 @@
+Task 2 running algorithm: randomGreedy
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomGreedy
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+  Completed 100 iterations for size 300, cohesion 0.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 20.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 50.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 80.
+  Completed 100 iterations for size 300, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 100.
+
+Results successfully written to comparison_results_randomGreedy_260421_1619.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 8)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomGreedy              389.0  390.1  392.0  391.6  388.9  392.9  387.7  389.7  390.1  390.8  392.6 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 30)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomGreedy              741.3  733.4  745.4  739.4  740.8  742.4  735.7  739.6  756.0  755.2  749.9 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 100)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomGreedy             1909.6 1909.7 1906.2 1904.3 1902.9 1892.0 1896.2 1907.9 1908.5 1902.8 1913.6 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomGreedy             5275.4 5270.8 5267.1 5266.0 5263.2 5260.4 5259.2 5263.5 5259.5 5285.2 5261.1 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 8)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomGreedy             0.0202 0.0204 0.0206 0.0206 0.0207 0.0207 0.0209 0.0209 0.0212 0.0218 0.0219 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 30)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomGreedy             0.0475 0.0470 0.0472 0.0471 0.0474 0.0472 0.0471 0.0472 0.0473 0.0474 0.0474 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 100)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomGreedy             0.0989 0.0990 0.0989 0.0991 0.0990 0.0995 0.0986 0.0986 0.0983 0.0987 0.0982 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomGreedy             0.1591 0.1594 0.1589 0.1601 0.1596 0.1597 0.1589 0.1597 0.1592 0.1586 0.1590 
+
+================================================================================
+
+Results successfully written to comparison_results_randomGreedy_260421_1619.json

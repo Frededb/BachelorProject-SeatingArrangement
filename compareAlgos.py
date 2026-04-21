@@ -1,3 +1,4 @@
+import argparse
 import json
 import time
 from generateData import generateData
@@ -12,10 +13,19 @@ import gc
 os.environ["TMPDIR"] = "/tmp"
 tempfile.tempdir = "/tmp"
 
+from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
 from Algorithms.Build.RandomGreedy import randomGreedy
+from Algorithms.Composite.AnealingFromFluent import annealingFromFluent
 from Algorithms.Composite.AnealingFromRandom import annealingFromRandom
 from Algorithms.Composite.BruteForce import bruteForceFromRandom
+from Algorithms.Composite.LinearSwitchFromFluent import linearSwitchFromFluent
+from Algorithms.Composite.LinearSwitchFromFluentProtected import linearSwitchFromFluentProtected
+from Algorithms.Composite.LinearSwitchFromRandom import linearSwitchFromRandom
+from Algorithms.Composite.RandomSwitchFromFluent import randomSwitchFromFluent
+from Algorithms.Composite.RandomSwitchFromRandom import randomSwitchFromRandom
+from Algorithms.Composite.RepeatedRandom import repeatedRandom
+from Algorithms.Composite.TabuSearchFromFluent import tabuSearchFromFluent
 from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 
     # "randomPlacement": RandomPlacement,
@@ -42,7 +52,7 @@ iterations = 100
 people_counts = [8, 30, 100, 300]
 
 
-def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False):
+def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None):
     # Helper function for JSON export safely handling DNF
     def get_avg(data_list):
         valid = [x for x in data_list if x != "DNF"]
@@ -65,12 +75,13 @@ def print_results(results, time_results, cohesion_scores, people_counts, quicksa
                         "avg_time": get_avg(time_results[algo][p][c])
                     } for c in cohesion_scores
                 } for p in people_counts
-            } for algo in ALGORITHMS
+            } for algo in results
         }
     }
     
     timestamp_file = time.strftime("%y%m%d_%H%M")
-    filename = f"comparison_results_{timestamp_file}.json"
+    algo_suffix = f"_{algo_filter}" if algo_filter else ""
+    filename = f"comparison_results{algo_suffix}_{timestamp_file}.json"
     
     with open(filename, "w") as f:
         json.dump(output_data, f, indent=4)
@@ -89,7 +100,7 @@ def run_algo_wrapper(algo_func, testInput, initial_arrangement, send_conn):
         except Exception:
             pass
 
-def compare_algos():
+def compare_algos(algo_filter=None):
     attribute_set = [
         {"index": 0, "header": "studyprogram", "kind": "traits", "weight": 3},
         {"index": 1, "header": "year", "kind": "traits", "weight": 1},
@@ -97,16 +108,21 @@ def compare_algos():
         {"index": 3, "header": "avoidances", "kind": "prefence", "weight": -30}
     ]
     
+    run_algos = {k: v for k, v in ALGORITHMS.items() if algo_filter is None or k == algo_filter}
+    if not run_algos:
+        print(f"Error: Algorithm '{algo_filter}' not found. Available: {list(ALGORITHMS.keys())}")
+        return
+
     # Initialize results
-    results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
-    time_results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
+    results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in run_algos}
+    time_results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in run_algos}
     
     attribute_set_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Inputs", "defaultAttributeSet.json")
     with open(attribute_set_file, encoding="utf-8") as f:
         attribute_set_data = json.load(f)
     attribute_set = attribute_set_data.get("attribute_set", []) if isinstance(attribute_set_data, dict) else []
     
-    for algo_name, algo_func in ALGORITHMS.items():
+    for algo_name, algo_func in run_algos.items():
         print(f"Running iterations for algorithm: {algo_name}")
         # if algo_name == "bruteForce" or algo_name == "switch4People":
         #     print("  Skipping due to expected long runtime")
@@ -203,7 +219,7 @@ def compare_algos():
                             pass
                         gc.collect()
                 print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
-        print_results(results, time_results, cohesion_scores, people_counts, quicksave=True)
+        print_results(results, time_results, cohesion_scores, people_counts, quicksave=True, algo_filter=algo_filter)
                     
     print("\n" + "="*80)
     for p_count in people_counts:
@@ -216,7 +232,7 @@ def compare_algos():
             print(f"{c:>7}", end="")
         print("\n" + "-"*80)
         
-        for algo_name in ALGORITHMS:
+        for algo_name in run_algos:
             print(f"{algo_name:<25}", end="")
             for c in cohesion_scores:
                 scores = [s for s in results[algo_name][p_count][c] if s != "DNF"]
@@ -238,7 +254,7 @@ def compare_algos():
             print(f"{c:>7}", end="")
         print("\n" + "-"*80)
         
-        for algo_name in ALGORITHMS:
+        for algo_name in run_algos:
             print(f"{algo_name:<25}", end="")
             for c in cohesion_scores:
                 times = [t for t in time_results[algo_name][p_count][c] if t != "DNF"]
@@ -250,7 +266,10 @@ def compare_algos():
             print()
         print("\n" + "="*80)
 
-    print_results(results, time_results, cohesion_scores, people_counts)
+    print_results(results, time_results, cohesion_scores, people_counts, algo_filter=algo_filter)
 
 if __name__ == "__main__":
-    compare_algos()
+    parser = argparse.ArgumentParser(description="Compare seating algorithms")
+    parser.add_argument("--algo", default=None, help="Run only this algorithm (default: run all)")
+    args = parser.parse_args()
+    compare_algos(algo_filter=args.algo)

@@ -1,0 +1,31 @@
+Task 9 running algorithm: randomSwitchFromRandom
+cn18.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromRandom
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+slurmstepd: error: *** JOB 72020 ON cn18 CANCELLED AT 2026-04-21T16:10:43 ***
+slurmstepd: error: *** STEP 72020.0 ON cn18 CANCELLED AT 2026-04-21T16:10:43 ***

@@ -24,7 +24,7 @@ From: pypy:3-slim
 
 %runscript
     # Run from the user's current directory (host $PWD) so output files save here
-    exec pypy3 /opt/bachelorProject/compareAlgos.py
+    exec pypy3 /opt/bachelorProject/compareAlgos.py "$@"
 
 %labels
     Author nick

@@ -1,0 +1,51 @@
+Task 8 running algorithm: randomSwitchFromFluent
+cn18.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromFluent
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f9b75dbea50>
+  Error in randomSwitchFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+slurmstepd: error: *** JOB 72019 ON cn18 CANCELLED AT 2026-04-21T16:10:43 ***
+slurmstepd: error: *** STEP 72019.0 ON cn18 CANCELLED AT 2026-04-21T16:10:43 ***

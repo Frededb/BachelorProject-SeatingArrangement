@@ -1,0 +1,18 @@
+Task 12 running algorithm: tabuSearchFromRandom
+cn18.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: tabuSearchFromRandom
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
