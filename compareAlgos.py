@@ -1,9 +1,6 @@
 import json
-import statistics
 import time
-import copy
 from generatData import generateData
-from Utils.Person import Person
 from Utils.ValueCalc import calcArrangement
 from Utils.UtilFunctions import makeEmptyArrangement
 from Utils.reader import parsePeople
@@ -15,27 +12,28 @@ import gc
 os.environ["TMPDIR"] = "/tmp"
 tempfile.tempdir = "/tmp"
 
-from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
 from Algorithms.Build.RandomGreedy import randomGreedy
-from Algorithms.Build.RandomPlacement import RandomPlacement
-from Algorithms.Composite.Anealing import anealingFromRandom
+from Algorithms.Composite.AnealingFromRandom import annealingFromRandom
 from Algorithms.Composite.BruteForce import bruteForceFromRandom
-from Algorithms.Composite.FluentWithSwitch import FluentWithSwitch
-from Algorithms.Composite.RandomSwitch import randomSwitchFromRandom
-from Algorithms.Composite.RepeatedRandom import repeatedRandom
-from Algorithms.Composite.tabuSearch import tabuSearchFromRandom
-from Utils.printer import printArrangementWithValues, printAsGraph
-from Algorithms.Composite.RepeatedLinearSwitch import RepeatedLinearSwitch
+from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 
     # "randomPlacement": RandomPlacement,
     # "godscore"
 ALGORITHMS = {
+    "defaultPlacement": defaultPlacement,
     "influenceListGreedy": influenceListGreedy,
     "randomGreedy": randomGreedy,
-    "anealing": anealingFromRandom,
-    "tabuSearch": tabuSearchFromRandom,
-    "repeatedSwitch": RepeatedLinearSwitch,
+    "annealingFromFluent": annealingFromFluent,
+    "annealingFromRandom": annealingFromRandom,
+    "linearSwitchFromFluent": linearSwitchFromFluent,
+    "linearSwitchFromFluentProtected": linearSwitchFromFluentProtected,
+    "linearSwitchFromRandom": linearSwitchFromRandom,
+    "randomSwitchFromFluent": randomSwitchFromFluent,
+    "randomSwitchFromRandom": randomSwitchFromRandom,
+    "repeatedRandom": repeatedRandom,
+    "tabuSearchFromFluent": tabuSearchFromFluent,
+    "tabuSearchFromRandom": tabuSearchFromRandom,
     "bruteForce": bruteForceFromRandom,
 }
 

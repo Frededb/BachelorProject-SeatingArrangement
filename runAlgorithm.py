@@ -1,7 +1,5 @@
 import os
 import sys
-import json
-from pathlib import Path
 from typing import cast
 
 # Ensure the project root is importable when this file is run directly.
@@ -10,17 +8,20 @@ if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
 
-from Algorithms.Composite.RepeatedLinearSwitch import RepeatedLinearSwitch
 from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
 from Algorithms.Build.RandomGreedy import randomGreedy
-from Algorithms.Build.RandomPlacement import RandomPlacement
-from Algorithms.Composite.Anealing import anealingFromRandom
+from Algorithms.Composite.AnealingFromFluent import annealingFromFluent
+from Algorithms.Composite.AnealingFromRandom import annealingFromRandom
 from Algorithms.Composite.BruteForce import bruteForceFromRandom
-from Algorithms.Composite.FluentWithSwitch import FluentWithSwitch
-from Algorithms.Composite.RandomSwitch import randomSwitchFromRandom
+from Algorithms.Composite.LinearSwitchFromFluent import linearSwitchFromFluent
+from Algorithms.Composite.LinearSwitchFromFluentProtected import linearSwitchFromFluentProtected
+from Algorithms.Composite.LinearSwitchFromRandom import linearSwitchFromRandom
+from Algorithms.Composite.RandomSwitchFromFluent import randomSwitchFromFluent
+from Algorithms.Composite.RandomSwitchFromRandom import randomSwitchFromRandom
 from Algorithms.Composite.RepeatedRandom import repeatedRandom
-from Algorithms.Composite.tabuSearch import tabuSearchFromRandom
+from Algorithms.Composite.TabuSearchFromFluent import tabuSearchFromFluent
+from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 from Utils.printer import printArrangementWithValues, printAsGraph
 from Utils.reader import readPeople
 
@@ -32,14 +33,17 @@ ALGORITHMS = {
     "defaultPlacement": defaultPlacement,
     "influenceListGreedy": influenceListGreedy,
     "randomGreedy": randomGreedy,
-    "randomPlacement": RandomPlacement,
-    "repeatedRandom": repeatedRandom,
-    "FluentWithSwitch": FluentWithSwitch,
-    "anealing": anealingFromRandom,
+    "annealingFromFluent": annealingFromFluent,
+    "annealingFromRandom": annealingFromRandom,
     "bruteForce": bruteForceFromRandom,
-    "randomSwitch": randomSwitchFromRandom,
-    "tabuSearch": tabuSearchFromRandom,
-    "repeatedSwitch": RepeatedLinearSwitch,
+    "linearSwitchFromFluent": linearSwitchFromFluent,
+    "linearSwitchFromFluentProtected": linearSwitchFromFluentProtected,
+    "linearSwitchFromRandom": linearSwitchFromRandom,
+    "randomSwitchFromFluent": randomSwitchFromFluent,
+    "randomSwitchFromRandom": randomSwitchFromRandom,
+    "repeatedRandom": repeatedRandom,
+    "tabuSearchFromFluent": tabuSearchFromFluent,
+    "tabuSearchFromRandom": tabuSearchFromRandom,
 }
 
 
@@ -51,7 +55,7 @@ if __name__ == "__main__":
         for algo in ALGORITHMS:
             print(f"  - {algo}")
         print("\nExample:")
-        print("  python runAlgorithm.py FluentWithSwitch Inputs/sheetOutput/Test\\ \\(svar\\)input.json Inputs/sheetOutput/Test\\ \\(svar\\)attribute_set.json")
+        print("  python runAlgorithm.py annealingFromFluent Inputs/sheetOutput/Test\\ \\(svar\\)input.json Inputs/sheetOutput/Test\\ \\(svar\\)attribute_set.json")
         raise SystemExit(1)
 
     algorithm_name = sys.argv[1]
@@ -88,7 +92,6 @@ if __name__ == "__main__":
     print(f"Using input file: {input_file}")
     print(f"Using attribute set: {attribute_set_file}")
     print(f"Number of people: {len(testInput)}")
-    print(f"Theory max: {ValueCalc.calcTheoreticalMax(testInput)}")
     print()
 
     # Create initial arrangement
