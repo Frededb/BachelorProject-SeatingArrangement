@@ -1,6 +1,6 @@
 import json
 import time
-from generatData import generateData
+from generateData import generateData
 from Utils.ValueCalc import calcArrangement
 from Utils.UtilFunctions import makeEmptyArrangement
 from Utils.reader import parsePeople
