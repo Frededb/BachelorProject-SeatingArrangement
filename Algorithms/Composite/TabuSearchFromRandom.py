@@ -1,5 +1,5 @@
 from Algorithms.Build.RandomPlacement import randomPlacement
-from Algorithms.Optimizing.tabuSearch import tabuSearch
+from Algorithms.Optimizing.TabuSearch import tabuSearch
 
 
 def tabuSearchFromRandom(input, emptyArrangement):

@@ -1,5 +1,5 @@
 from Algorithms.GroupBuild.FluentGroupsFill import fluentGroupsFill
-from Algorithms.Optimizing.tabuSearch import tabuSearch
+from Algorithms.Optimizing.TabuSearch import tabuSearch
 
 
 def tabuSearchFromFluent(input, emptyArrangement):
