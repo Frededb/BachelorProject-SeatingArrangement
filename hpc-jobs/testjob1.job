@@ -15,4 +15,4 @@ hostname
 whoami
 echo $PWD
 # python3 /home/nsio/bachelorProject/gurobi/calc_v2.py
-srun apptainer run container15.sif
+srun apptainer run container21.sif

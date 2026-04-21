@@ -1,0 +1,469 @@
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: influenceListGreedy
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+  Completed 100 iterations for size 300, cohesion 0.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 20.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 50.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 80.
+  Completed 100 iterations for size 300, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 100.
+
+Results successfully written to comparison_results_260421_0234.json
+Running iterations for algorithm: randomGreedy
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+  Completed 100 iterations for size 300, cohesion 0.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 20.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 50.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 80.
+  Completed 100 iterations for size 300, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 100.
+
+Results successfully written to comparison_results_260421_0243.json
+Running iterations for algorithm: anealing
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+  Completed 100 iterations for size 300, cohesion 0.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 20.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 50.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 80.
+  Completed 100 iterations for size 300, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 100.
+
+Results successfully written to comparison_results_260421_0415.json
+Running iterations for algorithm: tabuSearch
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 0 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 2 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 3 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 4 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 6 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 7 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 9 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 11 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 13 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 14 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 15 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 16 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 17 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 19 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 21 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 22 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 24 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 25 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 27 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 30 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 33 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 34 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 35 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 37 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 41 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 42 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 44 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 45 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 46 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 49 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 50 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 51 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 54 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 56 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 57 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 58 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 59 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 60 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 61 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 62 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 63 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 64 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 67 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 70 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 71 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 72 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 73 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 74 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 77 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 79 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 82 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 83 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 84 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 85 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 86 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 87 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 88 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 90 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 92 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 94 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 95 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 96 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 97 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 98 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 0, iter 99 took longer than 30 seconds.
+  Completed 100 iterations for size 300, cohesion 0.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 0 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 1 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 2 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 3 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 4 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 6 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 7 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 8 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 9 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 10 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 11 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 12 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 13 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 14 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 15 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 16 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 17 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 18 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 19 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 21 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 22 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 23 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 24 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 25 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 27 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 29 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 30 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 31 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 32 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 33 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 35 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 38 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 39 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 40 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 42 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 43 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 44 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 45 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 46 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 47 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 48 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 49 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 50 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 51 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 52 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 54 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 55 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 56 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 58 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 59 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 60 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 62 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 63 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 64 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 65 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 66 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 68 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 71 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 72 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 73 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 74 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 75 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 76 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 77 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 78 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 79 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 80 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 81 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 82 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 83 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 84 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 86 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 87 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 89 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 90 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 91 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 93 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 94 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 97 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 10, iter 99 took longer than 30 seconds.
+  Completed 100 iterations for size 300, cohesion 10.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 2 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 3 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 4 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 5 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 7 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 8 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 10 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 11 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 13 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 14 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 16 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 18 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 19 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 20 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 21 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 22 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 23 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 24 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 25 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 27 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 28 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 29 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 30 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 31 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 33 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 36 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 37 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 38 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 42 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 43 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 44 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 46 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 47 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 49 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 50 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 53 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 55 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 57 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 58 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 62 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 63 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 64 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 65 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 67 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 68 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 70 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 71 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 72 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 73 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 74 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 75 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 76 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 77 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 79 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 81 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 82 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 83 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 84 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 85 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 86 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 88 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 89 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 92 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 93 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 94 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 95 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 96 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 98 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 20, iter 99 took longer than 30 seconds.
+  Completed 100 iterations for size 300, cohesion 20.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 0 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 1 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 2 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 3 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 4 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 5 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 6 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 8 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 9 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 10 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 11 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 12 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 13 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 14 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 15 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 17 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 18 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 19 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 21 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 22 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 23 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 24 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 25 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 26 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 28 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 29 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 31 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 32 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 33 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 34 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 35 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 37 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 40 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 42 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 45 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 46 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 48 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 51 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 52 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 54 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 55 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 56 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 57 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 58 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 59 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 60 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 62 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 63 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 64 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 65 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 66 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 67 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 69 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 70 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 71 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 72 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 73 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 76 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 78 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 80 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 81 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 82 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 84 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 85 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 88 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 89 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 91 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 92 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 93 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 94 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 95 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 96 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 97 took longer than 30 seconds.
+  Timeout! tabuSearch at size 300, cohesion 30, iter 98 took longer than 30 seconds.

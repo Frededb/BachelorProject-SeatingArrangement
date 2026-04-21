@@ -6,10 +6,11 @@ from generatData import generateData
 from Utils.Person import Person
 from Utils.ValueCalc import calcArrangement
 from Utils.UtilFunctions import makeEmptyArrangement
-from Utils.reader import readPeople
+from Utils.reader import parsePeople
 import os
 import tempfile
 import multiprocessing
+import gc
 
 os.environ["TMPDIR"] = "/tmp"
 tempfile.tempdir = "/tmp"
@@ -37,6 +38,10 @@ ALGORITHMS = {
     "repeatedSwitch": RepeatedLinearSwitch,
     "bruteForce": bruteForceFromRandom,
 }
+
+cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+iterations = 100
+people_counts = [8, 30, 100, 300]
 
 
 def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False):
@@ -73,15 +78,18 @@ def print_results(results, time_results, cohesion_scores, people_counts, quicksa
         json.dump(output_data, f, indent=4)
     print(f"\nResults successfully written to {filename}")
 
-def run_algo_wrapper(algo_func, testInput, initial_arrangement, return_dict):
+def run_algo_wrapper(algo_func, testInput, initial_arrangement, send_conn):
     try:
         result = algo_func(testInput, initial_arrangement)
         totalValue, _, _ = calcArrangement(result)
-        return_dict['value'] = totalValue
-        return_dict['success'] = True
+        send_conn.send({'success': True, 'value': totalValue})
     except Exception as e:
-        return_dict['error'] = str(e)
-        return_dict['success'] = False
+        send_conn.send({'success': False, 'error': str(e)})
+    finally:
+        try:
+            send_conn.close()
+        except Exception:
+            pass
 
 def compare_algos():
     attribute_set = [
@@ -91,17 +99,14 @@ def compare_algos():
         {"index": 3, "header": "avoidances", "kind": "prefence", "weight": -30}
     ]
     
-    cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    iterations = 100
-    people_counts = [8, 30, 100, 300]
-    
     # Initialize results
     results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
     time_results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in ALGORITHMS}
     
-    # Create an output path for the temporary generated data in /tmp to avoid read-only FS in container
-    temp_output_file = "/tmp/compareGenerated.json"
     attribute_set_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Inputs", "defaultAttributeSet.json")
+    with open(attribute_set_file, encoding="utf-8") as f:
+        attribute_set_data = json.load(f)
+    attribute_set = attribute_set_data.get("attribute_set", []) if isinstance(attribute_set_data, dict) else []
     
     for algo_name, algo_func in ALGORITHMS.items():
         print(f"Running iterations for algorithm: {algo_name}")
@@ -112,64 +117,96 @@ def compare_algos():
             for c in cohesion_scores:
                 timeouts_limit = 10
                 for i in range(iterations):
-                    generateData(p_count, c, temp_output_file, seed=i*157)
+                    people_data = generateData(p_count, c, seed=i*157)
                 
                     # Always read fresh Person objects for each algorithm to avoid mutation
                     try:
-                        testInput = readPeople(temp_output_file, attribute_set_file)
+                        p = None
+                        recv_conn = None
+                        send_conn = None
+                        
+                        testInput = parsePeople({"people": people_data}, attribute_set)
                         initial_arrangement = makeEmptyArrangement(len(testInput), 8)
                     
-                        with multiprocessing.Manager() as manager:
-                            return_dict = manager.dict()
-                            return_dict['success'] = False
+                        recv_conn, send_conn = multiprocessing.Pipe(duplex=False)
+                        
+                        start_time = time.time()
+                        p = multiprocessing.Process(target=run_algo_wrapper, args=(algo_func, testInput, initial_arrangement, send_conn))
+                        p.start()
+                        
+                        # Close the write end in the parent process so it doesn't hang
+                        send_conn.close()
+                        send_conn = None
+                        
+                        limit = 30
+                        p.join(limit) # timeout
+                        
+                        if p.is_alive():
+                            print(f"  Timeout! {algo_name} at size {p_count}, cohesion {c}, iter {i} took longer than {limit} seconds.")
+                            p.terminate()
+                            p.join()
+                            p.close()
+                            if recv_conn:
+                                recv_conn.close()
+                                recv_conn = None
+                            results[algo_name][p_count][c].append("DNF")
+                            time_results[algo_name][p_count][c].append("DNF")
                             
-                            start_time = time.time()
-                            p = multiprocessing.Process(target=run_algo_wrapper, args=(algo_func, testInput, initial_arrangement, return_dict))
-                            p.start()
-                            limit = 30
-                            p.join(limit) # timeout
+                            timeouts_limit -= 1
+                            if timeouts_limit == 0:
+                                print(f"  First 10 runs timed out. Cancelling remaining iterations.")
+                                remaining = iterations - (i + 1)
+                                results[algo_name][p_count][c].extend(["DNF"] * remaining)
+                                time_results[algo_name][p_count][c].extend(["DNF"] * remaining)
+                                break
                             
-                            if p.is_alive():
-                                print(f"  Timeout! {algo_name} at size {p_count}, cohesion {c}, iter {i} took longer than {limit} seconds.")
-                                p.terminate()
-                                p.join()
-                                results[algo_name][p_count][c].append("DNF")
-                                time_results[algo_name][p_count][c].append("DNF")
-                                
-                                timeouts_limit -= 1
-                                if timeouts_limit == 0:
-                                    print(f"  First 3 runs timed out. Cancelling remaining iterations.")
-                                    remaining = iterations - (i + 1)
-                                    results[algo_name][p_count][c].extend(["DNF"] * remaining)
-                                    time_results[algo_name][p_count][c].extend(["DNF"] * remaining)
-                                    break
-                                
-                                continue
-                                
-                            timeouts_limit = -1
-                            end_time = time.time()
+                            continue
                             
-                            if return_dict.get('success'):
-                                totalValue = return_dict['value']
-                                results[algo_name][p_count][c].append(totalValue)
-                                time_results[algo_name][p_count][c].append(end_time - start_time)
-                            else:
-                                error_msg = return_dict.get('error', 'Unknown Error')
-                                print(f"  Error in {algo_name} at cohesion {c}, iter {i}: {error_msg}")
-                                results[algo_name][p_count][c].append("DNF")
-                                time_results[algo_name][p_count][c].append("DNF")
+                        timeouts_limit = -1
+                        end_time = time.time()
+                        
+                        return_dict = {'success': False, 'error': f'Process crashed or returned no output, exitcode: {p.exitcode}'}
+                        if p.exitcode == 0:
+                            if recv_conn.poll(0.1):  # Wait up to 0.1s to read success state from the pipe
+                                try:
+                                    return_dict = recv_conn.recv()
+                                except EOFError:
+                                    pass
+                        
+                        recv_conn.close()
+                        recv_conn = None
+                        p.close()
+                        
+                        if return_dict.get('success'):
+                            totalValue = return_dict['value']
+                            results[algo_name][p_count][c].append(totalValue)
+                            time_results[algo_name][p_count][c].append(end_time - start_time)
+                        else:
+                            error_msg = return_dict.get('error', 'Unknown Error')
+                            print(f"  Error in {algo_name} at cohesion {c}, iter {i}: {error_msg}")
+                            results[algo_name][p_count][c].append("DNF")
+                            time_results[algo_name][p_count][c].append("DNF")
                             
                     except Exception as e:
                         print(f"  Error setting up {algo_name} at cohesion {c}, iter {i}: {e}")
                         results[algo_name][p_count][c].append("DNF")
                         time_results[algo_name][p_count][c].append("DNF")
+                    finally:
+                        for obj in [send_conn, recv_conn]:
+                            try:
+                                if obj:
+                                    obj.close()
+                            except Exception:
+                                pass
+                        try:
+                            if p:
+                                p.close()
+                        except Exception:
+                            pass
+                        gc.collect()
                 print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
         print_results(results, time_results, cohesion_scores, people_counts, quicksave=True)
                     
-    # Clean up temp file
-    if os.path.exists(temp_output_file):
-        os.remove(temp_output_file)
-
     print("\n" + "="*80)
     for p_count in people_counts:
         print(f"AVERAGE ARRANGEMENT SCORES (People: {p_count})")

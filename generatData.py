@@ -2,7 +2,7 @@ import json
 import random
 import os
 
-def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_chance, double_wish_chance, group_cohesion=80, output_file="generated_data.json"):
+def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_chance, double_wish_chance, group_cohesion=80, output_file=None):
     """
     Generate randomized student preference data.
     
@@ -159,13 +159,13 @@ def generate_data(people_count, wish_count_dist, avoidance_count_dist, wishback_
         person["attributes"][2] = list(preferences[name])
         person["attributes"][3] = list(avoidances[name])
 
-    output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), output_file)
-
-    with open(output_path, 'w') as f:
-        json.dump({
-            "schema_version": 1,
-            "people": people
-        }, f, indent=4)
+    if output_file is not None:
+        output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), output_file)
+        with open(output_path, 'w') as f:
+            json.dump({
+                "schema_version": 1,
+                "people": people
+            }, f, indent=4)
         
     return people
 
@@ -190,7 +190,7 @@ if __name__ == "__main__":
         output_file="Inputs/generated100.json"
     )
 
-def generateData(count, cohesion, output_file, seed=None):
+def generateData(count, cohesion, seed=None):
     if seed is not None:
         random.seed(seed)
     
@@ -201,5 +201,4 @@ def generateData(count, cohesion, output_file, seed=None):
         wishback_chance=0.6073,
         double_wish_chance=0.5071,
         group_cohesion=cohesion,
-        output_file=output_file
     )

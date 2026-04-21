@@ -5,6 +5,23 @@ try:
 except ImportError:
     from Person import Person
 
+def parsePeople(input_data, attribute_set):
+    # Parse people from input data
+    people = []
+    if isinstance(input_data, dict):
+        rows = input_data.get("people", [])
+        if isinstance(rows, list):
+            for row in rows:
+                if isinstance(row, dict):
+                    person_id = row.get("id")
+                    if isinstance(person_id, str) and person_id.strip():
+                        attributes = row.get("attributes", [])
+                        if not isinstance(attributes, list):
+                            attributes = []
+                        person = Person(person_id.strip(), attributes=attributes, attribute_set=attribute_set)
+                        people.append(person)
+
+    return people
 
 def readPeople(input_file_path, attribute_set_file_path):
     """Load people input and combine with attribute_set from separate files"""
@@ -27,21 +44,7 @@ def readPeople(input_file_path, attribute_set_file_path):
     with open(input_file_path, encoding="utf-8") as f:
         input_data = json.load(f)
 
-    # Parse people from input data
-    people = []
-    if isinstance(input_data, dict):
-        rows = input_data.get("people", [])
-        if isinstance(rows, list):
-            for row in rows:
-                if isinstance(row, dict):
-                    person_id = row.get("id")
-                    if isinstance(person_id, str) and person_id.strip():
-                        attributes = row.get("attributes", [])
-                        if not isinstance(attributes, list):
-                            attributes = []
-                        person = Person(person_id.strip(), attributes=attributes, attribute_set=attribute_set)
-                        people.append(person)
+    return parse_people(input_data, attribute_set)
 
-    return people
 
 emptyPerson = Person("Empty", attributes=[], attribute_set=[])
