@@ -4,4 +4,3 @@ __pycache__
 .vscode
 Inputs/realData
 Inputs/temp
-comparison_results*.json
