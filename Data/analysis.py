@@ -1,7 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('../Data/flattened_experiments_data.csv')
+df = pd.read_csv('flattened_experiments_data.csv')
+
+# Convert score and time to numeric types, coercing invalid values to NaN
+df['score'] = pd.to_numeric(df['score'], errors='coerce')
+df['time'] = pd.to_numeric(df['time'], errors='coerce')
+
+# Remove rows with NaN values
+df = df.dropna()
 
 # print(df)
 
@@ -28,3 +35,6 @@ summary_c0.pivot(
 )
 
 plt.show()
+# plt.savefig('performance_plot.png', dpi=300, bbox_inches='tight')
+# print("Plot saved as 'performance_plot.png'")
+# print(f"Plot shows performance comparison of {len(summary_c0['algorithm'].unique())} algorithms with 100 people across {len(summary_c0['cohesion'].unique())} cohesion levels")
