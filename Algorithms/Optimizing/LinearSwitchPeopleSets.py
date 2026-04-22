@@ -1,5 +1,7 @@
 import itertools
 import math
+import time
+from copy import deepcopy
 
 from Utils.UtilFunctions import getAllPeople
 from Utils.ValueCalc import calcTable
@@ -39,7 +41,17 @@ def _revert_switch(arrangement, permutation):
     arrangement[first_table_index][first_seat_index] = last_value
 
 
-def _run_switch_size(arrangement, switch_size, coords, verbose):
+def _run_switch_size(arrangement, switch_size, coords, verbose, start_time=None, max_seconds=None):
+    """Run switch optimization for a specific swap size.
+    
+    Args:
+        arrangement: The arrangement to optimize.
+        switch_size: Size of swaps to perform (2, 3, etc.).
+        coords: Coordinates of people to consider.
+        verbose: Whether to print progress.
+        start_time: Perf counter start time for timeout tracking.
+        max_seconds: Maximum seconds allowed; returns early if timeout.
+    """
     iterator = itertools.combinations(coords, 2) if switch_size == 2 else itertools.permutations(coords, switch_size)
     apply_switch = _apply_switch
     revert_switch = _revert_switch
@@ -54,6 +66,11 @@ def _run_switch_size(arrangement, switch_size, coords, verbose):
 
     counter = 0
     for permutation in iterator:
+        # Check timeout regularly
+        if max_seconds is not None and start_time is not None:
+            if (time.perf_counter() - start_time) >= max_seconds:
+                return  # Exit early on timeout
+        
         affected_tables = {table_index for table_index, _ in permutation}
         pre_value_total = score_affected_tables(arrangement, affected_tables)
 
@@ -68,15 +85,30 @@ def _run_switch_size(arrangement, switch_size, coords, verbose):
             if progress_interval and counter % progress_interval == 0:
                 print(f"Progress for switch size {switch_size}: {counter}/{iter_len} ({(counter / iter_len) * 100:.2f}%)")
 
-def LinearSwitchPeopleSets(arrangement, v, coords=None, verbose = False):
+
+def LinearSwitchPeopleSets(arrangement, v, coords=None, verbose=False, max_seconds=None):
+    """Run linear switch optimization with multiple swap sizes.
+    
+    Args:
+        arrangement: List of tables to optimize.
+        v: Maximum switch size (2, 3, ..., v).
+        coords: Optional specific coordinates to consider.
+        verbose: Whether to print progress.
+        max_seconds: Optional timeout in seconds.
+    
+    Returns:
+        The arrangement after optimization.
+    """
     if v < 2:
         raise ValueError("v must be greater than or equal to 2")
 
     if coords is None:
         coords = getAllPeople(arrangement)
 
+    start_time = time.perf_counter() if max_seconds is not None else None
+
     for switch_size in range(2, v + 1):
-        _run_switch_size(arrangement, switch_size, coords, verbose)
+        _run_switch_size(arrangement, switch_size, coords, verbose, start_time, max_seconds)
 
     return arrangement
 
