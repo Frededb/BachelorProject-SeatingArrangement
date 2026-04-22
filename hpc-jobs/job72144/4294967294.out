@@ -1,0 +1,33 @@
+Task  running algorithm: defaultPlacement
+cn8.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+INFO:    squashfuse_ll mount took an unexpectedly long time: 2.975s
+Running iterations for algorithm: defaultPlacement
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2120.json
+Running iterations for algorithm: influenceListGreedy
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2121.json
+Running iterations for algorithm: randomGreedy
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2121.json
+Running iterations for algorithm: annealingFromFluent

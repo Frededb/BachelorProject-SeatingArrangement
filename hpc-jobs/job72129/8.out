@@ -1,0 +1,19 @@
+Task 8 running algorithm: randomSwitchFromFluent
+cn17.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Running iterations for algorithm: defaultPlacement
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2119.json
+Running iterations for algorithm: influenceListGreedy
+  Completed 100 iterations for size 8, cohesion 0.
+slurmstepd: error: *** JOB 72138 ON cn17 CANCELLED AT 2026-04-21T21:19:14 ***
+slurmstepd: error: *** STEP 72138.0 ON cn17 CANCELLED AT 2026-04-21T21:19:14 ***
+srun: error: cn17: task 0: Terminated
+srun: Force Terminated StepId=72138.0

@@ -1,0 +1,68 @@
+Task 0 running algorithm: defaultPlacement
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: defaultPlacement
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+  Completed 100 iterations for size 300, cohesion 0.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 20.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 50.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 80.
+  Completed 100 iterations for size 300, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 100.
+Traceback (most recent call last):
+  File "/opt/bachelorProject/compareAlgos.py", line 275, in <module>
+    compare_algos(algo_filter=args.algo)
+  File "/opt/bachelorProject/compareAlgos.py", line 222, in compare_algos
+    print_results(results, time_results, cohesion_scores, people_counts, quicksave=True, algo_filter=algo_filter)
+  File "/opt/bachelorProject/compareAlgos.py", line 68, in print_results
+    "results": {
+               ^
+  File "/opt/bachelorProject/compareAlgos.py", line 69, in <dictcomp>
+    algo: {
+          ^
+  File "/opt/bachelorProject/compareAlgos.py", line 70, in <dictcomp>
+    str(p): {
+            ^
+  File "/opt/bachelorProject/compareAlgos.py", line 72, in <dictcomp>
+    "scores": results[algo][p][c],
+              ~~~~~~~^^^^^^
+KeyError: 'influenceListGreedy'
+srun: error: cn14: task 0: Exited with exit code 1

@@ -1,0 +1,7 @@
+slurmstepd: error: *** JOB 72133 ON cn8 CANCELLED AT 2026-04-21T21:19:15 ***
+Task 3 running algorithm: annealingFromFluent
+cn8.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+srun: error: Slurm job 72133 has expired
+srun: Check SLURM_JOB_ID environment variable. Expired or invalid job 72133
