@@ -105,6 +105,9 @@ class SeatingApp:
         self._drag_item: dict[str, str] | None = None
         self._drag_source: str | None = None
         self._drag_index: int | None = None
+        self._drag_ghost: tk.Toplevel | None = None
+        self._drag_ghost_label: ttk.Label | None = None
+        self._drop_preview_index: int | None = None
         self._build_ui()
 
     def _build_ui(self) -> None:
@@ -145,13 +148,27 @@ class SeatingApp:
         ttk.Label(self.custom_frame, text="Drag stages from here").grid(row=0, column=1, sticky="w")
         ttk.Label(self.custom_frame, text="Drop/reorder stages here").grid(row=0, column=3, sticky="w")
 
-        self.available_stages_listbox = tk.Listbox(self.custom_frame, height=7, activestyle="dotbox", exportselection=False)
+        self.available_stages_listbox = tk.Listbox(
+            self.custom_frame,
+            height=7,
+            activestyle="none",
+            exportselection=False,
+            selectbackground="#d9d9d9",
+            selectforeground="#111111",
+        )
         available_scrollbar = ttk.Scrollbar(self.custom_frame, orient="vertical", command=self.available_stages_listbox.yview)
         self.available_stages_listbox.configure(yscrollcommand=available_scrollbar.set)
         self.available_stages_listbox.grid(row=1, column=1, sticky="nsew", padx=(12, 0))
         available_scrollbar.grid(row=1, column=2, sticky="ns")
 
-        self.pipeline_listbox = tk.Listbox(self.custom_frame, height=7, activestyle="dotbox", exportselection=False)
+        self.pipeline_listbox = tk.Listbox(
+            self.custom_frame,
+            height=7,
+            activestyle="none",
+            exportselection=False,
+            selectbackground="#d9d9d9",
+            selectforeground="#111111",
+        )
         pipeline_scrollbar = ttk.Scrollbar(self.custom_frame, orient="vertical", command=self.pipeline_listbox.yview)
         self.pipeline_listbox.configure(yscrollcommand=pipeline_scrollbar.set)
         self.pipeline_listbox.grid(row=1, column=3, sticky="nsew", padx=(12, 0))
@@ -216,8 +233,7 @@ class SeatingApp:
 
         self.available_stages_listbox.bind("<ButtonPress-1>", self._on_available_drag_start)
         self.pipeline_listbox.bind("<ButtonPress-1>", self._on_pipeline_drag_start)
-        self.available_stages_listbox.bind("<B1-Motion>", self._on_drag_motion)
-        self.pipeline_listbox.bind("<B1-Motion>", self._on_drag_motion)
+        self.root.bind_all("<B1-Motion>", self._on_drag_motion, add="+")
         self.root.bind_all("<ButtonRelease-1>", self._on_global_drop, add="+")
 
         self._refresh_available_stages_list()
@@ -257,6 +273,49 @@ class SeatingApp:
         self._drag_source = None
         self._drag_index = None
         self._drag_item = None
+        self._clear_drop_preview()
+        self._destroy_drag_ghost()
+
+    def _show_drag_ghost(self, text: str, x_root: int, y_root: int) -> None:
+        self._destroy_drag_ghost()
+        ghost = tk.Toplevel(self.root)
+        ghost.overrideredirect(True)
+        ghost.attributes("-topmost", True)
+        ghost.configure(bg="#4a4a4a")
+        label = ttk.Label(ghost, text=text, padding=(8, 4))
+        label.pack()
+        ghost.geometry(f"+{x_root + 12}+{y_root + 12}")
+        self._drag_ghost = ghost
+        self._drag_ghost_label = label
+
+    def _move_drag_ghost(self, x_root: int, y_root: int) -> None:
+        if self._drag_ghost is None:
+            return
+        self._drag_ghost.geometry(f"+{x_root + 12}+{y_root + 12}")
+
+    def _destroy_drag_ghost(self) -> None:
+        if self._drag_ghost is not None:
+            self._drag_ghost.destroy()
+        self._drag_ghost = None
+        self._drag_ghost_label = None
+
+    def _clear_drop_preview(self) -> None:
+        if self._drop_preview_index is not None and 0 <= self._drop_preview_index < self.pipeline_listbox.size():
+            default_bg = str(self.pipeline_listbox.cget("bg"))
+            self.pipeline_listbox.itemconfig(self._drop_preview_index, background=default_bg)
+        self._drop_preview_index = None
+
+    def _set_drop_preview(self, index: int) -> None:
+        size = self.pipeline_listbox.size()
+        if size <= 0:
+            self._clear_drop_preview()
+            return
+        clamped = max(0, min(index, size - 1))
+        if self._drop_preview_index == clamped:
+            return
+        self._clear_drop_preview()
+        self.pipeline_listbox.itemconfig(clamped, background="#eef4ff")
+        self._drop_preview_index = clamped
 
     def _listbox_drop_index(self, listbox: tk.Listbox, local_y: int) -> int:
         size = listbox.size()
@@ -269,6 +328,14 @@ class SeatingApp:
         if bbox and local_y > (bbox[1] + (bbox[3] // 2)):
             nearest_index += 1
         return max(0, min(nearest_index, size))
+
+    def _is_widget_or_descendant(self, target: tk.Widget | None, ancestor: tk.Widget) -> bool:
+        current = target
+        while current is not None:
+            if current == ancestor:
+                return True
+            current = getattr(current, "master", None)
+        return False
 
     def _on_available_drag_start(self, event: tk.Event) -> None:
         if self.selected_algorithm_var.get() != "buildOwn":
@@ -285,6 +352,7 @@ class SeatingApp:
         if not isinstance(item, dict):
             return
         self._set_drag_state("available", index, item)
+        self._show_drag_ghost(self._format_pipeline_item(item), event.x_root, event.y_root)
 
     def _on_pipeline_drag_start(self, event: tk.Event) -> None:
         if self.selected_algorithm_var.get() != "buildOwn":
@@ -301,24 +369,25 @@ class SeatingApp:
         if not isinstance(item, dict):
             return
         self._set_drag_state("pipeline", index, item)
+        self._show_drag_ghost(self._format_pipeline_item(item), event.x_root, event.y_root)
 
     def _on_drag_motion(self, event: tk.Event) -> None:
         if self.selected_algorithm_var.get() != "buildOwn":
             return
         if self._drag_item is None:
             return
+        self._move_drag_ghost(event.x_root, event.y_root)
         target = self.root.winfo_containing(event.x_root, event.y_root)
-        if target is not self.pipeline_listbox:
+        if not self._is_widget_or_descendant(target, self.pipeline_listbox):
+            self._clear_drop_preview()
             return
         local_y = event.y_root - self.pipeline_listbox.winfo_rooty()
         size = self.pipeline_listbox.size()
         if size <= 0:
-            self.pipeline_listbox.selection_clear(0, tk.END)
+            self._clear_drop_preview()
             return
         index = self._listbox_drop_index(self.pipeline_listbox, local_y)
-        highlight_index = min(index, size - 1)
-        self.pipeline_listbox.selection_clear(0, tk.END)
-        self.pipeline_listbox.selection_set(highlight_index)
+        self._set_drop_preview(index)
 
     def _on_global_drop(self, event: tk.Event) -> None:
         if self._drag_item is None:
@@ -328,7 +397,7 @@ class SeatingApp:
             return
 
         target = self.root.winfo_containing(event.x_root, event.y_root)
-        if target is not self.pipeline_listbox:
+        if not self._is_widget_or_descendant(target, self.pipeline_listbox):
             self._reset_drag_state()
             return
 
@@ -351,7 +420,7 @@ class SeatingApp:
 
         self._refresh_pipeline_list()
         self.pipeline_listbox.selection_clear(0, tk.END)
-        self.pipeline_listbox.selection_set(selected_index)
+        self.pipeline_listbox.activate(selected_index)
         self.pipeline_listbox.see(selected_index)
         self._reset_drag_state()
 

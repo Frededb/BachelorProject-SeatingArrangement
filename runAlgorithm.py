@@ -28,7 +28,7 @@ from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 from Algorithms.Disruption.TearDown import TearDown
 from Algorithms.Optimizing.Anealing import annealing
 from Algorithms.Optimizing.BruteForce import bruteForce
-from Algorithms.Optimizing.LinearSwitchPeopleSets import LinearSwitchPeopleSets, linearSwitchPeopleEachTable
+from Algorithms.Optimizing.LinearSwitchPeopleSets import linearSwitchPeopleEachTable
 from Algorithms.Optimizing.RandomSwitch import randomSwitch
 from Algorithms.Optimizing.RepeatedLinearSwitch import repeatedLinearSwitch
 from Algorithms.Optimizing.Switch2PeopleRandom import Switch2PeopleRandom
