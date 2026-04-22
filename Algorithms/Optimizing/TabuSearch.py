@@ -6,6 +6,7 @@ This module keeps the same in-place optimization style used in the rest of the p
 """
 
 import random
+import time
 from copy import deepcopy
 
 from Utils.UtilFunctions import getAllPeople, switch
@@ -105,21 +106,23 @@ def _sample_pairs(rng, seat_indices, neighborhood_size):
 
 def tabuSearch(
     arrangement,
-    iterations=150000,
-    tabu_tenure=30,
-    neighborhood_size=120,
-    max_no_improve=300,
+    iterations=None,
+    tabu_tenure=None,
+    neighborhood_size=None,
+    max_no_improve=None,
     seed=None,
+    max_seconds=None,
 ):
     """Run tabu search using swap moves and return the best arrangement found.
 
     Args:
         arrangement: List of tables; each table is a list of Person objects.
-        iterations: Maximum number of tabu iterations.
-        tabu_tenure: Number of iterations a chosen move remains tabu.
-        neighborhood_size: Number of candidate swap moves sampled per iteration.
-        max_no_improve: Early-stop threshold for consecutive non-improving iterations.
+        iterations: Maximum number of tabu iterations. If None, derived from dataset size.
+        tabu_tenure: Number of iterations a chosen move remains tabu. If None, derived from size.
+        neighborhood_size: Number of candidate swap moves sampled per iteration. If None, derived from size.
+        max_no_improve: Early-stop threshold for consecutive non-improving iterations. If None, derived from size.
         seed: Optional deterministic seed for reproducible neighborhood sampling.
+        max_seconds: Optional wall-clock cap; returns best-so-far when the limit is reached.
 
     Returns:
         The same arrangement object, overwritten with the best state discovered.
@@ -128,6 +131,20 @@ def tabuSearch(
     rng = random.Random(seed)
     # Seat coordinates used for generating swap candidates.
     seat_indices = getAllPeople(arrangement)
+    seat_count = len(seat_indices)
+    max_pairs = seat_count * (seat_count - 1) // 2
+
+    # Scale defaults with dataset size so one setting works across small and large instances.
+    if tabu_tenure is None:
+        tabu_tenure = max(7, min(60, int(round(0.08 * seat_count))))
+    if neighborhood_size is None:
+        neighborhood_size = min(max_pairs, max(20, 10 * seat_count))
+    if max_no_improve is None:
+        max_no_improve = max(50, 2 * seat_count)
+    if iterations is None:
+        iterations = max(2000, 120 * seat_count)
+
+    start_time = time.perf_counter()
 
     # Starting arrangement score.
     current_score = calcArrangement(arrangement)[0]
@@ -143,6 +160,9 @@ def tabuSearch(
 
     # Main tabu loop.
     for iteration in range(1, iterations + 1):
+        if max_seconds is not None and (time.perf_counter() - start_time) >= max_seconds:
+            break
+
         # Best admissible move in this iteration.
         best_move = None
         # Best resulting score among evaluated candidate moves.
@@ -150,6 +170,9 @@ def tabuSearch(
 
         # Evaluate a sampled neighborhood of swaps.
         for person_a, person_b in _sample_pairs(rng, seat_indices, neighborhood_size):
+            if max_seconds is not None and (time.perf_counter() - start_time) >= max_seconds:
+                break
+
             # Normalize move identity for tabu lookup.
             move = _move_key(person_a, person_b)
             # A move is tabu while its expiry is in the future.
