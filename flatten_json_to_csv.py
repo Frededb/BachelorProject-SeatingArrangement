@@ -40,7 +40,7 @@ for json_file in sorted(json_dir.glob('*.json')):
 df = pd.DataFrame(rows)
 
 # Save to CSV in Data folder
-df.to_csv('Data/flattened_experiments_data.csv', index=False)
+df.to_csv('Data/flattened_composite_experiments_data.csv', index=False)
 
 print(f"\nData flattened and saved to Data/flattened_experiments_data.csv")
 print(f"Total rows: {len(df)}")
