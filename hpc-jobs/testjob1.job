@@ -37,4 +37,5 @@ hostname
 whoami
 echo $PWD
 
-srun apptainer run container24.sif --algo "$ALGO"
+srun apptainer run container24.sif 
+#--algo "$ALGO"

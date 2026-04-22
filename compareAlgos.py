@@ -47,9 +47,9 @@ ALGORITHMS = {
     "bruteForce": bruteForceFromRandom,
 }
 
-cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+cohesion_scores = [0, 10, 20]#, 30, 40, 50, 60, 70, 80, 90, 100]
 iterations = 100
-people_counts = [8, 30, 100, 300]
+people_counts = [8, 30]#, 100, 300]
 
 
 def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None):
