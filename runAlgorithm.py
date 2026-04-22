@@ -22,7 +22,6 @@ from Algorithms.Composite.LinearSwitchFromFluentProtected import linearSwitchFro
 from Algorithms.Composite.LinearSwitchFromRandom import linearSwitchFromRandom
 from Algorithms.Composite.RandomSwitchFromFluent import randomSwitchFromFluent
 from Algorithms.Composite.RandomSwitchFromRandom import randomSwitchFromRandom
-from Algorithms.Composite.RepeatedRandom import repeatedRandom
 from Algorithms.Composite.TabuSearchFromFluent import tabuSearchFromFluent
 from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 from Algorithms.Disruption.TearDown import TearDown
@@ -31,7 +30,6 @@ from Algorithms.Optimizing.BruteForce import bruteForce
 from Algorithms.Optimizing.LinearSwitchPeopleSets import linearSwitchPeopleEachTable
 from Algorithms.Optimizing.RandomSwitch import randomSwitch
 from Algorithms.Optimizing.RepeatedLinearSwitch import repeatedLinearSwitch
-from Algorithms.Optimizing.Switch2PeopleRandom import Switch2PeopleRandom
 from Algorithms.Optimizing.TabuSearch import tabuSearch
 from Utils.printer import printArrangementWithValues, printAsGraph
 from Utils.reader import readPeople
@@ -41,9 +39,6 @@ from Utils.UtilFunctions import makeEmptyArrangement, makeEmptyArrangementFromTa
 
 
 ALGORITHMS = {
-    "defaultPlacement": defaultPlacement,
-    "influenceListGreedy": influenceListGreedy,
-    "randomGreedy": randomGreedy,
     "annealingFromFluent": annealingFromFluent,
     "annealingFromRandom": annealingFromRandom,
     "bruteForce": bruteForceFromRandom,
@@ -52,7 +47,6 @@ ALGORITHMS = {
     "linearSwitchFromRandom": linearSwitchFromRandom,
     "randomSwitchFromFluent": randomSwitchFromFluent,
     "randomSwitchFromRandom": randomSwitchFromRandom,
-    "repeatedRandom": repeatedRandom,
     "tabuSearchFromFluent": tabuSearchFromFluent,
     "tabuSearchFromRandom": tabuSearchFromRandom,
 }
@@ -86,7 +80,6 @@ OPTIMIZING_ALGORITHMS = {
     "linearSwitchPeopleEachTable(v=3)": _linear_switch_each_table_v3,
     "randomSwitch": randomSwitch,
     "repeatedLinearSwitch(v=3)": _repeated_linear_switch_v3,
-    "switch2PeopleRandom": Switch2PeopleRandom,
     "tabuSearch": tabuSearch,
 }
 

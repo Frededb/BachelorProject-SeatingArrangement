@@ -24,7 +24,7 @@ from Algorithms.Composite.LinearSwitchFromFluentProtected import linearSwitchFro
 from Algorithms.Composite.LinearSwitchFromRandom import linearSwitchFromRandom
 from Algorithms.Composite.RandomSwitchFromFluent import randomSwitchFromFluent
 from Algorithms.Composite.RandomSwitchFromRandom import randomSwitchFromRandom
-from Algorithms.Composite.RepeatedRandom import repeatedRandom
+from Algorithms.Legacy.RepeatedRandom import repeatedRandom
 from Algorithms.Composite.TabuSearchFromFluent import tabuSearchFromFluent
 from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 
