@@ -1,4 +1,4 @@
-from Algorithms.GroupBuild.FluentGroupsFill import fluentGroupsFill
+from Algorithms.Build.FluentGroupsFill import fluentGroupsFill
 from Algorithms.Optimizing.RepeatedLinearSwitch import repeatedLinearSwitch
 
 
