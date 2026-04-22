@@ -69,3 +69,17 @@ def makeEmptyArrangement(n, tableSize):
 def makeEmptyArrangementFromTableAmount(tableAmount, tableSize):
     from Utils.reader import emptyPerson
     return [[emptyPerson for _ in range(tableSize)] for _ in range(tableAmount)]
+
+def makeEmptyArrangementFromTableSizes(tableSizes):
+    from Utils.reader import emptyPerson
+    if not tableSizes:
+        raise ValueError("tableSizes must contain at least one table size")
+
+    normalized_sizes = []
+    for size in tableSizes:
+        normalized_size = int(size)
+        if normalized_size <= 0:
+            raise ValueError("All table sizes must be positive integers")
+        normalized_sizes.append(normalized_size)
+
+    return [[emptyPerson for _ in range(tableSize)] for tableSize in normalized_sizes]

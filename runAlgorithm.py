@@ -1,6 +1,7 @@
 import os
 import sys
-from typing import cast
+from pathlib import Path
+from typing import Any, cast
 
 # Ensure the project root is importable when this file is run directly.
 PROJECT_ROOT = cast(str, os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +27,7 @@ from Utils.printer import printArrangementWithValues, printAsGraph
 from Utils.reader import readPeople
 
 from Utils import ValueCalc
-from Utils.UtilFunctions import makeEmptyArrangement
+from Utils.UtilFunctions import makeEmptyArrangement, makeEmptyArrangementFromTableSizes
 
 
 ALGORITHMS = {
@@ -45,6 +46,43 @@ ALGORITHMS = {
     "tabuSearchFromFluent": tabuSearchFromFluent,
     "tabuSearchFromRandom": tabuSearchFromRandom,
 }
+
+
+def run_selected_algorithm(
+    algorithm_name: str,
+    input_file: str | Path | dict[str, Any],
+    attribute_set_file: str | Path | dict[str, Any],
+    table_sizes: list[int] | None = None,
+    default_table_size: int = 8,
+) -> dict[str, Any]:
+    if algorithm_name not in ALGORITHMS:
+        raise ValueError(f"Unknown algorithm '{algorithm_name}'. Available algorithms: {', '.join(sorted(ALGORITHMS))}")
+
+    test_input = readPeople(input_file, attribute_set_file)
+    if not test_input:
+        raise ValueError("Input is empty")
+
+    if table_sizes:
+        initial_arrangement = makeEmptyArrangementFromTableSizes(table_sizes)
+    else:
+        initial_arrangement = makeEmptyArrangement(len(test_input), default_table_size)
+
+    total_capacity = sum(len(table) for table in initial_arrangement)
+    if total_capacity < len(test_input):
+        raise ValueError(
+            f"Not enough seats in empty arrangement: capacity {total_capacity}, people {len(test_input)}"
+        )
+
+    result_arrangement = ALGORITHMS[algorithm_name](test_input, initial_arrangement)
+    total_value, table_values, people_values = ValueCalc.calcArrangement(result_arrangement)
+    return {
+        "algorithm": algorithm_name,
+        "people_count": len(test_input),
+        "arrangement": result_arrangement,
+        "total_value": total_value,
+        "table_values": table_values,
+        "people_values": people_values,
+    }
 
 
 if __name__ == "__main__":
@@ -71,33 +109,16 @@ if __name__ == "__main__":
             raise SystemExit(1)
         raise SystemExit(0)
 
-    # Validate algorithm
-    if algorithm_name not in ALGORITHMS:
-        print(f"Error: Unknown algorithm '{algorithm_name}'")
-        print(f"Available algorithms: {', '.join(sorted(ALGORITHMS))}")
-        raise SystemExit(1)
-
-    # Load input and attribute set
-    try:
-        testInput = readPeople(input_file, attribute_set_file)
-    except Exception as e:
-        print(f"Error loading input: {e}")
-        raise SystemExit(1)
-
-    if not testInput or len(testInput) == 0:
-        print(f"Error: Input is empty")
-        raise SystemExit(1)
-
     print(f"Using algorithm: {algorithm_name}")
     print(f"Using input file: {input_file}")
     print(f"Using attribute set: {attribute_set_file}")
-    print(f"Number of people: {len(testInput)}")
+
+    try:
+        result = run_selected_algorithm(algorithm_name, input_file, attribute_set_file)
+    except Exception as e:
+        print(f"Error running algorithm: {e}")
+        raise SystemExit(1)
+
+    print(f"Number of people: {result['people_count']}")
     print()
-
-    # Create initial arrangement
-    initial_arrangement = makeEmptyArrangement(len(testInput), 8)
-
-    # Run the algorithm with the shared (input, emptyArrangement) signature
-    result_arrangement = ALGORITHMS[algorithm_name](testInput, initial_arrangement)
-
-    printArrangementWithValues(result_arrangement)
+    printArrangementWithValues(result["arrangement"])

@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from typing import Any
 try:
     from .Person import Person
 except ImportError:
@@ -23,28 +24,27 @@ def parsePeople(input_data, attribute_set):
 
     return people
 
+def _load_json_source(source: str | Path | dict[str, Any], label: str) -> dict[str, Any]:
+    if isinstance(source, dict):
+        return source
+
+    source_path = Path(source)
+    if not source_path.exists():
+        raise FileNotFoundError(f"{label} file not found: {source_path}")
+    with open(source_path, encoding="utf-8") as handle:
+        loaded = json.load(handle)
+    if not isinstance(loaded, dict):
+        raise ValueError(f"{label} JSON must be an object")
+    return loaded
+
+
 def readPeople(input_file_path, attribute_set_file_path):
-    """Load people input and combine with attribute_set from separate files"""
-    from Utils.Person import Person
-
-    input_file_path = Path(input_file_path)
-    attribute_set_file_path = Path(attribute_set_file_path)
-
-    if not input_file_path.exists():
-        raise FileNotFoundError(f"Input file not found: {input_file_path}")
-    if not attribute_set_file_path.exists():
-        raise FileNotFoundError(f"Attribute set file not found: {attribute_set_file_path}")
-
-    # Load attribute set first
-    with open(attribute_set_file_path, encoding="utf-8") as f:
-        attribute_set_data = json.load(f)
+    """Load people + attribute set from file paths or in-memory dictionaries."""
+    attribute_set_data = _load_json_source(attribute_set_file_path, "Attribute set")
     attribute_set = attribute_set_data.get("attribute_set", []) if isinstance(attribute_set_data, dict) else []
 
-    # Load input data
-    with open(input_file_path, encoding="utf-8") as f:
-        input_data = json.load(f)
-
-    return parse_people(input_data, attribute_set)
+    input_data = _load_json_source(input_file_path, "Input")
+    return parsePeople(input_data, attribute_set)
 
 
 emptyPerson = Person("Empty", attributes=[], attribute_set=[])

@@ -14,7 +14,7 @@ LIST_SPLIT_PATTERN = re.compile(r"[,;\n]+")
 def _normalize_header(value: Any) -> str:
     if value is None:
         return ""
-    return str(value).strip()
+    return str(value).strip().lower()
 
 
 def _to_text(value: Any) -> str:
@@ -22,7 +22,7 @@ def _to_text(value: Any) -> str:
         return ""
     if isinstance(value, float) and value.is_integer():
         return str(int(value))
-    return str(value).strip()
+    return str(value).strip().lower()
 
 
 def _parse_list(value: Any) -> List[str]:
@@ -94,6 +94,7 @@ def inputFromSheets(
     xlsx_path: str | Path,
     sheet_name: str = SHEET_NAME,
     define_answers_sheet_name: str = DEFINE_ANSWERS_SHEET,
+    write_output: bool = True,
 ) -> Dict[str, Any]:
     workbook = load_workbook(filename=str(xlsx_path), data_only=True)
     if sheet_name not in workbook.sheetnames:
@@ -130,18 +131,19 @@ def inputFromSheets(
         "people": people,
     }
 
-    xlsx_path = Path(xlsx_path)
-    output_dir = Path(__file__).resolve().parent / "sheetOutput"
-    people_output_path = output_dir / f"{xlsx_path.stem}wishes.json"
-    trait_catalog_output_path = output_dir / f"{xlsx_path.stem}attribute_set.json"
+    if write_output:
+        xlsx_path = Path(xlsx_path)
+        output_dir = Path(__file__).resolve().parent / "sheetOutput"
+        people_output_path = output_dir / f"{xlsx_path.stem}wishes.json"
+        trait_catalog_output_path = output_dir / f"{xlsx_path.stem}attribute_set.json"
 
-    people_output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(people_output_path, "w", encoding="utf-8") as file:
-        json.dump({"schema_version": 1, "people": people}, file, indent=4, ensure_ascii=False)
+        people_output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(people_output_path, "w", encoding="utf-8") as file:
+            json.dump({"schema_version": 1, "people": people}, file, indent=4, ensure_ascii=False)
 
-    trait_catalog_output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(trait_catalog_output_path, "w", encoding="utf-8") as file:
-        json.dump({"schema_version": 1, "attribute_set": trait_catalog}, file, indent=4, ensure_ascii=False)
+        trait_catalog_output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(trait_catalog_output_path, "w", encoding="utf-8") as file:
+            json.dump({"schema_version": 1, "attribute_set": trait_catalog}, file, indent=4, ensure_ascii=False)
 
     return result
 
