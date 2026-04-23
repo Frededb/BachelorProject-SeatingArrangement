@@ -52,7 +52,7 @@ iterations = 100
 people_counts = [8, 30, 100, 300]
 
 
-def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None):
+def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None, output_dir=None):
     # Helper function for JSON export safely handling DNF
     def get_avg(data_list):
         valid = [x for x in data_list if x != "DNF"]
@@ -79,10 +79,13 @@ def print_results(results, time_results, cohesion_scores, people_counts, quicksa
         }
     }
     
-    timestamp_file = time.strftime("%y%m%d_%H%M")
     algo_suffix = f"_{algo_filter}" if algo_filter else ""
-    filename = f"comparison_results{algo_suffix}_{timestamp_file}.json"
-    
+    filename = f"comparison_results{algo_suffix}.json"
+
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+        filename = os.path.join(output_dir, filename)
+
     with open(filename, "w") as f:
         json.dump(output_data, f, indent=4)
     print(f"\nResults successfully written to {filename}")
@@ -100,7 +103,7 @@ def run_algo_wrapper(algo_func, testInput, initial_arrangement, send_conn):
         except Exception:
             pass
 
-def compare_algos(algo_filter=None):
+def compare_algos(algo_filter=None, output_dir=None):
     attribute_set = [
         {"index": 0, "header": "studyprogram", "kind": "traits", "weight": 3},
         {"index": 1, "header": "year", "kind": "traits", "weight": 1},
@@ -152,7 +155,7 @@ def compare_algos(algo_filter=None):
                         send_conn.close()
                         send_conn = None
                         
-                        limit = 30
+                        limit = 35
                         p.join(limit) # timeout
                         
                         if p.is_alive():
@@ -219,7 +222,7 @@ def compare_algos(algo_filter=None):
                             pass
                         gc.collect()
                 print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
-        print_results(results, time_results, cohesion_scores, people_counts, quicksave=True, algo_filter=algo_filter)
+        print_results(results, time_results, cohesion_scores, people_counts, quicksave=True, algo_filter=algo_filter, output_dir=output_dir)
                     
     print("\n" + "="*80)
     for p_count in people_counts:
@@ -266,10 +269,11 @@ def compare_algos(algo_filter=None):
             print()
         print("\n" + "="*80)
 
-    print_results(results, time_results, cohesion_scores, people_counts, algo_filter=algo_filter)
+    print_results(results, time_results, cohesion_scores, people_counts, algo_filter=algo_filter, output_dir=output_dir)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compare seating algorithms")
     parser.add_argument("--algo", default=None, help="Run only this algorithm (default: run all)")
+    parser.add_argument("--output", default=None, help="Directory to write output JSON files into")
     args = parser.parse_args()
-    compare_algos(algo_filter=args.algo)
+    compare_algos(algo_filter=args.algo, output_dir=args.output)
