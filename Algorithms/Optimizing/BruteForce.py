@@ -1,6 +1,7 @@
 from Utils.ValueCalc import calcTable, calcArrangement
 from itertools import permutations
 import math
+import time
 
 arrangement = []
 
@@ -18,14 +19,19 @@ def get_2d_permutations(arrangement):
         ]
         yield new_arrangement
 
-def bruteForce(initialArrangement):
+def bruteForce(initialArrangement, max_seconds=None):
     #here I will generate all permutations of input
     all_arrangements = get_2d_permutations(initialArrangement)
     bestValue = -math.inf
     bestArrangement = []
 
+    start_time = time.time()
+
     #we go through each and see if they are better than the previous best
     for arrangement in all_arrangements:
+        if max_seconds is not None and time.time() - start_time > max_seconds:
+            break
+
         permValue = calcArrangement(arrangement)[0]
 
         if permValue > bestValue:
