@@ -1,0 +1,272 @@
+Task 3 running algorithm: linearSwitchFromFluent
+cn11.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromFluent
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f53a177ba50>
+  Error in linearSwitchFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f53a177ba50>
+  Error in linearSwitchFromFluent at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 0, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 0.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 10, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 10.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 20, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 20.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 30, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 30.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 40, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 40.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 50, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 50.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 60, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 60.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 70, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 70.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 80, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 80.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 90, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 90.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 0 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 1 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 2 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 3 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 4 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 5 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 6 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 7 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 8 took longer than 35 seconds.
+  Timeout! linearSwitchFromFluent at size 300, cohesion 100, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 100.
+
+Results successfully written to job%A/comparison_results_linearSwitchFromFluent.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 8)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+linearSwitchFromFluent    438.0  438.0  438.0  438.0  438.0  438.0  438.0  438.0  438.0  438.0  438.0 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 30)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   1318.8 1341.4 1382.5 1442.6 1488.4 1538.7 1568.3 1581.9 1589.8 1594.8 1595.3 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 100)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   4192.1 4445.5 4612.5 4768.7 4944.3 5085.9 5177.7 5238.5 5253.7 5261.2 5259.8 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+linearSwitchFromFluent      DNF    DNF    DNF    DNF    DNF    DNF    DNF    DNF    DNF    DNF    DNF 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 8)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   0.0507 0.0504 0.0505 0.0504 0.0507 0.0519 0.0516 0.0519 0.0522 0.0530 0.0520 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 30)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   0.8207 0.8543 0.8009 0.7864 0.7913 0.7877 0.7843 0.7790 0.7582 0.7613 0.7646 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 100)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   15.5662 15.2279 14.7563 14.9559 13.4570 13.3383 12.9810 12.4927 12.5525 12.5106 12.5833 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+linearSwitchFromFluent      DNF    DNF    DNF    DNF    DNF    DNF    DNF    DNF    DNF    DNF    DNF 
+
+================================================================================
+
+Results successfully written to job%A/comparison_results_linearSwitchFromFluent.json

@@ -1,0 +1,579 @@
+Task 8 running algorithm: tabuSearchFromFluent
+cn11.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: tabuSearchFromFluent
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 50.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 80.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 8, cohesion 100.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 100.
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fa4444ada50>
+  Error in tabuSearchFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Timeout! tabuSearchFromFluent at size 100, cohesion 0, iter 37 took longer than 35 seconds.
+  Completed 100 iterations for size 100, cohesion 0.
+  Timeout! tabuSearchFromFluent at size 100, cohesion 10, iter 16 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 100, cohesion 10, iter 30 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 100, cohesion 10, iter 44 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 100, cohesion 10, iter 49 took longer than 35 seconds.
+  Completed 100 iterations for size 100, cohesion 10.
+  Timeout! tabuSearchFromFluent at size 100, cohesion 20, iter 61 took longer than 35 seconds.
+  Completed 100 iterations for size 100, cohesion 20.
+  Timeout! tabuSearchFromFluent at size 100, cohesion 30, iter 8 took longer than 35 seconds.
+  Completed 100 iterations for size 100, cohesion 30.
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fa4444ada50>
+  Error in tabuSearchFromFluent at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Timeout! tabuSearchFromFluent at size 100, cohesion 40, iter 90 took longer than 35 seconds.
+  Completed 100 iterations for size 100, cohesion 40.
+  Timeout! tabuSearchFromFluent at size 100, cohesion 50, iter 36 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 100, cohesion 50, iter 88 took longer than 35 seconds.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Timeout! tabuSearchFromFluent at size 100, cohesion 70, iter 2 took longer than 35 seconds.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 0, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 0.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 10, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 10.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 20, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 20.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 30, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 30.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 40, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 40.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 50, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 50.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 9 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 10 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 11 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 12 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 13 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 14 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 15 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 16 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 17 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 18 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 19 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 20 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 21 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 22 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 23 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 24 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 25 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 26 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 27 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 29 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 31 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 32 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 33 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 34 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 35 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 36 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 37 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 38 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 39 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 40 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 41 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 42 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 43 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 44 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 45 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 46 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 47 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 48 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 49 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 50 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 51 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 52 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 53 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 54 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 55 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 56 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 57 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 58 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 59 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 60 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 61 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 62 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 63 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 64 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 65 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 66 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 67 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 68 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 69 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 70 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 71 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 72 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 73 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 74 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 75 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 76 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 77 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 78 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 79 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 80 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 81 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 82 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 83 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 84 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 85 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 86 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 87 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 88 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 90 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 91 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 92 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 93 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 94 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 95 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 96 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 97 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 98 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 60, iter 99 took longer than 35 seconds.
+  Completed 100 iterations for size 300, cohesion 60.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 70, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 70.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 10 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 11 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 12 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 13 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 14 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 15 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 16 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 17 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 18 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 19 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 20 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 21 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 22 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 23 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 24 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 25 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 26 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 27 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 28 took longer than 35 seconds.
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fa4444ada50>
+  Error in tabuSearchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 31 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 33 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 34 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 35 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 36 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 37 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 38 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 39 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 40 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 41 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 42 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 43 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 44 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 45 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 46 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 47 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 48 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 49 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 50 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 51 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 52 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 53 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 54 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 55 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 56 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 57 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 58 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 59 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 61 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 62 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 63 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 64 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 65 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 66 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 67 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 68 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 69 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 70 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 71 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 72 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 73 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 74 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 75 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 76 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 77 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 78 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 79 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 80 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 81 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 82 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 83 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 84 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 85 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 86 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 87 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 88 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 89 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 90 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 91 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 92 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 93 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 94 took longer than 35 seconds.
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fa4444ada50>
+  Error in tabuSearchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 96 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 97 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 98 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 80, iter 99 took longer than 35 seconds.
+  Completed 100 iterations for size 300, cohesion 80.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 9 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 10 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 11 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 12 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 13 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 14 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 15 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 16 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 17 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 18 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 19 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 20 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 21 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 22 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 23 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 24 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 25 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 26 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 27 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 28 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 29 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 30 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 31 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 32 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 33 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 34 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 35 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 36 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 37 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 38 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 39 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 40 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 41 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 42 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 43 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 44 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 45 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 46 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 47 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 48 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 49 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 50 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 51 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 52 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 53 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 54 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 55 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 56 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 57 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 58 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 59 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 60 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 61 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 62 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 63 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 64 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 65 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 66 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 67 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 68 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 69 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 70 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 71 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 72 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 73 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 74 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 75 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 76 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 77 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 78 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 79 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 80 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 81 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 82 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 83 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 84 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 85 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 86 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 87 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 88 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 89 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 90 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 91 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 92 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 93 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 94 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 95 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 96 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 97 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 98 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 90, iter 99 took longer than 35 seconds.
+  Completed 100 iterations for size 300, cohesion 90.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 0 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 1 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 2 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 3 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 4 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 5 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 6 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 7 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 8 took longer than 35 seconds.
+  Timeout! tabuSearchFromFluent at size 300, cohesion 100, iter 9 took longer than 35 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 300, cohesion 100.
+
+Results successfully written to job%A/comparison_results_tabuSearchFromFluent.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 8)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+tabuSearchFromFluent      439.5  439.5  439.5  439.5  439.5  439.5  439.5  439.5  439.5  439.5  439.5 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 30)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+tabuSearchFromFluent     1320.4 1337.3 1382.7 1437.0 1487.0 1532.4 1563.7 1574.3 1591.4 1592.6 1594.3 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 100)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+tabuSearchFromFluent     4138.9 4383.6 4557.7 4727.3 4912.0 5050.7 5141.1 5190.1 5229.8 5224.2 5224.5 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+tabuSearchFromFluent        DNF    DNF    DNF    DNF    DNF    DNF 15178.7    DNF 15464.7 15387.6    DNF 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 8)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+tabuSearchFromFluent     0.0856 0.0857 0.0861 0.0858 0.0857 0.0860 0.0859 0.0861 0.0861 0.0864 0.0860 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 30)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+tabuSearchFromFluent     0.7265 0.6657 0.6887 0.6420 0.6651 0.6482 0.6451 0.6141 0.6474 0.6577 0.6279 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 100)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+tabuSearchFromFluent     6.0310 5.6956 5.1398 5.1008 4.6992 4.5622 4.3888 4.2758 4.2667 4.1731 4.3214 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+tabuSearchFromFluent        DNF    DNF    DNF    DNF    DNF    DNF 33.6377    DNF 32.7950 33.4822    DNF 
+
+================================================================================
+
+Results successfully written to job%A/comparison_results_tabuSearchFromFluent.json

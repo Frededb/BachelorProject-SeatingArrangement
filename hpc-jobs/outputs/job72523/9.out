@@ -1,0 +1,7 @@
+Task 9 running algorithm: tabuSearchFromRandom
+cn17.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+usage: compareAlgos.py [-h] [--algo ALGO]
+compareAlgos.py: error: unrecognized arguments: --output job%A/
+srun: error: cn17: task 0: Exited with exit code 2
