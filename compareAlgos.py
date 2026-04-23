@@ -31,9 +31,9 @@ from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
     # "randomPlacement": RandomPlacement,
     # "godscore"
 ALGORITHMS = {
-    "defaultPlacement": defaultPlacement,
-    "influenceListGreedy": influenceListGreedy,
-    "randomGreedy": randomGreedy,
+    # "defaultPlacement": defaultPlacement,
+    # "influenceListGreedy": influenceListGreedy,
+    # "randomGreedy": randomGreedy,
     "annealingFromFluent": annealingFromFluent,
     "annealingFromRandom": annealingFromRandom,
     "linearSwitchFromFluent": linearSwitchFromFluent,
@@ -47,9 +47,10 @@ ALGORITHMS = {
     "bruteForce": bruteForceFromRandom,
 }
 
-cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+cohesion_scores = [0, 20, 50, 80, 100]
 iterations = 100
 people_counts = [8, 30, 100, 300]
+timelimit = 30
 
 
 def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None, output_dir=None):
@@ -92,7 +93,7 @@ def print_results(results, time_results, cohesion_scores, people_counts, quicksa
 
 def run_algo_wrapper(algo_func, testInput, initial_arrangement, send_conn):
     try:
-        result = algo_func(testInput, initial_arrangement)
+        result = algo_func(testInput, initial_arrangement, timelimit)
         totalValue, _, _ = calcArrangement(result)
         send_conn.send({'success': True, 'value': totalValue})
     except Exception as e:
@@ -155,11 +156,10 @@ def compare_algos(algo_filter=None, output_dir=None):
                         send_conn.close()
                         send_conn = None
                         
-                        limit = 35
-                        p.join(limit) # timeout
+                        p.join(timelimit + 5)
                         
                         if p.is_alive():
-                            print(f"  Timeout! {algo_name} at size {p_count}, cohesion {c}, iter {i} took longer than {limit} seconds.")
+                            print(f"  Timeout! {algo_name} at size {p_count}, cohesion {c}, iter {i} took longer than {timelimit} seconds.")
                             p.terminate()
                             p.join()
                             p.close()

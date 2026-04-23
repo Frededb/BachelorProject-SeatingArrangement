@@ -33,4 +33,4 @@ hostname
 whoami
 echo $PWD
 
-srun apptainer run container27.sif --output job%A/ --algo "$ALGO"
+srun apptainer run container28.sif --output "job${SLURM_ARRAY_JOB_ID}/" --algo "$ALGO"
