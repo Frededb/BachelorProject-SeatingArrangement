@@ -11,3 +11,11 @@ Running iterations for algorithm: bruteForce
   Completed 100 iterations for size 30, cohesion 0.
   Completed 100 iterations for size 30, cohesion 20.
   Completed 100 iterations for size 30, cohesion 50.
+  Completed 100 iterations for size 30, cohesion 80.
+  Completed 100 iterations for size 30, cohesion 100.
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 100.
+  Completed 100 iterations for size 300, cohesion 0.

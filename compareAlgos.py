@@ -47,7 +47,8 @@ ALGORITHMS = {
     "bruteForce": bruteForceFromRandom,
 }
 
-cohesion_scores = [0, 20, 50, 80, 100]
+# cohesion_scores = [0, 20, 50, 80, 100]
+cohesion_scores = [10, 30, 40, 60, 70, 90]
 iterations = 100
 people_counts = [8, 30, 100, 300]
 timelimit = 30
