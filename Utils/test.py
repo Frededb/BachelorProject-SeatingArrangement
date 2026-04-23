@@ -133,13 +133,20 @@ if __name__ == "__main__":
 
     # Arrangement with 1 7-seat table, 1 6-seat table, and 2 5-seat tables.
     mixed_arrangement = [
-        [emptyPerson] * 7,
-        [emptyPerson] * 6,
-        [emptyPerson] * 5,
-        [emptyPerson] * 5,
+        [emptyPerson] * 2,
+        [emptyPerson] * 2,
+        [emptyPerson] * 2,
+        [emptyPerson] * 2,
+        [emptyPerson] * 2,
+        [emptyPerson] * 2,
+        [emptyPerson] * 2,
+        [emptyPerson] * 2,
+        [emptyPerson] * 2,
+        [emptyPerson] * 2,
+        [emptyPerson] * 3,
     ]
 
     # Run the algorithm with the shared (input, emptyArrangement) signature
-    result_arrangement = ALGORITHMS[algorithm_name](testInput, initial_arrangement)
+    result_arrangement = ALGORITHMS[algorithm_name](testInput, mixed_arrangement)
 
     printArrangementWithValues(result_arrangement)

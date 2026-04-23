@@ -64,7 +64,7 @@ def calcPerson(table, index):
         # total = total + (personSum * 1/getDistanceTo(table, index, i))
         total = total + personSum
 
-    if total < 2:
+    if total < 1:
         return -10000
     return total
 
