@@ -1,0 +1,91 @@
+Task 7 running algorithm: randomSwitchFromRandom
+cn16.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromRandom
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 90.
+
+Results successfully written to job72814/comparison_results_randomSwitchFromRandom.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 8)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+randomSwitchFromRandom    436.4  436.6  436.5  435.7  436.2  436.5 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 30)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+randomSwitchFromRandom   1324.8 1411.0 1461.9 1548.2 1561.9 1554.1 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 100)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+randomSwitchFromRandom   4269.5 4561.3 4734.2 4962.1 5037.4 5048.0 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 300)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+randomSwitchFromRandom   11485.8 12222.2 12629.5 13184.8 13354.9 13395.1 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 8)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+randomSwitchFromRandom   0.1339 0.1426 0.1532 0.1553 0.1560 0.1543 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 30)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+randomSwitchFromRandom   0.7012 0.7149 0.6798 0.6683 0.6965 0.6843 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 100)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+randomSwitchFromRandom   3.1911 3.2190 3.2583 3.2816 3.3070 3.2857 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 300)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+randomSwitchFromRandom   8.4283 8.4912 8.6821 8.6555 8.6051 8.6256 
+
+================================================================================
+
+Results successfully written to job72814/comparison_results_randomSwitchFromRandom.json

@@ -1,0 +1,91 @@
+Task 9 running algorithm: tabuSearchFromRandom
+cn17.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: tabuSearchFromRandom
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 90.
+
+Results successfully written to job72814/comparison_results_tabuSearchFromRandom.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 8)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+tabuSearchFromRandom      439.7  439.6  439.6  439.6  439.6  439.6 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 30)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+tabuSearchFromRandom     1331.3 1425.3 1479.6 1541.9 1562.7 1577.6 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 100)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+tabuSearchFromRandom     4312.5 4618.9 4791.6 5026.8 5061.4 5097.2 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 300)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+tabuSearchFromRandom     11022.8 11756.0 12094.4 12662.0 12695.8 12801.9 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 8)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+tabuSearchFromRandom     0.1779 0.1837 0.1830 0.1827 0.1891 0.1844 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 30)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+tabuSearchFromRandom     1.5404 1.5917 1.6057 1.5612 1.5074 1.5064 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 100)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+tabuSearchFromRandom     14.4959 13.5698 12.4946 12.9417 12.8154 12.2758 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 300)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+tabuSearchFromRandom     30.0956 30.0955 30.0948 30.0939 30.0941 30.0941 
+
+================================================================================
+
+Results successfully written to job72814/comparison_results_tabuSearchFromRandom.json
