@@ -1,6 +1,7 @@
 import re
 import threading
 import traceback
+import queue
 from pathlib import Path
 import tkinter as tk
 from tkinter import filedialog, messagebox
@@ -90,6 +91,8 @@ class SeatingApp:
         self.last_result: dict | None = None
         self.last_source_xlsx = ""
         self.pipeline_items: list[dict[str, str]] = []
+        self.worker_events: queue.Queue[tuple[str, object]] = queue.Queue()
+        self.worker_polling_active = False
 
         self.run_button: ttk.Button
         self.meta_box: ScrolledText
@@ -455,18 +458,39 @@ class SeatingApp:
         self.last_result = None
         self.meta_box.delete("1.0", tk.END)
         self._clear_tables()
-        threading.Thread(target=self._run_workflow, daemon=True).start()
 
-    def _run_workflow(self) -> None:
+        # Snapshot Tk values on the main thread before starting the worker.
+        xlsx_path_raw = self.file_path_var.get().strip()
+        table_sizes_raw = self.table_sizes_var.get().strip()
+        selected_algorithm = self.selected_algorithm_var.get().strip()
+        build_algorithm_name = self.build_algorithm_var.get().strip()
+        stage_names = [item["name"] for item in self.pipeline_items]
+
+        while not self.worker_events.empty():
+            self.worker_events.get_nowait()
+
+        self.worker_polling_active = True
+        self._poll_worker_events()
+        threading.Thread(
+            target=self._run_workflow,
+            args=(xlsx_path_raw, table_sizes_raw, selected_algorithm, build_algorithm_name, stage_names),
+            daemon=True,
+        ).start()
+
+    def _run_workflow(
+        self,
+        xlsx_path_raw: str,
+        table_sizes_raw: str,
+        selected_algorithm: str,
+        build_algorithm_name: str,
+        stage_names: list[str],
+    ) -> None:
         try:
-            xlsx_path = Path(self.file_path_var.get().strip())
+            xlsx_path = Path(xlsx_path_raw)
             if not xlsx_path.exists():
                 raise FileNotFoundError("Selected .xlsx file was not found")
 
-            arrangement_mode, arrangement_value = parse_table_sizes(self.table_sizes_var.get())
-            selected_algorithm = self.selected_algorithm_var.get().strip()
-            build_algorithm_name = self.build_algorithm_var.get().strip()
-            stage_names = [item["name"] for item in self.pipeline_items]
+            arrangement_mode, arrangement_value = parse_table_sizes(table_sizes_raw)
 
             sheet_result = inputFromSheets(xlsx_path, write_output=False)
             people_payload = {
@@ -514,10 +538,27 @@ class SeatingApp:
             else:
                 raise ValueError("Invalid table size input mode")
 
-            self.root.after(0, self._on_success, result, str(xlsx_path))
+            self.worker_events.put(("success", (result, str(xlsx_path))))
         except Exception as error:
             details = "".join(traceback.format_exception_only(type(error), error)).strip()
-            self.root.after(0, self._on_failure, details)
+            self.worker_events.put(("failure", details))
+
+    def _poll_worker_events(self) -> None:
+        if not self.worker_polling_active:
+            return
+
+        try:
+            event_kind, payload = self.worker_events.get_nowait()
+        except queue.Empty:
+            self.root.after(50, self._poll_worker_events)
+            return
+
+        self.worker_polling_active = False
+        if event_kind == "success":
+            result, source_xlsx = payload
+            self._on_success(result, source_xlsx)
+        else:
+            self._on_failure(str(payload))
 
     def _on_success(self, result: dict, source_xlsx: str) -> None:
         self.last_result = result
