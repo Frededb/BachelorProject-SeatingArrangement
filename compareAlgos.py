@@ -2,7 +2,7 @@ import argparse
 import json
 import time
 from generateData import generateData
-from Utils.ValueCalc import calcArrangement
+from Utils.ValueCalc import calcArrangement, calcTheoreticalMax
 from Utils.UtilFunctions import makeEmptyArrangement
 from Utils.reader import parsePeople
 import os
@@ -20,36 +20,39 @@ from Algorithms.Composite.AnealingFromFluent import annealingFromFluent
 from Algorithms.Composite.AnealingFromRandom import annealingFromRandom
 from Algorithms.Composite.BruteForce import bruteForceFromRandom
 from Algorithms.Composite.LinearSwitchFromFluent import linearSwitchFromFluent
+from Algorithms.Composite.LinearSwitchFromFluentv4 import linearSwitchFromFluentv4
 from Algorithms.Composite.LinearSwitchFromFluentProtected import linearSwitchFromFluentProtected
 from Algorithms.Composite.LinearSwitchFromRandom import linearSwitchFromRandom
+from Algorithms.Composite.LinearSwitchFromRandomv4 import linearSwitchFromRandomv4
 from Algorithms.Composite.RandomSwitchFromFluent import randomSwitchFromFluent
 from Algorithms.Composite.RandomSwitchFromRandom import randomSwitchFromRandom
 from Algorithms.Legacy.RepeatedRandom import repeatedRandom
 from Algorithms.Composite.TabuSearchFromFluent import tabuSearchFromFluent
 from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 
-    # "randomPlacement": RandomPlacement,
-    # "godscore"
 ALGORITHMS = {
-    "defaultPlacement": defaultPlacement,
-    "influenceListGreedy": influenceListGreedy,
-    "randomGreedy": randomGreedy,
+    # "defaultPlacement": defaultPlacement,
+    # "influenceListGreedy": influenceListGreedy,
+    # "randomGreedy": randomGreedy,
     "annealingFromFluent": annealingFromFluent,
     "annealingFromRandom": annealingFromRandom,
     "linearSwitchFromFluent": linearSwitchFromFluent,
+    "linearSwitchFromFluentv4": linearSwitchFromFluentv4,
     "linearSwitchFromFluentProtected": linearSwitchFromFluentProtected,
     "linearSwitchFromRandom": linearSwitchFromRandom,
+    "linearSwitchFromRandomv4": linearSwitchFromRandomv4,
     "randomSwitchFromFluent": randomSwitchFromFluent,
     "randomSwitchFromRandom": randomSwitchFromRandom,
-    "repeatedRandom": repeatedRandom,
     "tabuSearchFromFluent": tabuSearchFromFluent,
     "tabuSearchFromRandom": tabuSearchFromRandom,
     "bruteForce": bruteForceFromRandom,
+    "theoreticalMax": lambda testInput, initial_arrangement, timelimit: calcTheoreticalMax(testInput, initial_arrangement),
 }
 
 cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 iterations = 100
-people_counts = [8, 30, 100, 300]
+people_counts = [300] #8, 30, 100, 
+timelimit = 120
 
 
 def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None, output_dir=None):
@@ -92,8 +95,11 @@ def print_results(results, time_results, cohesion_scores, people_counts, quicksa
 
 def run_algo_wrapper(algo_func, testInput, initial_arrangement, send_conn):
     try:
-        result = algo_func(testInput, initial_arrangement)
-        totalValue, _, _ = calcArrangement(result)
+        result = algo_func(testInput, initial_arrangement, timelimit)
+        if isinstance(result, (int, float)):
+            totalValue = result
+        else:
+            totalValue, _, _ = calcArrangement(result)
         send_conn.send({'success': True, 'value': totalValue})
     except Exception as e:
         send_conn.send({'success': False, 'error': str(e)})
@@ -155,11 +161,10 @@ def compare_algos(algo_filter=None, output_dir=None):
                         send_conn.close()
                         send_conn = None
                         
-                        limit = 35
-                        p.join(limit) # timeout
+                        p.join(timelimit + 20)
                         
                         if p.is_alive():
-                            print(f"  Timeout! {algo_name} at size {p_count}, cohesion {c}, iter {i} took longer than {limit} seconds.")
+                            print(f"  Timeout! {algo_name} at size {p_count}, cohesion {c}, iter {i} took longer than {timelimit} seconds.")
                             p.terminate()
                             p.join()
                             p.close()
@@ -222,7 +227,7 @@ def compare_algos(algo_filter=None, output_dir=None):
                             pass
                         gc.collect()
                 print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
-        print_results(results, time_results, cohesion_scores, people_counts, quicksave=True, algo_filter=algo_filter, output_dir=output_dir)
+                print_results(results, time_results, cohesion_scores, people_counts, quicksave=True, algo_filter=algo_filter, output_dir=output_dir)
                     
     print("\n" + "="*80)
     for p_count in people_counts:

@@ -1,0 +1,111 @@
+Task 3 running algorithm: linearSwitchFromFluent
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromFluent
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 30.
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f582f59aa50>
+  Error in linearSwitchFromFluent at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 90.
+
+Results successfully written to job72814/comparison_results_linearSwitchFromFluent.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 8)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+linearSwitchFromFluent    438.0  438.0  438.0  438.0  438.0  438.0 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 30)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   1341.4 1442.6 1488.4 1568.3 1581.9 1594.8 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 100)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   4445.2 4768.7 4944.3 5177.7 5238.5 5261.2 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 300)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   12740.7 13803.2 14348.3 15154.1 15353.9 15401.1 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 8)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   0.0827 0.0822 0.0818 0.0818 0.0823 0.0841 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 30)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   1.4623 1.3451 1.3512 1.3302 1.3328 1.3003 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 100)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   24.6603 24.6014 22.5098 21.6511 21.0231 21.0565 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 300)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+linearSwitchFromFluent   31.2865 30.9317 30.7363 30.5800 30.5588 30.5524 
+
+================================================================================
+
+Results successfully written to job72814/comparison_results_linearSwitchFromFluent.json

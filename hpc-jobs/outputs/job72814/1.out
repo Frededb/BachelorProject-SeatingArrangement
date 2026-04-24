@@ -1,0 +1,91 @@
+Task 1 running algorithm: annealingFromRandom
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromRandom
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 30.
+  Completed 100 iterations for size 8, cohesion 40.
+  Completed 100 iterations for size 8, cohesion 60.
+  Completed 100 iterations for size 8, cohesion 70.
+  Completed 100 iterations for size 8, cohesion 90.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 30.
+  Completed 100 iterations for size 30, cohesion 40.
+  Completed 100 iterations for size 30, cohesion 60.
+  Completed 100 iterations for size 30, cohesion 70.
+  Completed 100 iterations for size 30, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 300, cohesion 10.
+  Completed 100 iterations for size 300, cohesion 30.
+  Completed 100 iterations for size 300, cohesion 40.
+  Completed 100 iterations for size 300, cohesion 60.
+  Completed 100 iterations for size 300, cohesion 70.
+  Completed 100 iterations for size 300, cohesion 90.
+
+Results successfully written to job72814/comparison_results_annealingFromRandom.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 8)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+annealingFromRandom       439.6  439.5  439.6  439.6  439.5  439.3 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 30)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+annealingFromRandom      1335.5 1430.1 1480.7 1560.9 1568.9 1580.4 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 100)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+annealingFromRandom      4150.4 4441.1 4611.5 4853.6 4884.7 4915.4 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 300)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+annealingFromRandom      10360.7 10929.6 11118.0 11490.6 11621.5 11616.0 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 8)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+annealingFromRandom      0.2098 0.2090 0.2087 0.2089 0.2077 0.2071 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 30)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+annealingFromRandom      0.7466 0.7480 0.7430 0.7451 0.7480 0.7504 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 100)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+annealingFromRandom      2.4581 2.4633 2.4694 2.4804 2.4823 2.4779 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 300)
+================================================================================
+Algorithm                     10     30     40     60     70     90
+--------------------------------------------------------------------------------
+annealingFromRandom      5.9718 6.0190 6.0275 6.0415 6.0527 6.0433 
+
+================================================================================
+
+Results successfully written to job72814/comparison_results_annealingFromRandom.json

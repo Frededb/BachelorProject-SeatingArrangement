@@ -1,0 +1,7 @@
+Task 7 running algorithm: randomSwitchFromFluent
+cn17.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromFluent
+slurmstepd: error: *** JOB 72917 ON cn17 CANCELLED AT 2026-04-24T11:19:24 ***
+slurmstepd: error: *** STEP 72917.0 ON cn17 CANCELLED AT 2026-04-24T11:19:24 ***

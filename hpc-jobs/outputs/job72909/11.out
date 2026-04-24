@@ -1,0 +1,7 @@
+Task 11 running algorithm: tabuSearchFromRandom
+cn9.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: tabuSearchFromRandom
+slurmstepd: error: *** JOB 72921 ON cn9 CANCELLED AT 2026-04-24T11:19:21 ***
+slurmstepd: error: *** STEP 72921.0 ON cn9 CANCELLED AT 2026-04-24T11:19:21 ***

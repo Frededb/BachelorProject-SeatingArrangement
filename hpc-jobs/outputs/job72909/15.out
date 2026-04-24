@@ -1,0 +1,5 @@
+Task 15 running algorithm: 
+cn10.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Error: Algorithm '' not found. Available: ['annealingFromFluent', 'annealingFromRandom', 'linearSwitchFromFluent', 'linearSwitchFromFluentv4', 'linearSwitchFromFluentProtected', 'linearSwitchFromRandom', 'linearSwitchFromRandomv4', 'randomSwitchFromFluent', 'randomSwitchFromRandom', 'repeatedRandom', 'tabuSearchFromFluent', 'tabuSearchFromRandom', 'bruteForce', 'theoreticalMax']

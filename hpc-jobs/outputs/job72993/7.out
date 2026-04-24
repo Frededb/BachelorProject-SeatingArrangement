@@ -1,0 +1,14 @@
+Task 7 running algorithm: randomSwitchFromFluent
+cn17.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromFluent
+  Completed 100 iterations for size 300, cohesion 0.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromFluent.json
+  Completed 100 iterations for size 300, cohesion 10.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromFluent.json
+  Completed 100 iterations for size 300, cohesion 20.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromFluent.json
