@@ -1,0 +1,56 @@
+Task 8 running algorithm: randomSwitchFromRandom
+cn17.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromRandom
+  Completed 100 iterations for size 300, cohesion 0.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 10.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 20.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 30.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 40.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 50.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 60.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 70.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 80.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 90.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+  Completed 100 iterations for size 300, cohesion 100.
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomSwitchFromRandom   10888.9 11499.7 11909.1 12279.1 12620.7 12947.2 13189.9 13280.7 13369.6 13386.4 13346.8 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+randomSwitchFromRandom   7.9448 8.1146 8.2429 8.3420 8.4703 8.6575 8.6673 8.5099 8.4938 7.6908 7.6838 
+
+================================================================================
+
+Results successfully written to job72993/comparison_results_randomSwitchFromRandom.json

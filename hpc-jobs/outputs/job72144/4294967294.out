@@ -31,3 +31,218 @@ Running iterations for algorithm: randomGreedy
 
 Results successfully written to comparison_results_260421_2121.json
 Running iterations for algorithm: annealingFromFluent
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2151.json
+Running iterations for algorithm: annealingFromRandom
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2222.json
+Running iterations for algorithm: linearSwitchFromFluent
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2230.json
+Running iterations for algorithm: linearSwitchFromFluentProtected
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2233.json
+Running iterations for algorithm: linearSwitchFromRandom
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2241.json
+Running iterations for algorithm: randomSwitchFromFluent
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2245.json
+Running iterations for algorithm: randomSwitchFromRandom
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2249.json
+Running iterations for algorithm: repeatedRandom
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2251.json
+Running iterations for algorithm: tabuSearchFromFluent
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2311.json
+Running iterations for algorithm: tabuSearchFromRandom
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Completed 100 iterations for size 30, cohesion 0.
+  Completed 100 iterations for size 30, cohesion 10.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260421_2332.json
+Running iterations for algorithm: bruteForce
+  Completed 100 iterations for size 8, cohesion 0.
+  Completed 100 iterations for size 8, cohesion 10.
+  Completed 100 iterations for size 8, cohesion 20.
+  Timeout! bruteForce at size 30, cohesion 0, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 0, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 0, iter 2 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 0, iter 3 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 0, iter 4 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 0, iter 5 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 0, iter 6 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 0, iter 7 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 0, iter 8 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 0, iter 9 took longer than 30 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 30, cohesion 0.
+  Timeout! bruteForce at size 30, cohesion 10, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 10, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 10, iter 2 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 10, iter 3 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 10, iter 4 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 10, iter 5 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 10, iter 6 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 10, iter 7 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 10, iter 8 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 10, iter 9 took longer than 30 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 30, cohesion 10.
+  Timeout! bruteForce at size 30, cohesion 20, iter 0 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 1 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 2 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 3 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 4 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 5 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 6 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 7 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 8 took longer than 30 seconds.
+  Timeout! bruteForce at size 30, cohesion 20, iter 9 took longer than 30 seconds.
+  First 10 runs timed out. Cancelling remaining iterations.
+  Completed 100 iterations for size 30, cohesion 20.
+
+Results successfully written to comparison_results_260422_0006.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 8)
+================================================================================
+Algorithm                      0     10     20
+--------------------------------------------------------------------------------
+defaultPlacement          377.2  377.2  377.2 
+influenceListGreedy       394.0  394.0  394.0 
+randomGreedy              388.9  391.5  390.7 
+annealingFromFluent       438.7  438.8  438.8 
+annealingFromRandom       438.7  438.9  438.8 
+linearSwitchFromFluent    438.0  438.0  438.0 
+linearSwitchFromFluentProtected 437.7  437.7  437.7 
+linearSwitchFromRandom    437.8  437.7  437.9 
+randomSwitchFromFluent    435.7  435.4  436.2 
+randomSwitchFromRandom    436.2  436.4  436.9 
+repeatedRandom            424.6  425.1  425.3 
+tabuSearchFromFluent      439.6  439.6  439.6 
+tabuSearchFromRandom      439.4  439.5  439.5 
+bruteForce                439.7  439.7  439.7 
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 30)
+================================================================================
+Algorithm                      0     10     20
+--------------------------------------------------------------------------------
+defaultPlacement          692.7  701.4  697.1 
+influenceListGreedy       823.5  811.8  810.2 
+randomGreedy              752.6  738.1  734.4 
+annealingFromFluent      1343.7 1372.0 1418.1 
+annealingFromRandom      1345.4 1372.6 1416.1 
+linearSwitchFromFluent   1318.8 1341.4 1382.5 
+linearSwitchFromFluentProtected1226.2 1247.4 1292.1 
+linearSwitchFromRandom   1308.1 1341.1 1381.1 
+randomSwitchFromFluent   1305.1 1323.4 1371.7 
+randomSwitchFromRandom   1292.3 1318.1 1364.1 
+repeatedRandom            856.9  863.5  869.0 
+tabuSearchFromFluent     1341.6 1365.7 1411.0 
+tabuSearchFromRandom     1342.9 1363.2 1409.5 
+bruteForce                  DNF    DNF    DNF 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 8)
+================================================================================
+Algorithm                      0     10     20
+--------------------------------------------------------------------------------
+defaultPlacement         0.0050 0.0050 0.0051 
+influenceListGreedy      0.0194 0.0194 0.0194 
+randomGreedy             0.0206 0.0205 0.0205 
+annealingFromFluent      1.5666 1.5835 1.5776 
+annealingFromRandom      1.7173 1.7228 1.7220 
+linearSwitchFromFluent   0.0739 0.0761 0.0763 
+linearSwitchFromFluentProtected0.1180 0.1189 0.1201 
+linearSwitchFromRandom   0.0752 0.0762 0.0772 
+randomSwitchFromFluent   0.1519 0.1513 0.1509 
+randomSwitchFromRandom   0.1516 0.1520 0.1523 
+repeatedRandom           0.1470 0.1469 0.1482 
+tabuSearchFromFluent     0.1089 0.1092 0.1089 
+tabuSearchFromRandom     0.1151 0.1146 0.1146 
+bruteForce               2.9162 2.9181 2.9212 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 30)
+================================================================================
+Algorithm                      0     10     20
+--------------------------------------------------------------------------------
+defaultPlacement         0.0088 0.0089 0.0090 
+influenceListGreedy      0.0452 0.0451 0.0450 
+randomGreedy             0.0463 0.0459 0.0458 
+annealingFromFluent      4.2349 4.2233 4.1777 
+annealingFromRandom      4.6342 4.5845 4.5709 
+linearSwitchFromFluent   1.3689 1.4295 1.3399 
+linearSwitchFromFluentProtected0.4239 0.4037 0.3655 
+linearSwitchFromRandom   1.6880 1.5988 1.5965 
+randomSwitchFromFluent   0.5907 0.5631 0.5858 
+randomSwitchFromRandom   0.5992 0.5841 0.5851 
+repeatedRandom           0.2093 0.2060 0.2080 
+tabuSearchFromFluent     3.8515 3.7352 3.6748 
+tabuSearchFromRandom     4.1156 4.2753 4.1492 
+bruteForce                  DNF    DNF    DNF 
+
+================================================================================
+
+Results successfully written to comparison_results_260422_0006.json

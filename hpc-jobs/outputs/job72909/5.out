@@ -1,0 +1,7 @@
+Task 5 running algorithm: linearSwitchFromRandom
+cn15.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromRandom
+slurmstepd: error: *** JOB 72915 ON cn15 CANCELLED AT 2026-04-24T11:19:24 ***
+slurmstepd: error: *** STEP 72915.0 ON cn15 CANCELLED AT 2026-04-24T11:19:24 ***

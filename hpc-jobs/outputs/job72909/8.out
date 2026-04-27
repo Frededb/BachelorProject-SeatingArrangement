@@ -1,0 +1,7 @@
+Task 8 running algorithm: randomSwitchFromRandom
+cn17.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromRandom
+slurmstepd: error: *** JOB 72918 ON cn17 CANCELLED AT 2026-04-24T11:19:24 ***
+slurmstepd: error: *** STEP 72918.0 ON cn17 CANCELLED AT 2026-04-24T11:19:24 ***

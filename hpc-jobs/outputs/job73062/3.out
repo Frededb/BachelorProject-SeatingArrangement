@@ -1,0 +1,5 @@
+Task 3 running algorithm: linearSwitchFromFluentv4
+cn17.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Error: Algorithm 'linearSwitchFromFluentv4' not found. Available: ['annealingFromFluent', 'annealingFromRandom', 'linearSwitchFromFluent', 'linearSwitchFromFluentProtected', 'linearSwitchFromRandom', 'randomSwitchFromFluent', 'randomSwitchFromRandom', 'tabuSearchFromFluent', 'tabuSearchFromRandom', 'bruteForce', 'theoreticalMax']
