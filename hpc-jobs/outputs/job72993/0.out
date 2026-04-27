@@ -15,3 +15,82 @@ Results successfully written to job72993/comparison_results_annealingFromFluent.
   Completed 100 iterations for size 300, cohesion 30.
 
 Results successfully written to job72993/comparison_results_annealingFromFluent.json
+  Completed 100 iterations for size 300, cohesion 40.
+
+Results successfully written to job72993/comparison_results_annealingFromFluent.json
+  Completed 100 iterations for size 300, cohesion 50.
+
+Results successfully written to job72993/comparison_results_annealingFromFluent.json
+  Completed 100 iterations for size 300, cohesion 60.
+
+Results successfully written to job72993/comparison_results_annealingFromFluent.json
+  Completed 100 iterations for size 300, cohesion 70.
+
+Results successfully written to job72993/comparison_results_annealingFromFluent.json
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f50eb3b0a50>
+  Error in annealingFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 35570, in compile_and_run_once___rpython_jit_metainterp_ji_13
+  File "rpython_jit_metainterp.c", line 59433, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 14402, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 44865, in MetaInterp__interpret
+  File "rpython_jit_metainterp_4.c", line 47413, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 4962, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 31708, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_6.c", line 63093, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 27032, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 39971, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f50eb3b0a50>
+  Error in annealingFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Completed 100 iterations for size 300, cohesion 80.
+
+Results successfully written to job72993/comparison_results_annealingFromFluent.json
+  Completed 100 iterations for size 300, cohesion 90.
+
+Results successfully written to job72993/comparison_results_annealingFromFluent.json
+  Completed 100 iterations for size 300, cohesion 100.
+
+Results successfully written to job72993/comparison_results_annealingFromFluent.json
+
+================================================================================
+AVERAGE ARRANGEMENT SCORES (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+annealingFromFluent      10649.5 11461.0 11996.1 12386.1 12824.7 13258.8 13521.1 13722.1 13732.8 13758.1 13761.1 
+
+================================================================================
+AVERAGE EXECUTION TIMES (seconds) (People: 300)
+================================================================================
+Algorithm                      0     10     20     30     40     50     60     70     80     90    100
+--------------------------------------------------------------------------------
+annealingFromFluent      5.4385 5.3985 5.2623 5.0504 4.8723 4.7748 4.7227 4.7095 4.7087 4.7074 4.7008 
+
+================================================================================
+
+Results successfully written to job72993/comparison_results_annealingFromFluent.json
