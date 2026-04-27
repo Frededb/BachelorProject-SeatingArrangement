@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-people = 300
+people = 8
 algorithm_colors = {
     "annealingFromFluent": "tab:blue",
     "annealingFromRandom": "tab:orange",
