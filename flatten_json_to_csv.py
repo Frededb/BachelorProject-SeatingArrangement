@@ -1,13 +1,21 @@
 import json
 import pandas as pd
 import os
+import sys
+import argparse
 from pathlib import Path
+
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description='Flatten JSON files from a directory to CSV')
+parser.add_argument('json_dir', help='Path to the directory containing JSON files')
+parser.add_argument('output_file', help='Path for the output CSV file')
+args = parser.parse_args()
 
 # Initialize a list to hold the flattened rows
 rows = []
 
-# Path to the jsonDataComposite directory
-json_dir = Path('Data/jsonDataComposite')
+# Path to the JSON directory
+json_dir = Path(args.json_dir)
 
 # Iterate through all JSON files in the directory
 for json_file in sorted(json_dir.glob('*.json')):
@@ -40,7 +48,7 @@ for json_file in sorted(json_dir.glob('*.json')):
 df = pd.DataFrame(rows)
 
 # Save to CSV in Data folder
-df.to_csv('Data/flattened_composite_experiments_data.csv', index=False)
+df.to_csv(args.output_file, index=False)
 
-print(f"\nData flattened and saved to Data/flattened_experiments_data.csv")
+print(f"\nData flattened and saved to {args.output_file}")
 print(f"Total rows: {len(df)}")
