@@ -112,6 +112,7 @@ def tabuSearch(
     max_no_improve=None,
     seed=None,
     max_seconds=None,
+    score_tracker=None,
 ):
     """Run tabu search using swap moves and return the best arrangement found.
 
@@ -210,6 +211,8 @@ def tabuSearch(
             best_arrangement = deepcopy(arrangement)
             # Reset plateau counter after improvement.
             no_improve = 0
+            if score_tracker is not None:
+                score_tracker[0] = best_score
         else:
             # Count non-improving iterations.
             no_improve += 1

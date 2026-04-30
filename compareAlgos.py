@@ -1,5 +1,6 @@
 import argparse
 import json
+import threading
 import time
 from generateData import generateData
 from Utils.ValueCalc import calcArrangement, calcTheoreticalMax
@@ -42,16 +43,16 @@ ALGORITHMS = {
     "tabuSearchFromFluent": tabuSearchFromFluent,
     "tabuSearchFromRandom": tabuSearchFromRandom,
     "bruteForce": bruteForceFromRandom,
-    "theoreticalMax": lambda testInput, initial_arrangement, timelimit: calcTheoreticalMax(testInput, initial_arrangement),
+    "theoreticalMax": lambda testInput, initial_arrangement, timelimit, score_tracker=None: calcTheoreticalMax(testInput, initial_arrangement),
 }
 
 cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 iterations = 100
 people_counts = [100] #8, 30, 100, 
-timelimits = [60]
+timelimit = 60
 
 
-def print_results(results, time_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None, output_dir=None):
+def print_results(results, time_results, timeline_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None, output_dir=None):
     # Helper function for JSON export safely handling DNF
     def get_avg(data_list):
         valid = [x for x in data_list if x != "DNF"]
@@ -64,19 +65,18 @@ def print_results(results, time_results, cohesion_scores, people_counts, quicksa
         "cohesion_scores": cohesion_scores,
         "iterations": iterations,
         "people_counts": people_counts,
-        "timelimits": timelimits,
+        "timelimit": timelimit,
         "results": {
             algo: {
-                str(tl): {
-                    str(p): {
-                        str(c): {
-                            "scores": results[algo][tl][p][c],
-                            "times": time_results[algo][tl][p][c],
-                            "avg_score": get_avg(results[algo][tl][p][c]),
-                            "avg_time": get_avg(time_results[algo][tl][p][c])
-                        } for c in cohesion_scores
-                    } for p in people_counts
-                } for tl in timelimits
+                str(p): {
+                    str(c): {
+                        "scores": results[algo][p][c],
+                        "times": time_results[algo][p][c],
+                        "timelines": timeline_results[algo][p][c],
+                        "avg_score": get_avg(results[algo][p][c]),
+                        "avg_time": get_avg(time_results[algo][p][c])
+                    } for c in cohesion_scores
+                } for p in people_counts
             } for algo in results
         }
     }
@@ -93,16 +93,32 @@ def print_results(results, time_results, cohesion_scores, people_counts, quicksa
     print(f"\nResults successfully written to {filename}")
 
 def run_algo_wrapper(algo_func, testInput, initial_arrangement, send_conn, timelimit):
+    score_tracker = [0.0]
+    timeline = []
+    start = time.perf_counter()
+    done_event = threading.Event()
+
+    def reporter():
+        while not done_event.wait(1.0):
+            elapsed = time.perf_counter() - start
+            timeline.append((round(elapsed, 2), score_tracker[0]))
+
+    reporter_thread = threading.Thread(target=reporter, daemon=True)
+    reporter_thread.start()
+
     try:
-        result = algo_func(testInput, initial_arrangement, timelimit)
+        result = algo_func(testInput, initial_arrangement, timelimit, score_tracker=score_tracker)
         if isinstance(result, (int, float)):
             totalValue = result
         else:
             totalValue, _, _ = calcArrangement(result)
-        send_conn.send({'success': True, 'value': totalValue})
+        score_tracker[0] = totalValue
+        send_conn.send({'success': True, 'value': totalValue, 'timeline': timeline})
     except Exception as e:
         send_conn.send({'success': False, 'error': str(e)})
     finally:
+        done_event.set()
+        reporter_thread.join(timeout=2)
         try:
             send_conn.close()
         except Exception:
@@ -122,8 +138,9 @@ def compare_algos(algo_filter=None, output_dir=None):
         return
 
     # Initialize results
-    results = {algo: {tl: {p: {c: [] for c in cohesion_scores} for p in people_counts} for tl in timelimits} for algo in run_algos}
-    time_results = {algo: {tl: {p: {c: [] for c in cohesion_scores} for p in people_counts} for tl in timelimits} for algo in run_algos}
+    results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in run_algos}
+    time_results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in run_algos}
+    timeline_results = {algo: {p: {c: [] for c in cohesion_scores} for p in people_counts} for algo in run_algos}
     
     attribute_set_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Inputs", "defaultAttributeSet.json")
     with open(attribute_set_file, encoding="utf-8") as f:
@@ -135,8 +152,7 @@ def compare_algos(algo_filter=None, output_dir=None):
         # if algo_name == "bruteForce" or algo_name == "switch4People":
         #     print("  Skipping due to expected long runtime")
             # continue
-        for timelimit in timelimits:
-            for p_count in people_counts:
+        for p_count in people_counts:
                 for c in cohesion_scores:
                     timeouts_limit = 10
                     for i in range(iterations):
@@ -171,15 +187,17 @@ def compare_algos(algo_filter=None, output_dir=None):
                                 if recv_conn:
                                     recv_conn.close()
                                     recv_conn = None
-                                results[algo_name][timelimit][p_count][c].append("DNF")
-                                time_results[algo_name][timelimit][p_count][c].append("DNF")
+                                results[algo_name][p_count][c].append("DNF")
+                                time_results[algo_name][p_count][c].append("DNF")
+                                timeline_results[algo_name][p_count][c].append([])
                                 
                                 timeouts_limit -= 1
                                 if timeouts_limit == 0:
                                     print(f"  First 10 runs timed out. Cancelling remaining iterations.")
                                     remaining = iterations - (i + 1)
-                                    results[algo_name][timelimit][p_count][c].extend(["DNF"] * remaining)
-                                    time_results[algo_name][timelimit][p_count][c].extend(["DNF"] * remaining)
+                                    results[algo_name][p_count][c].extend(["DNF"] * remaining)
+                                    time_results[algo_name][p_count][c].extend(["DNF"] * remaining)
+                                    timeline_results[algo_name][p_count][c].extend([[]] * remaining)
                                     break
                                 
                                 continue
@@ -201,18 +219,20 @@ def compare_algos(algo_filter=None, output_dir=None):
                             
                             if return_dict.get('success'):
                                 totalValue = return_dict['value']
-                                results[algo_name][timelimit][p_count][c].append(totalValue)
-                                time_results[algo_name][timelimit][p_count][c].append(end_time - start_time)
+                                results[algo_name][p_count][c].append(totalValue)
+                                time_results[algo_name][p_count][c].append(end_time - start_time)
+                                timeline_results[algo_name][p_count][c].append(return_dict.get('timeline', []))
                             else:
                                 error_msg = return_dict.get('error', 'Unknown Error')
                                 print(f"  Error in {algo_name} at cohesion {c}, iter {i}: {error_msg}")
-                                results[algo_name][timelimit][p_count][c].append("DNF")
-                                time_results[algo_name][timelimit][p_count][c].append("DNF")
-                                
+                                results[algo_name][p_count][c].append("DNF")
+                                time_results[algo_name][p_count][c].append("DNF")
+                                timeline_results[algo_name][p_count][c].append([])
                         except Exception as e:
                             print(f"  Error setting up {algo_name} at cohesion {c}, iter {i}: {e}")
-                            results[algo_name][timelimit][p_count][c].append("DNF")
-                            time_results[algo_name][timelimit][p_count][c].append("DNF")
+                            results[algo_name][p_count][c].append("DNF")
+                            time_results[algo_name][p_count][c].append("DNF")
+                            timeline_results[algo_name][p_count][c].append([])
                         finally:
                             for obj in [send_conn, recv_conn]:
                                 try:
@@ -226,8 +246,8 @@ def compare_algos(algo_filter=None, output_dir=None):
                             except Exception:
                                 pass
                             gc.collect()
-                    print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}, timelimit {timelimit}.")
-            print_results(results, time_results, cohesion_scores, people_counts, quicksave=True, algo_filter=algo_filter, output_dir=output_dir)
+                    print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
+        print_results(results, time_results, timeline_results, cohesion_scores, people_counts, quicksave=True, algo_filter=algo_filter, output_dir=output_dir)
 
     def avg_or_dnf(values):
         valid = [v for v in values if v != "DNF"]
@@ -237,19 +257,18 @@ def compare_algos(algo_filter=None, output_dir=None):
         return "DNF" if v == "DNF" else format(v, fmt_str)
 
     print("\n" + "="*80)
-    print(f"{'Algorithm':<25} {'Timelimit':>10} {'People':>8} {'Avg Score':>12} {'Avg Time(s)':>12}")
+    print(f"{'Algorithm':<25} {'People':>8} {'Avg Score':>12} {'Avg Time(s)':>12}")
     print("-"*80)
     for algo_name in run_algos:
-        for tl in timelimits:
-            for p_count in people_counts:
-                all_scores = [s for c in cohesion_scores for s in results[algo_name][tl][p_count][c]]
-                all_times = [t for c in cohesion_scores for t in time_results[algo_name][tl][p_count][c]]
-                avg_score = avg_or_dnf(all_scores)
-                avg_time = avg_or_dnf(all_times)
-                print(f"{algo_name:<25} {tl:>10} {p_count:>8} {fmt(avg_score, '12.1f')} {fmt(avg_time, '12.4f')}")
+        for p_count in people_counts:
+            all_scores = [s for c in cohesion_scores for s in results[algo_name][p_count][c]]
+            all_times = [t for c in cohesion_scores for t in time_results[algo_name][p_count][c]]
+            avg_score = avg_or_dnf(all_scores)
+            avg_time = avg_or_dnf(all_times)
+            print(f"{algo_name:<25} {p_count:>8} {fmt(avg_score, '12.1f')} {fmt(avg_time, '12.4f')}")
     print("="*80)
 
-    print_results(results, time_results, cohesion_scores, people_counts, algo_filter=algo_filter, output_dir=output_dir)
+    print_results(results, time_results, timeline_results, cohesion_scores, people_counts, algo_filter=algo_filter, output_dir=output_dir)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compare seating algorithms")

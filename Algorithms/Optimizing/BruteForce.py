@@ -19,7 +19,7 @@ def get_2d_permutations(arrangement):
         ]
         yield new_arrangement
 
-def bruteForce(initialArrangement, max_seconds=None):
+def bruteForce(initialArrangement, max_seconds=None, score_tracker=None):
     #here I will generate all permutations of input
     all_arrangements = get_2d_permutations(initialArrangement)
     bestValue = -math.inf
@@ -37,6 +37,8 @@ def bruteForce(initialArrangement, max_seconds=None):
         if permValue > bestValue:
             bestValue = permValue
             bestArrangement = arrangement
+            if score_tracker is not None:
+                score_tracker[0] = bestValue
     return bestArrangement
 
 def bruteForceEachTable(initialArrangement):

@@ -7,7 +7,7 @@ from Utils.UtilFunctions import getAllPeople, switch
 from Utils.ValueCalc import calcArrangement
 
 
-def annealing(arrangement, k=None, seed=None, max_seconds=None):
+def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=None):
     rng = random.Random(seed)
     allPeople = getAllPeople(arrangement)
     people_count = len(allPeople)
@@ -55,6 +55,8 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None):
             if preValueTotal > best_value:
                 best_value = preValueTotal
                 best_arrangement = deepcopy(arrangement)
+                if score_tracker is not None:
+                    score_tracker[0] = best_value
         else:
             switch(arrangement, personA, personB)
         percents[i*10//k][1] += 1

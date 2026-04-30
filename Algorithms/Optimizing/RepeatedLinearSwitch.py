@@ -4,7 +4,7 @@ from Algorithms.Optimizing.LinearSwitchPeopleSets import LinearSwitchPeopleSets
 from Utils.ValueCalc import calcArrangement
 
 
-def repeatedLinearSwitch(arrangement, v, movableCoords=None, max_seconds=None):
+def repeatedLinearSwitch(arrangement, v, movableCoords=None, max_seconds=None, score_tracker=None):
     """Run repeated linear switch optimization until convergence or timeout.
     
     Args:
@@ -37,6 +37,8 @@ def repeatedLinearSwitch(arrangement, v, movableCoords=None, max_seconds=None):
         if score > best_score:
             best_score = score
             best_arrangement = deepcopy(arrangement)
+            if score_tracker is not None:
+                score_tracker[0] = best_score
 
         if score == previous_score:
             break

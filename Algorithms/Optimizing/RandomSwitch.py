@@ -4,7 +4,7 @@ from copy import deepcopy
 from Utils.ValueCalc import calcArrangement
 from Utils.UtilFunctions import switch, getAllPeople
 
-def randomSwitch(arrangement, N=None, seed=None, max_seconds=None):
+def randomSwitch(arrangement, N=None, seed=None, max_seconds=None, score_tracker=None):
     rng = random.Random(seed)
     seat_indices = getAllPeople(arrangement)
     people_count = len(seat_indices)
@@ -36,6 +36,8 @@ def randomSwitch(arrangement, N=None, seed=None, max_seconds=None):
         if current_score > best_score:
             best_score = current_score
             best_arrangement = deepcopy(arrangement)
+            if score_tracker is not None:
+                score_tracker[0] = best_score
 
     for table_index in range(len(arrangement)):
         arrangement[table_index][:] = best_arrangement[table_index][:]
