@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-people = 8
+people = 300
 algorithm_colors = {
     "annealingFromFluent": "tab:blue",
     "annealingFromRandom": "tab:orange",
@@ -47,7 +47,7 @@ pivot_data = summary_c0.pivot(
 colors = {algo: algorithm_colors.get(algo, "tab:gray") for algo in pivot_data.columns}
 
 pivot_data.plot(
-    title=f"Performance at with {people} people",
+    title=f"Performance with {people} people",
     xlabel="Cohesion",
     ylabel="Mean Score",
     marker="o",
