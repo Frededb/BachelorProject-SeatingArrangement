@@ -33,21 +33,23 @@ ALGORITHMS = {
     # "defaultPlacement": defaultPlacement,
     # "influenceListGreedy": influenceListGreedy,
     # "randomGreedy": randomGreedy,
-    "annealingFromFluent": annealingFromFluent,
-    "annealingFromRandom": annealingFromRandom,
-    "linearSwitchFromFluent": linearSwitchFromFluent,
-    "linearSwitchFromFluentProtected": linearSwitchFromFluentProtected,
-    "linearSwitchFromRandom": linearSwitchFromRandom,
-    "randomSwitchFromFluent": randomSwitchFromFluent,
+
+    # "annealingFromFluent": annealingFromFluent,
+    # "annealingFromRandom": annealingFromRandom,
+    # "linearSwitchFromFluent": linearSwitchFromFluent,
+    # "linearSwitchFromFluentProtected": linearSwitchFromFluentProtected,
+    # "linearSwitchFromRandom": linearSwitchFromRandom,
+    # "randomSwitchFromFluent": randomSwitchFromFluent,
     "randomSwitchFromRandom": randomSwitchFromRandom,
-    "tabuSearchFromFluent": tabuSearchFromFluent,
-    "tabuSearchFromRandom": tabuSearchFromRandom,
+    # "tabuSearchFromFluent": tabuSearchFromFluent,
+    # "tabuSearchFromRandom": tabuSearchFromRandom,
+
     "bruteForce": bruteForceFromRandom,
     "theoreticalMax": lambda testInput, initial_arrangement, timelimit, score_tracker=None: calcTheoreticalMax(testInput, initial_arrangement),
 }
 
 cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-iterations = 100
+iterations = 1
 people_counts = [300] #8, 30, 100, 
 timelimit = 60
 

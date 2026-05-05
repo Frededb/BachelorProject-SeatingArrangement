@@ -1,5 +1,6 @@
 import random
 import time
+import itertools
 from copy import deepcopy
 from Utils.ValueCalc import calcArrangement
 from Utils.UtilFunctions import switch, getAllPeople
@@ -21,7 +22,7 @@ def randomSwitch(arrangement, N=None, seed=None, max_seconds=None, score_tracker
     current_score, _, _ = calcArrangement(arrangement)
     best_score = current_score
     best_arrangement = deepcopy(arrangement)
-    for i in range(N):
+    for i in (range(N) if max_seconds is None else itertools.count()):
         if max_seconds is not None and (time.perf_counter() - start_time) >= max_seconds:
             break
 

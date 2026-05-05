@@ -15,6 +15,7 @@
           ps.matplotlib
           ps.openpyxl
           ps.tkinter
+          ps.pandas
         ]);
       in {
         devShells.default = pkgs.mkShell {
