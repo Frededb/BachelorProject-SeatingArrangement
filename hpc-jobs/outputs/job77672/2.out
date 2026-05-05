@@ -1,0 +1,5 @@
+Task 2 running algorithm: 
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Error: Algorithm '' not found. Available: ['bruteForce', 'theoreticalMax']

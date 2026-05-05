@@ -1,0 +1,6 @@
+Task 7 running algorithm: 
+cn13.hpc.itu.dk
+whoami: cannot find name for user ID 52639
+/home/nsio/bachelorProject/hpc-jobs
+[31mFATAL:  [0m Couldn't determine user account information: user: unknown userid 52639
+srun: error: cn13: task 0: Exited with exit code 255
