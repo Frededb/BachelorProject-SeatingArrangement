@@ -13,17 +13,18 @@
 
 # Map array task ID to algorithm name
 ALGOS=(
-    "annealingFromFluent"
-    "annealingFromRandom"
-    "linearSwitchFromFluent"
-    "linearSwitchFromFluentProtected"
-    "linearSwitchFromRandom"
-    "randomSwitchFromFluent"
-    "randomSwitchFromRandom"
-    "tabuSearchFromFluent"
-    "tabuSearchFromRandom"
-    # "bruteForce"
-    # "theoreticalMax"
+    # "annealingFromFluent"
+    # "annealingFromRandom"
+    # "linearSwitchFromFluent"
+    # "linearSwitchFromFluentProtected"
+    # "linearSwitchFromRandom"
+    # "randomSwitchFromFluent"
+    # "randomSwitchFromRandom"
+    # "tabuSearchFromFluent"
+    # "tabuSearchFromRandom"
+
+    "bruteForce"
+    "theoreticalMax"
 )
 
 ALGO=${ALGOS[$SLURM_ARRAY_TASK_ID]}

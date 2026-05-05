@@ -11,4 +11,4 @@
 hostname
 whoami
 echo $PWD
-srun apptainer run container13.sif
+srun apptainer run container.sif

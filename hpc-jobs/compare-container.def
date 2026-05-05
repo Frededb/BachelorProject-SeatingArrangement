@@ -6,12 +6,6 @@ From: pypy:3-slim
     /home/nick/bachelorProject /opt/bachelorProject
 
 %post
-    # Update and install basic dependencies
-    # apt update && apt install -y \
-    #     build-essential \
-    #     wget \
-    #     && rm -rf /var/lib/apt/lists/*
-
     # remove old containers
     rm -f /opt/bachelorProject/hpc-jobs/container*.sif
     

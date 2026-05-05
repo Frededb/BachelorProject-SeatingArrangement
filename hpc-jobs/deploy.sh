@@ -11,8 +11,7 @@ echo "==> Building container..."
 apptainer -q build --force --ignore-subuid --ignore-fakeroot-command "$SCRIPT_DIR/container.sif" "$SCRIPT_DIR/compare-container.def"
 
 echo "==> Uploading job files..."
-scp -r "$SCRIPT_DIR"/container.sif "$REMOTE:$REMOTE_DIR"
-scp -r "$SCRIPT_DIR"/*.job "$REMOTE:$REMOTE_DIR"
+scp -r "$SCRIPT_DIR"/container.sif "$SCRIPT_DIR"/*.job "$REMOTE:$REMOTE_DIR"
 
 echo "==> Submitting job..."
 ssh "$REMOTE" "cd $REMOTE_DIR && sbatch multiJob.job"
