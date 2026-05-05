@@ -1,0 +1,7 @@
+Task 5 running algorithm: linearSwitchFromRandom
+cn8.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromRandom
+slurmstepd: error: *** STEP 75898.0 ON cn8 CANCELLED AT 2026-04-30T17:12:31 ***
+slurmstepd: error: *** JOB 75898 ON cn8 CANCELLED AT 2026-04-30T17:12:31 ***

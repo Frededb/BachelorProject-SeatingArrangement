@@ -1,0 +1,66 @@
+Task 3 running algorithm: linearSwitchFromFluentProtected
+cn8.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromFluentProtected
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1299, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 58008, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 39713, in compile_and_run_once___rpython_jit_metainterp_ji_14
+  File "rpython_jit_metainterp.c", line 62396, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 23468, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 60394, in MetaInterp__interpret
+  File "rpython_jit_metainterp_5.c", line 292, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 30104, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 56849, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_7.c", line 22703, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 52253, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 65192, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20732, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42733, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f70ee3fc070>
+  Error in linearSwitchFromFluentProtected at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+RPython traceback:
+  File "pypy_module_pypyjit.c", line 1299, in jump_absolute__AccessDirect_None
+  File "rpython_jit_metainterp.c", line 58008, in bound_reached__star_5_2
+  File "rpython_jit_metainterp_1.c", line 39713, in compile_and_run_once___rpython_jit_metainterp_ji_14
+  File "rpython_jit_metainterp.c", line 62396, in MetaInterp__compile_and_run_once
+  File "rpython_jit_metainterp_2.c", line 23468, in MetaInterp_interpret
+  File "rpython_jit_metainterp_3.c", line 60394, in MetaInterp__interpret
+  File "rpython_jit_metainterp_5.c", line 292, in MIFrame_run_one_step
+  File "rpython_jit_metainterp_6.c", line 30104, in MIFrame_opimpl_jit_merge_point
+  File "rpython_jit_metainterp_6.c", line 56849, in MetaInterp_reached_loop_header
+  File "rpython_jit_metainterp_7.c", line 22703, in MetaInterp_compile_loop
+  File "rpython_jit_metainterp_7.c", line 52253, in compile_loop
+  File "rpython_jit_metainterp_7.c", line 65192, in send_loop_to_backend
+  File "rpython_jit_backend_x86.c", line 1370, in Assembler386_assemble_loop
+  File "rpython_jit_backend_x86.c", line 4725, in RegAlloc_prepare_loop
+  File "rpython_jit_backend_x86.c", line 8619, in RegAlloc__prepare
+  File "rpython_jit_backend_llsupport.c", line 20732, in compute_vars_longevity
+  File "rpython_jit_backend_llsupport.c", line 42733, in LifetimeManager___setitem__
+~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f70ee3fc070>
+  Error in linearSwitchFromFluentProtected at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+
+Results successfully written to job75910/comparison_results_linearSwitchFromFluentProtected.json
+
+================================================================================
+Algorithm                   People    Avg Score  Avg Time(s)
+--------------------------------------------------------------------------------
+linearSwitchFromFluentProtected      100       4699.4       7.5637
+================================================================================
+
+Results successfully written to job75910/comparison_results_linearSwitchFromFluentProtected.json

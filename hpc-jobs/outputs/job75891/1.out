@@ -1,0 +1,10 @@
+Task 1 running algorithm: annealingFromRandom
+cn14.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromRandom
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+slurmstepd: error: *** JOB 75894 ON cn14 CANCELLED AT 2026-04-30T17:12:31 ***
+slurmstepd: error: *** STEP 75894.0 ON cn14 CANCELLED AT 2026-04-30T17:12:31 ***

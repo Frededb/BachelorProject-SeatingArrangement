@@ -1,0 +1,7 @@
+Task 10 running algorithm: tabuSearchFromRandom
+cn5.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Running iterations for algorithm: tabuSearchFromRandom
+slurmstepd: error: *** JOB 75891 ON cn5 CANCELLED AT 2026-04-30T17:12:32 ***
+slurmstepd: error: *** STEP 75891.0 ON cn5 CANCELLED AT 2026-04-30T17:12:32 ***
