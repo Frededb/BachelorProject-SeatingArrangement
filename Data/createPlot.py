@@ -18,6 +18,11 @@ import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 
+SKIP_ALGORITHMS = {
+    "bruteForce",
+    "theoreticalMax",
+}
+
 ALGORITHM_COLORS = {
     "annealingFromFluent":           "tab:blue",
     "annealingFromRandom":           "tab:orange",
@@ -42,12 +47,16 @@ def load_folder(folder: str, n_people: int) -> pd.DataFrame:
             data = json.load(f)
 
         for algo, algo_data in data.get("results", {}).items():
+            if algo in SKIP_ALGORITHMS:
+                continue
             people_key = str(n_people)
             if people_key not in algo_data:
                 continue
 
             for cohesion_str, entry in algo_data[people_key].items():
                 avg = entry.get("avg_score")
+                if not isinstance(avg, (int, float)):
+                    avg = None
                 if avg is None and entry.get("scores"):
                     scores = [s for s in entry["scores"] if isinstance(s, (int, float))]
                     avg = sum(scores) / len(scores) if scores else None
