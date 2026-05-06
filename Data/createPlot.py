@@ -2,13 +2,12 @@
 Plot mean score vs cohesion for each algorithm from a folder of JSON result files.
 
 Usage:
-    python createPlot.py [folder] [--people N] [--timelimit T] [--out FILE]
+    python createPlot.py [folder] [--people N] [--out FILE]
 
 Defaults:
-    folder     = jsonDataTimeComp
-    --people   = 300
-    --timelimit = last available (ignored if data has no timelimit dimension)
-    --out      = plots/<folder>_plot.png
+    folder   = jsonDataComposite
+    --people = 300
+    --out    = plots/<folder>_plot.png
 """
 
 import argparse
@@ -33,7 +32,7 @@ ALGORITHM_COLORS = {
 }
 
 
-def load_folder(folder: str, n_people: int, timelimit_key: str | None) -> pd.DataFrame:
+def load_folder(folder: str, n_people: int) -> pd.DataFrame:
     rows = []
     for fname in sorted(os.listdir(folder)):
         if not fname.endswith(".json"):
@@ -43,27 +42,11 @@ def load_folder(folder: str, n_people: int, timelimit_key: str | None) -> pd.Dat
             data = json.load(f)
 
         for algo, algo_data in data.get("results", {}).items():
-            # Detect whether timelimit is an outer dimension.
-            # Heuristic: if first key is numeric string it's a timelimit.
-            first_key = next(iter(algo_data))
-            try:
-                float(first_key)
-                has_timelimit = True
-            except ValueError:
-                has_timelimit = False
-
-            if has_timelimit:
-                available = list(algo_data.keys())
-                tl = timelimit_key if timelimit_key in available else available[-1]
-                people_data = algo_data[tl]
-            else:
-                people_data = algo_data
-
             people_key = str(n_people)
-            if people_key not in people_data:
+            if people_key not in algo_data:
                 continue
 
-            for cohesion_str, entry in people_data[people_key].items():
+            for cohesion_str, entry in algo_data[people_key].items():
                 avg = entry.get("avg_score")
                 if avg is None and entry.get("scores"):
                     scores = [s for s in entry["scores"] if isinstance(s, (int, float))]
@@ -80,17 +63,15 @@ def load_folder(folder: str, n_people: int, timelimit_key: str | None) -> pd.Dat
 
 def main():
     parser = argparse.ArgumentParser(description="Plot score vs cohesion from JSON result folder.")
-    parser.add_argument("folder", nargs="?", default="jsonDataTimeComp")
+    parser.add_argument("folder", nargs="?", default="jsonDataComposite")
     parser.add_argument("--people", type=int, default=300)
-    parser.add_argument("--timelimit", type=str, default=None,
-                        help="Timelimit key to use (e.g. '20'). Defaults to last available.")
     parser.add_argument("--out", default=None)
     args = parser.parse_args()
     if args.out is None:
         folder_name = os.path.basename(os.path.normpath(args.folder))
         args.out = f"plots/{folder_name}_plot.png"
 
-    df = load_folder(args.folder, args.people, args.timelimit)
+    df = load_folder(args.folder, args.people)
     if df.empty:
         print(f"No data found in '{args.folder}' for n_people={args.people}.", file=sys.stderr)
         sys.exit(1)
