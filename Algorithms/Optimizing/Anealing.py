@@ -4,7 +4,31 @@ import time
 from copy import deepcopy
 
 from Utils.UtilFunctions import getAllPeople, switch
-from Utils.ValueCalc import calcArrangement
+from Utils.ValueCalc import calcArrangement, calcTable
+
+
+def _score_after_swap(arrangement, current_score, person_a, person_b):
+    """Return the arrangement score after swapping two people.
+
+    The swap is applied temporarily, only the affected table(s) are rescored,
+    and then the swap is undone so the caller's arrangement remains unchanged.
+    """
+    table_a, table_b = person_a[0], person_b[0]
+
+    if table_a == table_b:
+        before = calcTable(arrangement[table_a])[0]
+        switch(arrangement, person_a, person_b)
+        after = calcTable(arrangement[table_a])[0]
+        switch(arrangement, person_a, person_b)
+        return current_score - before + after
+
+    before_a = calcTable(arrangement[table_a])[0]
+    before_b = calcTable(arrangement[table_b])[0]
+    switch(arrangement, person_a, person_b)
+    after_a = calcTable(arrangement[table_a])[0]
+    after_b = calcTable(arrangement[table_b])[0]
+    switch(arrangement, person_a, person_b)
+    return current_score - before_a - before_b + after_a + after_b
 
 
 def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=None):
@@ -37,9 +61,7 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
         while personB == personA:
             personB = rng.choice(allPeople)
 
-        switch(arrangement, personA, personB)
-
-        postValueTotal = calcArrangement(arrangement)[0]
+        postValueTotal = _score_after_swap(arrangement, preValueTotal, personA, personB)
 
         #linear
         # T = max(0.01, min(1, 1 - i / k))*120
@@ -51,14 +73,13 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
         if postValueTotal < preValueTotal:
             percents[i*10//k][0] += P
         if postValueTotal >= preValueTotal or P:
+            switch(arrangement, personA, personB)
             preValueTotal = postValueTotal
             if preValueTotal > best_value:
                 best_value = preValueTotal
                 best_arrangement = deepcopy(arrangement)
                 if score_tracker is not None:
                     score_tracker[0] = best_value
-        else:
-            switch(arrangement, personA, personB)
         percents[i*10//k][1] += 1
 
     # Keep in-place contract while returning the best state seen within the budget.
