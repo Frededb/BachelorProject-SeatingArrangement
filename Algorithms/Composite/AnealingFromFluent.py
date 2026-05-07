@@ -2,9 +2,9 @@ import time
 
 from Algorithms.Build.FluentGroupsFill import fluentGroupsFill
 from Algorithms.Optimizing.Anealing import annealing
+FromGrouped
 
-
-def annealingFromFluent(input, emptyArrangement, max_seconds=None, score_tracker=None):
+def annealingFromGrouped(input, emptyArrangement, max_seconds=None, score_tracker=None):
     arrangement, _ = fluentGroupsFill(input, emptyArrangement)
 
     if max_seconds is None:

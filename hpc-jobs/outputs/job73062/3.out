@@ -1,5 +1,5 @@
-Task 3 running algorithm: linearSwitchFromFluentv4
+Task 3 running algorithm: linearSwitchFromGroupedv4
 cn17.hpc.itu.dk
 aubu
 /home/aubu/bachelorProject/hpc-jobs
-Error: Algorithm 'linearSwitchFromFluentv4' not found. Available: ['annealingFromFluent', 'annealingFromRandom', 'linearSwitchFromFluent', 'linearSwitchFromFluentProtected', 'linearSwitchFromRandom', 'randomSwitchFromFluent', 'randomSwitchFromRandom', 'tabuSearchFromFluent', 'tabuSearchFromRandom', 'bruteForce', 'theoreticalMax']
+Error: Algorithm 'linearSwitchFromGroupedv4' not found. Available: ['annealingFromGrouped', 'annealingFromRandom', 'linearSwitchFromGrouped', 'linearSwitchFromGroupedProtected', 'linearSwitchFromRandom', 'randomSwitchFromGrouped', 'randomSwitchFromRandom', 'tabuSearchFromGrouped', 'tabuSearchFromRandom', 'bruteForce', 'theoreticalMax']

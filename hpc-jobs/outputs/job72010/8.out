@@ -1,8 +1,8 @@
-Task 8 running algorithm: randomSwitchFromFluent
+Task 8 running algorithm: randomSwitchFromGrouped
 cn18.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: randomSwitchFromFluent
+Running iterations for algorithm: randomSwitchFromGrouped
   Completed 100 iterations for size 8, cohesion 0.
   Completed 100 iterations for size 8, cohesion 10.
   Completed 100 iterations for size 8, cohesion 20.
@@ -44,7 +44,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f9b75dbea50>
-  Error in randomSwitchFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Error in randomSwitchFromGrouped at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 0.
   Completed 100 iterations for size 100, cohesion 10.
 slurmstepd: error: *** JOB 72019 ON cn18 CANCELLED AT 2026-04-21T16:10:43 ***

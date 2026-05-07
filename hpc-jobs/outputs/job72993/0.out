@@ -1,32 +1,32 @@
-Task 0 running algorithm: annealingFromFluent
+Task 0 running algorithm: annealingFromGrouped
 cn8.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: annealingFromFluent
+Running iterations for algorithm: annealingFromGrouped
   Completed 100 iterations for size 300, cohesion 0.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 10.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 20.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 30.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 40.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 50.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 60.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 70.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -46,7 +46,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f50eb3b0a50>
-  Error in annealingFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -66,31 +66,31 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f50eb3b0a50>
-  Error in annealingFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 90.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 300)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent      10649.5 11461.0 11996.1 12386.1 12824.7 13258.8 13521.1 13722.1 13732.8 13758.1 13761.1 
+annealingFromGrouped      10649.5 11461.0 11996.1 12386.1 12824.7 13258.8 13521.1 13722.1 13732.8 13758.1 13761.1 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 300)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent      5.4385 5.3985 5.2623 5.0504 4.8723 4.7748 4.7227 4.7095 4.7087 4.7074 4.7008 
+annealingFromGrouped      5.4385 5.3985 5.2623 5.0504 4.8723 4.7748 4.7227 4.7095 4.7087 4.7074 4.7008 
 
 ================================================================================
 
-Results successfully written to job72993/comparison_results_annealingFromFluent.json
+Results successfully written to job72993/comparison_results_annealingFromGrouped.json

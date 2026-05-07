@@ -1,8 +1,8 @@
-Task 3 running algorithm: tabuSearchFromFluent
+Task 3 running algorithm: tabuSearchFromGrouped
 cn10.hpc.itu.dk
 aubu
 /home/aubu/bachelorProject/hpc-jobs
-Running iterations for algorithm: tabuSearchFromFluent
+Running iterations for algorithm: tabuSearchFromGrouped
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -30,7 +30,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f0e3be2fa50>
-  Error in tabuSearchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in tabuSearchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -50,12 +50,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f0e3be2fa50>
-  Error in tabuSearchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in tabuSearchFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job74004/3-cn10.hpc.itu.dk/comparison_results_tabuSearchFromFluent.json
+Results successfully written to job74004/3-cn10.hpc.itu.dk/comparison_results_tabuSearchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -83,6 +83,6 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f0e3be2fa50>
-  Error in tabuSearchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in tabuSearchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 slurmstepd: error: *** JOB 74008 ON cn10 CANCELLED AT 2026-04-27T15:45:43 ***
 slurmstepd: error: *** STEP 74008.0 ON cn10 CANCELLED AT 2026-04-27T15:45:43 ***

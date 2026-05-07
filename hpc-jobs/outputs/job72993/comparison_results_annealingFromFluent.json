@@ -19,7 +19,7 @@
         300
     ],
     "results": {
-        "annealingFromFluent": {
+        "annealingFromGrouped": {
             "300": {
                 "0": {
                     "scores": [

@@ -14,15 +14,15 @@ from Algorithms.Build.FluentGroupsFill import fluentGroupsFill
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
 from Algorithms.Build.RandomGreedy import randomGreedy
 from Algorithms.Build.RandomPlacement import randomPlacement
-from Algorithms.Composite.AnealingFromFluent import annealingFromFluent
+from Algorithms.Composite.AnealingFromGrouped import annealingFromGrouped
 from Algorithms.Composite.AnealingFromRandom import annealingFromRandom
 from Algorithms.Composite.BruteForce import bruteForceFromRandom
-from Algorithms.Composite.LinearSwitchFromFluent import linearSwitchFromFluent
-from Algorithms.Composite.LinearSwitchFromFluentProtected import linearSwitchFromFluentProtected
+from Algorithms.Composite.LinearSwitchFromGrouped import linearSwitchFromGrouped
+from Algorithms.Composite.LinearSwitchFromGroupedProtected import linearSwitchFromGroupedProtected
 from Algorithms.Composite.LinearSwitchFromRandom import linearSwitchFromRandom
-from Algorithms.Composite.RandomSwitchFromFluent import randomSwitchFromFluent
+from Algorithms.Composite.RandomSwitchFromGrouped import randomSwitchFromGrouped
 from Algorithms.Composite.RandomSwitchFromRandom import randomSwitchFromRandom
-from Algorithms.Composite.TabuSearchFromFluent import tabuSearchFromFluent
+from Algorithms.Composite.TabuSearchFromGrouped import tabuSearchFromGrouped
 from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 from Algorithms.Disruption.TearDown import TearDown
 from Algorithms.Optimizing.Anealing import annealing
@@ -39,15 +39,15 @@ from Utils.UtilFunctions import makeEmptyArrangement, makeEmptyArrangementFromTa
 
 
 ALGORITHMS = {
-    "annealingFromFluent": annealingFromFluent,
+    "annealingFromGrouped": annealingFromGrouped,
     "annealingFromRandom": annealingFromRandom,
     "bruteForce": bruteForceFromRandom,
-    "linearSwitchFromFluent": linearSwitchFromFluent,
-    "linearSwitchFromFluentProtected": linearSwitchFromFluentProtected,
+    "linearSwitchFromGrouped": linearSwitchFromGrouped,
+    "linearSwitchFromGroupedProtected": linearSwitchFromGroupedProtected,
     "linearSwitchFromRandom": linearSwitchFromRandom,
-    "randomSwitchFromFluent": randomSwitchFromFluent,
+    "randomSwitchFromGrouped": randomSwitchFromGrouped,
     "randomSwitchFromRandom": randomSwitchFromRandom,
-    "tabuSearchFromFluent": tabuSearchFromFluent,
+    "tabuSearchFromGrouped": tabuSearchFromGrouped,
     "tabuSearchFromRandom": tabuSearchFromRandom,
 }
 
@@ -197,7 +197,7 @@ if __name__ == "__main__":
         for algo in ALGORITHMS:
             print(f"  - {algo}")
         print("\nExample:")
-        print("  python runAlgorithm.py annealingFromFluent Inputs/sheetOutput/Test\\ \\(svar\\)input.json Inputs/sheetOutput/Test\\ \\(svar\\)attribute_set.json")
+        print("  python runAlgorithm.py annealingFromGrouped Inputs/sheetOutput/Test\\ \\(svar\\)input.json Inputs/sheetOutput/Test\\ \\(svar\\)attribute_set.json")
         raise SystemExit(1)
 
     algorithm_name = sys.argv[1]

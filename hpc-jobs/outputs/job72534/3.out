@@ -1,8 +1,8 @@
-Task 3 running algorithm: linearSwitchFromFluent
+Task 3 running algorithm: linearSwitchFromGrouped
 cn8.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: linearSwitchFromFluent
+Running iterations for algorithm: linearSwitchFromGrouped
   Completed 100 iterations for size 8, cohesion 0.
   Completed 100 iterations for size 8, cohesion 10.
   Completed 100 iterations for size 8, cohesion 20.

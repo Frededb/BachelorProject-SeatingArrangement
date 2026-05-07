@@ -13,14 +13,14 @@
 
 # Map array task ID to algorithm name
 ALGOS=(
-    "annealingFromFluent"
+    "annealingFromGrouped"
     "annealingFromRandom"
-    "linearSwitchFromFluent"
-    "linearSwitchFromFluentProtected"
+    "linearSwitchFromGrouped"
+    "linearSwitchFromGroupedProtected"
     "linearSwitchFromRandom"
-    "randomSwitchFromFluent"
+    "randomSwitchFromGrouped"
     "randomSwitchFromRandom"
-    "tabuSearchFromFluent"
+    "tabuSearchFromGrouped"
     "tabuSearchFromRandom"
 
     # "bruteForce"

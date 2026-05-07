@@ -20,7 +20,7 @@
     ],
     "timelimit": 60,
     "results": {
-        "annealingFromFluent": {
+        "annealingFromGrouped": {
             "100": {
                 "0": {
                     "scores": [

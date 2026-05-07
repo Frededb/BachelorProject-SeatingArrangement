@@ -1,8 +1,8 @@
-Task 9 running algorithm: tabuSearchFromFluent
+Task 9 running algorithm: tabuSearchFromGrouped
 cn17.hpc.itu.dk
 aubu
 /home/aubu/bachelorProject/hpc-jobs
-Running iterations for algorithm: tabuSearchFromFluent
+Running iterations for algorithm: tabuSearchFromGrouped
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1299, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 58008, in bound_reached__star_5_2
@@ -22,6 +22,6 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20732, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42733, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f7482d00070>
-  Error in tabuSearchFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Error in tabuSearchFromGrouped at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
 slurmstepd: error: *** JOB 75902 ON cn17 CANCELLED AT 2026-04-30T17:12:31 ***
 slurmstepd: error: *** STEP 75902.0 ON cn17 CANCELLED AT 2026-04-30T17:12:31 ***

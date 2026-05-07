@@ -1,8 +1,8 @@
-Task 4 running algorithm: linearSwitchFromFluentProtected
+Task 4 running algorithm: linearSwitchFromGroupedProtected
 cn8.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: linearSwitchFromFluentProtected
+Running iterations for algorithm: linearSwitchFromGroupedProtected
   Completed 100 iterations for size 8, cohesion 10.
   Completed 100 iterations for size 8, cohesion 30.
   Completed 100 iterations for size 8, cohesion 40.
@@ -36,7 +36,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f50e93eda50>
-  Error in linearSwitchFromFluentProtected at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGroupedProtected at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 40.
   Completed 100 iterations for size 100, cohesion 60.
   Completed 100 iterations for size 100, cohesion 70.
@@ -48,64 +48,64 @@ RPython traceback:
   Completed 100 iterations for size 300, cohesion 70.
   Completed 100 iterations for size 300, cohesion 90.
 
-Results successfully written to job72814/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72814/comparison_results_linearSwitchFromGroupedProtected.json
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 8)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-linearSwitchFromFluentProtected 437.7  437.7  437.7  437.7  437.7  437.7 
+linearSwitchFromGroupedProtected 437.7  437.7  437.7  437.7  437.7  437.7 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 30)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-linearSwitchFromFluentProtected1247.4 1353.0 1403.9 1487.0 1497.2 1512.9 
+linearSwitchFromGroupedProtected1247.4 1353.0 1403.9 1487.0 1497.2 1512.9 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 100)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-linearSwitchFromFluentProtected4179.5 4541.8 4728.4 4968.9 5013.1 5046.7 
+linearSwitchFromGroupedProtected4179.5 4541.8 4728.4 4968.9 5013.1 5046.7 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 300)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-linearSwitchFromFluentProtected12585.1 13683.7 14191.9 15001.2 15206.0 15241.1 
+linearSwitchFromGroupedProtected12585.1 13683.7 14191.9 15001.2 15206.0 15241.1 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 8)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-linearSwitchFromFluentProtected0.1224 0.1217 0.1222 0.1217 0.1233 0.1246 
+linearSwitchFromGroupedProtected0.1224 0.1217 0.1222 0.1217 0.1233 0.1246 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 30)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-linearSwitchFromFluentProtected0.4652 0.3821 0.3705 0.3542 0.3393 0.3383 
+linearSwitchFromGroupedProtected0.4652 0.3821 0.3705 0.3542 0.3393 0.3383 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 100)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-linearSwitchFromFluentProtected14.5426 10.2354 6.0993 2.2384 2.3889 1.9966 
+linearSwitchFromGroupedProtected14.5426 10.2354 6.0993 2.2384 2.3889 1.9966 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 300)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-linearSwitchFromFluentProtected33.5036 33.0379 32.7623 25.4208 22.2007 21.2670 
+linearSwitchFromGroupedProtected33.5036 33.0379 32.7623 25.4208 22.2007 21.2670 
 
 ================================================================================
 
-Results successfully written to job72814/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72814/comparison_results_linearSwitchFromGroupedProtected.json

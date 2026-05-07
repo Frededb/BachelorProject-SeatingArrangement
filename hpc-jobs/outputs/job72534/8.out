@@ -1,8 +1,8 @@
-Task 8 running algorithm: tabuSearchFromFluent
+Task 8 running algorithm: tabuSearchFromGrouped
 cn9.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: tabuSearchFromFluent
+Running iterations for algorithm: tabuSearchFromGrouped
   Completed 100 iterations for size 8, cohesion 0.
   Completed 100 iterations for size 8, cohesion 10.
   Completed 100 iterations for size 8, cohesion 20.
@@ -44,8 +44,8 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fe6afd99a50>
-  Error in tabuSearchFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
-  Timeout! tabuSearchFromFluent at size 100, cohesion 0, iter 49 took longer than 30 seconds.
-  Timeout! tabuSearchFromFluent at size 100, cohesion 0, iter 65 took longer than 30 seconds.
+  Error in tabuSearchFromGrouped at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Timeout! tabuSearchFromGrouped at size 100, cohesion 0, iter 49 took longer than 30 seconds.
+  Timeout! tabuSearchFromGrouped at size 100, cohesion 0, iter 65 took longer than 30 seconds.
 slurmstepd: error: *** JOB 72543 ON cn9 CANCELLED AT 2026-04-22T21:51:57 ***
 slurmstepd: error: *** STEP 72543.0 ON cn9 CANCELLED AT 2026-04-22T21:51:57 ***

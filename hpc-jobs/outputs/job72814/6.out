@@ -1,8 +1,8 @@
-Task 6 running algorithm: randomSwitchFromFluent
+Task 6 running algorithm: randomSwitchFromGrouped
 cn16.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: randomSwitchFromFluent
+Running iterations for algorithm: randomSwitchFromGrouped
   Completed 100 iterations for size 8, cohesion 10.
   Completed 100 iterations for size 8, cohesion 30.
   Completed 100 iterations for size 8, cohesion 40.
@@ -36,7 +36,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f3370424a50>
-  Error in randomSwitchFromFluent at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Error in randomSwitchFromGrouped at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 40.
   Completed 100 iterations for size 100, cohesion 60.
   Completed 100 iterations for size 100, cohesion 70.
@@ -48,64 +48,64 @@ RPython traceback:
   Completed 100 iterations for size 300, cohesion 70.
   Completed 100 iterations for size 300, cohesion 90.
 
-Results successfully written to job72814/comparison_results_randomSwitchFromFluent.json
+Results successfully written to job72814/comparison_results_randomSwitchFromGrouped.json
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 8)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-randomSwitchFromFluent    436.0  436.4  436.5  436.3  436.5  435.2 
+randomSwitchFromGrouped    436.0  436.4  436.5  436.3  436.5  435.2 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 30)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   1325.9 1424.0 1473.6 1556.6 1568.1 1584.2 
+randomSwitchFromGrouped   1325.9 1424.0 1473.6 1556.6 1568.1 1584.2 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 100)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   4347.8 4683.8 4866.8 5102.9 5154.5 5181.9 
+randomSwitchFromGrouped   4347.8 4683.8 4866.8 5102.9 5154.5 5181.9 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 300)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   12432.6 13456.7 13967.0 14760.5 14952.4 14995.2 
+randomSwitchFromGrouped   12432.6 13456.7 13967.0 14760.5 14952.4 14995.2 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 8)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   0.1496 0.1509 0.1492 0.1476 0.1492 0.1453 
+randomSwitchFromGrouped   0.1496 0.1509 0.1492 0.1476 0.1492 0.1453 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 30)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   0.7095 0.6993 0.6963 0.7072 0.7044 0.7039 
+randomSwitchFromGrouped   0.7095 0.6993 0.6963 0.7072 0.7044 0.7039 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 100)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   3.2997 3.2558 3.2256 3.1341 3.0705 3.1231 
+randomSwitchFromGrouped   3.2997 3.2558 3.2256 3.1341 3.0705 3.1231 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 300)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   8.9192 8.4485 8.1766 7.9054 7.7477 7.9391 
+randomSwitchFromGrouped   8.9192 8.4485 8.1766 7.9054 7.7477 7.9391 
 
 ================================================================================
 
-Results successfully written to job72814/comparison_results_randomSwitchFromFluent.json
+Results successfully written to job72814/comparison_results_randomSwitchFromGrouped.json

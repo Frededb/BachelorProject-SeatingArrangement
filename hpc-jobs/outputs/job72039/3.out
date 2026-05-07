@@ -1,8 +1,8 @@
-Task 3 running algorithm: annealingFromFluent
+Task 3 running algorithm: annealingFromGrouped
 cn8.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: annealingFromFluent
+Running iterations for algorithm: annealingFromGrouped
   Completed 100 iterations for size 8, cohesion 0.
   Completed 100 iterations for size 8, cohesion 10.
   Completed 100 iterations for size 8, cohesion 20.
@@ -44,7 +44,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f1d8c500a50>
-  Error in annealingFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 0.
   Completed 100 iterations for size 100, cohesion 10.
   Completed 100 iterations for size 100, cohesion 20.
@@ -68,7 +68,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f1d8c500a50>
-  Error in annealingFromFluent at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 40.
   Completed 100 iterations for size 100, cohesion 50.
   Completed 100 iterations for size 100, cohesion 60.
@@ -103,7 +103,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f1d8c500a50>
-  Error in annealingFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -123,69 +123,69 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f1d8c500a50>
-  Error in annealingFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to comparison_results_annealingFromFluent_260421_2203.json
+Results successfully written to comparison_results_annealingFromGrouped_260421_2203.json
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 8)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent       439.1  438.9  438.7  438.9  438.8  439.0  438.6  438.9  438.7  438.7  438.8 
+annealingFromGrouped       439.1  438.9  438.7  438.9  438.8  439.0  438.6  438.9  438.7  438.7  438.8 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 30)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent      1345.2 1367.7 1417.1 1467.1 1508.2 1554.6 1586.3 1596.7 1602.6 1605.4 1603.0 
+annealingFromGrouped      1345.2 1367.7 1417.1 1467.1 1508.2 1554.6 1586.3 1596.7 1602.6 1605.4 1603.0 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 100)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent      4112.3 4392.2 4556.3 4717.8 4903.1 5048.9 5138.0 5183.7 5202.5 5198.7 5196.3 
+annealingFromGrouped      4112.3 4392.2 4556.3 4717.8 4903.1 5048.9 5138.0 5183.7 5202.5 5198.7 5196.3 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 300)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent      10481.6 11060.6 11420.8 11768.2 12161.8 12416.5 12592.2 12711.1 12773.5 12810.1 12800.1 
+annealingFromGrouped      10481.6 11060.6 11420.8 11768.2 12161.8 12416.5 12592.2 12711.1 12773.5 12810.1 12800.1 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 8)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent      1.6093 1.6025 1.5968 1.5971 1.6010 1.5908 1.5927 1.5953 1.6008 1.5923 1.5921 
+annealingFromGrouped      1.6093 1.6025 1.5968 1.5971 1.6010 1.5908 1.5927 1.5953 1.6008 1.5923 1.5921 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 30)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent      4.2673 4.2410 4.2122 4.2108 4.2163 4.2512 4.2680 4.2603 4.2616 4.2587 4.2636 
+annealingFromGrouped      4.2673 4.2410 4.2122 4.2108 4.2163 4.2512 4.2680 4.2603 4.2616 4.2587 4.2636 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 100)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent      5.9570 5.8989 5.8735 5.8572 5.8624 5.8240 5.7939 5.7926 5.8033 5.7893 5.7929 
+annealingFromGrouped      5.9570 5.8989 5.8735 5.8572 5.8624 5.8240 5.7939 5.7926 5.8033 5.7893 5.7929 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 300)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-annealingFromFluent      7.8822 7.8316 7.7156 7.4934 7.3051 7.2220 7.1943 7.1874 7.1766 7.1676 7.1631 
+annealingFromGrouped      7.8822 7.8316 7.7156 7.4934 7.3051 7.2220 7.1943 7.1874 7.1766 7.1676 7.1631 
 
 ================================================================================
 
-Results successfully written to comparison_results_annealingFromFluent_260421_2203.json
+Results successfully written to comparison_results_annealingFromGrouped_260421_2203.json

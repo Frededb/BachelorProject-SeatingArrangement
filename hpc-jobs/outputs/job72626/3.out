@@ -1,8 +1,8 @@
-Task 3 running algorithm: linearSwitchFromFluent
+Task 3 running algorithm: linearSwitchFromGrouped
 cn8.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: linearSwitchFromFluent
+Running iterations for algorithm: linearSwitchFromGrouped
   Completed 100 iterations for size 8, cohesion 0.
   Completed 100 iterations for size 8, cohesion 20.
   Completed 100 iterations for size 8, cohesion 50.
@@ -32,7 +32,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f4c1506fa50>
-  Error in linearSwitchFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 0.
   Completed 100 iterations for size 100, cohesion 20.
   Completed 100 iterations for size 100, cohesion 50.
@@ -60,7 +60,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f4c1506fa50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -80,68 +80,68 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f4c1506fa50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job72626/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job72626/comparison_results_linearSwitchFromGrouped.json
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 8)
 ================================================================================
 Algorithm                      0     20     50     80    100
 --------------------------------------------------------------------------------
-linearSwitchFromFluent    438.0  438.0  438.0  438.0  438.0 
+linearSwitchFromGrouped    438.0  438.0  438.0  438.0  438.0 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 30)
 ================================================================================
 Algorithm                      0     20     50     80    100
 --------------------------------------------------------------------------------
-linearSwitchFromFluent   1318.8 1382.5 1538.7 1589.8 1595.3 
+linearSwitchFromGrouped   1318.8 1382.5 1538.7 1589.8 1595.3 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 100)
 ================================================================================
 Algorithm                      0     20     50     80    100
 --------------------------------------------------------------------------------
-linearSwitchFromFluent   4191.4 4612.3 5085.9 5253.7 5259.8 
+linearSwitchFromGrouped   4191.4 4612.3 5085.9 5253.7 5259.8 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 300)
 ================================================================================
 Algorithm                      0     20     50     80    100
 --------------------------------------------------------------------------------
-linearSwitchFromFluent   11896.1 13345.6 14823.5 15370.8 15403.5 
+linearSwitchFromGrouped   11896.1 13345.6 14823.5 15370.8 15403.5 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 8)
 ================================================================================
 Algorithm                      0     20     50     80    100
 --------------------------------------------------------------------------------
-linearSwitchFromFluent   0.0845 0.0840 0.0836 0.0838 0.0841 
+linearSwitchFromGrouped   0.0845 0.0840 0.0836 0.0838 0.0841 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 30)
 ================================================================================
 Algorithm                      0     20     50     80    100
 --------------------------------------------------------------------------------
-linearSwitchFromFluent   1.4516 1.4225 1.3796 1.3484 1.3542 
+linearSwitchFromGrouped   1.4516 1.4225 1.3796 1.3484 1.3542 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 100)
 ================================================================================
 Algorithm                      0     20     50     80    100
 --------------------------------------------------------------------------------
-linearSwitchFromFluent   25.9208 24.7453 22.9381 21.7347 21.7275 
+linearSwitchFromGrouped   25.9208 24.7453 22.9381 21.7347 21.7275 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 300)
 ================================================================================
 Algorithm                      0     20     50     80    100
 --------------------------------------------------------------------------------
-linearSwitchFromFluent   31.3463 31.1712 30.6302 30.5633 30.5530 
+linearSwitchFromGrouped   31.3463 31.1712 30.6302 30.5633 30.5530 
 
 ================================================================================
 
-Results successfully written to job72626/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job72626/comparison_results_linearSwitchFromGrouped.json

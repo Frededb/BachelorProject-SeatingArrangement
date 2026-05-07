@@ -18,25 +18,25 @@ from Utils.reader import readPeople
 from Utils.UtilFunctions import makeEmptyArrangement
 from Utils.ValueCalc import calcArrangement
 
-from Algorithms.Composite.AnealingFromFluent import annealingFromFluent
+from Algorithms.Composite.AnealingFromGrouped import annealingFromGrouped
 from Algorithms.Composite.AnealingFromRandom import annealingFromRandom
-from Algorithms.Composite.LinearSwitchFromFluent import linearSwitchFromFluent
-from Algorithms.Composite.LinearSwitchFromFluentProtected import linearSwitchFromFluentProtected
+from Algorithms.Composite.LinearSwitchFromGrouped import linearSwitchFromGrouped
+from Algorithms.Composite.LinearSwitchFromGroupedProtected import linearSwitchFromGroupedProtected
 from Algorithms.Composite.LinearSwitchFromRandom import linearSwitchFromRandom
-from Algorithms.Composite.RandomSwitchFromFluent import randomSwitchFromFluent
+from Algorithms.Composite.RandomSwitchFromGrouped import randomSwitchFromGrouped
 from Algorithms.Composite.RandomSwitchFromRandom import randomSwitchFromRandom
-from Algorithms.Composite.TabuSearchFromFluent import tabuSearchFromFluent
+from Algorithms.Composite.TabuSearchFromGrouped import tabuSearchFromGrouped
 from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 
 ALGORITHMS = {
-    "annealingFromFluent":             annealingFromFluent,
+    "annealingFromGrouped":             annealingFromGrouped,
     "annealingFromRandom":             annealingFromRandom,
-    "linearSwitchFromFluent":          linearSwitchFromFluent,
-    "linearSwitchFromFluentProtected": linearSwitchFromFluentProtected,
+    "linearSwitchFromGrouped":          linearSwitchFromGrouped,
+    "linearSwitchFromGroupedProtected": linearSwitchFromGroupedProtected,
     "linearSwitchFromRandom":          linearSwitchFromRandom,
-    "randomSwitchFromFluent":          randomSwitchFromFluent,
+    "randomSwitchFromGrouped":          randomSwitchFromGrouped,
     "randomSwitchFromRandom":          randomSwitchFromRandom,
-    "tabuSearchFromFluent":            tabuSearchFromFluent,
+    "tabuSearchFromGrouped":            tabuSearchFromGrouped,
     "tabuSearchFromRandom":            tabuSearchFromRandom,
 }
 
@@ -121,7 +121,7 @@ def main():
     # Bar chart
     names = list(scores.keys())
     values = [scores[n] for n in names]
-    short_names = [n.replace("FromFluent", "\n(Fluent)").replace("FromRandom", "\n(Random)") for n in names]
+    short_names = [n.replace("FromGrouped", "\n(Grouped)").replace("FromRandom", "\n(Random)") for n in names]
 
     fig, ax = plt.subplots()
     bars = ax.bar(short_names, values)

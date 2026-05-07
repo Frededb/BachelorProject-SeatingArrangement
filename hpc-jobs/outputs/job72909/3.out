@@ -1,8 +1,8 @@
-Task 3 running algorithm: linearSwitchFromFluentv4
+Task 3 running algorithm: linearSwitchFromGroupedv4
 cn8.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
 INFO:    squashfuse_ll mount took an unexpectedly long time: 2.925s
-Running iterations for algorithm: linearSwitchFromFluentv4
+Running iterations for algorithm: linearSwitchFromGroupedv4
 slurmstepd: error: *** JOB 72913 ON cn8 CANCELLED AT 2026-04-24T11:19:24 ***
 slurmstepd: error: *** STEP 72913.0 ON cn8 CANCELLED AT 2026-04-24T11:19:24 ***

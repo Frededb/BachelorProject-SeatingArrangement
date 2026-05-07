@@ -1,8 +1,8 @@
-Task 6 running algorithm: tabuSearchFromFluent
+Task 6 running algorithm: tabuSearchFromGrouped
 cn10.hpc.itu.dk
 aubu
 /home/aubu/bachelorProject/hpc-jobs
-Running iterations for algorithm: tabuSearchFromFluent
+Running iterations for algorithm: tabuSearchFromGrouped
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -22,7 +22,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fd34f245a50>
-  Error in tabuSearchFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Error in tabuSearchFromGrouped at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 0, timelimit 60.
   Completed 100 iterations for size 100, cohesion 10, timelimit 60.
   Completed 100 iterations for size 100, cohesion 20, timelimit 60.
@@ -46,7 +46,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fd34f245a50>
-  Error in tabuSearchFromFluent at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Error in tabuSearchFromGrouped at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 40, timelimit 60.
   Completed 100 iterations for size 100, cohesion 50, timelimit 60.
   Completed 100 iterations for size 100, cohesion 60, timelimit 60.
@@ -55,12 +55,12 @@ RPython traceback:
   Completed 100 iterations for size 100, cohesion 90, timelimit 60.
   Completed 100 iterations for size 100, cohesion 100, timelimit 60.
 
-Results successfully written to job74058/6-cn10.hpc.itu.dk/comparison_results_tabuSearchFromFluent.json
+Results successfully written to job74058/6-cn10.hpc.itu.dk/comparison_results_tabuSearchFromGrouped.json
 
 ================================================================================
 Algorithm                  Timelimit   People    Avg Score  Avg Time(s)
 --------------------------------------------------------------------------------
-tabuSearchFromFluent              60      100       4887.5       5.8035
+tabuSearchFromGrouped              60      100       4887.5       5.8035
 ================================================================================
 
-Results successfully written to job74058/6-cn10.hpc.itu.dk/comparison_results_tabuSearchFromFluent.json
+Results successfully written to job74058/6-cn10.hpc.itu.dk/comparison_results_tabuSearchFromGrouped.json

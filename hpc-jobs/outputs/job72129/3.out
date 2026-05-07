@@ -1,5 +1,5 @@
 slurmstepd: error: *** JOB 72133 ON cn8 CANCELLED AT 2026-04-21T21:19:15 ***
-Task 3 running algorithm: annealingFromFluent
+Task 3 running algorithm: annealingFromGrouped
 cn8.hpc.itu.dk
 aubu
 /home/aubu/bachelorProject/hpc-jobs

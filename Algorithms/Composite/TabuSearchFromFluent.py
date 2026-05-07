@@ -2,9 +2,9 @@ import time
 
 from Algorithms.Build.FluentGroupsFill import fluentGroupsFill
 from Algorithms.Optimizing.TabuSearch import tabuSearch
+FromGrouped
 
-
-def tabuSearchFromFluent(input, emptyArrangement, max_seconds=None, score_tracker=None):
+def tabuSearchFromGrouped(input, emptyArrangement, max_seconds=None, score_tracker=None):
     arrangement, _ = fluentGroupsFill(input, emptyArrangement)
 
     if max_seconds is None:

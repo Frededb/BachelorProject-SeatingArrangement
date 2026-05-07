@@ -1,7 +1,7 @@
-Task 10 running algorithm: tabuSearchFromFluent
+Task 10 running algorithm: tabuSearchFromGrouped
 cn9.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: tabuSearchFromFluent
+Running iterations for algorithm: tabuSearchFromGrouped
 slurmstepd: error: *** JOB 72920 ON cn9 CANCELLED AT 2026-04-24T11:19:21 ***
 slurmstepd: error: *** STEP 72920.0 ON cn9 CANCELLED AT 2026-04-24T11:19:21 ***

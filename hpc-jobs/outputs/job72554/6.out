@@ -1,8 +1,8 @@
-Task 6 running algorithm: randomSwitchFromFluent
+Task 6 running algorithm: randomSwitchFromGrouped
 cn11.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: randomSwitchFromFluent
+Running iterations for algorithm: randomSwitchFromGrouped
   Completed 100 iterations for size 8, cohesion 0.
   Completed 100 iterations for size 8, cohesion 10.
   Completed 100 iterations for size 8, cohesion 20.
@@ -44,7 +44,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7ff3df44ca50>
-  Error in randomSwitchFromFluent at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Error in randomSwitchFromGrouped at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 0.
   Completed 100 iterations for size 100, cohesion 10.
   Completed 100 iterations for size 100, cohesion 20.
@@ -68,7 +68,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7ff3df44ca50>
-  Error in randomSwitchFromFluent at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Error in randomSwitchFromGrouped at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 40.
   Completed 100 iterations for size 100, cohesion 50.
   Completed 100 iterations for size 100, cohesion 60.
@@ -103,7 +103,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7ff3df44ca50>
-  Error in randomSwitchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in randomSwitchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -123,69 +123,69 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7ff3df44ca50>
-  Error in randomSwitchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in randomSwitchFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job%A/comparison_results_randomSwitchFromFluent.json
+Results successfully written to job%A/comparison_results_randomSwitchFromGrouped.json
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 8)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-randomSwitchFromFluent    436.1  436.7  435.8  435.9  436.2  435.9  436.0  436.0  436.5  436.3  436.5 
+randomSwitchFromGrouped    436.1  436.7  435.8  435.9  436.2  435.9  436.0  436.0  436.5  436.3  436.5 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 30)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   1304.9 1323.4 1376.5 1424.6 1477.3 1523.2 1554.4 1567.6 1578.6 1583.3 1582.0 
+randomSwitchFromGrouped   1304.9 1323.4 1376.5 1424.6 1477.3 1523.2 1554.4 1567.6 1578.6 1583.3 1582.0 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 100)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   4087.6 4331.5 4514.4 4685.0 4866.9 5007.0 5102.7 5165.7 5183.6 5192.7 5188.8 
+randomSwitchFromGrouped   4087.6 4331.5 4514.4 4685.0 4866.9 5007.0 5102.7 5165.7 5183.6 5192.7 5188.8 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 300)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   11590.5 12442.1 13041.6 13469.3 13972.3 14455.5 14756.5 14961.9 14975.7 15012.6 15007.3 
+randomSwitchFromGrouped   11590.5 12442.1 13041.6 13469.3 13972.3 14455.5 14756.5 14961.9 14975.7 15012.6 15007.3 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 8)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   0.0592 0.0585 0.0576 0.0573 0.0572 0.0577 0.0577 0.0581 0.0584 0.0570 0.0580 
+randomSwitchFromGrouped   0.0592 0.0585 0.0576 0.0573 0.0572 0.0577 0.0577 0.0581 0.0584 0.0570 0.0580 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 30)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   0.2776 0.2776 0.2679 0.2673 0.2642 0.2610 0.2638 0.2631 0.2641 0.2607 0.2644 
+randomSwitchFromGrouped   0.2776 0.2776 0.2679 0.2673 0.2642 0.2610 0.2638 0.2631 0.2641 0.2607 0.2644 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 100)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   1.3163 1.2973 1.3000 1.2847 1.2704 1.2746 1.2615 1.2599 1.2517 1.2513 1.2592 
+randomSwitchFromGrouped   1.3163 1.2973 1.3000 1.2847 1.2704 1.2746 1.2615 1.2599 1.2517 1.2513 1.2592 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 300)
 ================================================================================
 Algorithm                      0     10     20     30     40     50     60     70     80     90    100
 --------------------------------------------------------------------------------
-randomSwitchFromFluent   3.7011 3.6612 3.5729 3.4357 3.3189 3.2649 3.2496 3.2337 3.2438 3.2274 3.2194 
+randomSwitchFromGrouped   3.7011 3.6612 3.5729 3.4357 3.3189 3.2649 3.2496 3.2337 3.2438 3.2274 3.2194 
 
 ================================================================================
 
-Results successfully written to job%A/comparison_results_randomSwitchFromFluent.json
+Results successfully written to job%A/comparison_results_randomSwitchFromGrouped.json

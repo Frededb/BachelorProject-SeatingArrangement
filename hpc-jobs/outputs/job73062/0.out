@@ -1,9 +1,9 @@
-Task 0 running algorithm: annealingFromFluent
+Task 0 running algorithm: annealingFromGrouped
 cn8.hpc.itu.dk
 aubu
 /home/aubu/bachelorProject/hpc-jobs
 INFO:    squashfuse_ll mount took an unexpectedly long time: 5.15s
-Running iterations for algorithm: annealingFromFluent
+Running iterations for algorithm: annealingFromGrouped
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -31,7 +31,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -51,12 +51,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_annealingFromFluent.json
+Results successfully written to job73062/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -84,7 +84,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -104,12 +104,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_annealingFromFluent.json
+Results successfully written to job73062/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -137,7 +137,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -157,12 +157,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_annealingFromFluent.json
+Results successfully written to job73062/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -190,7 +190,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -210,12 +210,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_annealingFromFluent.json
+Results successfully written to job73062/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -243,7 +243,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -263,12 +263,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_annealingFromFluent.json
+Results successfully written to job73062/comparison_results_annealingFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -296,7 +296,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -316,22 +316,22 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fcc64af4a50>
-  Error in annealingFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in annealingFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_annealingFromFluent.json
+Results successfully written to job73062/comparison_results_annealingFromGrouped.json
 
 ================================================================================
 Algorithm                  Timelimit   People    Avg Score  Avg Time(s)
 --------------------------------------------------------------------------------
-annealingFromFluent              0.1      300      12823.0       0.8686
-annealingFromFluent              0.5      300      12823.1       1.2684
-annealingFromFluent                1      300      12823.0       1.7687
-annealingFromFluent                5      300      12823.0       4.9452
-annealingFromFluent               10      300      12823.0       4.9406
-annealingFromFluent               20      300      12823.0       4.9422
+annealingFromGrouped              0.1      300      12823.0       0.8686
+annealingFromGrouped              0.5      300      12823.1       1.2684
+annealingFromGrouped                1      300      12823.0       1.7687
+annealingFromGrouped                5      300      12823.0       4.9452
+annealingFromGrouped               10      300      12823.0       4.9406
+annealingFromGrouped               20      300      12823.0       4.9422
 ================================================================================
 
-Results successfully written to job73062/comparison_results_annealingFromFluent.json
+Results successfully written to job73062/comparison_results_annealingFromGrouped.json

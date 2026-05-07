@@ -3,15 +3,15 @@ import matplotlib.pyplot as plt
 
 people = 300
 algorithm_colors = {
-    "annealingFromFluent": "tab:blue",
+    "annealingFromGrouped": "tab:blue",
     "annealingFromRandom": "tab:orange",
     "bruteForce": "tab:green",
-    "linearSwitchFromFluent": "tab:red",
-    "linearSwitchFromFluentProtected": "tab:purple",
+    "linearSwitchFromGrouped": "tab:red",
+    "linearSwitchFromGroupedProtected": "tab:purple",
     "linearSwitchFromRandom": "tab:brown",
-    "randomSwitchFromFluent": "tab:pink",
+    "randomSwitchFromGrouped": "tab:pink",
     "randomSwitchFromRandom": "tab:gray",
-    "tabuSearchFromFluent": "tab:olive",
+    "tabuSearchFromGrouped": "tab:olive",
     "tabuSearchFromRandom": "tab:cyan",
 }
 

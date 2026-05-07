@@ -1,28 +1,28 @@
-Task 2 running algorithm: linearSwitchFromFluent
+Task 2 running algorithm: linearSwitchFromGrouped
 cn8.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: linearSwitchFromFluent
+Running iterations for algorithm: linearSwitchFromGrouped
   Completed 100 iterations for size 300, cohesion 0.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 10.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 20.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 30.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 40.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 50.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 60.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGrouped.json
 slurmstepd: error: *** STEP 72996.0 ON cn8 CANCELLED AT 2026-04-25T11:36:07 DUE TO TIME LIMIT ***
 slurmstepd: error: *** JOB 72996 ON cn8 CANCELLED AT 2026-04-25T11:36:07 DUE TO TIME LIMIT ***

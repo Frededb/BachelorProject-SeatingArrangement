@@ -1,8 +1,8 @@
-Task 8 running algorithm: tabuSearchFromFluent
+Task 8 running algorithm: tabuSearchFromGrouped
 cn16.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: tabuSearchFromFluent
+Running iterations for algorithm: tabuSearchFromGrouped
   Completed 100 iterations for size 8, cohesion 10.
   Completed 100 iterations for size 8, cohesion 30.
   Completed 100 iterations for size 8, cohesion 40.
@@ -36,7 +36,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7fc9a8ba2a50>
-  Error in tabuSearchFromFluent at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
+  Error in tabuSearchFromGrouped at cohesion 40, iter 20: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 100, cohesion 40.
   Completed 100 iterations for size 100, cohesion 60.
   Completed 100 iterations for size 100, cohesion 70.
@@ -48,64 +48,64 @@ RPython traceback:
   Completed 100 iterations for size 300, cohesion 70.
   Completed 100 iterations for size 300, cohesion 90.
 
-Results successfully written to job72814/comparison_results_tabuSearchFromFluent.json
+Results successfully written to job72814/comparison_results_tabuSearchFromGrouped.json
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 8)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-tabuSearchFromFluent      439.5  439.5  439.5  439.5  439.5  439.5 
+tabuSearchFromGrouped      439.5  439.5  439.5  439.5  439.5  439.5 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 30)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-tabuSearchFromFluent     1334.8 1438.6 1487.9 1564.6 1576.9 1593.0 
+tabuSearchFromGrouped     1334.8 1438.6 1487.9 1564.6 1576.9 1593.0 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 100)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-tabuSearchFromFluent     4380.1 4724.4 4909.8 5146.1 5200.2 5224.1 
+tabuSearchFromGrouped     4380.1 4724.4 4909.8 5146.1 5200.2 5224.1 
 
 ================================================================================
 AVERAGE ARRANGEMENT SCORES (People: 300)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-tabuSearchFromFluent     12970.1 14020.8 14569.2 15388.4 15552.8 15606.8 
+tabuSearchFromGrouped     12970.1 14020.8 14569.2 15388.4 15552.8 15606.8 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 8)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-tabuSearchFromFluent     0.1860 0.1861 0.1857 0.1961 0.1859 0.1903 
+tabuSearchFromGrouped     0.1860 0.1861 0.1857 0.1961 0.1859 0.1903 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 30)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-tabuSearchFromFluent     1.4818 1.4313 1.4811 1.3814 1.3925 1.4370 
+tabuSearchFromGrouped     1.4818 1.4313 1.4811 1.3814 1.3925 1.4370 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 100)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-tabuSearchFromFluent     12.6784 11.9165 9.9493 9.6267 9.0583 9.0551 
+tabuSearchFromGrouped     12.6784 11.9165 9.9493 9.6267 9.0583 9.0551 
 
 ================================================================================
 AVERAGE EXECUTION TIMES (seconds) (People: 300)
 ================================================================================
 Algorithm                     10     30     40     60     70     90
 --------------------------------------------------------------------------------
-tabuSearchFromFluent     31.5471 31.0856 30.8538 30.6707 30.6504 30.6390 
+tabuSearchFromGrouped     31.5471 31.0856 30.8538 30.6707 30.6504 30.6390 
 
 ================================================================================
 
-Results successfully written to job72814/comparison_results_tabuSearchFromFluent.json
+Results successfully written to job72814/comparison_results_tabuSearchFromGrouped.json

@@ -1,8 +1,8 @@
-Task 4 running algorithm: linearSwitchFromFluentProtected
+Task 4 running algorithm: linearSwitchFromGroupedProtected
 cn15.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: linearSwitchFromFluentProtected
+Running iterations for algorithm: linearSwitchFromGroupedProtected
   Completed 100 iterations for size 8, cohesion 0.
   Completed 100 iterations for size 8, cohesion 10.
   Completed 100 iterations for size 8, cohesion 20.
@@ -25,13 +25,13 @@ Running iterations for algorithm: linearSwitchFromFluentProtected
   Completed 100 iterations for size 30, cohesion 80.
   Completed 100 iterations for size 30, cohesion 90.
   Completed 100 iterations for size 30, cohesion 100.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 2 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 9 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 11 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 17 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 23 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 27 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 29 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 2 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 9 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 11 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 17 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 23 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 27 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 29 took longer than 30 seconds.
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -51,16 +51,16 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f4893721a50>
-  Error in linearSwitchFromFluentProtected at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 32 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 33 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 36 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 37 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 46 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 48 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 49 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 54 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 56 took longer than 30 seconds.
-  Timeout! linearSwitchFromFluentProtected at size 100, cohesion 0, iter 59 took longer than 30 seconds.
+  Error in linearSwitchFromGroupedProtected at cohesion 0, iter 31: Process crashed or returned no output, exitcode: -6
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 32 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 33 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 36 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 37 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 46 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 48 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 49 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 54 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 56 took longer than 30 seconds.
+  Timeout! linearSwitchFromGroupedProtected at size 100, cohesion 0, iter 59 took longer than 30 seconds.
 slurmstepd: error: *** JOB 72539 ON cn15 CANCELLED AT 2026-04-22T21:51:59 ***
 slurmstepd: error: *** STEP 72539.0 ON cn15 CANCELLED AT 2026-04-22T21:51:59 ***

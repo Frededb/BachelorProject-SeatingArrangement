@@ -2,7 +2,7 @@ from Algorithms.Build.FluentGroupsFill import fluentGroupsFill
 from Algorithms.Optimizing.RepeatedLinearSwitch import repeatedLinearSwitch
 
 
-def linearSwitchFromFluentv4(input, emptyArrangement, max_seconds=None):
+def linearSwitchFromGroupedv4(input, emptyArrangement, max_seconds=None):
 
     arrangement, protectedNames = fluentGroupsFill(input, emptyArrangement)
 

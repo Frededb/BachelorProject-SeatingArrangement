@@ -17,16 +17,16 @@ tempfile.tempdir = "/tmp"
 from Algorithms.Build.DefaultPlacement import defaultPlacement
 from Algorithms.Build.InfluenceListGreedy import influenceListGreedy
 from Algorithms.Build.RandomGreedy import randomGreedy
-from Algorithms.Composite.AnealingFromFluent import annealingFromFluent
+from Algorithms.Composite.AnealingFromGrouped import annealingFromGrouped
 from Algorithms.Composite.AnealingFromRandom import annealingFromRandom
 from Algorithms.Composite.BruteForce import bruteForceFromRandom
-from Algorithms.Composite.LinearSwitchFromFluent import linearSwitchFromFluent
-from Algorithms.Composite.LinearSwitchFromFluentProtected import linearSwitchFromFluentProtected
+from Algorithms.Composite.LinearSwitchFromGrouped import linearSwitchFromGrouped
+from Algorithms.Composite.LinearSwitchFromGroupedProtected import linearSwitchFromGroupedProtected
 from Algorithms.Composite.LinearSwitchFromRandom import linearSwitchFromRandom
-from Algorithms.Composite.RandomSwitchFromFluent import randomSwitchFromFluent
+from Algorithms.Composite.RandomSwitchFromGrouped import randomSwitchFromGrouped
 from Algorithms.Composite.RandomSwitchFromRandom import randomSwitchFromRandom
 from Algorithms.Legacy.RepeatedRandom import repeatedRandom
-from Algorithms.Composite.TabuSearchFromFluent import tabuSearchFromFluent
+from Algorithms.Composite.TabuSearchFromGrouped import tabuSearchFromGrouped
 from Algorithms.Composite.TabuSearchFromRandom import tabuSearchFromRandom
 
 ALGORITHMS = {
@@ -34,14 +34,14 @@ ALGORITHMS = {
     # "influenceListGreedy": influenceListGreedy,
     # "randomGreedy": randomGreedy,
 
-    "annealingFromFluent": annealingFromFluent,
+    "annealingFromGrouped": annealingFromGrouped,
     "annealingFromRandom": annealingFromRandom,
-    "linearSwitchFromFluent": linearSwitchFromFluent,
-    "linearSwitchFromFluentProtected": linearSwitchFromFluentProtected,
+    "linearSwitchFromGrouped": linearSwitchFromGrouped,
+    "linearSwitchFromGroupedProtected": linearSwitchFromGroupedProtected,
     "linearSwitchFromRandom": linearSwitchFromRandom,
-    "randomSwitchFromFluent": randomSwitchFromFluent,
+    "randomSwitchFromGrouped": randomSwitchFromGrouped,
     "randomSwitchFromRandom": randomSwitchFromRandom,
-    "tabuSearchFromFluent": tabuSearchFromFluent,
+    "tabuSearchFromGrouped": tabuSearchFromGrouped,
     "tabuSearchFromRandom": tabuSearchFromRandom,
 
     # "bruteForce": bruteForceFromRandom,

@@ -20,7 +20,7 @@
     ],
     "timelimit": 60,
     "results": {
-        "linearSwitchFromFluent": {
+        "linearSwitchFromGrouped": {
             "100": {
                 "0": {
                     "scores": [

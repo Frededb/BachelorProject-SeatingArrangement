@@ -20,7 +20,7 @@
     ],
     "timelimit": 60,
     "results": {
-        "linearSwitchFromFluentProtected": {
+        "linearSwitchFromGroupedProtected": {
             "300": {
                 "0": {
                     "scores": [

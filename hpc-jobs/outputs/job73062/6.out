@@ -2,4 +2,4 @@ Task 6 running algorithm: linearSwitchFromRandomv4
 cn18.hpc.itu.dk
 aubu
 /home/aubu/bachelorProject/hpc-jobs
-Error: Algorithm 'linearSwitchFromRandomv4' not found. Available: ['annealingFromFluent', 'annealingFromRandom', 'linearSwitchFromFluent', 'linearSwitchFromFluentProtected', 'linearSwitchFromRandom', 'randomSwitchFromFluent', 'randomSwitchFromRandom', 'tabuSearchFromFluent', 'tabuSearchFromRandom', 'bruteForce', 'theoreticalMax']
+Error: Algorithm 'linearSwitchFromRandomv4' not found. Available: ['annealingFromGrouped', 'annealingFromRandom', 'linearSwitchFromGrouped', 'linearSwitchFromGroupedProtected', 'linearSwitchFromRandom', 'randomSwitchFromGrouped', 'randomSwitchFromRandom', 'tabuSearchFromGrouped', 'tabuSearchFromRandom', 'bruteForce', 'theoreticalMax']

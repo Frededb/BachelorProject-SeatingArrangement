@@ -3774,7 +3774,7 @@
                 }
             }
         },
-        "annealingFromFluent": {
+        "annealingFromGrouped": {
             "8": {
                 "0": {
                     "scores": [
@@ -6282,7 +6282,7 @@
                 }
             }
         },
-        "linearSwitchFromFluent": {
+        "linearSwitchFromGrouped": {
             "8": {
                 "0": {
                     "scores": [
@@ -7536,7 +7536,7 @@
                 }
             }
         },
-        "linearSwitchFromFluentProtected": {
+        "linearSwitchFromGroupedProtected": {
             "8": {
                 "0": {
                     "scores": [
@@ -10044,7 +10044,7 @@
                 }
             }
         },
-        "randomSwitchFromFluent": {
+        "randomSwitchFromGrouped": {
             "8": {
                 "0": {
                     "scores": [
@@ -13806,7 +13806,7 @@
                 }
             }
         },
-        "tabuSearchFromFluent": {
+        "tabuSearchFromGrouped": {
             "8": {
                 "0": {
                     "scores": [

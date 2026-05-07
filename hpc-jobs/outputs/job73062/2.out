@@ -1,9 +1,9 @@
-Task 2 running algorithm: linearSwitchFromFluent
+Task 2 running algorithm: linearSwitchFromGrouped
 cn8.hpc.itu.dk
 aubu
 /home/aubu/bachelorProject/hpc-jobs
 INFO:    squashfuse_ll mount took an unexpectedly long time: 5.15s
-Running iterations for algorithm: linearSwitchFromFluent
+Running iterations for algorithm: linearSwitchFromGrouped
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -31,7 +31,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -51,12 +51,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job73062/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -84,7 +84,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -104,12 +104,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job73062/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -137,7 +137,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -157,12 +157,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job73062/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -190,7 +190,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -210,12 +210,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job73062/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -243,7 +243,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -263,12 +263,12 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job73062/comparison_results_linearSwitchFromGrouped.json
   Completed 100 iterations for size 300, cohesion 0.
   Completed 100 iterations for size 300, cohesion 10.
   Completed 100 iterations for size 300, cohesion 20.
@@ -296,7 +296,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -316,22 +316,22 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f32c3b80a50>
-  Error in linearSwitchFromFluent at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGrouped at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
   Completed 100 iterations for size 300, cohesion 90.
   Completed 100 iterations for size 300, cohesion 100.
 
-Results successfully written to job73062/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job73062/comparison_results_linearSwitchFromGrouped.json
 
 ================================================================================
 Algorithm                  Timelimit   People    Avg Score  Avg Time(s)
 --------------------------------------------------------------------------------
-linearSwitchFromFluent           0.1      300      12844.8       0.9533
-linearSwitchFromFluent           0.5      300      12882.8       1.2964
-linearSwitchFromFluent             1      300      12940.5       1.7960
-linearSwitchFromFluent             5      300      13886.6       5.8022
-linearSwitchFromFluent            10      300      14214.6      10.7992
-linearSwitchFromFluent            20      300      14270.0      20.8045
+linearSwitchFromGrouped           0.1      300      12844.8       0.9533
+linearSwitchFromGrouped           0.5      300      12882.8       1.2964
+linearSwitchFromGrouped             1      300      12940.5       1.7960
+linearSwitchFromGrouped             5      300      13886.6       5.8022
+linearSwitchFromGrouped            10      300      14214.6      10.7992
+linearSwitchFromGrouped            20      300      14270.0      20.8045
 ================================================================================
 
-Results successfully written to job73062/comparison_results_linearSwitchFromFluent.json
+Results successfully written to job73062/comparison_results_linearSwitchFromGrouped.json

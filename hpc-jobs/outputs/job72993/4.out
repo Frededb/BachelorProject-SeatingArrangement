@@ -1,32 +1,32 @@
-Task 4 running algorithm: linearSwitchFromFluentProtected
+Task 4 running algorithm: linearSwitchFromGroupedProtected
 cn15.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
-Running iterations for algorithm: linearSwitchFromFluentProtected
+Running iterations for algorithm: linearSwitchFromGroupedProtected
   Completed 100 iterations for size 300, cohesion 0.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGroupedProtected.json
   Completed 100 iterations for size 300, cohesion 10.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGroupedProtected.json
   Completed 100 iterations for size 300, cohesion 20.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGroupedProtected.json
   Completed 100 iterations for size 300, cohesion 30.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGroupedProtected.json
   Completed 100 iterations for size 300, cohesion 40.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGroupedProtected.json
   Completed 100 iterations for size 300, cohesion 50.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGroupedProtected.json
   Completed 100 iterations for size 300, cohesion 60.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGroupedProtected.json
   Completed 100 iterations for size 300, cohesion 70.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGroupedProtected.json
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -46,7 +46,7 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f01f5205a50>
-  Error in linearSwitchFromFluentProtected at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGroupedProtected at cohesion 80, iter 30: Process crashed or returned no output, exitcode: -6
 RPython traceback:
   File "pypy_module_pypyjit.c", line 1311, in jump_absolute__AccessDirect_None
   File "rpython_jit_metainterp.c", line 55045, in bound_reached__star_5_2
@@ -66,9 +66,9 @@ RPython traceback:
   File "rpython_jit_backend_llsupport.c", line 20402, in compute_vars_longevity
   File "rpython_jit_backend_llsupport.c", line 42403, in LifetimeManager___setitem__
 ~~~ Crash in JIT! <SettingForwardedOnAbstractValue object at 0x7f01f5205a50>
-  Error in linearSwitchFromFluentProtected at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
+  Error in linearSwitchFromGroupedProtected at cohesion 80, iter 95: Process crashed or returned no output, exitcode: -6
   Completed 100 iterations for size 300, cohesion 80.
 
-Results successfully written to job72993/comparison_results_linearSwitchFromFluentProtected.json
+Results successfully written to job72993/comparison_results_linearSwitchFromGroupedProtected.json
 slurmstepd: error: *** JOB 72998 ON cn15 CANCELLED AT 2026-04-25T11:36:07 DUE TO TIME LIMIT ***
 slurmstepd: error: *** STEP 72998.0 ON cn15 CANCELLED AT 2026-04-25T11:36:07 DUE TO TIME LIMIT ***
