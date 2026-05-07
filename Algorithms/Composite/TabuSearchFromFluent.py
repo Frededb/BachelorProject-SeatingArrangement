@@ -1,9 +1,23 @@
+import time
+
 from Algorithms.Build.FluentGroupsFill import fluentGroupsFill
 from Algorithms.Optimizing.TabuSearch import tabuSearch
 
 
 def tabuSearchFromFluent(input, emptyArrangement, max_seconds=None, score_tracker=None):
-    arrangement, protectedNames = fluentGroupsFill(input, emptyArrangement)
-    arrangement = tabuSearch(arrangement, max_seconds=max_seconds, score_tracker=score_tracker)
+    arrangement, _ = fluentGroupsFill(input, emptyArrangement)
+
+    if max_seconds is None:
+        return tabuSearch(arrangement, max_seconds=None, score_tracker=score_tracker)
+
+    start_time = time.perf_counter()
+
+    while True:
+        remaining_seconds = max_seconds - (time.perf_counter() - start_time)
+        if remaining_seconds <= 0:
+            break
+
+        arrangement = tabuSearch(arrangement, max_seconds=remaining_seconds, score_tracker=score_tracker)
+
     return arrangement
 
