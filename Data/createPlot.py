@@ -19,8 +19,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 SKIP_ALGORITHMS = {
-    "bruteForce",
-    "theoreticalMax",
+    # "bruteForce",
+    # "theoreticalMax",
 }
 
 ALGORITHM_COLORS = {
@@ -78,7 +78,7 @@ def main():
     args = parser.parse_args()
     if args.out is None:
         folder_name = os.path.basename(os.path.normpath(args.folder))
-        args.out = f"plots/{folder_name}_plot.png"
+        args.out = f"plots/{folder_name}_plot{args.people}.png"
 
     df = load_folder(args.folder, args.people)
     if df.empty:
@@ -90,7 +90,7 @@ def main():
 
     fig, ax = plt.subplots()
     pivot.plot(ax=ax, marker="o", color=colors,
-               title=f"Performance with {args.people} people ({os.path.basename(args.folder)})",
+               title=f"Performance with {args.people} people",
                xlabel="Cohesion", ylabel="Mean Score")
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=2)
     plt.tight_layout(rect=[0, 0.01, 1, 1])
