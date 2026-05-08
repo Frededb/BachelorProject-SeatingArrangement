@@ -1,0 +1,6 @@
+Task 8 running algorithm: 
+cn17.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+FATAL:   container creation failed: image driver mount failure: image driver squashfuse_ll instance exited with error: squashfuse_ll exited: Something went wrong trying to read the squashfs image.
+srun: error: cn17: task 0: Exited with exit code 255
