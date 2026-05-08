@@ -28,3 +28,5 @@ Running iterations for algorithm: tabuSearchFromRandom
   Completed 100 iterations for size 100, cohesion 0.
   Completed 100 iterations for size 100, cohesion 10.
   Completed 100 iterations for size 100, cohesion 20.
+slurmstepd: error: *** JOB 78535 ON cn18 CANCELLED AT 2026-05-08T11:11:26 ***
+slurmstepd: error: *** STEP 78535.0 ON cn18 CANCELLED AT 2026-05-08T11:11:26 ***

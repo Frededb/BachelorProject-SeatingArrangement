@@ -28,3 +28,5 @@ Running iterations for algorithm: annealingFromRandom
   Completed 100 iterations for size 100, cohesion 0.
   Completed 100 iterations for size 100, cohesion 10.
   Completed 100 iterations for size 100, cohesion 20.
+slurmstepd: error: *** JOB 78537 ON cn16 CANCELLED AT 2026-05-08T11:11:28 ***
+slurmstepd: error: *** STEP 78537.0 ON cn16 CANCELLED AT 2026-05-08T11:11:28 ***
