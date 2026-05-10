@@ -3,7 +3,7 @@ import json
 import threading
 import time
 from generateData import generateData
-from Utils.ValueCalc import calcArrangement, calcTheoreticalMax
+from Utils.ValueCalc import calcArrangement, calcTheoreticalMax, calcTheoreticalMaxTable
 from Utils.UtilFunctions import makeEmptyArrangement
 from Utils.reader import parsePeople
 import os
@@ -44,13 +44,14 @@ ALGORITHMS = {
     "tabuSearchFromGrouped": tabuSearchFromGrouped,
     "tabuSearchFromRandom": tabuSearchFromRandom,
 
-    # "bruteForce": bruteForceFromRandom,
-    # "theoreticalMax": lambda testInput, initial_arrangement, timelimit, score_tracker=None: calcTheoreticalMax(testInput, initial_arrangement),
+    "bruteForce": bruteForceFromRandom,
+    "theoreticalMax": lambda testInput, initial_arrangement, timelimit, score_tracker=None: calcTheoreticalMax(testInput, initial_arrangement),
+    "theoreticalMaxTable": lambda testInput, initial_arrangement, timelimit, score_tracker=None: calcTheoreticalMaxTable(testInput, initial_arrangement),
 }
 
 cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 iterations = 100
-people_counts = [8, 30, 100, 300]
+people_counts = [4, 5, 6, 7, 8]
 timelimit = 30
 
 

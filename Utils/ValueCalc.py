@@ -84,23 +84,53 @@ def calcArrangement(arrangement):
 
 
 
+def _build_perfect_table(personA, input, tableSize):
+    """Return a table of tableSize with personA surrounded by their best tablemates."""
+    pq = PriorityQueue()
+    for personB in input:
+        personValue = calcPerson([personA, personB], 0)
+        pq.put((-personValue, id(personB), personB))
+    top = [pq.get()[2] for _ in range(tableSize - 1)]
+    # Seat layout mirrors the original: positions around personA at index 1
+    if tableSize == 8:
+        return [top[0], personA, top[2], top[5], top[3], top[1], top[4], top[6]]
+    else:
+        table = [personA] + top
+        return table
+
+
 def calcTheoreticalMax(input, emptyArrangement):
+    """Sum of each person's individual score at their own perfect table."""
     maxValue = 0
 
-    #tableSize is the biggest table in emptyArrangement
     emptyArrangement.sort(key=len, reverse=True)
     tableSize = len(emptyArrangement[0])
 
-    while len(input) < tableSize:
-        input = input + [emptyPerson]
+    padded = input[:]
+    while len(padded) < tableSize:
+        padded = padded + [emptyPerson]
 
-    for personA in input:
-        pq = PriorityQueue()
-        for personB in input:
-            personValue = calcPerson([personA, personB], 0)
-            pq.put((-personValue, personB))
-        top = [pq.get()[1] for _ in range(tableSize - 1)]
-        perfectTable = [top[0], personA, top[2], top[5], top[3], top[1], top[4], top[6]]
-        maxValue = maxValue + calcPerson(perfectTable, 1)
+    for personA in padded:
+        perfectTable = _build_perfect_table(personA, padded, tableSize)
+        idx = perfectTable.index(personA)
+        maxValue += calcPerson(perfectTable, idx)
+    return maxValue
+
+
+def calcTheoreticalMaxTable(input, emptyArrangement):
+    """Sum of each person's full table score at their own perfect table."""
+    maxValue = 0
+
+    emptyArrangement.sort(key=len, reverse=True)
+    tableSize = len(emptyArrangement[0])
+
+    padded = input[:]
+    while len(padded) < tableSize:
+        padded = padded + [emptyPerson]
+
+    for personA in padded:
+        perfectTable = _build_perfect_table(personA, padded, tableSize)
+        tableScore, _ = calcTable(perfectTable)
+        maxValue += tableScore
     return maxValue
 

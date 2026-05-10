@@ -37,7 +37,7 @@ ALGORITHM_COLORS = {
 }
 
 
-def load_folder(folder: str, n_people: int) -> pd.DataFrame:
+def load_folder(folder: str, n_people: int | None) -> pd.DataFrame:
     rows = []
     for fname in sorted(os.listdir(folder)):
         if not fname.endswith(".json"):
@@ -49,23 +49,24 @@ def load_folder(folder: str, n_people: int) -> pd.DataFrame:
         for algo, algo_data in data.get("results", {}).items():
             if algo in SKIP_ALGORITHMS:
                 continue
-            people_key = str(n_people)
-            if people_key not in algo_data:
-                continue
 
-            for cohesion_str, entry in algo_data[people_key].items():
-                avg = entry.get("avg_score")
-                if not isinstance(avg, (int, float)):
-                    avg = None
-                if avg is None and entry.get("scores"):
-                    scores = [s for s in entry["scores"] if isinstance(s, (int, float))]
-                    avg = sum(scores) / len(scores) if scores else None
-                if avg is not None:
-                    rows.append({
-                        "algorithm": algo,
-                        "cohesion": int(cohesion_str),
-                        "mean_score": avg,
-                    })
+            for people_str, cohesion_data in algo_data.items():
+                if n_people is not None and int(people_str) != n_people:
+                    continue
+                for cohesion_str, entry in cohesion_data.items():
+                    avg = entry.get("avg_score")
+                    if not isinstance(avg, (int, float)):
+                        avg = None
+                    if avg is None and entry.get("scores"):
+                        scores = [s for s in entry["scores"] if isinstance(s, (int, float))]
+                        avg = sum(scores) / len(scores) if scores else None
+                    if avg is not None:
+                        rows.append({
+                            "algorithm": algo,
+                            "n_people": int(people_str),
+                            "cohesion": int(cohesion_str),
+                            "mean_score": avg,
+                        })
 
     return pd.DataFrame(rows)
 
@@ -73,25 +74,40 @@ def load_folder(folder: str, n_people: int) -> pd.DataFrame:
 def main():
     parser = argparse.ArgumentParser(description="Plot score vs cohesion from JSON result folder.")
     parser.add_argument("folder", nargs="?", default="jsonDataComposite")
-    parser.add_argument("--people", type=int, default=300)
+    parser.add_argument("--people", type=int, default=None)
+    parser.add_argument("--xaxis", choices=["cohesion", "people"], default="cohesion",
+                        help="What to use as x-axis (default: cohesion)")
     parser.add_argument("--out", default=None)
     args = parser.parse_args()
     if args.out is None:
         folder_name = os.path.basename(os.path.normpath(args.folder))
-        args.out = f"plots/{folder_name}_plot{args.people}.png"
+        suffix = args.people if args.people else "all"
+        args.out = f"plots/{folder_name}_{args.xaxis}{suffix}.png"
 
     df = load_folder(args.folder, args.people)
     if df.empty:
-        print(f"No data found in '{args.folder}' for n_people={args.people}.", file=sys.stderr)
+        print(f"No data found in '{args.folder}'.", file=sys.stderr)
         sys.exit(1)
 
-    pivot = df.pivot_table(index="cohesion", columns="algorithm", values="mean_score")
+    if args.xaxis == "people":
+        pivot = df.pivot_table(index="n_people", columns="algorithm", values="mean_score")
+        xlabel = "Number of people"
+        title_detail = f"averaged over cohesion"
+    else:
+        if args.people is None:
+            print("--people is required when --xaxis=cohesion", file=sys.stderr)
+            sys.exit(1)
+        pivot = df[df["n_people"] == args.people].pivot_table(
+            index="cohesion", columns="algorithm", values="mean_score"
+        )
+        xlabel = "Cohesion"
+        title_detail = f"{args.people} people"
     colors = {algo: ALGORITHM_COLORS.get(algo, "tab:gray") for algo in pivot.columns}
 
     fig, ax = plt.subplots()
     pivot.plot(ax=ax, marker="o", color=colors,
-               title=f"Performance with {args.people} people",
-               xlabel="Cohesion", ylabel="Mean Score")
+               title=f"Performance — {title_detail}",
+               xlabel=xlabel, ylabel="Mean Score")
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=2)
     plt.tight_layout(rect=[0, 0.01, 1, 1])
 
