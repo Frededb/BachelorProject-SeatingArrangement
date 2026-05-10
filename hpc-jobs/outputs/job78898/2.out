@@ -1,0 +1,5 @@
+Task 2 running algorithm: bruteForce
+cn8.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Error: Algorithm 'bruteForce' not found. Available: ['annealingFromGrouped', 'annealingFromRandom', 'linearSwitchFromGrouped', 'linearSwitchFromGroupedProtected', 'linearSwitchFromRandom', 'randomSwitchFromGrouped', 'randomSwitchFromRandom', 'tabuSearchFromGrouped', 'tabuSearchFromRandom']
