@@ -1,0 +1,8 @@
+Task 4 running algorithm: linearSwitchFromGroupedProtected, people: 8
+desktop16.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+INFO   : A system administrator may need to enable user namespaces, install
+INFO   :   apptainer-suid, or compile with ./mconfig --with-suid
+[91mERROR  : Failed to create user namespace: maximum number of user namespaces exceeded, check /proc/sys/user/max_user_namespaces
+[0msrun: error: desktop16: task 0: Exited with exit code 1

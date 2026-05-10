@@ -32,4 +32,4 @@ hostname
 whoami
 echo $PWD
 
-srun apptainer run container.sif --output "job${SLURM_ARRAY_JOB_ID}" --algo "$ALGO"
+srun pypy3 ~/bachelorProject/compareAlgos.py --output "job${SLURM_ARRAY_JOB_ID}" --algo "$ALGO"
