@@ -14,6 +14,6 @@ echo "==> Uploading job files..."
 scp -r "$SCRIPT_DIR"/container.sif "$SCRIPT_DIR"/*.job "$REMOTE:$REMOTE_DIR"
 
 echo "==> Submitting job..."
-ssh "$REMOTE" "cd $REMOTE_DIR && sbatch multiJob.job"
+ssh "$REMOTE" "cd $REMOTE_DIR && sbatch multi.job"
 
 echo "==> Done."

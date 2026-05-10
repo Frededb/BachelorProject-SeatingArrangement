@@ -1,0 +1,10 @@
+Task 1 running algorithm: theoreticalMax
+desktop15.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+INFO:    User not listed in /etc/subuid, trying root-mapped namespace
+INFO:    No user namespaces available
+INFO:    The fakeroot command by itself is only useful with sandbox images
+INFO:     which can be built with 'apptainer build --sandbox'
+FATAL:   --fakeroot used without sandbox image or user namespaces
+srun: error: desktop15: task 0: Exited with exit code 255
