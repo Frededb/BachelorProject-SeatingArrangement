@@ -51,8 +51,8 @@ ALGORITHMS = {
 
 cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 iterations = 100
-people_counts = [8, 30, 100, 300]
-timelimit = 30
+people_counts = [300]
+timelimit = 600
 
 
 def print_results(results, time_results, timeline_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None, people_filter=None, output_dir=None):
@@ -128,7 +128,7 @@ def run_algo_wrapper(algo_func, testInput, initial_arrangement, send_conn, timel
         except Exception:
             pass
 
-def compare_algos(algo_filter=None, people_filter=None, output_dir=None):
+def compare_algos(algo_filter=None, people_filter=None, cohesion_filter=None, output_dir=None):
     attribute_set = [
         {"index": 0, "header": "studyprogram", "kind": "traits", "weight": 3},
         {"index": 1, "header": "year", "kind": "traits", "weight": 1},
@@ -146,10 +146,15 @@ def compare_algos(algo_filter=None, people_filter=None, output_dir=None):
         print(f"Error: People count '{people_filter}' not found. Available: {people_counts}")
         return
 
+    run_cohesions = [c for c in cohesion_scores if cohesion_filter is None or c in cohesion_filter]
+    if not run_cohesions:
+        print(f"Error: No matching cohesions found. Available: {cohesion_scores}")
+        return
+
     # Initialize results
-    results = {algo: {p: {c: [] for c in cohesion_scores} for p in run_people} for algo in run_algos}
-    time_results = {algo: {p: {c: [] for c in cohesion_scores} for p in run_people} for algo in run_algos}
-    timeline_results = {algo: {p: {c: [] for c in cohesion_scores} for p in run_people} for algo in run_algos}
+    results = {algo: {p: {c: [] for c in run_cohesions} for p in run_people} for algo in run_algos}
+    time_results = {algo: {p: {c: [] for c in run_cohesions} for p in run_people} for algo in run_algos}
+    timeline_results = {algo: {p: {c: [] for c in run_cohesions} for p in run_people} for algo in run_algos}
     
     attribute_set_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Inputs", "defaultAttributeSet.json")
     with open(attribute_set_file, encoding="utf-8") as f:
@@ -162,7 +167,7 @@ def compare_algos(algo_filter=None, people_filter=None, output_dir=None):
         #     print("  Skipping due to expected long runtime")
             # continue
         for p_count in run_people:
-                for c in cohesion_scores:
+                for c in run_cohesions:
                     timeouts_limit = 10
                     for i in range(iterations):
                         people_data = generateData(p_count, c, seed=i*157)
@@ -256,7 +261,7 @@ def compare_algos(algo_filter=None, people_filter=None, output_dir=None):
                                 pass
                             gc.collect()
                     print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
-        print_results(results, time_results, timeline_results, cohesion_scores, run_people, quicksave=True, algo_filter=algo_filter, people_filter=people_filter, output_dir=output_dir)
+                    print_results(results, time_results, timeline_results, run_cohesions, run_people, quicksave=True, algo_filter=algo_filter, people_filter=people_filter, output_dir=output_dir)
 
     def avg_or_dnf(values):
         valid = [v for v in values if v != "DNF"]
@@ -270,19 +275,20 @@ def compare_algos(algo_filter=None, people_filter=None, output_dir=None):
     print("-"*80)
     for algo_name in run_algos:
         for p_count in run_people:
-            all_scores = [s for c in cohesion_scores for s in results[algo_name][p_count][c]]
-            all_times = [t for c in cohesion_scores for t in time_results[algo_name][p_count][c]]
+            all_scores = [s for c in run_cohesions for s in results[algo_name][p_count][c]]
+            all_times = [t for c in run_cohesions for t in time_results[algo_name][p_count][c]]
             avg_score = avg_or_dnf(all_scores)
             avg_time = avg_or_dnf(all_times)
             print(f"{algo_name:<25} {p_count:>8} {fmt(avg_score, '12.1f')} {fmt(avg_time, '12.4f')}")
     print("="*80)
 
-    print_results(results, time_results, timeline_results, cohesion_scores, run_people, algo_filter=algo_filter, people_filter=people_filter, output_dir=output_dir)
+    print_results(results, time_results, timeline_results, run_cohesions, run_people, algo_filter=algo_filter, people_filter=people_filter, output_dir=output_dir)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compare seating algorithms")
     parser.add_argument("--algo", default=None, help="Run only this algorithm (default: run all)")
     parser.add_argument("--people", default=None, type=int, help="Run only this people count (default: run all)")
+    parser.add_argument("--cohesions", default=None, type=int, nargs="+", help="Run only these cohesion values, e.g. --cohesions 0 50 100")
     parser.add_argument("--output", default=None, help="Directory to write output JSON files into")
     args = parser.parse_args()
-    compare_algos(algo_filter=args.algo, people_filter=args.people, output_dir=args.output)
+    compare_algos(algo_filter=args.algo, people_filter=args.people, cohesion_filter=args.cohesions, output_dir=args.output)

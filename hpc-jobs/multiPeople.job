@@ -1,45 +1,55 @@
 #!/bin/bash
 
-#SBATCH --job-name=manyTime        # Job name
+#SBATCH --job-name=300People        # Job name
 #SBATCH --output=job%A/%a.out   # Name of output file (%A=jobId, %a=arrayId)
 #SBATCH --cpus-per-task=4        # Schedule one core
 #SBATCH --time=24:00:00          # Run time (hh:mm:ss)
 #SBATCH --mem=8G
 #SBATCH --partition=scavenge
-#SBATCH --array=0-11            # One task per algorithm+people_count combination
+#SBATCH --array=0-35
 # #SBATCH --mail-type=BEGIN,FAIL,END
 
-# Map array task ID to algorithm + people count
+# Map array task ID to algorithm
 ALGOS=(
-    # "annealingFromGrouped"
-    # "annealingFromRandom"
+    "annealingFromGrouped"
+    "annealingFromRandom"
     "linearSwitchFromGrouped"
     "linearSwitchFromGroupedProtected"
     "linearSwitchFromRandom"
-    # "randomSwitchFromGrouped"
-    # "randomSwitchFromRandom"
-    # "tabuSearchFromGrouped"
-    # "tabuSearchFromRandom"
-
+    "randomSwitchFromGrouped"
+    "randomSwitchFromRandom"
+    "tabuSearchFromGrouped"
+    "tabuSearchFromRandom"
 
     # "bruteForce"
     # "theoreticalMax"
     # "theoreticalMaxTable"
 )
 
-PEOPLE_COUNTS=(8 30 100 300)
+# 4 cohesion groups splitting 0..100 evenly
+COHESION_GROUPS=(
+    "0 10 20"
+    "30 40 50"
+    "60 70 80"
+    "90 100"
+)
 
+PEOPLE_COUNTS=(300)
+
+N_GROUPS=${#COHESION_GROUPS[@]}
 N_PEOPLE=${#PEOPLE_COUNTS[@]}
-ALGO_IDX=$((SLURM_ARRAY_TASK_ID / N_PEOPLE))
-PEOPLE_IDX=$((SLURM_ARRAY_TASK_ID % N_PEOPLE))
+ALGO_IDX=$((SLURM_ARRAY_TASK_ID / (N_PEOPLE * N_GROUPS)))
+PEOPLE_IDX=$(((SLURM_ARRAY_TASK_ID / N_GROUPS) % N_PEOPLE))
+GROUP_IDX=$((SLURM_ARRAY_TASK_ID % N_GROUPS))
 
 ALGO=${ALGOS[$ALGO_IDX]}
 PEOPLE=${PEOPLE_COUNTS[$PEOPLE_IDX]}
-echo "Task $SLURM_ARRAY_TASK_ID running algorithm: $ALGO, people: $PEOPLE"
+COHESIONS=${COHESION_GROUPS[$GROUP_IDX]}
 
-# Print out the hostname of the node the job is running on
+echo "Task $SLURM_ARRAY_TASK_ID running algorithm: $ALGO, people: $PEOPLE, cohesions: $COHESIONS"
+
 hostname
 whoami
 echo $PWD
 
-srun pypy3 ~/bachelorProject/compareAlgos.py --output "job${SLURM_ARRAY_JOB_ID}" --algo "$ALGO" --people "$PEOPLE"
+srun pypy3 ~/bachelorProject/compareAlgos.py --output "job${SLURM_ARRAY_JOB_ID}" --algo "$ALGO" --people "$PEOPLE" --cohesions $COHESIONS
