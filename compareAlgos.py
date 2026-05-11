@@ -51,8 +51,8 @@ ALGORITHMS = {
 
 cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 iterations = 10
-people_counts = [300]
-timelimit = 600
+people_counts = [100]
+timelimit = 30
 
 
 def print_results(results, time_results, timeline_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None, people_filter=None, cohesion_filter=None, output_dir=None):

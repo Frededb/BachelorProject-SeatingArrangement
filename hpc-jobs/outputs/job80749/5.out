@@ -1,0 +1,43 @@
+Task 5 running algorithm: randomSwitchFromGrouped, people: 100, cohesions: 60
+cn15.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromGrouped
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+  Completed 10 iterations for size 100, cohesion 60.
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json
+
+================================================================================
+Algorithm                   People    Avg Score  Avg Time(s)
+--------------------------------------------------------------------------------
+randomSwitchFromGrouped        100       5115.6      30.1915
+================================================================================
+
+Results successfully written to job80749/comparison_results_randomSwitchFromGrouped_100_c60.json

@@ -1,0 +1,5 @@
+Task 1 running algorithm: annealingFromRandom, people: 100, cohesions: 60
+cn8.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Error: People count '100' not found. Available: [300]
