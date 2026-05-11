@@ -73,11 +73,14 @@ def main():
     parser.add_argument("--people", type=int, default=300)
     parser.add_argument("--cohesion", type=int, default=100)
     parser.add_argument("--out", default=None)
+    parser.add_argument("--timelimit", type=float, default=None,
+                        help="Clip timeline data to this many seconds")
     args = parser.parse_args()
 
     if args.out is None:
         folder_name = os.path.basename(os.path.normpath(args.folder))
-        args.out = f"plots/{folder_name}_timeline_{args.people}p_c{args.cohesion}.png"
+        timelimit_suffix = f"_t{int(args.timelimit)}" if args.timelimit is not None else ""
+        args.out = f"plots/{folder_name}_timeline_{args.people}p_c{args.cohesion}{timelimit_suffix}.png"
 
     timelines = load_timelines(args.folder, args.people, args.cohesion)
     if not timelines:
@@ -89,6 +92,9 @@ def main():
     for algo, timeline in sorted(timelines.items()):
         times  = [point[0] for point in timeline]
         scores = [point[1] for point in timeline]
+        if args.timelimit is not None:
+            pairs = [(t, s) for t, s in zip(times, scores) if t <= args.timelimit]
+            times, scores = (list(x) for x in zip(*pairs)) if pairs else ([], [])
         color = ALGORITHM_COLORS.get(algo, "tab:gray")
         ax.plot(times, scores, label=algo, color=color)
 

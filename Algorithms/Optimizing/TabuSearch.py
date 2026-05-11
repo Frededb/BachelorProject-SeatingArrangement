@@ -154,6 +154,9 @@ def tabuSearch(
     # Snapshot of the best arrangement for final restoration.
     best_arrangement = deepcopy(arrangement)
 
+    if score_tracker is not None:
+        score_tracker[0] = max(score_tracker[0], best_score)
+
     # Map: move_key -> iteration until which the move stays tabu.
     tabu_until = {}
     # Counter for plateau-based early stopping.
@@ -212,7 +215,7 @@ def tabuSearch(
             # Reset plateau counter after improvement.
             no_improve = 0
             if score_tracker is not None:
-                score_tracker[0] = best_score
+                score_tracker[0] = max(score_tracker[0], best_score)
         else:
             # Count non-improving iterations.
             no_improve += 1

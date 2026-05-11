@@ -1,0 +1,7 @@
+Task 6 running algorithm: annealingFromRandom, people: 300, cohesions: 60 70 80
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromRandom
+slurmstepd: error: *** JOB 80399 ON cn14 CANCELLED AT 2026-05-11T12:53:18 ***
+slurmstepd: error: *** STEP 80399.0 ON cn14 CANCELLED AT 2026-05-11T12:53:18 ***

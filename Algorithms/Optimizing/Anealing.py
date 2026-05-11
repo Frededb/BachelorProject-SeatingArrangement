@@ -51,7 +51,10 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
     percents = [[0, 0] for _ in range(10)]
     preValueTotal = calcArrangement(arrangement)[0]
     best_value = preValueTotal
+    best_true_score = preValueTotal
     best_arrangement = deepcopy(arrangement)
+    if score_tracker is not None:
+        score_tracker[0] = max(score_tracker[0], best_value)
     for i in range(k):
         if max_seconds is not None and (time.perf_counter() - start_time) >= max_seconds:
             break
@@ -75,11 +78,19 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
         if postValueTotal >= preValueTotal or P:
             switch(arrangement, personA, personB)
             preValueTotal = postValueTotal
+            # Periodically recalculate the true score to correct FP drift from
+            # incremental _score_after_swap accumulation.
+            # TODO: remove this hack, when it has been solved properly
+            if i % 500 == 499:
+                preValueTotal = calcArrangement(arrangement)[0]
             if preValueTotal > best_value:
                 best_value = preValueTotal
                 best_arrangement = deepcopy(arrangement)
                 if score_tracker is not None:
-                    score_tracker[0] = best_value
+                    true_score = calcArrangement(best_arrangement)[0]
+                    if true_score > best_true_score:
+                        best_true_score = true_score
+                        score_tracker[0] = max(score_tracker[0], true_score)
         percents[i*10//k][1] += 1
 
     # Keep in-place contract while returning the best state seen within the budget.

@@ -1,0 +1,7 @@
+Task 28 running algorithm: tabuSearchFromGrouped, people: 300, cohesions: 0 10 20
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: tabuSearchFromGrouped
+slurmstepd: error: *** JOB 80421 ON cn8 CANCELLED AT 2026-05-11T12:53:22 ***
+slurmstepd: error: *** STEP 80421.0 ON cn8 CANCELLED AT 2026-05-11T12:53:22 ***

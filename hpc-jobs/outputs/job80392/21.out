@@ -1,0 +1,7 @@
+Task 21 running algorithm: randomSwitchFromGrouped, people: 300, cohesions: 30 40 50
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromGrouped
+slurmstepd: error: *** JOB 80414 ON cn8 CANCELLED AT 2026-05-11T12:53:22 ***
+slurmstepd: error: *** STEP 80414.0 ON cn8 CANCELLED AT 2026-05-11T12:53:22 ***

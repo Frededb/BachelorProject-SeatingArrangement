@@ -1,0 +1,7 @@
+Task 17 running algorithm: linearSwitchFromRandom, people: 300, cohesions: 30 40 50
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromRandom
+slurmstepd: error: *** JOB 80410 ON cn8 CANCELLED AT 2026-05-11T12:53:22 ***
+slurmstepd: error: *** STEP 80410.0 ON cn8 CANCELLED AT 2026-05-11T12:53:22 ***

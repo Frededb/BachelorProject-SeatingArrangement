@@ -1,0 +1,8 @@
+Task 4 running algorithm: annealingFromRandom, people: 300, cohesions: 0 10 20
+desktop16.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromRandom
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 80397.0 ON desktop16 CANCELLED AT 2026-05-11T12:53:19 ***
+slurmstepd: error: *** JOB 80397 ON desktop16 CANCELLED AT 2026-05-11T12:53:19 ***

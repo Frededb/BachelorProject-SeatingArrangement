@@ -50,7 +50,7 @@ ALGORITHMS = {
 }
 
 cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-iterations = 10
+iterations = 1
 people_counts = [300]
 timelimit = 600
 

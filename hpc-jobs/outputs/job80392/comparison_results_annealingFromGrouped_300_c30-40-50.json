@@ -1,0 +1,140 @@
+{
+    "full_dataset": true,
+    "timestamp": "2026-05-11 12:51",
+    "cohesion_scores": [
+        30,
+        40,
+        50
+    ],
+    "iterations": 10,
+    "people_counts": [
+        300
+    ],
+    "timelimit": 600,
+    "results": {
+        "annealingFromGrouped": {
+            "300": {
+                "30": {
+                    "scores": [
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF"
+                    ],
+                    "times": [
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF"
+                    ],
+                    "timelines": [
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        []
+                    ],
+                    "avg_score": "DNF",
+                    "avg_time": "DNF"
+                },
+                "40": {
+                    "scores": [
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF"
+                    ],
+                    "times": [
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF"
+                    ],
+                    "timelines": [
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        []
+                    ],
+                    "avg_score": "DNF",
+                    "avg_time": "DNF"
+                },
+                "50": {
+                    "scores": [
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF"
+                    ],
+                    "times": [
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF",
+                        "DNF"
+                    ],
+                    "timelines": [
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        []
+                    ],
+                    "avg_score": "DNF",
+                    "avg_time": "DNF"
+                }
+            }
+        }
+    }
+}
