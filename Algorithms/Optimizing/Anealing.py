@@ -29,7 +29,7 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
     best_value = preValueTotal
     best_arrangement = deepcopy(arrangement)
     if score_tracker is not None:
-        score_tracker[0] = max(score_tracker[0], best_value)
+        score_tracker[0] = best_value
     for i in range(k):
         if max_seconds is not None and (time.perf_counter() - start_time) >= max_seconds:
             break
@@ -57,7 +57,7 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
                 best_value = preValueTotal
                 best_arrangement = deepcopy(arrangement)
                 if score_tracker is not None:
-                    score_tracker[0] = max(score_tracker[0], best_value)
+                    score_tracker[0] = best_value
         else:
             switch(arrangement, personA, personB)  # revert
         percents[i*10//k][1] += 1
@@ -65,6 +65,10 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
     # Keep in-place contract while returning the best state seen within the budget.
     for table_index in range(len(arrangement)):
         arrangement[table_index][:] = best_arrangement[table_index][:]
+
+    final_score = calcArrangement(arrangement)[0]
+    if score_tracker is not None:
+        score_tracker[0] = final_score
 
     # print("AnealTwoPeople: " + "".join(["\n" + str(percent[0]/percent[1]*100) + "%" for percent in percents]))
     return arrangement
