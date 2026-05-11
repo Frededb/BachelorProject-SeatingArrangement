@@ -1,0 +1,8 @@
+Task 7 running algorithm: annealingFromRandom, people: 300, cohesions: 90 100
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromRandom
+  Completed 10 iterations for size 300, cohesion 90.
+slurmstepd: error: *** STEP 80082.0 ON cn14 CANCELLED AT 2026-05-11T09:24:43 ***
+slurmstepd: error: *** JOB 80082 ON cn14 CANCELLED AT 2026-05-11T09:24:43 ***

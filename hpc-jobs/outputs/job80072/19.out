@@ -1,0 +1,8 @@
+Task 19 running algorithm: linearSwitchFromRandom, people: 300, cohesions: 90 100
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromRandom
+  Completed 10 iterations for size 300, cohesion 90.
+slurmstepd: error: *** STEP 80094.0 ON cn8 CANCELLED AT 2026-05-11T09:24:47 ***
+slurmstepd: error: *** JOB 80094 ON cn8 CANCELLED AT 2026-05-11T09:24:47 ***

@@ -50,12 +50,12 @@ ALGORITHMS = {
 }
 
 cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-iterations = 100
+iterations = 10
 people_counts = [300]
 timelimit = 600
 
 
-def print_results(results, time_results, timeline_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None, people_filter=None, output_dir=None):
+def print_results(results, time_results, timeline_results, cohesion_scores, people_counts, quicksave=False, algo_filter=None, people_filter=None, cohesion_filter=None, output_dir=None):
     # Helper function for JSON export safely handling DNF
     def get_avg(data_list):
         valid = [x for x in data_list if x != "DNF"]
@@ -86,7 +86,8 @@ def print_results(results, time_results, timeline_results, cohesion_scores, peop
     
     algo_suffix = f"_{algo_filter}" if algo_filter else ""
     people_suffix = f"_{people_filter}" if people_filter else ""
-    filename = f"comparison_results{algo_suffix}{people_suffix}.json"
+    cohesion_suffix = "_c" + "-".join(str(c) for c in sorted(cohesion_filter)) if cohesion_filter else ""
+    filename = f"comparison_results{algo_suffix}{people_suffix}{cohesion_suffix}.json"
 
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)
@@ -167,9 +168,9 @@ def compare_algos(algo_filter=None, people_filter=None, cohesion_filter=None, ou
         #     print("  Skipping due to expected long runtime")
             # continue
         for p_count in run_people:
-                for c in run_cohesions:
-                    timeouts_limit = 10
-                    for i in range(iterations):
+                for i in range(iterations):
+                    for c in run_cohesions:
+                        timeouts_limit = 10
                         people_data = generateData(p_count, c, seed=i*157)
                     
                         # Always read fresh Person objects for each algorithm to avoid mutation
@@ -260,8 +261,8 @@ def compare_algos(algo_filter=None, people_filter=None, cohesion_filter=None, ou
                             except Exception:
                                 pass
                             gc.collect()
-                    print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
-                    print_results(results, time_results, timeline_results, run_cohesions, run_people, quicksave=True, algo_filter=algo_filter, people_filter=people_filter, output_dir=output_dir)
+                        print(f"  Completed {iterations} iterations for size {p_count}, cohesion {c}.")
+                    print_results(results, time_results, timeline_results, run_cohesions, run_people, quicksave=True, algo_filter=algo_filter, people_filter=people_filter, cohesion_filter=cohesion_filter, output_dir=output_dir)
 
     def avg_or_dnf(values):
         valid = [v for v in values if v != "DNF"]
@@ -282,7 +283,7 @@ def compare_algos(algo_filter=None, people_filter=None, cohesion_filter=None, ou
             print(f"{algo_name:<25} {p_count:>8} {fmt(avg_score, '12.1f')} {fmt(avg_time, '12.4f')}")
     print("="*80)
 
-    print_results(results, time_results, timeline_results, run_cohesions, run_people, algo_filter=algo_filter, people_filter=people_filter, output_dir=output_dir)
+    print_results(results, time_results, timeline_results, run_cohesions, run_people, algo_filter=algo_filter, people_filter=people_filter, cohesion_filter=cohesion_filter, output_dir=output_dir)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compare seating algorithms")

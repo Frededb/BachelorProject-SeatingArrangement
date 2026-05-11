@@ -1,0 +1,5 @@
+Task 21 running algorithm: randomSwitchFromGrouped, people: 300, cohesions: 30 40 50
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Error: People count '300' not found. Available: [100]

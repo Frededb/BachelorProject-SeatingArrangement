@@ -3,3 +3,5 @@ cn8.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
 Running iterations for algorithm: annealingFromGrouped
+slurmstepd: error: *** STEP 79865.0 ON cn8 CANCELLED AT 2026-05-11T09:06:19 ***
+slurmstepd: error: *** JOB 79865 ON cn8 CANCELLED AT 2026-05-11T09:06:19 ***

@@ -3,3 +3,24 @@ cn8.hpc.itu.dk
 aubu
 /home/aubu/bachelorProject/hpc-jobs
 Running iterations for algorithm: linearSwitchFromRandom
+  Completed 100 iterations for size 100, cohesion 0.
+  Completed 100 iterations for size 100, cohesion 10.
+  Completed 100 iterations for size 100, cohesion 20.
+  Completed 100 iterations for size 100, cohesion 30.
+  Completed 100 iterations for size 100, cohesion 40.
+  Completed 100 iterations for size 100, cohesion 50.
+  Completed 100 iterations for size 100, cohesion 60.
+  Completed 100 iterations for size 100, cohesion 70.
+  Completed 100 iterations for size 100, cohesion 80.
+  Completed 100 iterations for size 100, cohesion 90.
+  Completed 100 iterations for size 100, cohesion 100.
+
+Results successfully written to job79822/comparison_results_linearSwitchFromRandom_100.json
+
+================================================================================
+Algorithm                   People    Avg Score  Avg Time(s)
+--------------------------------------------------------------------------------
+linearSwitchFromRandom         100       4876.9      27.8595
+================================================================================
+
+Results successfully written to job79822/comparison_results_linearSwitchFromRandom_100.json

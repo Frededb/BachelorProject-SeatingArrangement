@@ -21,6 +21,9 @@ def repeatedLinearSwitch(arrangement, v, movableCoords=None, max_seconds=None, s
     best_score = calcArrangement(arrangement)[0]
     previous_score = best_score
 
+    if score_tracker is not None:
+        score_tracker[0] = best_score
+
     while True:
         if max_seconds is not None and (time.perf_counter() - start_time) >= max_seconds:
             break

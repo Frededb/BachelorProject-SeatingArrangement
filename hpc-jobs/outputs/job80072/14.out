@@ -1,0 +1,28 @@
+Task 14 running algorithm: linearSwitchFromGroupedProtected, people: 300, cohesions: 60 70 80
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromGroupedProtected
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80072/comparison_results_linearSwitchFromGroupedProtected_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80072/comparison_results_linearSwitchFromGroupedProtected_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80072/comparison_results_linearSwitchFromGroupedProtected_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80072/comparison_results_linearSwitchFromGroupedProtected_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+slurmstepd: error: *** JOB 80089 ON cn14 CANCELLED AT 2026-05-11T09:24:43 ***
+slurmstepd: error: *** STEP 80089.0 ON cn14 CANCELLED AT 2026-05-11T09:24:43 ***

@@ -1,0 +1,8 @@
+Task 24 running algorithm: randomSwitchFromRandom, people: 300, cohesions: 0 10 20
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromRandom
+  Completed 10 iterations for size 300, cohesion 0.
+slurmstepd: error: *** JOB 80099 ON cn8 CANCELLED AT 2026-05-11T09:24:47 ***
+slurmstepd: error: *** STEP 80099.0 ON cn8 CANCELLED AT 2026-05-11T09:24:47 ***

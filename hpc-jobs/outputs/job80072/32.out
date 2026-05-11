@@ -1,0 +1,8 @@
+Task 32 running algorithm: tabuSearchFromRandom, people: 300, cohesions: 0 10 20
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: tabuSearchFromRandom
+  Completed 10 iterations for size 300, cohesion 0.
+slurmstepd: error: *** JOB 80107 ON cn8 CANCELLED AT 2026-05-11T09:24:47 ***
+slurmstepd: error: *** STEP 80107.0 ON cn8 CANCELLED AT 2026-05-11T09:24:47 ***

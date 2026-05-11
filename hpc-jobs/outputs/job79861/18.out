@@ -3,3 +3,5 @@ cn17.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
 Running iterations for algorithm: linearSwitchFromRandom
+slurmstepd: error: *** STEP 79880.0 ON cn17 CANCELLED AT 2026-05-11T09:06:18 ***
+slurmstepd: error: *** JOB 79880 ON cn17 CANCELLED AT 2026-05-11T09:06:18 ***

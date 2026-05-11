@@ -1,0 +1,5 @@
+Task 5 running algorithm: annealingFromRandom, people: 300, cohesions: 30 40 50
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Error: People count '300' not found. Available: [100]

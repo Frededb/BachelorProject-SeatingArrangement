@@ -1,0 +1,8 @@
+Task 3 running algorithm: annealingFromGrouped, people: 300, cohesions: 90 100
+desktop16.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromGrouped
+  Completed 10 iterations for size 300, cohesion 90.
+slurmstepd: error: *** JOB 80078 ON desktop16 CANCELLED AT 2026-05-11T09:24:43 ***
+slurmstepd: error: *** STEP 80078.0 ON desktop16 CANCELLED AT 2026-05-11T09:24:43 ***
