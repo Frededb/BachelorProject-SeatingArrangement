@@ -4,7 +4,7 @@ import time
 from copy import deepcopy
 
 from Utils.UtilFunctions import getAllPeople
-from Utils.ValueCalc import calcTable
+from Utils.ValueCalc import calcTable, calcArrangement
 
 
 def _score_affected_tables(arrangement, affected_tables):
@@ -41,7 +41,7 @@ def _revert_switch(arrangement, permutation):
     arrangement[first_table_index][first_seat_index] = last_value
 
 
-def _run_switch_size(arrangement, switch_size, coords, verbose, start_time=None, max_seconds=None):
+def _run_switch_size(arrangement, switch_size, coords, verbose, start_time=None, max_seconds=None, score_tracker=None):
     """Run switch optimization for a specific swap size.
     
     Args:
@@ -51,6 +51,7 @@ def _run_switch_size(arrangement, switch_size, coords, verbose, start_time=None,
         verbose: Whether to print progress.
         start_time: Perf counter start time for timeout tracking.
         max_seconds: Maximum seconds allowed; returns early if timeout.
+        score_tracker: Optional mutable list [current_best_score] to update during optimization.
     """
     iterator = itertools.combinations(coords, 2) if switch_size == 2 else itertools.permutations(coords, switch_size)
     apply_switch = _apply_switch
@@ -79,6 +80,12 @@ def _run_switch_size(arrangement, switch_size, coords, verbose, start_time=None,
 
         if post_value_total < pre_value_total:
             revert_switch(arrangement, permutation)
+        else:
+            # Switch was beneficial; update score_tracker if provided
+            if score_tracker is not None:
+                current_score = calcArrangement(arrangement)[0]
+                if current_score > score_tracker[0]:
+                    score_tracker[0] = current_score
 
         if verbose:
             counter += 1
@@ -86,7 +93,7 @@ def _run_switch_size(arrangement, switch_size, coords, verbose, start_time=None,
                 print(f"Progress for switch size {switch_size}: {counter}/{iter_len} ({(counter / iter_len) * 100:.2f}%)")
 
 
-def LinearSwitchPeopleSets(arrangement, v, coords=None, verbose=False, max_seconds=None):
+def LinearSwitchPeopleSets(arrangement, v, coords=None, verbose=False, max_seconds=None, score_tracker=None):
     """Run linear switch optimization with multiple swap sizes.
     
     Args:
@@ -95,7 +102,8 @@ def LinearSwitchPeopleSets(arrangement, v, coords=None, verbose=False, max_secon
         coords: Optional specific coordinates to consider.
         verbose: Whether to print progress.
         max_seconds: Optional timeout in seconds.
-    
+        score_tracker: Optional mutable list [current_best_score] to update during optimization.
+
     Returns:
         The arrangement after optimization.
     """
@@ -108,7 +116,7 @@ def LinearSwitchPeopleSets(arrangement, v, coords=None, verbose=False, max_secon
     start_time = time.perf_counter() if max_seconds is not None else None
 
     for switch_size in range(2, v + 1):
-        _run_switch_size(arrangement, switch_size, coords, verbose, start_time, max_seconds)
+        _run_switch_size(arrangement, switch_size, coords, verbose, start_time, max_seconds, score_tracker)
 
     return arrangement
 
