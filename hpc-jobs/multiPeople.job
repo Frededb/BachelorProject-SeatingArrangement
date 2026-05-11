@@ -6,20 +6,20 @@
 #SBATCH --time=24:00:00          # Run time (hh:mm:ss)
 #SBATCH --mem=8G
 #SBATCH --partition=scavenge
-#SBATCH --array=0-35
+#SBATCH --array=0-7
 # #SBATCH --mail-type=BEGIN,FAIL,END
 
 # Map array task ID to algorithm
 ALGOS=(
     "annealingFromGrouped"
     "annealingFromRandom"
-    "linearSwitchFromGrouped"
-    "linearSwitchFromGroupedProtected"
-    "linearSwitchFromRandom"
-    "randomSwitchFromGrouped"
-    "randomSwitchFromRandom"
-    "tabuSearchFromGrouped"
-    "tabuSearchFromRandom"
+    # "linearSwitchFromGrouped"
+    # "linearSwitchFromGroupedProtected"
+    # "linearSwitchFromRandom"
+    # "randomSwitchFromGrouped"
+    # "randomSwitchFromRandom"
+    # "tabuSearchFromGrouped"
+    # "tabuSearchFromRandom"
 
     # "bruteForce"
     # "theoreticalMax"

@@ -8,3 +8,12 @@ Running iterations for algorithm: randomSwitchFromGrouped
   Completed 10 iterations for size 300, cohesion 50.
 
 Results successfully written to job80583/comparison_results_randomSwitchFromGrouped_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job80583/comparison_results_randomSwitchFromGrouped_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+slurmstepd: error: *** JOB 80605 ON cn8 CANCELLED AT 2026-05-11T16:41:40 ***
+slurmstepd: error: *** STEP 80605.0 ON cn8 CANCELLED AT 2026-05-11T16:41:40 ***

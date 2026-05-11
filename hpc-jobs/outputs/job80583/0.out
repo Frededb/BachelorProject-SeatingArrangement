@@ -8,3 +8,13 @@ Running iterations for algorithm: annealingFromGrouped
   Completed 10 iterations for size 300, cohesion 20.
 
 Results successfully written to job80583/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80583/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 80584 ON desktop15 CANCELLED AT 2026-05-11T16:41:37 ***
+slurmstepd: error: *** STEP 80584.0 ON desktop15 CANCELLED AT 2026-05-11T16:41:37 ***
