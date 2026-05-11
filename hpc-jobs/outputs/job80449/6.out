@@ -9,3 +9,19 @@ Running iterations for algorithm: annealingFromRandom
 
 Results successfully written to job80449/comparison_results_annealingFromRandom_300_c60-70-80.json
   Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80449/comparison_results_annealingFromRandom_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80449/comparison_results_annealingFromRandom_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80449/comparison_results_annealingFromRandom_300_c60-70-80.json
+slurmstepd: error: *** JOB 80456 ON cn14 CANCELLED AT 2026-05-11T15:11:49 ***
+slurmstepd: error: *** STEP 80456.0 ON cn14 CANCELLED AT 2026-05-11T15:11:49 ***

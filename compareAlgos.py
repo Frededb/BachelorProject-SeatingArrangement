@@ -50,7 +50,7 @@ ALGORITHMS = {
 }
 
 cohesion_scores = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-iterations = 1
+iterations = 10
 people_counts = [300]
 timelimit = 600
 
@@ -106,7 +106,8 @@ def run_algo_wrapper(algo_func, testInput, initial_arrangement, send_conn, timel
     def reporter():
         while not done_event.wait(1.0):
             elapsed = time.perf_counter() - start
-            timeline.append((round(elapsed, 2), score_tracker[0]))
+            if score_tracker[0] != 0.0:
+                timeline.append((round(elapsed, 2), score_tracker[0]))
 
     reporter_thread = threading.Thread(target=reporter, daemon=True)
     reporter_thread.start()
@@ -118,6 +119,10 @@ def run_algo_wrapper(algo_func, testInput, initial_arrangement, send_conn, timel
         else:
             totalValue, _, _ = calcArrangement(result)
         score_tracker[0] = totalValue
+        done_event.set()
+        reporter_thread.join(timeout=2)
+        elapsed = time.perf_counter() - start
+        timeline.append((round(elapsed, 2), totalValue))
         send_conn.send({'success': True, 'value': totalValue, 'timeline': timeline})
     except Exception as e:
         send_conn.send({'success': False, 'error': str(e)})

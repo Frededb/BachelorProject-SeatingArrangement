@@ -9,3 +9,19 @@ Running iterations for algorithm: linearSwitchFromRandom
 
 Results successfully written to job80449/comparison_results_linearSwitchFromRandom_300_c60-70-80.json
   Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80449/comparison_results_linearSwitchFromRandom_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80449/comparison_results_linearSwitchFromRandom_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80449/comparison_results_linearSwitchFromRandom_300_c60-70-80.json
+slurmstepd: error: *** JOB 80468 ON cn8 CANCELLED AT 2026-05-11T15:11:53 ***
+slurmstepd: error: *** STEP 80468.0 ON cn8 CANCELLED AT 2026-05-11T15:11:53 ***

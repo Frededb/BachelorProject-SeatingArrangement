@@ -9,3 +9,19 @@ Running iterations for algorithm: annealingFromGrouped
 
 Results successfully written to job80449/comparison_results_annealingFromGrouped_300_c60-70-80.json
   Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80449/comparison_results_annealingFromGrouped_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80449/comparison_results_annealingFromGrouped_300_c60-70-80.json
+  Completed 10 iterations for size 300, cohesion 60.
+  Completed 10 iterations for size 300, cohesion 70.
+  Completed 10 iterations for size 300, cohesion 80.
+
+Results successfully written to job80449/comparison_results_annealingFromGrouped_300_c60-70-80.json
+slurmstepd: error: *** JOB 80452 ON desktop16 CANCELLED AT 2026-05-11T15:11:50 ***
+slurmstepd: error: *** STEP 80452.0 ON desktop16 CANCELLED AT 2026-05-11T15:11:50 ***
