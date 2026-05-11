@@ -1,0 +1,10 @@
+Algorithm,Best Count
+annealingFromGrouped,387
+annealingFromRandom,345
+tabuSearchFromGrouped,304
+tabuSearchFromRandom,283
+linearSwitchFromGrouped,64
+linearSwitchFromRandom,63
+randomSwitchFromRandom,24
+randomSwitchFromGrouped,16
+linearSwitchFromGroupedProtected,1
