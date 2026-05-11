@@ -8,6 +8,9 @@ def linearSwitchFromGroupedProtected(input, emptyArrangement, max_seconds=None, 
 
     arrangement, protectedNames = fluentGroupsFill(input, emptyArrangement)
 
+    if score_tracker is not None:
+        score_tracker[0] = calcArrangement(arrangement)[0]
+
     arrangement = linearSwitchPeopleEachTable(arrangement, 4)
 
     if score_tracker is not None:
