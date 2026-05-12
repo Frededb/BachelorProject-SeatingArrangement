@@ -1,0 +1,27 @@
+Task 3 running algorithm: annealingFromGrouped, people: 300, cohesions: 90 100
+desktop1.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromGrouped
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job81203/comparison_results_annealingFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job81203/comparison_results_annealingFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job81203/comparison_results_annealingFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job81203/comparison_results_annealingFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job81203/comparison_results_annealingFromGrouped_300_c90-100.json
+slurmstepd: error: *** JOB 81207 ON desktop1 CANCELLED AT 2026-05-12T15:14:25 ***
+slurmstepd: error: *** STEP 81207.0 ON desktop1 CANCELLED AT 2026-05-12T15:14:25 ***

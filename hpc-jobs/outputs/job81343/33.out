@@ -1,0 +1,63 @@
+Task 33 running algorithm: tabuSearchFromRandom, people: 300, cohesions: 30 40 50
+desktop6.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Running iterations for algorithm: tabuSearchFromRandom
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
+
+================================================================================
+Algorithm                   People    Avg Score  Avg Time(s)
+--------------------------------------------------------------------------------
+tabuSearchFromRandom           300      11728.4      30.0816
+================================================================================
+
+Results successfully written to job81343/comparison_results_tabuSearchFromRandom_300_c30-40-50.json
