@@ -39,7 +39,7 @@ pypy .\desktop_ui.py
 
 ## How to use the UI
 
-1. Click "Browse" and select an `.xlsx` file exported from Google Sheets. (There is an example file available to download)
+1. Click "Browse" and select an `.xlsx` file exported from Google Sheets. You can download an example file here: https://doc-0s-7k-sheets.googleusercontent.com/export/imsicvtuc4aajstv90qhvda5c8/6dht2ec2v6h0k70ak1k0odo680/1778604785000/107616245000139511774/107616245000139511774/10Ox8PY-YAueR59mdqU3sreXtxe67oqBDheM5MsPc-d4?format=xlsx&id=10Ox8PY-YAueR59mdqU3sreXtxe67oqBDheM5MsPc-d4&dat=APiwnZJfAJyUN3ofJCftJj_gG02XkdNbQJfxv38Wu7Wgq4UxL79ErqH4dluyr5htSywvTp8IPD5U7IUKmMeVrPuUkd8CF5Mun5VR2GGg3hlZfUDzyLT0vP86Iz76JUVZH3OBCPlqQUk3oUP410yRLCl3gqnNSbwfm95JTfYXm5A5nrgxEok8tuq8JUDdAJhmhgKzIYr7tavO7-Otvo9-HMc9uuA_VDZQVhpHR-kWQ-xqbEOhgvL8aMOZZBOlZpzNmdVysT3Xsa7WQrJDgWc7V2XzTIpHC4n56PFefMhVb0QocHNtyMITJoLQxne6V1t_xA9t-16eV_GF_PUQ7SykF9HMx9lr8A5hVCp8PB4hKq32lwwkq8lr0m496GIWfG8oYqGsrc1xc1kmX84RVn-8S3_DTG_SHN01NpdlCSMxu2orfirYgsuXmV3gJQM74quz9mNFcbPe1mVENucaP55bhOu9W2lOqndpfLiSNQXdTzQ33_NYiI_zTWIw0K7Tpzvu4EHKZUZMV4U-p6Nn7HjDX3Ia766ihQpY22-RRli7-KQSdDJhySzJi6fcuMeSo5vC9rBmTffExc451RWNFv9o9CvBoWdFSAyi-y0eOpG9QY530P3A-EUtwTj4oWfCFe2KdqkBUACb9mbWnc2TRJtMgbxqJydgZz-gGRn8y0wsQqvJbJbYJ9Vn9EnXxJH4IsNi1Vm1HxSjiuA_NG7CX2lzLQwGZNgITe5HevYDRGxCGL0uDYsgvFcLM7kc9CFTMnIPpUs5lZzuvP3PDw1jDOM3KwT3GcepbhF39y2r8fnfBy_T6tJeII7hAw5o-mvbYARlR8AQc9tIstF_zga_QI4y0x7qMl7-32L4iUBmSUWLoFVU9jdbOu3K3STrgKztbzirQ3a1B9HGq1MmrI4TOD2oCmNyiOOvpxRzMlhfMmLh3FzjAt5JV4yCbmoZdAjxcuAnAw-GF2n5oaPfH93m5-Oi-CnZOOXusGxHkJ6uTQ
 2. Pick an algorithm from the dropdown, or select `buildOwn` to construct a custom pipeline.
 3. Enter table sizes. Accepted formats:
    - Single size: `8` — creates all tables with 8 seats
@@ -50,15 +50,15 @@ Results are shown inside the GUI.
 
 
 ## The `.xlsx` format
-The .xlsx file is made to work directly with Google Forms responses, it should have to sheets.
+The .xlsx file is made to work directly with Google Forms responses, it should have two sheets.
 
 First Sheet:
+- Google Forms will call this sheet "Formularsvar 1", the sheet should ALWAYS have this name (also if not created from Google Forms).
 - This sheet can just be directly exported from Google Forms, or created manually with the same format.
 - The first row is the header, with column names.
 - The first column is the time stamp of the response (this can be empty if not created from Google Forms).
 - The second column is ID for the respondent, it should be unique for each respondent, this is the column Google Forms puts the first question in, so the first question should be asking for some kind of ID (e.g. name, email, student number).
 - The rest of the columns are the questions and answers. The column names (in the header) are the questions.
-- Google Forms will call this sheet "Formularsvar 1", the sheet should ALWAYS have this name (also if not created from Google Forms).
 
 Second Sheet:
 - The file should also have a second sheet called "Define Answers", you can copy the one from the example file, or create your own, but it should have the same format.
