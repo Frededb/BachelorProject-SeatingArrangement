@@ -65,7 +65,7 @@ Second Sheet:
 - The file should also have a second sheet called "Define Answers", you can copy the one from the example file, or create your own, but it should have the same format.
 - It is used to define how the answers in the first sheet should be interpreted.
 - The first row of the "Define Answers" sheet is the header, with column names.
-- The first column is for the questions, the example file will automatically extract them from the first sheet, but this column could just be empty.
+- The first column is for the questions. The example sheet will automatically extract them from the first sheet, but the question names do not have to match exactly, it is just important that the questions are in the same order as in the first sheet.
 - The second column is where you write how the questions should be interpreted, either "preference" or "trait" (see below).
 - The third and last column is for the weight of the question, this can be any number you want. The weight is used in the scoring function, so the higher the weight, the more important that question is for the score.
 
@@ -80,14 +80,5 @@ Traits:
 - The answer to a trait question can be a single or a list of [answers] separated by commas, spaces, or semicolons. 
 - The weight of a trait question should be negative if you want people with the same trait to be separated, and positive if you want people with the same trait to be together, based on this.
 - Example: If the question is "What is your major?" and the answer is "Computer Science", and the weight is -3, then the score will decrease by -3 (scaled by distance) for each person with the same major that is in the same table as the respondent.
-
-## Troubleshooting
-
-- Missing tkinter: install the system package (Linux) or install a Python distribution that bundles tkinter.
-- If an `.xlsx` file is rejected, ensure it's a valid Excel file exported from Google Sheets and that required columns are present.
-- If you see type/annotation errors, verify you are running Python 3.10 or newer.
-
-
-
 
 
