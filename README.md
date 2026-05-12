@@ -6,7 +6,7 @@ This repository contains a desktop GUI that converts a sheet export, runs a sele
 
 ## Quick start (Windows PowerShell)
 
-1. Create and activate a virtual environment (PowerShell):
+1. Create and activate a virtual environment (PowerShell) (Optional):
 
 ```powershell
 python -m venv .venv
@@ -28,18 +28,19 @@ Notes:
 Start the GUI from PowerShell:
 
 ```powershell
-python .\desktop_ui.py
+python desktop_ui.py
 ```
 
-If you prefer PyPy and have it installed, run:
+We recommend running it with PyPy for better results.
+If you have PyPy installed, run:
 
 ```powershell
-pypy .\desktop_ui.py
+pypy desktop_ui.py
 ```
 
 ## How to use the UI
 
-1. Click "Browse" and select an `.xlsx` file exported from Google Sheets. You can find an example of a sheets here (that was based on a Google Forms), this can be used directly or used as a template: https://docs.google.com/spreadsheets/d/10Ox8PY-YAueR59mdqU3sreXtxe67oqBDheM5MsPc-d4/edit?usp=sharing
+1. Click "Browse" and select a `.xlsx` file exported from Google Sheets. You can find an example of a sheets here (that was based on a Google Forms), this can be used directly or used as a template: [Example Sheet](https://docs.google.com/spreadsheets/d/10Ox8PY-YAueR59mdqU3sreXtxe67oqBDheM5MsPc-d4/edit?usp=sharing)
 2. Pick an algorithm from the dropdown, or select `buildOwn` to construct a custom pipeline.
 3. Enter table sizes. Accepted formats:
    - Single size: `8` — creates all tables with 8 seats
