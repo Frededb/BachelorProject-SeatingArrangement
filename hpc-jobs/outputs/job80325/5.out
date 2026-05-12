@@ -1,0 +1,22 @@
+Task 5 running algorithm: annealingFromRandom, people: 300, cohesions: 30 40 50
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromRandom
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job80325/comparison_results_annealingFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job80325/comparison_results_annealingFromRandom_300_c30-40-50.json
+  Completed 10 iterations for size 300, cohesion 30.
+  Completed 10 iterations for size 300, cohesion 40.
+  Completed 10 iterations for size 300, cohesion 50.
+
+Results successfully written to job80325/comparison_results_annealingFromRandom_300_c30-40-50.json
+slurmstepd: error: *** JOB 80331 ON cn14 CANCELLED AT 2026-05-11T12:49:52 ***
+slurmstepd: error: *** STEP 80331.0 ON cn14 CANCELLED AT 2026-05-11T12:49:52 ***

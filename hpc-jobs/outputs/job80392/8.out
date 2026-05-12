@@ -1,0 +1,7 @@
+Task 8 running algorithm: linearSwitchFromGrouped, people: 300, cohesions: 0 10 20
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromGrouped
+slurmstepd: error: *** JOB 80401 ON cn14 CANCELLED AT 2026-05-11T12:53:18 ***
+slurmstepd: error: *** STEP 80401.0 ON cn14 CANCELLED AT 2026-05-11T12:53:18 ***

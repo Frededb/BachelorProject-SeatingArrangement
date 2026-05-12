@@ -1,0 +1,53 @@
+Task 3 running algorithm: linearSwitchFromGrouped, people: 300, cohesions: 90 100
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromGrouped
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+  Completed 10 iterations for size 300, cohesion 90.
+  Completed 10 iterations for size 300, cohesion 100.
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json
+
+================================================================================
+Algorithm                   People    Avg Score  Avg Time(s)
+--------------------------------------------------------------------------------
+linearSwitchFromGrouped        300      15737.3     343.0114
+================================================================================
+
+Results successfully written to job80715/comparison_results_linearSwitchFromGrouped_300_c90-100.json

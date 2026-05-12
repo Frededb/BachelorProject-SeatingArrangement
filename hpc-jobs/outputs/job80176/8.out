@@ -1,0 +1,22 @@
+Task 8 running algorithm: linearSwitchFromGrouped, people: 300, cohesions: 0 10 20
+cn14.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: linearSwitchFromGrouped
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80176/comparison_results_linearSwitchFromGrouped_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80176/comparison_results_linearSwitchFromGrouped_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80176/comparison_results_linearSwitchFromGrouped_300_c0-10-20.json
+slurmstepd: error: *** JOB 80185 ON cn14 CANCELLED AT 2026-05-11T11:04:40 ***
+slurmstepd: error: *** STEP 80185.0 ON cn14 CANCELLED AT 2026-05-11T11:04:40 ***

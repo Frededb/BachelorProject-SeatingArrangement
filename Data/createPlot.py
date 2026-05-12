@@ -37,7 +37,7 @@ ALGORITHM_COLORS = {
 }
 
 
-def load_folder(folder: str, n_people: int | None) -> pd.DataFrame:
+def load_folder(folder: str, n_people: int | None, max_iterations: int | None = None) -> pd.DataFrame:
     rows = []
     for fname in sorted(os.listdir(folder)):
         if not fname.endswith(".json"):
@@ -59,6 +59,8 @@ def load_folder(folder: str, n_people: int | None) -> pd.DataFrame:
                         avg = None
                     if avg is None and entry.get("scores"):
                         scores = [s for s in entry["scores"] if isinstance(s, (int, float))]
+                        if max_iterations is not None:
+                            scores = scores[:max_iterations]
                         avg = sum(scores) / len(scores) if scores else None
                     if avg is not None:
                         rows.append({
@@ -75,6 +77,8 @@ def main():
     parser = argparse.ArgumentParser(description="Plot score vs cohesion from JSON result folder.")
     parser.add_argument("folder", nargs="?", default="jsonDataComposite")
     parser.add_argument("--people", type=int, default=None)
+    parser.add_argument("--iterations", type=int, default=None,
+                        help="Only use the first N iterations (default: all)")
     parser.add_argument("--xaxis", choices=["cohesion", "people"], default="cohesion",
                         help="What to use as x-axis (default: cohesion)")
     parser.add_argument("--out", default=None)
@@ -82,9 +86,10 @@ def main():
     if args.out is None:
         folder_name = os.path.basename(os.path.normpath(args.folder))
         suffix = args.people if args.people else "all"
-        args.out = f"plots/{folder_name}_{args.xaxis}{suffix}.png"
+        iter_suffix = f"_i{args.iterations}" if args.iterations is not None else ""
+        args.out = f"plots/{folder_name}_{args.xaxis}{suffix}{iter_suffix}.png"
 
-    df = load_folder(args.folder, args.people)
+    df = load_folder(args.folder, args.people, args.iterations)
     if df.empty:
         print(f"No data found in '{args.folder}'.", file=sys.stderr)
         sys.exit(1)

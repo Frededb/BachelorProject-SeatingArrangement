@@ -3,3 +3,5 @@ cn16.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
 Running iterations for algorithm: linearSwitchFromGrouped
+slurmstepd: error: *** JOB 79870 ON cn16 CANCELLED AT 2026-05-11T09:06:17 ***
+slurmstepd: error: *** STEP 79870.0 ON cn16 CANCELLED AT 2026-05-11T09:06:17 ***

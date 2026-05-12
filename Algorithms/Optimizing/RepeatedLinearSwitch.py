@@ -21,6 +21,9 @@ def repeatedLinearSwitch(arrangement, v, movableCoords=None, max_seconds=None, s
     best_score = calcArrangement(arrangement)[0]
     previous_score = best_score
 
+    if score_tracker is not None:
+        score_tracker[0] = best_score
+
     while True:
         if max_seconds is not None and (time.perf_counter() - start_time) >= max_seconds:
             break
@@ -31,7 +34,7 @@ def repeatedLinearSwitch(arrangement, v, movableCoords=None, max_seconds=None, s
             elapsed = time.perf_counter() - start_time
             remaining_time = max(0.1, max_seconds - elapsed)  # At least 0.1 seconds to make progress
         
-        arrangement = LinearSwitchPeopleSets(arrangement, v, movableCoords, max_seconds=remaining_time)
+        arrangement = LinearSwitchPeopleSets(arrangement, v, movableCoords, max_seconds=remaining_time, score_tracker=score_tracker)
         score = calcArrangement(arrangement)[0]
 
         if score > best_score:

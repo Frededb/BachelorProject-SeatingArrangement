@@ -3,3 +3,5 @@ cn17.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
 Running iterations for algorithm: randomSwitchFromGrouped
+slurmstepd: error: *** JOB 79883 ON cn17 CANCELLED AT 2026-05-11T09:06:18 ***
+slurmstepd: error: *** STEP 79883.0 ON cn17 CANCELLED AT 2026-05-11T09:06:18 ***

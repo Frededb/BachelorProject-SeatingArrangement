@@ -1,0 +1,93 @@
+Task 0 running algorithm: annealingFromGrouped, people: 300, cohesions: 0 10 20
+desktop12.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromGrouped
+  Error in annealingFromGrouped at cohesion 0, iter 0: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 0: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 0: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Error in annealingFromGrouped at cohesion 0, iter 1: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 1: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 1: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Error in annealingFromGrouped at cohesion 0, iter 2: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 2: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 2: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Error in annealingFromGrouped at cohesion 0, iter 3: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 3: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 3: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Error in annealingFromGrouped at cohesion 0, iter 4: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 4: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 4: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Error in annealingFromGrouped at cohesion 0, iter 5: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 5: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 5: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Error in annealingFromGrouped at cohesion 0, iter 6: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 6: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 6: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Error in annealingFromGrouped at cohesion 0, iter 7: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 7: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 7: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Error in annealingFromGrouped at cohesion 0, iter 8: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 8: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 8: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+  Error in annealingFromGrouped at cohesion 0, iter 9: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 0.
+  Error in annealingFromGrouped at cohesion 10, iter 9: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 10.
+  Error in annealingFromGrouped at cohesion 20, iter 9: __class__ assignment only supported for heap types or ModuleType subclasses
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json
+
+================================================================================
+Algorithm                   People    Avg Score  Avg Time(s)
+--------------------------------------------------------------------------------
+annealingFromGrouped           300 DNF DNF
+================================================================================
+
+Results successfully written to job80392/comparison_results_annealingFromGrouped_300_c0-10-20.json

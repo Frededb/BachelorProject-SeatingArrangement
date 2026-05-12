@@ -3,3 +3,5 @@ desktop8.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
 Running iterations for algorithm: annealingFromRandom
+slurmstepd: error: *** JOB 79868 ON desktop8 CANCELLED AT 2026-05-11T09:05:53 ***
+slurmstepd: error: *** STEP 79868.0 ON desktop8 CANCELLED AT 2026-05-11T09:05:53 ***

@@ -10,7 +10,7 @@ import time
 from copy import deepcopy
 
 from Utils.UtilFunctions import getAllPeople, switch
-from Utils.ValueCalc import calcArrangement, calcTable
+from Utils.ValueCalc import calcArrangement
 
 
 def _move_key(person_a, person_b):
@@ -19,43 +19,12 @@ def _move_key(person_a, person_b):
     return (person_a, person_b) if person_a <= person_b else (person_b, person_a)
 
 
-def _score_after_swap(arrangement, current_score, person_a, person_b):
-    """Estimate the new full-arrangement score if two seats are swapped.
-
-    The function performs the swap temporarily, evaluates only affected table(s), then undoes
-    the swap. This is much faster than recalculating every table each time.
-    """
-    # Extract table indices for both selected seats.
-    table_a, table_b = person_a[0], person_b[0]
-
-    # If both seats are on the same table, only that table changes.
-    if table_a == table_b:
-        # Score of the table before the temporary move.
-        before = calcTable(arrangement[table_a])[0]
-        # Apply candidate swap.
-        switch(arrangement, person_a, person_b)
-        # Score of the table after candidate swap.
-        after = calcTable(arrangement[table_a])[0]
-        # Revert the temporary swap to keep caller state unchanged.
-        switch(arrangement, person_a, person_b)
-        # Update global score by replacing old table contribution with new one.
-        return current_score - before + after
-
-    # If seats are on different tables, exactly two tables are affected.
-    # Old contribution from first affected table.
-    before_a = calcTable(arrangement[table_a])[0]
-    # Old contribution from second affected table.
-    before_b = calcTable(arrangement[table_b])[0]
-    # Apply candidate swap across tables.
+def _score_after_swap(arrangement, person_a, person_b):
+    """Return the exact arrangement score after swapping two people."""
     switch(arrangement, person_a, person_b)
-    # New contribution from first affected table.
-    after_a = calcTable(arrangement[table_a])[0]
-    # New contribution from second affected table.
-    after_b = calcTable(arrangement[table_b])[0]
-    # Revert temporary swap to preserve caller state.
+    score = calcArrangement(arrangement)[0]
     switch(arrangement, person_a, person_b)
-    # Replace old contributions with new contributions in the global score.
-    return current_score - before_a - before_b + after_a + after_b
+    return score
 
 
 def _sample_pairs(rng, seat_indices, neighborhood_size):
@@ -154,6 +123,9 @@ def tabuSearch(
     # Snapshot of the best arrangement for final restoration.
     best_arrangement = deepcopy(arrangement)
 
+    if score_tracker is not None:
+        score_tracker[0] = max(score_tracker[0], best_score)
+
     # Map: move_key -> iteration until which the move stays tabu.
     tabu_until = {}
     # Counter for plateau-based early stopping.
@@ -179,8 +151,8 @@ def tabuSearch(
             # A move is tabu while its expiry is in the future.
             is_tabu = tabu_until.get(move, 0) > iteration
 
-            # Compute candidate score by local table-delta evaluation.
-            candidate_score = _score_after_swap(arrangement, current_score, person_a, person_b)
+            # Compute candidate score by full arrangement evaluation.
+            candidate_score = _score_after_swap(arrangement, person_a, person_b)
             # Aspiration rule: allow tabu move only if it beats global best score.
             if is_tabu and candidate_score <= best_score:
                 continue
@@ -212,7 +184,7 @@ def tabuSearch(
             # Reset plateau counter after improvement.
             no_improve = 0
             if score_tracker is not None:
-                score_tracker[0] = best_score
+                score_tracker[0] = max(score_tracker[0], best_score)
         else:
             # Count non-improving iterations.
             no_improve += 1

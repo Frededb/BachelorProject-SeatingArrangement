@@ -3,3 +3,5 @@ desktop16.hpc.itu.dk
 nsio
 /home/nsio/bachelorProject/hpc-jobs
 Running iterations for algorithm: annealingFromGrouped
+slurmstepd: error: *** JOB 79864 ON desktop16 CANCELLED AT 2026-05-11T09:06:16 ***
+slurmstepd: error: *** STEP 79864.0 ON desktop16 CANCELLED AT 2026-05-11T09:06:16 ***
