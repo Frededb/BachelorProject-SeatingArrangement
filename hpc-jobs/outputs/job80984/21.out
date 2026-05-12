@@ -1,0 +1,8 @@
+Task 21 running algorithm: tabuSearchFromRandom, people: 30
+cn8.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+INFO   : A system administrator may need to enable user namespaces, install
+INFO   :   apptainer-suid, or compile with ./mconfig --with-suid
+[91mERROR  : Failed to create user namespace: maximum number of user namespaces exceeded, check /proc/sys/user/max_user_namespaces
+[0msrun: error: cn8: task 0: Exited with exit code 1

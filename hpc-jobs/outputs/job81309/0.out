@@ -1,0 +1,7 @@
+Task 0 running algorithm: annealingFromGrouped, people: 300, cohesions: 0 10 20
+desktop15.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromGrouped
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.

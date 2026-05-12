@@ -1,0 +1,43 @@
+Task 0 running algorithm: annealingFromGrouped, people: 300, cohesions: 60
+desktop15.hpc.itu.dk
+nsio
+/home/nsio/bachelorProject/hpc-jobs
+Running iterations for algorithm: annealingFromGrouped
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+  Completed 10 iterations for size 300, cohesion 60.
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
+
+================================================================================
+Algorithm                   People    Avg Score  Avg Time(s)
+--------------------------------------------------------------------------------
+annealingFromGrouped           300      13426.7      30.5341
+================================================================================
+
+Results successfully written to job81282/comparison_results_annealingFromGrouped_300_c60.json
