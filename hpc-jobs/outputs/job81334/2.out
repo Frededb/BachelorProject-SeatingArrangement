@@ -7,6 +7,6 @@ Running iterations for algorithm: annealingFromGrouped
   Completed 10 iterations for size 300, cohesion 70.
   Completed 10 iterations for size 300, cohesion 80.
 
-Results successfully written to job81309/comparison_results_annealingFromGrouped_300_c60-70-80.json
-slurmstepd: error: *** STEP 81312.0 ON desktop16 CANCELLED AT 2026-05-12T16:13:28 ***
-slurmstepd: error: *** JOB 81312 ON desktop16 CANCELLED AT 2026-05-12T16:13:28 ***
+Results successfully written to job81334/comparison_results_annealingFromGrouped_300_c60-70-80.json
+slurmstepd: error: *** STEP 81337.0 ON desktop16 CANCELLED AT 2026-05-12T16:16:51 ***
+slurmstepd: error: *** JOB 81337 ON desktop16 CANCELLED AT 2026-05-12T16:16:51 ***

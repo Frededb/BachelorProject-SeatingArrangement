@@ -1,0 +1,63 @@
+Task 24 running algorithm: randomSwitchFromRandom, people: 300, cohesions: 0 10 20
+cn8.hpc.itu.dk
+aubu
+/home/aubu/bachelorProject/hpc-jobs
+Running iterations for algorithm: randomSwitchFromRandom
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+  Completed 10 iterations for size 300, cohesion 0.
+  Completed 10 iterations for size 300, cohesion 10.
+  Completed 10 iterations for size 300, cohesion 20.
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
+
+================================================================================
+Algorithm                   People    Avg Score  Avg Time(s)
+--------------------------------------------------------------------------------
+randomSwitchFromRandom         300      10969.3       6.9125
+================================================================================
+
+Results successfully written to job81343/comparison_results_randomSwitchFromRandom_300_c0-10-20.json
