@@ -68,7 +68,7 @@ Second Sheet:
 - The second column is where you write how the questions should be interpreted, either "preference" or "trait" (see below).
 - The third and last column is for the weight of the question, this can be any number you want. The weight is used in the scoring function, so the higher the weight, the more important that question is for the score.
 
-Presences:
+Preference:
 - A preference question asks about Id´s of other people. For example "Who do you want to sit with?" or "Who do you want to sit away from?".
 - The answer to a preference question can be a single or a list of Id´s separated by commas, spaces, or semicolons.
 - The weight of a preference question should be negative if you want people to be separated, and positive if you people want people to be together, based on this.
