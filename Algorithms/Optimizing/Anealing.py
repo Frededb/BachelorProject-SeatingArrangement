@@ -34,6 +34,9 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
     if score_tracker is not None:
         # Ensure we never decrease the externally-visible best score (only ever increase)
         score_tracker[0] = max(score_tracker[0], best_value)
+    # Prevent division edge-cases for user-provided k values.
+    safe_k = max(1, k)
+
     for i in range(k):
         if max_seconds is not None and (time.perf_counter() - start_time) >= max_seconds:
             break
@@ -46,15 +49,19 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
         switch(arrangement, personA, personB)
         postValueTotal = calcArrangement(arrangement)[0]
 
-        #linear
-        # T = max(0.01, min(1, 1 - i / k))*120
-        #exponential
-        T = max(0.01, min(1, math.exp(-5 * i / k)))*120
+        if max_seconds is not None and max_seconds > 0:
+            elapsed = time.perf_counter() - start_time
+            progress = min(1.0, max(0.0, elapsed / max_seconds))
+        else:
+            progress = min(1.0, max(0.0, i / safe_k))
+
+        # Exponential cooling based on normalized progress.
+        T = max(0.01, min(1, math.exp(-5 * progress))) * 120
 
         diff = postValueTotal - preValueTotal
         P = rng.random() < math.exp((diff) / T)
         if postValueTotal < preValueTotal:
-            percents[i*10//k][0] += P
+            percents[i*10//safe_k][0] += P
         if postValueTotal >= preValueTotal or P:
             preValueTotal = postValueTotal
             if preValueTotal > best_value:
@@ -66,7 +73,7 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
                     score_tracker[0] = max(score_tracker[0], best_value)
         else:
             switch(arrangement, personA, personB)  # revert
-        percents[i*10//k][1] += 1
+        percents[i*10//safe_k][1] += 1
 
     # Keep in-place contract while returning the best state seen within the budget.
     for table_index in range(len(arrangement)):
