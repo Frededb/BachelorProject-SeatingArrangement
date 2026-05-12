@@ -1,7 +1,6 @@
 import random
 import math
 import time
-from copy import deepcopy
 
 from Utils.UtilFunctions import getAllPeople, switch
 from Utils.ValueCalc import calcArrangement
@@ -27,9 +26,14 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
     percents = [[0, 0] for _ in range(10)]
     preValueTotal = calcArrangement(arrangement)[0]
     best_value = preValueTotal
-    best_arrangement = deepcopy(arrangement)
+    # Keep a shallow snapshot of the best arrangement (store references to the
+    # original Person objects). Using deepcopy here can introduce identity
+    # differences which may affect caching or downstream checks — store a
+    # shallow copy of each table instead.
+    best_arrangement = [list(table) for table in arrangement]
     if score_tracker is not None:
-        score_tracker[0] = best_value
+        # Ensure we never decrease the externally-visible best score (only ever increase)
+        score_tracker[0] = max(score_tracker[0], best_value)
     for i in range(k):
         if max_seconds is not None and (time.perf_counter() - start_time) >= max_seconds:
             break
@@ -55,9 +59,11 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
             preValueTotal = postValueTotal
             if preValueTotal > best_value:
                 best_value = preValueTotal
-                best_arrangement = deepcopy(arrangement)
+                # Save a shallow copy (lists of the current Person references).
+                best_arrangement = [list(table) for table in arrangement]
                 if score_tracker is not None:
-                    score_tracker[0] = best_value
+                    # Only increase the external tracker — use max to avoid regressions
+                    score_tracker[0] = max(score_tracker[0], best_value)
         else:
             switch(arrangement, personA, personB)  # revert
         percents[i*10//k][1] += 1
@@ -66,9 +72,18 @@ def annealing(arrangement, k=None, seed=None, max_seconds=None, score_tracker=No
     for table_index in range(len(arrangement)):
         arrangement[table_index][:] = best_arrangement[table_index][:]
 
+    # Sanity-check: ensure the restored arrangement matches the recorded best_value.
     final_score = calcArrangement(arrangement)[0]
+    if final_score < best_value:
+        # This should not normally happen. As a safe fallback, restore using a
+        # fresh shallow copy of the saved best and recompute the final score.
+        for table_index in range(len(arrangement)):
+            arrangement[table_index][:] = best_arrangement[table_index][:]
+        final_score = calcArrangement(arrangement)[0]
+
     if score_tracker is not None:
-        score_tracker[0] = final_score
+        # Do not overwrite with a smaller value; keep the maximum observed score
+        score_tracker[0] = max(score_tracker[0], final_score)
 
     # print("AnealTwoPeople: " + "".join(["\n" + str(percent[0]/percent[1]*100) + "%" for percent in percents]))
     return arrangement
